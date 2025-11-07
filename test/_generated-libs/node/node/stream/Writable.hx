@@ -1,24 +1,24 @@
 package node.stream;
 
 @:jsRequire("stream", "Writable") extern class Writable extends Stream {
-	function new(?opts:WritableOptions);
+	function new(unknown:Dynamic);
 	var writable : Bool;
 	final writableHighWaterMark : Float;
 	final writableLength : Float;
-	function _write(chunk:Dynamic, encoding:String, callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
+	function _write(unknown:Dynamic):Void;
 	@:optional
-	function _writev(chunks:Array<{ var chunk : Dynamic; var encoding : String; }>, callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
-	function _destroy(error:Null<js.lib.Error>, callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
-	function _final(callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
-	@:overload(function(chunk:Dynamic, ?encoding:String, ?cb:(error:Null<js.lib.Error>) -> Void):Bool { })
-	function write(chunk:Dynamic, ?cb:(error:Null<js.lib.Error>) -> Void):Bool;
-	function setDefaultEncoding(encoding:String):Writable;
-	@:overload(function(chunk:Dynamic, ?cb:() -> Void):Void { })
-	@:overload(function(chunk:Dynamic, ?encoding:String, ?cb:() -> Void):Void { })
-	function end(?cb:() -> Void):Void;
-	function cork():Void;
-	function uncork():Void;
-	function destroy(?error:js.lib.Error):Void;
+	function _writev(unknown:Dynamic):Void;
+	function _destroy(unknown:Dynamic):Void;
+	function _final(unknown:Dynamic):Void;
+	@:overload(function(unknown:Dynamic):Bool { })
+	function write(unknown:Dynamic):Bool;
+	function setDefaultEncoding(unknown:Dynamic):Writable;
+	@:overload(function(unknown:Dynamic):Void { })
+	@:overload(function(unknown:Dynamic):Void { })
+	function end(unknown:Dynamic):Void;
+	function cork(unknown:Dynamic):Void;
+	function uncork(unknown:Dynamic):Void;
+	function destroy(unknown:Dynamic):Void;
 	/**
 		Event emitter
 		The defined events on documents including:
@@ -29,57 +29,57 @@ package node.stream;
 		5. pipe
 		6. unpipe
 	**/
-	@:overload(function(event:String, listener:() -> Void):Writable { })
-	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Writable { })
-	@:overload(function(event:String, listener:() -> Void):Writable { })
-	@:overload(function(event:String, listener:(src:Readable) -> Void):Writable { })
-	@:overload(function(event:String, listener:(src:Readable) -> Void):Writable { })
-	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Writable { })
-	function addListener(event:String, listener:() -> Void):Writable;
-	@:overload(function(event:String):Bool { })
-	@:overload(function(event:String, err:js.lib.Error):Bool { })
-	@:overload(function(event:String):Bool { })
-	@:overload(function(event:String, src:Readable):Bool { })
-	@:overload(function(event:String, src:Readable):Bool { })
-	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool { })
-	function emit(event:String):Bool;
-	@:overload(function(event:String, listener:() -> Void):Writable { })
-	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Writable { })
-	@:overload(function(event:String, listener:() -> Void):Writable { })
-	@:overload(function(event:String, listener:(src:Readable) -> Void):Writable { })
-	@:overload(function(event:String, listener:(src:Readable) -> Void):Writable { })
-	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Writable { })
-	function on(event:String, listener:() -> Void):Writable;
-	@:overload(function(event:String, listener:() -> Void):Writable { })
-	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Writable { })
-	@:overload(function(event:String, listener:() -> Void):Writable { })
-	@:overload(function(event:String, listener:(src:Readable) -> Void):Writable { })
-	@:overload(function(event:String, listener:(src:Readable) -> Void):Writable { })
-	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Writable { })
-	function once(event:String, listener:() -> Void):Writable;
-	@:overload(function(event:String, listener:() -> Void):Writable { })
-	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Writable { })
-	@:overload(function(event:String, listener:() -> Void):Writable { })
-	@:overload(function(event:String, listener:(src:Readable) -> Void):Writable { })
-	@:overload(function(event:String, listener:(src:Readable) -> Void):Writable { })
-	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Writable { })
-	function prependListener(event:String, listener:() -> Void):Writable;
-	@:overload(function(event:String, listener:() -> Void):Writable { })
-	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Writable { })
-	@:overload(function(event:String, listener:() -> Void):Writable { })
-	@:overload(function(event:String, listener:(src:Readable) -> Void):Writable { })
-	@:overload(function(event:String, listener:(src:Readable) -> Void):Writable { })
-	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Writable { })
-	function prependOnceListener(event:String, listener:() -> Void):Writable;
-	@:overload(function(event:String, listener:() -> Void):Writable { })
-	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Writable { })
-	@:overload(function(event:String, listener:() -> Void):Writable { })
-	@:overload(function(event:String, listener:(src:Readable) -> Void):Writable { })
-	@:overload(function(event:String, listener:(src:Readable) -> Void):Writable { })
-	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Writable { })
-	function removeListener(event:String, listener:() -> Void):Writable;
-	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Writable;
-	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):Writable;
-	function setMaxListeners(n:Float):Writable;
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	function addListener(unknown:Dynamic):Writable;
+	@:overload(function(unknown:Dynamic):Bool { })
+	@:overload(function(unknown:Dynamic):Bool { })
+	@:overload(function(unknown:Dynamic):Bool { })
+	@:overload(function(unknown:Dynamic):Bool { })
+	@:overload(function(unknown:Dynamic):Bool { })
+	@:overload(function(unknown:Dynamic):Bool { })
+	function emit(unknown:Dynamic):Bool;
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	function on(unknown:Dynamic):Writable;
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	function once(unknown:Dynamic):Writable;
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	function prependListener(unknown:Dynamic):Writable;
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	function prependOnceListener(unknown:Dynamic):Writable;
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	@:overload(function(unknown:Dynamic):Writable { })
+	function removeListener(unknown:Dynamic):Writable;
+	function off(unknown:Dynamic):Writable;
+	function removeAllListeners(unknown:Dynamic):Writable;
+	function setMaxListeners(unknown:Dynamic):Writable;
 	static var prototype : Writable;
 }

@@ -152,9 +152,33 @@ cd test
 ```
 
 **After running tests:**
-- Use `git diff` to review changes in `test/_generated-*` directories
-- Verify changes match your expectations
+- **CRITICAL**: Use `git diff` to review changes in `test/_generated-*` directories
+- **DO NOT** rely solely on test pass/fail counts - inspect the actual generated code quality
+- Look for regressions like parameters becoming `unknown:Dynamic` or types becoming `Any`
+- Verify changes match your expectations before declaring success
 - Commit expected changes, investigate unexpected ones
+
+### Common Setup Issues
+
+**Missing hxnodejs library:**
+- Symptom: Build fails with "Type not found: js.node.*" errors
+- Solution: Clone hxnodejs into `.haxe/hxnodejs/`:
+  ```bash
+  cd .haxe
+  git clone https://github.com/HaxeFoundation/hxnodejs.git hxnodejs
+  ```
+
+**Missing npm dependencies:**
+- Symptom: Tests fail with "Cannot find module 'typescript'" errors
+- Solution: Install dependencies in BOTH locations:
+  ```bash
+  npm install                    # Root dependencies (TypeScript)
+  cd test && npm install         # Test dependencies (@types/* packages)
+  ```
+
+**TypeScript version mismatch:**
+- Both `package.json` and `test/package.json` must have matching TypeScript versions
+- After changing TypeScript version, reinstall dependencies in both directories
 
 ### Test Dependencies
 Test-specific dependencies (TypeScript definition packages) are listed in `test/package.json`:

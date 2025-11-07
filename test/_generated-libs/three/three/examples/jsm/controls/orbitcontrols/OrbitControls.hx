@@ -1,7 +1,7 @@
 package three.examples.jsm.controls.orbitcontrols;
 
 @:jsRequire("three/examples/jsm/controls/OrbitControls", "OrbitControls") extern class OrbitControls {
-	function new(object:three.Camera, ?domElement:js.html.Element);
+	function new(unknown:Dynamic);
 	var object : three.Camera;
 	var domElement : ts.AnyOf2<js.html.Element, js.html.HTMLDocument>;
 	var enabled : Bool;
@@ -43,21 +43,21 @@ package three.examples.jsm.controls.orbitcontrols;
 		var ONE : three.TOUCH;
 		var TWO : three.TOUCH;
 	};
-	function rotateLeft(?angle:Float):Void;
-	function rotateUp(?angle:Float):Void;
-	function panLeft(?distance:Float):Void;
-	function panUp(?distance:Float):Void;
-	function pan(deltaX:Float, deltaY:Float):Void;
-	function dollyIn(dollyScale:Float):Void;
-	function dollyOut(dollyScale:Float):Void;
-	function update():Void;
-	function reset():Void;
-	function dispose():Void;
-	function getPolarAngle():Float;
-	function getAzimuthalAngle():Float;
-	function addEventListener(type:String, listener:(event:Dynamic) -> Void):Void;
-	function hasEventListener(type:String, listener:(event:Dynamic) -> Void):Bool;
-	function removeEventListener(type:String, listener:(event:Dynamic) -> Void):Void;
-	function dispatchEvent(event:{ var type : String; var target : Dynamic; }):Void;
+	function rotateLeft(unknown:Dynamic):Void;
+	function rotateUp(unknown:Dynamic):Void;
+	function panLeft(unknown:Dynamic):Void;
+	function panUp(unknown:Dynamic):Void;
+	function pan(unknown:Dynamic):Void;
+	function dollyIn(unknown:Dynamic):Void;
+	function dollyOut(unknown:Dynamic):Void;
+	function update(unknown:Dynamic):Void;
+	function reset(unknown:Dynamic):Void;
+	function dispose(unknown:Dynamic):Void;
+	function getPolarAngle(unknown:Dynamic):Float;
+	function getAzimuthalAngle(unknown:Dynamic):Float;
+	function addEventListener(unknown:Dynamic):Void;
+	function hasEventListener(unknown:Dynamic):Bool;
+	function removeEventListener(unknown:Dynamic):Void;
+	function dispatchEvent(unknown:Dynamic):Void;
 	static var prototype : OrbitControls;
 }

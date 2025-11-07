@@ -1,51 +1,51 @@
 package global.three;
 
 @:native("THREE.DirectionalLightHelper") extern class DirectionalLightHelper extends Object3D {
-	function new(light:DirectionalLight, ?size:Float, ?color:ts.AnyOf3<String, Float, Color>);
+	function new(unknown:Dynamic);
 	var light : DirectionalLight;
 	var lightPlane : Line;
 	var targetPlane : Line;
 	var color : Null<ts.AnyOf3<String, Float, Color>>;
-	function dispose():Void;
-	function update():Void;
-	function applyQuaternion(quaternion:Quaternion):DirectionalLightHelper;
+	function dispose(unknown:Dynamic):Void;
+	function update(unknown:Dynamic):Void;
+	function applyQuaternion(unknown:Dynamic):DirectionalLightHelper;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):DirectionalLightHelper;
+	function rotateOnAxis(unknown:Dynamic):DirectionalLightHelper;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):DirectionalLightHelper;
-	function rotateX(angle:Float):DirectionalLightHelper;
-	function rotateY(angle:Float):DirectionalLightHelper;
-	function rotateZ(angle:Float):DirectionalLightHelper;
-	function translateOnAxis(axis:Vector3, distance:Float):DirectionalLightHelper;
+	function rotateOnWorldAxis(unknown:Dynamic):DirectionalLightHelper;
+	function rotateX(unknown:Dynamic):DirectionalLightHelper;
+	function rotateY(unknown:Dynamic):DirectionalLightHelper;
+	function rotateZ(unknown:Dynamic):DirectionalLightHelper;
+	function translateOnAxis(unknown:Dynamic):DirectionalLightHelper;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):DirectionalLightHelper;
+	function translateX(unknown:Dynamic):DirectionalLightHelper;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):DirectionalLightHelper;
+	function translateY(unknown:Dynamic):DirectionalLightHelper;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):DirectionalLightHelper;
+	function translateZ(unknown:Dynamic):DirectionalLightHelper;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):DirectionalLightHelper;
+	function add(unknown:Dynamic):DirectionalLightHelper;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):DirectionalLightHelper;
+	function remove(unknown:Dynamic):DirectionalLightHelper;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):DirectionalLightHelper;
-	function clone(?recursive:Bool):DirectionalLightHelper;
-	function copy(source:DirectionalLightHelper, ?recursive:Bool):DirectionalLightHelper;
+	function attach(unknown:Dynamic):DirectionalLightHelper;
+	function clone(unknown:Dynamic):DirectionalLightHelper;
+	function copy(unknown:Dynamic):DirectionalLightHelper;
 	static var prototype : DirectionalLightHelper;
 }

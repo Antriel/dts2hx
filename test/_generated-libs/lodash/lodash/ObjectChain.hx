@@ -1,314 +1,317 @@
 package lodash;
 
 typedef ObjectChain<T> = {
-	function concat(values:haxe.extern.Rest<Many<T>>):CollectionChain<T>;
-	function countBy(?iteratee:ts.AnyOf6<String, Float, js.lib.Symbol, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>, (value:Dynamic) -> Any, { }>):ObjectChain<Dictionary<Float>>;
-	dynamic function each(?iteratee:ObjectIterator<T, Dynamic>):ObjectChain<T>;
-	dynamic function eachRight(?iteratee:ObjectIterator<T, Dynamic>):ObjectChain<T>;
-	function every(?predicate:ts.AnyOf6<String, Float, js.lib.Symbol, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>, ObjectIterator<T, Bool>, { }>):PrimitiveChain<Bool>;
-	@:overload(function(?predicate:ts.AnyOf6<String, Float, js.lib.Symbol, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>, ObjectIterator<T, Bool>, { }>):CollectionChain<Dynamic> { })
-	function filter<S>(predicate:ObjectIteratorTypeGuard<T, S>):CollectionChain<S>;
-	@:overload(function(?predicate:ts.AnyOf6<String, Float, js.lib.Symbol, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>, ObjectIterator<T, Bool>, { }>, ?fromIndex:Float):ExpChain<Dynamic> { })
-	function find<S>(predicate:ObjectIteratorTypeGuard<T, S>, ?fromIndex:Float):ExpChain<S>;
-	@:overload(function(?predicate:ts.AnyOf6<String, Float, js.lib.Symbol, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>, ObjectIterator<T, Bool>, { }>, ?fromIndex:Float):ExpChain<Dynamic> { })
-	function findLast<S>(predicate:ObjectIteratorTypeGuard<T, S>, ?fromIndex:Float):ExpChain<S>;
-	@:overload(function(iteratee:ts.AnyOf2<Dynamic, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>>):CollectionChain<Bool> { })
-	@:overload(function():CollectionChain<Dynamic> { })
-	function flatMap<TResult>(iteratee:ts.AnyOf4<String, Float, js.lib.Symbol, ObjectIterator<T, Many<TResult>>>):CollectionChain<TResult>;
-	@:overload(function(iteratee:ts.AnyOf2<Dynamic, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>>):CollectionChain<Bool> { })
-	@:overload(function():CollectionChain<Dynamic> { })
-	function flatMapDeep<TResult>(iteratee:ts.AnyOf4<String, Float, js.lib.Symbol, ObjectIterator<T, ts.AnyOf2<ListOfRecursiveArraysOrValues<TResult>, TResult>>>):CollectionChain<TResult>;
-	@:overload(function(iteratee:ts.AnyOf2<Dynamic, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>>, ?depth:Float):CollectionChain<Bool> { })
-	@:overload(function(?depth:Float):CollectionChain<Dynamic> { })
-	function flatMapDepth<TResult>(iteratee:ts.AnyOf4<String, Float, js.lib.Symbol, ObjectIterator<T, ts.AnyOf2<ListOfRecursiveArraysOrValues<TResult>, TResult>>>, ?depth:Float):CollectionChain<TResult>;
-	function forEach(?iteratee:ObjectIterator<T, Dynamic>):ObjectChain<T>;
-	function forEachRight(?iteratee:ObjectIterator<T, Dynamic>):ObjectChain<T>;
-	function groupBy(?iteratee:ts.AnyOf6<String, Float, js.lib.Symbol, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>, (value:Dynamic) -> Any, { }>):ObjectChain<Dictionary<Array<Dynamic>>>;
-	function includes(target:Dynamic, ?fromIndex:Float):PrimitiveChain<Bool>;
-	function keyBy(?iteratee:ts.AnyOf6<String, Float, js.lib.Symbol, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>, (value:Dynamic) -> ts.AnyOf3<String, Float, js.lib.Symbol>, { }>):ObjectChain<Dictionary<Dynamic>>;
-	@:overload(function<TResult>(iteratee:ObjectIterator<T, TResult>):CollectionChain<TResult> { })
-	@:overload(function(iteratee:ts.AnyOf3<String, Float, js.lib.Symbol>):CollectionChain<Dynamic> { })
-	@:overload(function(iteratee:ts.AnyOf2<Dynamic, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>>):CollectionChain<Bool> { })
-	@:overload(function():CollectionChain<Dynamic> { })
-	function map<K>(key:K):CollectionChain<Dynamic>;
-	function orderBy(?iteratees:Many<ObjectIterator<T, Any>>, ?orders:Many<ts.AnyOf2<Bool, String>>):CollectionChain<Dynamic>;
-	function partition(callback:ValueIteratee<Dynamic>):LoDashExplicitWrapper<ts.Tuple2<Array<Dynamic>, Array<Dynamic>>>;
-	@:overload(function(callback:MemoObjectIterator<Dynamic, Dynamic, T>):ExpChain<Dynamic> { })
-	function reduce<TResult>(callback:MemoObjectIterator<Dynamic, TResult, T>, accumulator:TResult):ExpChain<TResult>;
-	@:overload(function(callback:MemoObjectIterator<Dynamic, Dynamic, T>):ExpChain<Dynamic> { })
-	function reduceRight<TResult>(callback:MemoObjectIterator<Dynamic, TResult, T>, accumulator:TResult):ExpChain<TResult>;
-	function reject(?predicate:ts.AnyOf6<String, Float, js.lib.Symbol, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>, ObjectIterator<T, Bool>, { }>):CollectionChain<Dynamic>;
-	function sample():ExpChain<Dynamic>;
-	function sampleSize(?n:Float):CollectionChain<Dynamic>;
-	function shuffle():CollectionChain<Dynamic>;
-	function some(?predicate:ts.AnyOf6<String, Float, js.lib.Symbol, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>, ObjectIterator<T, Bool>, { }>):PrimitiveChain<Bool>;
-	function sortBy(iteratees:haxe.extern.Rest<Many<ObjectIteratee<T>>>):CollectionChain<Dynamic>;
-	function castArray():CollectionChain<T>;
-	function toArray():CollectionChain<Dynamic>;
-	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4):ObjectChain<Dynamic> { })
-	@:overload(function():ObjectChain<T> { })
-	@:overload(function(otherArgs:haxe.extern.Rest<Dynamic>):ObjectChain<Dynamic> { })
-	function assign<TSource>(source:TSource):ObjectChain<Dynamic>;
-	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4):ObjectChain<Dynamic> { })
-	@:overload(function():ObjectChain<T> { })
-	@:overload(function(otherArgs:haxe.extern.Rest<Dynamic>):ObjectChain<Dynamic> { })
-	function assignIn<TSource>(source:TSource):ObjectChain<Dynamic>;
-	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2, customizer:AssignCustomizer):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3, customizer:AssignCustomizer):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4, customizer:AssignCustomizer):ObjectChain<Dynamic> { })
-	@:overload(function():ObjectChain<T> { })
-	@:overload(function(otherArgs:haxe.extern.Rest<Dynamic>):ObjectChain<Dynamic> { })
-	function assignInWith<TSource>(source:TSource, customizer:AssignCustomizer):ObjectChain<Dynamic>;
-	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2, customizer:AssignCustomizer):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3, customizer:AssignCustomizer):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4, customizer:AssignCustomizer):ObjectChain<Dynamic> { })
-	@:overload(function():ObjectChain<T> { })
-	@:overload(function(otherArgs:haxe.extern.Rest<Dynamic>):ObjectChain<Dynamic> { })
-	function assignWith<TSource>(source:TSource, customizer:AssignCustomizer):ObjectChain<Dynamic>;
-	function at(props:haxe.extern.Rest<Many<Dynamic>>):CollectionChain<Dynamic>;
-	function create<U>(?properties:U):ObjectChain<Dynamic>;
-	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4):ObjectChain<Dynamic> { })
-	@:overload(function():ObjectChain<T> { })
-	@:overload(function(sources:haxe.extern.Rest<Dynamic>):ObjectChain<Dynamic> { })
-	function defaults<TSource>(source:TSource):ObjectChain<Dynamic>;
-	function defaultsDeep(sources:haxe.extern.Rest<Dynamic>):ObjectChain<Dynamic>;
-	function entries():CollectionChain<ts.Tuple2<String, Dynamic>>;
-	function entriesIn():CollectionChain<ts.Tuple2<String, Dynamic>>;
-	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4):ObjectChain<Dynamic> { })
-	@:overload(function():ObjectChain<T> { })
-	@:overload(function(otherArgs:haxe.extern.Rest<Dynamic>):ObjectChain<Dynamic> { })
-	function extend<TSource>(source:TSource):ObjectChain<Dynamic>;
-	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2, customizer:AssignCustomizer):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3, customizer:AssignCustomizer):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4, customizer:AssignCustomizer):ObjectChain<Dynamic> { })
-	@:overload(function():ObjectChain<T> { })
-	@:overload(function(otherArgs:haxe.extern.Rest<Dynamic>):ObjectChain<Dynamic> { })
-	function extendWith<TSource>(source:TSource, customizer:AssignCustomizer):ObjectChain<Dynamic>;
-	@:overload(function<TKey>(path:ts.AnyOf2<ts.Tuple1<TKey>, TKey>, defaultValue:Array<Any>):Dynamic { })
-	@:overload(function<TKey, TDefault>(path:ts.AnyOf2<ts.Tuple1<TKey>, TKey>, defaultValue:TDefault):ts.AnyOf2<ExpChain<TDefault>, ExpChain<{ }>> { })
-	@:overload(function<TKey1, TKey2>(path:ts.Tuple2<TKey1, TKey2>):ExpChain<Dynamic> { })
-	@:overload(function<TKey1, TKey2>(path:ts.Tuple2<TKey1, TKey2>, defaultValue:Array<Any>):Dynamic { })
-	@:overload(function<TKey1, TKey2, TDefault>(path:ts.Tuple2<TKey1, TKey2>, defaultValue:TDefault):ts.AnyOf2<ExpChain<TDefault>, ExpChain<{ }>> { })
-	@:overload(function<TKey1, TKey2, TKey3>(path:ts.Tuple3<TKey1, TKey2, TKey3>):ExpChain<Dynamic> { })
-	@:overload(function<TKey1, TKey2, TKey3>(path:ts.Tuple3<TKey1, TKey2, TKey3>, defaultValue:Array<Any>):Dynamic { })
-	@:overload(function<TKey1, TKey2, TKey3, TDefault>(path:ts.Tuple3<TKey1, TKey2, TKey3>, defaultValue:TDefault):ts.AnyOf2<ExpChain<TDefault>, ExpChain<{ }>> { })
-	@:overload(function<TKey1, TKey2, TKey3, TKey4>(path:ts.Tuple4<TKey1, TKey2, TKey3, TKey4>):ExpChain<Dynamic> { })
-	@:overload(function<TKey1, TKey2, TKey3, TKey4>(path:ts.Tuple4<TKey1, TKey2, TKey3, TKey4>, defaultValue:Array<Any>):Dynamic { })
-	@:overload(function<TKey1, TKey2, TKey3, TKey4, TDefault>(path:ts.Tuple4<TKey1, TKey2, TKey3, TKey4>, defaultValue:TDefault):ts.AnyOf2<ExpChain<TDefault>, ExpChain<{ }>> { })
-	@:overload(function(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, ?defaultValue:Dynamic):LoDashExplicitWrapper<Dynamic> { })
-	function get<TKey>(path:ts.AnyOf2<ts.Tuple1<TKey>, TKey>):ExpChain<Dynamic>;
-	function invertBy(?iteratee:ts.AnyOf6<String, Float, js.lib.Symbol, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>, (value:Dynamic) -> Any, { }>):ObjectChain<Dictionary<Array<String>>>;
-	function mapKeys(?iteratee:ts.AnyOf6<String, Float, js.lib.Symbol, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>, ObjectIterator<T, Any>, { }>):ObjectChain<Dictionary<Dynamic>>;
-	@:overload(function<TResult>(callback:ObjectIterator<Dictionary<Dynamic>, TResult>):ObjectChain<Dictionary<TResult>> { })
-	@:overload(function(iteratee:Dynamic):ObjectChain<Dynamic> { })
-	@:overload(function<TKey>(iteratee:TKey):ObjectChain<Dictionary<Dynamic>> { })
-	@:overload(function(iteratee:String):ObjectChain<Dynamic> { })
-	@:overload(function():ObjectChain<T> { })
-	function mapValues<TResult>(callback:ObjectIterator<T, TResult>):ObjectChain<Dynamic>;
-	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4):ObjectChain<Dynamic> { })
-	@:overload(function(otherArgs:haxe.extern.Rest<Dynamic>):ObjectChain<Dynamic> { })
-	function merge<TSource>(source:TSource):ObjectChain<Dynamic>;
-	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2, customizer:(value:Dynamic, srcValue:Dynamic, key:String, object:Dynamic, source:Dynamic) -> Dynamic):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3, customizer:(value:Dynamic, srcValue:Dynamic, key:String, object:Dynamic, source:Dynamic) -> Dynamic):ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4, customizer:(value:Dynamic, srcValue:Dynamic, key:String, object:Dynamic, source:Dynamic) -> Dynamic):ObjectChain<Dynamic> { })
-	@:overload(function(otherArgs:haxe.extern.Rest<Dynamic>):ObjectChain<Dynamic> { })
-	function mergeWith<TSource>(source:TSource, customizer:(value:Dynamic, srcValue:Dynamic, key:String, object:Dynamic, source:Dynamic) -> Dynamic):ObjectChain<Dynamic>;
-	@:overload(function(paths:haxe.extern.Rest<Many<ts.AnyOf3<String, Float, js.lib.Symbol>>>):ObjectChain<T> { })
-	function omit<K>(paths:haxe.extern.Rest<Many<K>>):ObjectChain<{ }>;
-	function omitBy(predicate:ValueKeyIteratee<Dynamic>):ObjectChain<T>;
-	@:overload(function(props:haxe.extern.Rest<Many<ts.AnyOf3<String, Float, js.lib.Symbol>>>):ObjectChain<T> { })
-	function pick<U>(props:haxe.extern.Rest<Many<U>>):ObjectChain<{ }>;
-	@:overload(function(?predicate:ts.AnyOf6<String, Float, js.lib.Symbol, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>, (value:Dynamic, key:String) -> Any, { }>):ObjectChain<T> { })
-	function pickBy<S>(predicate:ValueKeyIterateeTypeGuard<Dynamic, S>):ObjectChain<Dynamic>;
-	@:overload(function():ExpChain<Dynamic> { })
-	function transform<TResult>(iteratee:MemoVoidDictionaryIterator<Dynamic, TResult>, ?accumulator:TResult):ExpChain<TResult>;
-	@:overload(function<TResult>(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, updater:(oldValue:Dynamic) -> Dynamic, ?customizer:SetWithCustomizer<T>):ObjectChain<TResult> { })
-	function updateWith(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, updater:(oldValue:Dynamic) -> Dynamic, ?customizer:SetWithCustomizer<T>):ObjectChain<T>;
-	function values():CollectionChain<Dynamic>;
-	function valuesIn():CollectionChain<Dynamic>;
-	function iteratee():FunctionChain<(o:T) -> Bool>;
-	@:overload(function<TResult>(method:(args:haxe.extern.Rest<Dynamic>) -> TResult, args:haxe.extern.Rest<Dynamic>):CollectionChain<TResult> { })
-	function invokeMap(methodName:String, args:haxe.extern.Rest<Dynamic>):CollectionChain<Dynamic>;
-	function size():PrimitiveChain<Float>;
-	function now():PrimitiveChain<Float>;
-	function bind(thisArg:Dynamic, partials:haxe.extern.Rest<Dynamic>):FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
-	function bindKey(key:String, partials:haxe.extern.Rest<Dynamic>):FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
-	function defer(args:haxe.extern.Rest<Dynamic>):PrimitiveChain<Float>;
-	function delay(wait:Float, args:haxe.extern.Rest<Dynamic>):PrimitiveChain<Float>;
-	function wrap<TArgs, TResult>(wrapper:(value:T, args:haxe.extern.Rest<TArgs>) -> TResult):FunctionChain<(args:haxe.extern.Rest<TArgs>) -> TResult>;
-	function clone():ObjectChain<T>;
-	function cloneDeep():ObjectChain<T>;
-	@:overload(function():ObjectChain<T> { })
-	function cloneDeepWith(customizer:CloneDeepWithCustomizer<T>):LoDashExplicitWrapper<Dynamic>;
-	@:overload(function<TResult>(customizer:CloneWithCustomizer<T, Null<TResult>>):ts.AnyOf2<ExpChain<T>, ExpChain<TResult>> { })
-	@:overload(function():ObjectChain<T> { })
-	function cloneWith<TResult>(customizer:CloneWithCustomizer<T, TResult>):ExpChain<TResult>;
-	function conformsTo(source:{ }):PrimitiveChain<Bool>;
-	function eq(other:Dynamic):PrimitiveChain<Bool>;
-	function gt(other:Dynamic):PrimitiveChain<Bool>;
-	function gte(other:Dynamic):PrimitiveChain<Bool>;
-	function isArguments():PrimitiveChain<Bool>;
-	function isArray():PrimitiveChain<Bool>;
-	function isArrayBuffer():PrimitiveChain<Bool>;
-	function isArrayLike():PrimitiveChain<Bool>;
-	function isArrayLikeObject():PrimitiveChain<Bool>;
-	function isBoolean():PrimitiveChain<Bool>;
-	function isBuffer():PrimitiveChain<Bool>;
-	function isDate():PrimitiveChain<Bool>;
-	function isElement():PrimitiveChain<Bool>;
-	function isEmpty():PrimitiveChain<Bool>;
-	function isEqual(other:Dynamic):PrimitiveChain<Bool>;
-	function isEqualWith(other:Dynamic, ?customizer:IsEqualCustomizer):PrimitiveChain<Bool>;
-	function isError():PrimitiveChain<Bool>;
-	function isFinite():PrimitiveChain<Bool>;
-	function isFunction():PrimitiveChain<Bool>;
-	function isInteger():PrimitiveChain<Bool>;
-	function isLength():PrimitiveChain<Bool>;
-	function isMap():PrimitiveChain<Bool>;
-	function isMatch(source:Dynamic):PrimitiveChain<Bool>;
-	function isMatchWith(source:Dynamic, customizer:IsMatchWithCustomizer):PrimitiveChain<Bool>;
-	function isNaN():PrimitiveChain<Bool>;
-	function isNative():PrimitiveChain<Bool>;
-	function isNil():PrimitiveChain<Bool>;
-	function isNull():PrimitiveChain<Bool>;
-	function isNumber():PrimitiveChain<Bool>;
-	function isObject():PrimitiveChain<Bool>;
-	function isObjectLike():PrimitiveChain<Bool>;
-	function isPlainObject():PrimitiveChain<Bool>;
-	function isRegExp():PrimitiveChain<Bool>;
-	function isSafeInteger():PrimitiveChain<Bool>;
-	function isSet():PrimitiveChain<Bool>;
-	function isString():PrimitiveChain<Bool>;
-	function isSymbol():PrimitiveChain<Bool>;
-	function isTypedArray():PrimitiveChain<Bool>;
-	function isUndefined():PrimitiveChain<Bool>;
-	function isWeakMap():PrimitiveChain<Bool>;
-	function isWeakSet():PrimitiveChain<Bool>;
-	function lt(other:Dynamic):PrimitiveChain<Bool>;
-	function lte(other:Dynamic):PrimitiveChain<Bool>;
-	function toFinite():PrimitiveChain<Float>;
-	function toInteger():PrimitiveChain<Float>;
-	function toLength():PrimitiveChain<Float>;
-	function toNumber():PrimitiveChain<Float>;
-	function toPlainObject():ObjectChain<Dynamic>;
-	function toSafeInteger():PrimitiveChain<Float>;
-	function add(addend:Float):PrimitiveChain<Float>;
-	function ceil(?precision:Float):PrimitiveChain<Float>;
-	function divide(divisor:Float):PrimitiveChain<Float>;
-	function floor(?precision:Float):PrimitiveChain<Float>;
-	function mean():PrimitiveChain<Float>;
-	function multiply(multiplicand:Float):PrimitiveChain<Float>;
-	function round(?precision:Float):PrimitiveChain<Float>;
-	function subtract(subtrahend:Float):PrimitiveChain<Float>;
-	function sum():PrimitiveChain<Float>;
-	@:overload(function(upper:Float):PrimitiveChain<Float> { })
-	function clamp(lower:Float, upper:Float):PrimitiveChain<Float>;
-	function inRange(start:Float, ?end:Float):PrimitiveChain<Bool>;
-	@:overload(function(max:Float, ?floating:Bool):PrimitiveChain<Float> { })
-	function random(?floating:Bool):PrimitiveChain<Float>;
-	function findKey(?predicate:ts.AnyOf6<String, Float, js.lib.Symbol, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>, ObjectIterator<T, Any>, { }>):StringNullableChain;
-	function findLastKey(?predicate:ts.AnyOf6<String, Float, js.lib.Symbol, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>, ObjectIterator<T, Any>, { }>):StringNullableChain;
-	function forIn(?iteratee:ObjectIterator<T, Dynamic>):ObjectChain<T>;
-	function forInRight(?iteratee:ObjectIterator<T, Dynamic>):ObjectChain<T>;
-	function forOwn(?iteratee:ObjectIterator<T, Dynamic>):ObjectChain<T>;
-	function forOwnRight(?iteratee:ObjectIterator<T, Dynamic>):ObjectChain<T>;
-	function functions():CollectionChain<String>;
-	function functionsIn():CollectionChain<String>;
-	function has(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>):PrimitiveChain<Bool>;
-	function hasIn(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>):PrimitiveChain<Bool>;
-	function invert():ObjectChain<Dictionary<String>>;
-	function invoke(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, args:haxe.extern.Rest<Dynamic>):LoDashExplicitWrapper<Dynamic>;
-	function keys():CollectionChain<String>;
-	function keysIn():CollectionChain<String>;
-	function result<TResult>(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, ?defaultValue:ts.AnyOf2<(args:haxe.extern.Rest<Dynamic>) -> TResult, TResult>):ExpChain<TResult>;
-	@:overload(function<TResult>(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, value:Dynamic):ExpChain<TResult> { })
-	function set(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, value:Dynamic):ObjectChain<T>;
-	@:overload(function<TResult>(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, value:Dynamic, ?customizer:SetWithCustomizer<T>):ExpChain<TResult> { })
-	function setWith(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, value:Dynamic, ?customizer:SetWithCustomizer<T>):ObjectChain<T>;
-	function toPairs():CollectionChain<ts.Tuple2<String, Dynamic>>;
-	function toPairsIn():CollectionChain<ts.Tuple2<String, Dynamic>>;
-	function unset(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>):PrimitiveChain<Bool>;
-	function update(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, updater:(value:Dynamic) -> Dynamic):ObjectChain<Dynamic>;
-	function chain():ObjectChain<T>;
-	function commit():ObjectChain<T>;
-	function plant(value:Any):ObjectChain<T>;
-	function reverse():ObjectChain<T>;
-	function toJSON():T;
-	function value():T;
-	function valueOf():T;
-	function tap(interceptor:(value:T) -> Void):ObjectChain<T>;
-	function thru<TResult>(interceptor:(value:T) -> TResult):ExpChain<TResult>;
-	function camelCase():StringChain;
-	function capitalize():StringChain;
-	function deburr():StringChain;
-	function endsWith(?target:String, ?position:Float):PrimitiveChain<Bool>;
-	function escape():StringChain;
-	function escapeRegExp():StringChain;
-	function kebabCase():StringChain;
-	function lowerCase():StringChain;
-	function lowerFirst():StringChain;
-	function pad(?length:Float, ?chars:String):StringChain;
-	function padEnd(?length:Float, ?chars:String):StringChain;
-	function padStart(?length:Float, ?chars:String):StringChain;
-	function parseInt(?radix:Float):PrimitiveChain<Float>;
-	function repeat(?n:Float):StringChain;
-	@:overload(function(replacement:ts.AnyOf2<String, ReplaceFunction>):StringChain { })
-	function replace(pattern:ts.AnyOf2<String, js.lib.RegExp>, replacement:ts.AnyOf2<String, ReplaceFunction>):StringChain;
-	function snakeCase():StringChain;
-	function split(?separator:ts.AnyOf2<String, js.lib.RegExp>, ?limit:Float):CollectionChain<String>;
-	function startCase():StringChain;
-	function startsWith(?target:String, ?position:Float):PrimitiveChain<Bool>;
-	function template(?options:TemplateOptions):FunctionChain<TemplateExecutor>;
-	function toLower():StringChain;
-	function toUpper():StringChain;
-	function trim(?chars:String):StringChain;
-	function trimEnd(?chars:String):StringChain;
-	function trimStart(?chars:String):StringChain;
-	function truncate(?options:TruncateOptions):StringChain;
-	function unescape():StringChain;
-	function upperCase():StringChain;
-	function upperFirst():StringChain;
-	function words(?pattern:ts.AnyOf2<String, js.lib.RegExp>):CollectionChain<String>;
-	function attempt<TResult>(args:haxe.extern.Rest<Dynamic>):ts.AnyOf2<ObjectChain<js.lib.Error>, ExpChain<TResult>>;
-	function bindAll(methodNames:haxe.extern.Rest<Many<String>>):ObjectChain<T>;
-	function conforms():FunctionChain<(value:{ }) -> Bool>;
-	function constant():FunctionChain<() -> T>;
-	@:overload(function<TDefault>(defaultValue:TDefault):ExpChain<Dynamic> { })
-	function defaultTo(defaultValue:T):ExpChain<T>;
-	function identity():ObjectChain<T>;
-	function matches<V>():FunctionChain<(value:V) -> Bool>;
-	@:overload(function<SrcValue, Value>(srcValue:SrcValue):FunctionChain<(value:Value) -> Bool> { })
-	function matchesProperty<SrcValue>(srcValue:SrcValue):FunctionChain<(value:Dynamic) -> Bool>;
-	function method(args:haxe.extern.Rest<Dynamic>):FunctionChain<(object:Dynamic) -> Dynamic>;
-	function methodOf(args:haxe.extern.Rest<Dynamic>):LoDashExplicitWrapper<(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>) -> Dynamic>;
-	@:overload(function(?options:MixinOptions):LoDashExplicitWrapper<LoDashStatic> { })
-	function mixin(source:Dictionary<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>, ?options:MixinOptions):ObjectChain<T>;
-	function noConflict():LoDashExplicitWrapper<LoDashStatic>;
-	function noop(args:haxe.extern.Rest<Dynamic>):PrimitiveChain<Null<Any>>;
-	function nthArg():FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
-	function property<TObj, TResult>():FunctionChain<(obj:TObj) -> TResult>;
-	function propertyOf():LoDashExplicitWrapper<(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>) -> Dynamic>;
-	function range(?end:Float, ?step:Float):CollectionChain<Float>;
-	function rangeRight(?end:Float, ?step:Float):CollectionChain<Float>;
-	function stubArray():CollectionChain<Dynamic>;
-	@:overload(function():LoDashExplicitWrapper<Bool> { })
-	function stubFalse():PrimitiveChain<Bool>;
-	function stubObject():LoDashExplicitWrapper<Dynamic>;
-	function stubString():StringChain;
-	@:overload(function():LoDashExplicitWrapper<Bool> { })
-	function stubTrue():PrimitiveChain<Bool>;
-	@:overload(function():CollectionChain<Float> { })
-	function times<TResult>(iteratee:(num:Float) -> TResult):CollectionChain<TResult>;
-	function toPath():CollectionChain<String>;
-	function uniqueId():StringChain;
+	function concat(unknown:Dynamic):CollectionChain<T>;
+	function countBy(unknown:Dynamic):ObjectChain<Dictionary<Float>>;
+	dynamic function each(unknown:Dynamic):ObjectChain<T>;
+	dynamic function eachRight(unknown:Dynamic):ObjectChain<T>;
+	function every(unknown:Dynamic):PrimitiveChain<Bool>;
+	@:overload(function(unknown:Dynamic):CollectionChain<Dynamic> { })
+	function filter<S>(unknown:Dynamic):CollectionChain<S>;
+	@:overload(function(unknown:Dynamic):ExpChain<Dynamic> { })
+	function find<S>(unknown:Dynamic):ExpChain<S>;
+	@:overload(function(unknown:Dynamic):ExpChain<Dynamic> { })
+	function findLast<S>(unknown:Dynamic):ExpChain<S>;
+	@:overload(function(unknown:Dynamic):CollectionChain<Bool> { })
+	@:overload(function(unknown:Dynamic):CollectionChain<Dynamic> { })
+	function flatMap<TResult>(unknown:Dynamic):CollectionChain<TResult>;
+	@:overload(function(unknown:Dynamic):CollectionChain<Bool> { })
+	@:overload(function(unknown:Dynamic):CollectionChain<Dynamic> { })
+	function flatMapDeep<TResult>(unknown:Dynamic):CollectionChain<TResult>;
+	@:overload(function(unknown:Dynamic):CollectionChain<Bool> { })
+	@:overload(function(unknown:Dynamic):CollectionChain<Dynamic> { })
+	function flatMapDepth<TResult>(unknown:Dynamic):CollectionChain<TResult>;
+	function forEach(unknown:Dynamic):ObjectChain<T>;
+	function forEachRight(unknown:Dynamic):ObjectChain<T>;
+	function groupBy(unknown:Dynamic):ObjectChain<Dictionary<Array<Dynamic>>>;
+	function includes(unknown:Dynamic):PrimitiveChain<Bool>;
+	function keyBy(unknown:Dynamic):ObjectChain<Dictionary<Dynamic>>;
+	@:overload(function<TResult>(unknown:Dynamic):CollectionChain<TResult> { })
+	@:overload(function(unknown:Dynamic):CollectionChain<Dynamic> { })
+	@:overload(function(unknown:Dynamic):CollectionChain<Bool> { })
+	@:overload(function(unknown:Dynamic):CollectionChain<Dynamic> { })
+	function map<K>(unknown:Dynamic):CollectionChain<Dynamic>;
+	function orderBy(unknown:Dynamic):CollectionChain<Dynamic>;
+	function partition(unknown:Dynamic):LoDashExplicitWrapper<ts.Tuple2<Array<Dynamic>, Array<Dynamic>>>;
+	@:overload(function(unknown:Dynamic):ExpChain<Dynamic> { })
+	function reduce<TResult>(unknown:Dynamic):ExpChain<TResult>;
+	@:overload(function(unknown:Dynamic):ExpChain<Dynamic> { })
+	function reduceRight<TResult>(unknown:Dynamic):ExpChain<TResult>;
+	function reject(unknown:Dynamic):CollectionChain<Dynamic>;
+	function sample(unknown:Dynamic):ExpChain<Dynamic>;
+	function sampleSize(unknown:Dynamic):CollectionChain<Dynamic>;
+	function shuffle(unknown:Dynamic):CollectionChain<Dynamic>;
+	function some(unknown:Dynamic):PrimitiveChain<Bool>;
+	function sortBy(unknown:Dynamic):CollectionChain<Dynamic>;
+	function castArray(unknown:Dynamic):CollectionChain<T>;
+	function toArray(unknown:Dynamic):CollectionChain<Dynamic>;
+	@:overload(function<TSource1, TSource2>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<T> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<Dynamic> { })
+	function assign<TSource>(unknown:Dynamic):ObjectChain<Dynamic>;
+	@:overload(function<TSource1, TSource2>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<T> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<Dynamic> { })
+	function assignIn<TSource>(unknown:Dynamic):ObjectChain<Dynamic>;
+	@:overload(function<TSource1, TSource2>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<T> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<Dynamic> { })
+	function assignInWith<TSource>(unknown:Dynamic):ObjectChain<Dynamic>;
+	@:overload(function<TSource1, TSource2>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<T> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<Dynamic> { })
+	function assignWith<TSource>(unknown:Dynamic):ObjectChain<Dynamic>;
+	function at(unknown:Dynamic):CollectionChain<Dynamic>;
+	function create<U>(unknown:Dynamic):ObjectChain<Dynamic>;
+	@:overload(function<TSource1, TSource2>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<T> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<Dynamic> { })
+	function defaults<TSource>(unknown:Dynamic):ObjectChain<Dynamic>;
+	function defaultsDeep(unknown:Dynamic):ObjectChain<Dynamic>;
+	function entries(unknown:Dynamic):CollectionChain<ts.Tuple2<String, Dynamic>>;
+	function entriesIn(unknown:Dynamic):CollectionChain<ts.Tuple2<String, Dynamic>>;
+	@:overload(function<TSource1, TSource2>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<T> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<Dynamic> { })
+	function extend<TSource>(unknown:Dynamic):ObjectChain<Dynamic>;
+	@:overload(function<TSource1, TSource2>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<T> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<Dynamic> { })
+	function extendWith<TSource>(unknown:Dynamic):ObjectChain<Dynamic>;
+	@:overload(function<TKey>(unknown:Dynamic):Dynamic { })
+	@:overload(function<TKey, TDefault>(unknown:Dynamic):ts.AnyOf2<ExpChain<TDefault>, ExpChain<{ }>> { })
+	@:overload(function<TKey1, TKey2>(unknown:Dynamic):ExpChain<Dynamic> { })
+	@:overload(function<TKey1, TKey2>(unknown:Dynamic):Dynamic { })
+	@:overload(function<TKey1, TKey2, TDefault>(unknown:Dynamic):ts.AnyOf2<ExpChain<TDefault>, ExpChain<{ }>> { })
+	@:overload(function<TKey1, TKey2, TKey3>(unknown:Dynamic):ExpChain<Dynamic> { })
+	@:overload(function<TKey1, TKey2, TKey3>(unknown:Dynamic):Dynamic { })
+	@:overload(function<TKey1, TKey2, TKey3, TDefault>(unknown:Dynamic):ts.AnyOf2<ExpChain<TDefault>, ExpChain<{ }>> { })
+	@:overload(function<TKey1, TKey2, TKey3, TKey4>(unknown:Dynamic):ExpChain<Dynamic> { })
+	@:overload(function<TKey1, TKey2, TKey3, TKey4>(unknown:Dynamic):Dynamic { })
+	@:overload(function<TKey1, TKey2, TKey3, TKey4, TDefault>(unknown:Dynamic):ts.AnyOf2<ExpChain<TDefault>, ExpChain<{ }>> { })
+	@:overload(function<TPath>(unknown:Dynamic):Dynamic { })
+	@:overload(function<TPath, TDefault>(unknown:Dynamic):ts.AnyOf2<ExpChain<TDefault>, ExpChain<{ }>> { })
+	@:overload(function(unknown:Dynamic):LoDashExplicitWrapper<Dynamic> { })
+	function get<TKey>(unknown:Dynamic):ExpChain<Dynamic>;
+	function invertBy(unknown:Dynamic):ObjectChain<Dictionary<Array<String>>>;
+	function mapKeys(unknown:Dynamic):ObjectChain<Dictionary<Dynamic>>;
+	@:overload(function<TResult>(unknown:Dynamic):ObjectChain<Dictionary<TResult>> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TKey>(unknown:Dynamic):ObjectChain<Dictionary<Dynamic>> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<T> { })
+	function mapValues<TResult>(unknown:Dynamic):ObjectChain<Dynamic>;
+	@:overload(function<TSource1, TSource2>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<Dynamic> { })
+	function merge<TSource>(unknown:Dynamic):ObjectChain<Dynamic>;
+	@:overload(function<TSource1, TSource2>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):ObjectChain<Dynamic> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<Dynamic> { })
+	function mergeWith<TSource>(unknown:Dynamic):ObjectChain<Dynamic>;
+	@:overload(function(unknown:Dynamic):ObjectChain<T> { })
+	function omit<K>(unknown:Dynamic):ObjectChain<{ }>;
+	function omitBy(unknown:Dynamic):ObjectChain<T>;
+	@:overload(function(unknown:Dynamic):ObjectChain<T> { })
+	function pick<U>(unknown:Dynamic):ObjectChain<{ }>;
+	@:overload(function(unknown:Dynamic):ObjectChain<Dynamic> { })
+	function pickBy<S>(unknown:Dynamic):ObjectChain<Dynamic>;
+	@:overload(function<TResult>(unknown:Dynamic):ExpChain<TResult> { })
+	@:overload(function(unknown:Dynamic):ExpChain<Dynamic> { })
+	function transform<TResult>(unknown:Dynamic):ExpChain<TResult>;
+	@:overload(function<TResult>(unknown:Dynamic):ObjectChain<TResult> { })
+	function updateWith(unknown:Dynamic):ObjectChain<T>;
+	function values(unknown:Dynamic):CollectionChain<Dynamic>;
+	function valuesIn(unknown:Dynamic):CollectionChain<Dynamic>;
+	function iteratee(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Bool>;
+	@:overload(function<TResult>(unknown:Dynamic):CollectionChain<TResult> { })
+	function invokeMap(unknown:Dynamic):CollectionChain<Dynamic>;
+	function size(unknown:Dynamic):PrimitiveChain<Float>;
+	function now(unknown:Dynamic):PrimitiveChain<Float>;
+	function bind(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Dynamic>;
+	function bindKey(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Dynamic>;
+	function defer(unknown:Dynamic):PrimitiveChain<Float>;
+	function delay(unknown:Dynamic):PrimitiveChain<Float>;
+	function wrap<TArgs, TResult>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> TResult>;
+	function clone(unknown:Dynamic):ObjectChain<T>;
+	function cloneDeep(unknown:Dynamic):ObjectChain<T>;
+	@:overload(function(unknown:Dynamic):ObjectChain<T> { })
+	function cloneDeepWith(unknown:Dynamic):LoDashExplicitWrapper<Dynamic>;
+	@:overload(function<TResult>(unknown:Dynamic):ts.AnyOf2<ExpChain<T>, ExpChain<TResult>> { })
+	@:overload(function(unknown:Dynamic):ObjectChain<T> { })
+	function cloneWith<TResult>(unknown:Dynamic):ExpChain<TResult>;
+	function conformsTo(unknown:Dynamic):PrimitiveChain<Bool>;
+	function eq(unknown:Dynamic):PrimitiveChain<Bool>;
+	function gt(unknown:Dynamic):PrimitiveChain<Bool>;
+	function gte(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isArguments(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isArray(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isArrayBuffer(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isArrayLike(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isArrayLikeObject(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isBoolean(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isBuffer(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isDate(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isElement(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isEmpty(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isEqual(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isEqualWith(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isError(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isFinite(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isFunction(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isInteger(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isLength(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isMap(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isMatch(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isMatchWith(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isNaN(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isNative(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isNil(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isNull(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isNumber(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isObject(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isObjectLike(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isPlainObject(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isRegExp(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isSafeInteger(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isSet(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isString(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isSymbol(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isTypedArray(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isUndefined(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isWeakMap(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isWeakSet(unknown:Dynamic):PrimitiveChain<Bool>;
+	function lt(unknown:Dynamic):PrimitiveChain<Bool>;
+	function lte(unknown:Dynamic):PrimitiveChain<Bool>;
+	function toFinite(unknown:Dynamic):PrimitiveChain<Float>;
+	function toInteger(unknown:Dynamic):PrimitiveChain<Float>;
+	function toLength(unknown:Dynamic):PrimitiveChain<Float>;
+	function toNumber(unknown:Dynamic):PrimitiveChain<Float>;
+	function toPlainObject(unknown:Dynamic):ObjectChain<Dynamic>;
+	function toSafeInteger(unknown:Dynamic):PrimitiveChain<Float>;
+	function add(unknown:Dynamic):PrimitiveChain<Float>;
+	function ceil(unknown:Dynamic):PrimitiveChain<Float>;
+	function divide(unknown:Dynamic):PrimitiveChain<Float>;
+	function floor(unknown:Dynamic):PrimitiveChain<Float>;
+	function mean(unknown:Dynamic):PrimitiveChain<Float>;
+	function multiply(unknown:Dynamic):PrimitiveChain<Float>;
+	function round(unknown:Dynamic):PrimitiveChain<Float>;
+	function subtract(unknown:Dynamic):PrimitiveChain<Float>;
+	function sum(unknown:Dynamic):PrimitiveChain<Float>;
+	@:overload(function(unknown:Dynamic):PrimitiveChain<Float> { })
+	function clamp(unknown:Dynamic):PrimitiveChain<Float>;
+	function inRange(unknown:Dynamic):PrimitiveChain<Bool>;
+	@:overload(function(unknown:Dynamic):PrimitiveChain<Float> { })
+	function random(unknown:Dynamic):PrimitiveChain<Float>;
+	function findKey(unknown:Dynamic):StringNullableChain;
+	function findLastKey(unknown:Dynamic):StringNullableChain;
+	function forIn(unknown:Dynamic):ObjectChain<T>;
+	function forInRight(unknown:Dynamic):ObjectChain<T>;
+	function forOwn(unknown:Dynamic):ObjectChain<T>;
+	function forOwnRight(unknown:Dynamic):ObjectChain<T>;
+	function functions(unknown:Dynamic):CollectionChain<String>;
+	function functionsIn(unknown:Dynamic):CollectionChain<String>;
+	function has(unknown:Dynamic):PrimitiveChain<Bool>;
+	function hasIn(unknown:Dynamic):PrimitiveChain<Bool>;
+	function invert(unknown:Dynamic):ObjectChain<Dictionary<String>>;
+	function invoke(unknown:Dynamic):LoDashExplicitWrapper<Dynamic>;
+	function keys(unknown:Dynamic):CollectionChain<String>;
+	function keysIn(unknown:Dynamic):CollectionChain<String>;
+	function result<TResult>(unknown:Dynamic):ExpChain<TResult>;
+	@:overload(function<TResult>(unknown:Dynamic):ExpChain<TResult> { })
+	function set(unknown:Dynamic):ObjectChain<T>;
+	@:overload(function<TResult>(unknown:Dynamic):ExpChain<TResult> { })
+	function setWith(unknown:Dynamic):ObjectChain<T>;
+	function toPairs(unknown:Dynamic):CollectionChain<ts.Tuple2<String, Dynamic>>;
+	function toPairsIn(unknown:Dynamic):CollectionChain<ts.Tuple2<String, Dynamic>>;
+	function unset(unknown:Dynamic):PrimitiveChain<Bool>;
+	function update(unknown:Dynamic):ObjectChain<Dynamic>;
+	function chain(unknown:Dynamic):ObjectChain<T>;
+	function commit(unknown:Dynamic):ObjectChain<T>;
+	function plant(unknown:Dynamic):ObjectChain<T>;
+	function reverse(unknown:Dynamic):ObjectChain<T>;
+	function toJSON(unknown:Dynamic):T;
+	function value(unknown:Dynamic):T;
+	function valueOf(unknown:Dynamic):T;
+	function tap(unknown:Dynamic):ObjectChain<T>;
+	function thru<TResult>(unknown:Dynamic):ExpChain<TResult>;
+	function camelCase(unknown:Dynamic):StringChain<String>;
+	function capitalize(unknown:Dynamic):StringChain<Dynamic>;
+	function deburr(unknown:Dynamic):StringChain<String>;
+	function endsWith(unknown:Dynamic):PrimitiveChain<Bool>;
+	function escape(unknown:Dynamic):StringChain<String>;
+	function escapeRegExp(unknown:Dynamic):StringChain<String>;
+	function kebabCase(unknown:Dynamic):StringChain<String>;
+	function lowerCase(unknown:Dynamic):StringChain<String>;
+	function lowerFirst(unknown:Dynamic):StringChain<Dynamic>;
+	function pad(unknown:Dynamic):StringChain<String>;
+	function padEnd(unknown:Dynamic):StringChain<String>;
+	function padStart(unknown:Dynamic):StringChain<String>;
+	function parseInt(unknown:Dynamic):PrimitiveChain<Float>;
+	function repeat(unknown:Dynamic):StringChain<String>;
+	@:overload(function(unknown:Dynamic):StringChain<String> { })
+	function replace(unknown:Dynamic):StringChain<String>;
+	function snakeCase(unknown:Dynamic):StringChain<String>;
+	function split(unknown:Dynamic):CollectionChain<String>;
+	function startCase(unknown:Dynamic):StringChain<String>;
+	function startsWith(unknown:Dynamic):PrimitiveChain<Bool>;
+	function template(unknown:Dynamic):FunctionChain<TemplateExecutor>;
+	function toLower(unknown:Dynamic):StringChain<Dynamic>;
+	function toUpper(unknown:Dynamic):StringChain<Dynamic>;
+	function trim(unknown:Dynamic):StringChain<String>;
+	function trimEnd(unknown:Dynamic):StringChain<String>;
+	function trimStart(unknown:Dynamic):StringChain<String>;
+	function truncate(unknown:Dynamic):StringChain<String>;
+	function unescape(unknown:Dynamic):StringChain<String>;
+	function upperCase(unknown:Dynamic):StringChain<String>;
+	function upperFirst(unknown:Dynamic):StringChain<Dynamic>;
+	function words(unknown:Dynamic):CollectionChain<String>;
+	function attempt<TResult>(unknown:Dynamic):ts.AnyOf2<ObjectChain<js.lib.Error>, ExpChain<TResult>>;
+	function bindAll(unknown:Dynamic):ObjectChain<T>;
+	function conforms(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Bool>;
+	function constant(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> T>;
+	@:overload(function<TDefault>(unknown:Dynamic):ExpChain<Dynamic> { })
+	function defaultTo(unknown:Dynamic):ExpChain<T>;
+	function identity(unknown:Dynamic):ObjectChain<T>;
+	function matches<V>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Bool>;
+	@:overload(function<SrcValue, Value>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Bool> { })
+	function matchesProperty<SrcValue>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Bool>;
+	function method(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Dynamic>;
+	function methodOf(unknown:Dynamic):LoDashExplicitWrapper<(unknown:Dynamic) -> Dynamic>;
+	@:overload(function(unknown:Dynamic):LoDashExplicitWrapper<LoDashStatic> { })
+	function mixin(unknown:Dynamic):ObjectChain<T>;
+	function noConflict(unknown:Dynamic):LoDashExplicitWrapper<LoDashStatic>;
+	function noop(unknown:Dynamic):PrimitiveChain<Null<Any>>;
+	function nthArg(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Dynamic>;
+	function property<TObj, TResult>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> TResult>;
+	function propertyOf(unknown:Dynamic):LoDashExplicitWrapper<(unknown:Dynamic) -> Dynamic>;
+	function range(unknown:Dynamic):CollectionChain<Float>;
+	function rangeRight(unknown:Dynamic):CollectionChain<Float>;
+	function stubArray(unknown:Dynamic):CollectionChain<Dynamic>;
+	@:overload(function(unknown:Dynamic):LoDashExplicitWrapper<Bool> { })
+	function stubFalse(unknown:Dynamic):PrimitiveChain<Bool>;
+	function stubObject(unknown:Dynamic):LoDashExplicitWrapper<Dynamic>;
+	function stubString(unknown:Dynamic):StringChain<String>;
+	@:overload(function(unknown:Dynamic):LoDashExplicitWrapper<Bool> { })
+	function stubTrue(unknown:Dynamic):PrimitiveChain<Bool>;
+	@:overload(function(unknown:Dynamic):CollectionChain<Float> { })
+	function times<TResult>(unknown:Dynamic):CollectionChain<TResult>;
+	function toPath(unknown:Dynamic):CollectionChain<String>;
+	function uniqueId(unknown:Dynamic):StringChain<String>;
 };

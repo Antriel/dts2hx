@@ -2,7 +2,7 @@ package express;
 
 typedef IRouter = {
 	@:selfCall
-	function call(req:express_serve_static_core.Request<express_serve_static_core.ParamsDictionary, Dynamic, Dynamic, qs.ParsedQs>, res:express_serve_static_core.Response<Dynamic>, next:express_serve_static_core.NextFunction):Dynamic;
+	function call(unknown:Dynamic):Any;
 	/**
 		Map the given param placeholder `name`(s) to the given callback(s).
 		
@@ -16,117 +16,183 @@ typedef IRouter = {
 		of the user. Once the `next()` function is invoked, just like middleware
 		it will continue on to execute the route, or subsequent parameter functions.
 		
-		      app.param('user_id', function(req, res, next, id){
-		        User.find(id, function(err, user){
-		          if (err) {
-		            next(err);
-		          } else if (user) {
-		            req.user = user;
-		            next();
-		          } else {
-		            next(new Error('failed to load user'));
-		          }
-		        });
-		      });
-		
-		Alternatively, you can pass only a callback, in which case you have the opportunity to alter the app.param()
+		     app.param('user_id', function(req, res, next, id){
+		       User.find(id, function(err, user){
+		         if (err) {
+		           next(err);
+		         } else if (user) {
+		           req.user = user;
+		           next();
+		         } else {
+		           next(new Error('failed to load user'));
+		         }
+		       });
+		     });
 	**/
-	@:overload(function(callback:(name:String, matcher:js.lib.RegExp) -> express_serve_static_core.RequestParamHandler):IRouter { })
-	function param(name:String, handler:express_serve_static_core.RequestParamHandler):IRouter;
+	function param(unknown:Dynamic):IRouter;
 	/**
 		Special-cased "all" method, applying the given route `path`,
 		middleware, and callback to _every_ HTTP method.
 	**/
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function all<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function get<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function post<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function put<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function delete<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function patch<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function options<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function head<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function checkout<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function connect<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function copy<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function lock<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function merge<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function mkactivity<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function mkcol<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function move<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function all<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function get<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function post<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function put<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function delete<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function patch<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function options<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function head<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function checkout<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function connect<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function copy<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function lock<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function merge<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function mkactivity<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function mkcol<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function move<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
 	@:native("m-search")
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function m_search<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function notify<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function propfind<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function proppatch<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function purge<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function report<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function search<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function subscribe<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function trace<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function unlock<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function unsubscribe<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter;
-	@:overload(function(handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<express_serve_static_core.ParamsDictionary, Dynamic, Dynamic, qs.ParsedQs>>):IRouter { })
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function<P, ResBody, ReqBody, ReqQuery>(path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<P, ResBody, ReqBody, ReqQuery>>):IRouter { })
-	@:overload(function(path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application):IRouter { })
-	dynamic function use(handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<express_serve_static_core.ParamsDictionary, Dynamic, Dynamic, qs.ParsedQs>>):IRouter;
-	function route(prefix:express_serve_static_core.PathParams):express_serve_static_core.IRoute;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function m_search<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function notify<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function propfind<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function proppatch<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function purge<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function report<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function search<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function subscribe<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function trace<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function unlock<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function unsubscribe<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function link<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function unlink<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter;
+	@:overload(function(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<Route, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<Path, P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function<P, ResBody, ReqBody, ReqQuery, LocalsObj>(unknown:Dynamic):IRouter { })
+	@:overload(function(unknown:Dynamic):IRouter { })
+	dynamic function use(unknown:Dynamic):IRouter;
+	@:overload(function(unknown:Dynamic):express_serve_static_core.IRoute<String> { })
+	function route<T>(unknown:Dynamic):express_serve_static_core.IRoute<T>;
 	/**
 		Stack of configured routes
 	**/
-	var stack : Array<Dynamic>;
+	var stack : Array<express_serve_static_core.ILayer>;
 };

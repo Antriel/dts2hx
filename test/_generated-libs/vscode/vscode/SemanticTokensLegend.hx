@@ -5,7 +5,7 @@ package vscode;
 	the integer encoded representation of semantic tokens.
 **/
 @:jsRequire("vscode", "SemanticTokensLegend") extern class SemanticTokensLegend {
-	function new(tokenTypes:Array<String>, ?tokenModifiers:Array<String>);
+	function new(unknown:Dynamic);
 	/**
 		The possible token types.
 	**/

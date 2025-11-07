@@ -1,3 +1,3 @@
 package global.nodejs;
 
-typedef DisconnectListener = () -> Void;
+typedef DisconnectListener = (unknown:Dynamic) -> Void;

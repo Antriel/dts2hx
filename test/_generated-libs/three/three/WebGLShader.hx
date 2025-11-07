@@ -1,6 +1,6 @@
 package three;
 
 @:jsRequire("three", "WebGLShader") extern class WebGLShader {
-	function new(gl:Dynamic, type:String, string:String);
+	function new(unknown:Dynamic);
 	static var prototype : WebGLShader;
 }

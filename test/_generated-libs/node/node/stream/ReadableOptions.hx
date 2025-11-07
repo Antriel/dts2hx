@@ -8,7 +8,7 @@ typedef ReadableOptions = {
 	@:optional
 	var objectMode : Bool;
 	@:optional
-	function read(size:Float):Void;
+	function read(unknown:Dynamic):Void;
 	@:optional
-	function destroy(error:Null<js.lib.Error>, callback:(error:Null<js.lib.Error>) -> Void):Void;
+	function destroy(unknown:Dynamic):Void;
 };

@@ -1,34 +1,34 @@
 package node;
 
 @:jsRequire("os") @valueModuleOnly extern class Os {
-	static function hostname():String;
-	static function loadavg():Array<Float>;
-	static function uptime():Float;
-	static function freemem():Float;
-	static function totalmem():Float;
-	static function cpus():Array<node.os.CpuInfo>;
-	static function type():String;
-	static function release():String;
-	static function networkInterfaces():haxe.DynamicAccess<Array<node.os.NetworkInterfaceInfo>>;
-	static function homedir():String;
-	@:overload(function(?options:{ var encoding : String; }):node.os.UserInfo<String> { })
-	static function userInfo(options:{ var encoding : String; }):node.os.UserInfo<global.Buffer>;
-	static function arch():String;
-	static function platform():global.nodejs.Platform;
-	static function tmpdir():String;
-	static function endianness():String;
+	static function hostname(unknown:Dynamic):String;
+	static function loadavg(unknown:Dynamic):Array<Float>;
+	static function uptime(unknown:Dynamic):Float;
+	static function freemem(unknown:Dynamic):Float;
+	static function totalmem(unknown:Dynamic):Float;
+	static function cpus(unknown:Dynamic):Array<node.os.CpuInfo>;
+	static function type(unknown:Dynamic):String;
+	static function release(unknown:Dynamic):String;
+	static function networkInterfaces(unknown:Dynamic):haxe.DynamicAccess<Array<node.os.NetworkInterfaceInfo>>;
+	static function homedir(unknown:Dynamic):String;
+	@:overload(function(unknown:Dynamic):node.os.UserInfo<String> { })
+	static function userInfo(unknown:Dynamic):node.os.UserInfo<global.Buffer>;
+	static function arch(unknown:Dynamic):String;
+	static function platform(unknown:Dynamic):global.nodejs.Platform;
+	static function tmpdir(unknown:Dynamic):String;
+	static function endianness(unknown:Dynamic):String;
 	/**
 		Gets the priority of a process.
 		Defaults to current process.
 	**/
-	static function getPriority(?pid:Float):Float;
+	static function getPriority(unknown:Dynamic):Float;
 	/**
 		Sets the priority of the current process.
 		
 		Sets the priority of the process specified process.
 	**/
-	@:overload(function(pid:Float, priority:Float):Void { })
-	static function setPriority(priority:Float):Void;
+	@:overload(function(unknown:Dynamic):Void { })
+	static function setPriority(unknown:Dynamic):Void;
 	static final constants : {
 		var UV_UDP_REUSEADDR : Float;
 		var signals : {

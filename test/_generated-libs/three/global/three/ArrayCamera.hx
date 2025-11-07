@@ -1,47 +1,47 @@
 package global.three;
 
 @:native("THREE.ArrayCamera") extern class ArrayCamera extends PerspectiveCamera {
-	function new(?cameras:Array<PerspectiveCamera>);
+	function new(unknown:Dynamic);
 	var cameras : Array<PerspectiveCamera>;
 	var isArrayCamera : Bool;
-	function applyQuaternion(quaternion:Quaternion):ArrayCamera;
+	function applyQuaternion(unknown:Dynamic):ArrayCamera;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):ArrayCamera;
+	function rotateOnAxis(unknown:Dynamic):ArrayCamera;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):ArrayCamera;
-	function rotateX(angle:Float):ArrayCamera;
-	function rotateY(angle:Float):ArrayCamera;
-	function rotateZ(angle:Float):ArrayCamera;
-	function translateOnAxis(axis:Vector3, distance:Float):ArrayCamera;
+	function rotateOnWorldAxis(unknown:Dynamic):ArrayCamera;
+	function rotateX(unknown:Dynamic):ArrayCamera;
+	function rotateY(unknown:Dynamic):ArrayCamera;
+	function rotateZ(unknown:Dynamic):ArrayCamera;
+	function translateOnAxis(unknown:Dynamic):ArrayCamera;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):ArrayCamera;
+	function translateX(unknown:Dynamic):ArrayCamera;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):ArrayCamera;
+	function translateY(unknown:Dynamic):ArrayCamera;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):ArrayCamera;
+	function translateZ(unknown:Dynamic):ArrayCamera;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):ArrayCamera;
+	function add(unknown:Dynamic):ArrayCamera;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):ArrayCamera;
+	function remove(unknown:Dynamic):ArrayCamera;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):ArrayCamera;
-	function clone(?recursive:Bool):ArrayCamera;
-	function copy(source:ArrayCamera, ?recursive:Bool):ArrayCamera;
+	function attach(unknown:Dynamic):ArrayCamera;
+	function clone(unknown:Dynamic):ArrayCamera;
+	function copy(unknown:Dynamic):ArrayCamera;
 	static var prototype : ArrayCamera;
 }

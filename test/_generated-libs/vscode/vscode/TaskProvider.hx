@@ -8,7 +8,7 @@ typedef TaskProvider = {
 	/**
 		Provides tasks.
 	**/
-	function provideTasks(?token:CancellationToken):ProviderResult<Array<Task>>;
+	function provideTasks(unknown:Dynamic):ProviderResult<Array<Task>>;
 	/**
 		Resolves a task that has no [`execution`](#Task.execution) set. Tasks are
 		often created from information found in the `tasks.json`-file. Such tasks miss
@@ -18,5 +18,5 @@ typedef TaskProvider = {
 		tasks are always fully resolved. A valid default implementation for the
 		`resolveTask` method is to return `undefined`.
 	**/
-	function resolveTask(task:Task, ?token:CancellationToken):ProviderResult<Task>;
+	function resolveTask(unknown:Dynamic):ProviderResult<Task>;
 };

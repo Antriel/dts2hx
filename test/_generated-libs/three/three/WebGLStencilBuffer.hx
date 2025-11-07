@@ -1,13 +1,13 @@
 package three;
 
 @:jsRequire("three", "WebGLStencilBuffer") extern class WebGLStencilBuffer {
-	function new();
-	function setTest(stencilTest:Bool):Void;
-	function setMask(stencilMask:Float):Void;
-	function setFunc(stencilFunc:Float, stencilRef:Float, stencilMask:Float):Void;
-	function setOp(stencilFail:Float, stencilZFail:Float, stencilZPass:Float):Void;
-	function setLocked(lock:Bool):Void;
-	function setClear(stencil:Float):Void;
-	function reset():Void;
+	function new(unknown:Dynamic);
+	function setTest(unknown:Dynamic):Void;
+	function setMask(unknown:Dynamic):Void;
+	function setFunc(unknown:Dynamic):Void;
+	function setOp(unknown:Dynamic):Void;
+	function setLocked(unknown:Dynamic):Void;
+	function setClear(unknown:Dynamic):Void;
+	function reset(unknown:Dynamic):Void;
 	static var prototype : WebGLStencilBuffer;
 }

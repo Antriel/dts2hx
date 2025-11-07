@@ -1,47 +1,47 @@
 package three;
 
 @:jsRequire("three", "ImmediateRenderObject") extern class ImmediateRenderObject extends Object3D {
-	function new(material:Material);
+	function new(unknown:Dynamic);
 	var material : Material;
-	function render(renderCallback:haxe.Constraints.Function):Void;
-	function applyQuaternion(quaternion:Quaternion):ImmediateRenderObject;
+	function render(unknown:Dynamic):Void;
+	function applyQuaternion(unknown:Dynamic):ImmediateRenderObject;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):ImmediateRenderObject;
+	function rotateOnAxis(unknown:Dynamic):ImmediateRenderObject;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):ImmediateRenderObject;
-	function rotateX(angle:Float):ImmediateRenderObject;
-	function rotateY(angle:Float):ImmediateRenderObject;
-	function rotateZ(angle:Float):ImmediateRenderObject;
-	function translateOnAxis(axis:Vector3, distance:Float):ImmediateRenderObject;
+	function rotateOnWorldAxis(unknown:Dynamic):ImmediateRenderObject;
+	function rotateX(unknown:Dynamic):ImmediateRenderObject;
+	function rotateY(unknown:Dynamic):ImmediateRenderObject;
+	function rotateZ(unknown:Dynamic):ImmediateRenderObject;
+	function translateOnAxis(unknown:Dynamic):ImmediateRenderObject;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):ImmediateRenderObject;
+	function translateX(unknown:Dynamic):ImmediateRenderObject;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):ImmediateRenderObject;
+	function translateY(unknown:Dynamic):ImmediateRenderObject;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):ImmediateRenderObject;
+	function translateZ(unknown:Dynamic):ImmediateRenderObject;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):ImmediateRenderObject;
+	function add(unknown:Dynamic):ImmediateRenderObject;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):ImmediateRenderObject;
+	function remove(unknown:Dynamic):ImmediateRenderObject;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):ImmediateRenderObject;
-	function clone(?recursive:Bool):ImmediateRenderObject;
-	function copy(source:ImmediateRenderObject, ?recursive:Bool):ImmediateRenderObject;
+	function attach(unknown:Dynamic):ImmediateRenderObject;
+	function clone(unknown:Dynamic):ImmediateRenderObject;
+	function copy(unknown:Dynamic):ImmediateRenderObject;
 	static var prototype : ImmediateRenderObject;
 }

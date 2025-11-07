@@ -11,5 +11,5 @@ typedef Selectors = {
 	var attrHandle : global.sizzle.selectors.AttrHandleFunctions;
 	var pseudos : global.sizzle.selectors.PseudoFunctions;
 	var setFilters : global.sizzle.selectors.SetFilterFunctions;
-	function createPseudo(fn:global.sizzle.selectors.CreatePseudoFunction):global.sizzle.selectors.PseudoFunction;
+	function createPseudo(unknown:Dynamic):global.sizzle.selectors.PseudoFunction;
 };

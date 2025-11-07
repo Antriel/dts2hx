@@ -1,10 +1,10 @@
 package node;
 
 @:jsRequire("vm") @valueModuleOnly extern class Vm {
-	static function createContext(?sandbox:node.vm.Context):node.vm.Context;
-	static function isContext(sandbox:node.vm.Context):Bool;
-	static function runInContext(code:String, contextifiedSandbox:node.vm.Context, ?options:ts.AnyOf2<String, node.vm.RunningScriptOptions>):Dynamic;
-	static function runInNewContext(code:String, ?sandbox:node.vm.Context, ?options:ts.AnyOf2<String, node.vm.RunningScriptOptions>):Dynamic;
-	static function runInThisContext(code:String, ?options:ts.AnyOf2<String, node.vm.RunningScriptOptions>):Dynamic;
-	static function compileFunction(code:String, params:Array<String>, options:node.vm.CompileFunctionOptions):haxe.Constraints.Function;
+	static function createContext(unknown:Dynamic):node.vm.Context;
+	static function isContext(unknown:Dynamic):Bool;
+	static function runInContext(unknown:Dynamic):Dynamic;
+	static function runInNewContext(unknown:Dynamic):Dynamic;
+	static function runInThisContext(unknown:Dynamic):Dynamic;
+	static function compileFunction(unknown:Dynamic):haxe.Constraints.Function;
 }

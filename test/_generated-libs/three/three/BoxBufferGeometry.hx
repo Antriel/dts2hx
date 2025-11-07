@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "BoxBufferGeometry") extern class BoxBufferGeometry extends BufferGeometry {
-	function new(?width:Float, ?height:Float, ?depth:Float, ?widthSegments:Float, ?heightSegments:Float, ?depthSegments:Float);
+	function new(unknown:Dynamic);
 	var parameters : {
 		var width : Float;
 		var height : Float;
@@ -10,7 +10,7 @@ package three;
 		var heightSegments : Float;
 		var depthSegments : Float;
 	};
-	function clone():BoxBufferGeometry;
-	function copy(source:BufferGeometry):BoxBufferGeometry;
+	function clone(unknown:Dynamic):BoxBufferGeometry;
+	function copy(unknown:Dynamic):BoxBufferGeometry;
 	static var prototype : BoxBufferGeometry;
 }

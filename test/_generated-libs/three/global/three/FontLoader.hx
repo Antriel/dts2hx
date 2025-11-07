@@ -1,9 +1,9 @@
 package global.three;
 
 @:native("THREE.FontLoader") extern class FontLoader {
-	function new(?manager:LoadingManager);
+	function new(unknown:Dynamic);
 	var manager : LoadingManager;
-	function load(url:String, ?onLoad:(responseFont:Font) -> Void, ?onProgress:(event:js.html.ProgressEvent_<js.html.EventTarget>) -> Void, ?onError:(event:js.html.ErrorEvent) -> Void):Void;
-	function parse(json:Dynamic):Font;
+	function load(unknown:Dynamic):Void;
+	function parse(unknown:Dynamic):Font;
 	static var prototype : FontLoader;
 }

@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.TorusBufferGeometry") extern class TorusBufferGeometry extends BufferGeometry {
-	function new(?radius:Float, ?tube:Float, ?radialSegments:Float, ?tubularSegments:Float, ?arc:Float);
+	function new(unknown:Dynamic);
 	var parameters : {
 		var radius : Float;
 		var tube : Float;
@@ -9,7 +9,7 @@ package global.three;
 		var tubularSegments : Float;
 		var arc : Float;
 	};
-	function clone():TorusBufferGeometry;
-	function copy(source:BufferGeometry):TorusBufferGeometry;
+	function clone(unknown:Dynamic):TorusBufferGeometry;
+	function copy(unknown:Dynamic):TorusBufferGeometry;
 	static var prototype : TorusBufferGeometry;
 }

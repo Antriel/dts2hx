@@ -1,6 +1,6 @@
 # Haxe Externs for body-parser
 
-Generated from **@types/body-parser v1.19.0** by **[dts2hx](https://github.com/haxiomic/dts2hx) x.x.x** using **TypeScript 3.7.4** with arguments:
+Generated from **[@types/body-parser v1.19.6](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/body-parser)** by **[dts2hx](https://github.com/haxiomic/dts2hx) x.x.x** using **TypeScript 5.9.3** with arguments:
 
 	dts2hx express --output _generated-libs --noDts2hxVersion
 
@@ -16,3 +16,4 @@ Generated from **@types/body-parser v1.19.0** by **[dts2hx](https://github.com/h
 - [Tomasz Łaziuk](https://github.com/tlaziuk)
 - [Jason Walton](https://github.com/jwalton)
 - [Piotr Błażejewicz](https://github.com/peterblazejewicz)
+- [Sebastian Beltran](https://github.com/bjohansebas)

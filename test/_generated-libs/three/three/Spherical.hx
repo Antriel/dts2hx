@@ -1,14 +1,14 @@
 package three;
 
 @:jsRequire("three", "Spherical") extern class Spherical {
-	function new(?radius:Float, ?phi:Float, ?theta:Float);
+	function new(unknown:Dynamic);
 	var radius : Float;
 	var phi : Float;
 	var theta : Float;
-	function set(radius:Float, phi:Float, theta:Float):Spherical;
-	function clone():Spherical;
-	function copy(other:Spherical):Spherical;
-	function makeSafe():Void;
-	function setFromVector3(vec3:Vector3):Spherical;
+	function set(unknown:Dynamic):Spherical;
+	function clone(unknown:Dynamic):Spherical;
+	function copy(unknown:Dynamic):Spherical;
+	function makeSafe(unknown:Dynamic):Void;
+	function setFromVector3(unknown:Dynamic):Spherical;
 	static var prototype : Spherical;
 }

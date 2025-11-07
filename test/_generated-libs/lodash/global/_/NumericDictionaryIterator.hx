@@ -1,3 +1,3 @@
 package global._;
 
-typedef NumericDictionaryIterator<T, TResult> = (value:T, key:String, collection:NumericDictionary<T>) -> TResult;
+typedef NumericDictionaryIterator<T, TResult> = (unknown:Dynamic) -> TResult;

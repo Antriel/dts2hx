@@ -1,255 +1,257 @@
 package global._;
 
 typedef FunctionChain<T> = {
-	function ary(?n:Float):FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
-	function curry(?arity:Float):Dynamic;
-	function curryRight(?arity:Float):Dynamic;
-	function debounce(?wait:Float, ?options:DebounceSettings):Dynamic;
-	function flip():FunctionChain<T>;
-	function memoize(?resolver:(args:haxe.extern.Rest<Dynamic>) -> Dynamic):FunctionChain<Dynamic>;
-	function negate():FunctionChain<(args:haxe.extern.Rest<Any>) -> Bool>;
-	function once():FunctionChain<T>;
-	function overArgs(transforms:haxe.extern.Rest<Many<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>>):FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
-	@:overload(function<T3>(plc1:LoDashStatic, plc2:LoDashStatic, arg3:T3):FunctionChain<Dynamic> { })
-	@:overload(function<T1, T3>(arg1:T1, plc2:LoDashStatic, arg3:T3):FunctionChain<Dynamic> { })
-	@:overload(function<T2, T3>(plc1:LoDashStatic, arg2:T2, arg3:T3):FunctionChain<Dynamic> { })
-	@:overload(function<T3>(plc1:LoDashStatic, plc2:LoDashStatic, arg3:T3):FunctionChain<Dynamic> { })
-	@:overload(function<T1, T4>(arg1:T1, plc2:LoDashStatic, plc3:LoDashStatic, arg4:T4):FunctionChain<Dynamic> { })
-	@:overload(function<T2, T4>(plc1:LoDashStatic, arg2:T2, plc3:LoDashStatic, arg4:T4):FunctionChain<Dynamic> { })
-	@:overload(function<T1, T2, T4>(arg1:T1, arg2:T2, plc3:LoDashStatic, arg4:T4):FunctionChain<Dynamic> { })
-	@:overload(function<T3, T4>(plc1:LoDashStatic, plc2:LoDashStatic, arg3:T3, arg4:T4):FunctionChain<Dynamic> { })
-	@:overload(function<T1, T3, T4>(arg1:T1, plc2:LoDashStatic, arg3:T3, arg4:T4):FunctionChain<Dynamic> { })
-	@:overload(function<T2, T3, T4>(plc1:LoDashStatic, arg2:T2, arg3:T3, arg4:T4):FunctionChain<Dynamic> { })
-	@:overload(function<T1, T2, T3, T4>(arg1:T1, arg2:T2, arg3:T3, arg4:T4):FunctionChain<Dynamic> { })
-	@:overload(function<T1, T2, T3>(arg1:T1, arg2:T2, arg3:T3):FunctionChain<Dynamic> { })
-	@:overload(function<T1, T2>(arg1:T1, arg2:T2):FunctionChain<Dynamic> { })
-	@:overload(function<T1>(arg1:T1):FunctionChain<Dynamic> { })
-	@:overload(function():FunctionChain<Dynamic> { })
-	function partial<T2>(plc1:LoDashStatic, arg2:T2):FunctionChain<Dynamic>;
-	@:overload(function<T2>(arg2:T2):FunctionChain<Dynamic> { })
-	@:overload(function<T1>(arg1:T1, plc2:LoDashStatic, plc3:LoDashStatic):FunctionChain<Dynamic> { })
-	@:overload(function<T2>(arg2:T2, plc3:LoDashStatic):FunctionChain<Dynamic> { })
-	@:overload(function<T1, T2>(arg1:T1, arg2:T2, plc3:LoDashStatic):FunctionChain<Dynamic> { })
-	@:overload(function<T3>(arg3:T3):FunctionChain<Dynamic> { })
-	@:overload(function<T1, T3>(arg1:T1, plc2:LoDashStatic, arg3:T3):FunctionChain<Dynamic> { })
-	@:overload(function<T2, T3>(arg2:T2, arg3:T3):FunctionChain<Dynamic> { })
-	@:overload(function<T1>(arg1:T1, plc2:LoDashStatic, plc3:LoDashStatic, plc4:LoDashStatic):FunctionChain<Dynamic> { })
-	@:overload(function<T2>(arg2:T2, plc3:LoDashStatic, plc4:LoDashStatic):FunctionChain<Dynamic> { })
-	@:overload(function<T1, T2>(arg1:T1, arg2:T2, plc3:LoDashStatic, plc4:LoDashStatic):FunctionChain<Dynamic> { })
-	@:overload(function<T3>(arg3:T3, plc4:LoDashStatic):FunctionChain<Dynamic> { })
-	@:overload(function<T1, T3>(arg1:T1, plc2:LoDashStatic, arg3:T3, plc4:LoDashStatic):FunctionChain<Dynamic> { })
-	@:overload(function<T2, T3>(arg2:T2, arg3:T3, plc4:LoDashStatic):FunctionChain<Dynamic> { })
-	@:overload(function<T1, T2, T3>(arg1:T1, arg2:T2, arg3:T3, plc4:LoDashStatic):FunctionChain<Dynamic> { })
-	@:overload(function<T4>(arg4:T4):FunctionChain<Dynamic> { })
-	@:overload(function<T1, T4>(arg1:T1, plc2:LoDashStatic, plc3:LoDashStatic, arg4:T4):FunctionChain<Dynamic> { })
-	@:overload(function<T2, T4>(arg2:T2, plc3:LoDashStatic, arg4:T4):FunctionChain<Dynamic> { })
-	@:overload(function<T1, T2, T4>(arg1:T1, arg2:T2, plc3:LoDashStatic, arg4:T4):FunctionChain<Dynamic> { })
-	@:overload(function<T3, T4>(arg3:T3, arg4:T4):FunctionChain<Dynamic> { })
-	@:overload(function<T1, T3, T4>(arg1:T1, plc2:LoDashStatic, arg3:T3, arg4:T4):FunctionChain<Dynamic> { })
-	@:overload(function<T2, T3, T4>(arg2:T2, arg3:T3, arg4:T4):FunctionChain<Dynamic> { })
-	@:overload(function<TS>(ts:haxe.extern.Rest<Any>):FunctionChain<Dynamic> { })
-	@:overload(function():FunctionChain<Dynamic> { })
-	function partialRight<T1>(arg1:T1, plc2:LoDashStatic):FunctionChain<Dynamic>;
-	function rearg(indexes:haxe.extern.Rest<Many<Float>>):FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
-	function rest(?start:Float):FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
-	function spread(?start:Float):FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> js.lib.ReturnType<T>>;
-	function throttle(?wait:Float, ?options:ThrottleSettings):Dynamic;
-	function unary():FunctionChain<(arg1:Dynamic) -> js.lib.ReturnType<T>>;
-	function castArray():CollectionChain<T>;
-	@:overload(function<R2, R3, R4, R5, R6, R7>(f2:(a:js.lib.ReturnType<T>) -> R2, f3:(a:R2) -> R3, f4:(a:R3) -> R4, f5:(a:R4) -> R5, f6:(a:R5) -> R6, f7:(a:R6) -> R7, func:haxe.extern.Rest<Many<(a:Dynamic) -> Dynamic>>):FunctionChain<(args:haxe.extern.Rest<Any>) -> Dynamic> { })
-	@:overload(function<R2, R3, R4, R5, R6>(f2:(a:js.lib.ReturnType<T>) -> R2, f3:(a:R2) -> R3, f4:(a:R3) -> R4, f5:(a:R4) -> R5, f6:(a:R5) -> R6):FunctionChain<(args:haxe.extern.Rest<Any>) -> R6> { })
-	@:overload(function<R2, R3, R4, R5>(f2:(a:js.lib.ReturnType<T>) -> R2, f3:(a:R2) -> R3, f4:(a:R3) -> R4, f5:(a:R4) -> R5):FunctionChain<(args:haxe.extern.Rest<Any>) -> R5> { })
-	@:overload(function<R2, R3, R4>(f2:(a:js.lib.ReturnType<T>) -> R2, f3:(a:R2) -> R3, f4:(a:R3) -> R4):FunctionChain<(args:haxe.extern.Rest<Any>) -> R4> { })
-	@:overload(function<R2, R3>(f2:(a:js.lib.ReturnType<T>) -> R2, f3:(a:R2) -> R3):FunctionChain<(args:haxe.extern.Rest<Any>) -> R3> { })
-	@:overload(function<R2>(f2:(a:js.lib.ReturnType<T>) -> R2):FunctionChain<(args:haxe.extern.Rest<Any>) -> R2> { })
-	@:overload(function(func:haxe.extern.Rest<Many<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>>):FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> Dynamic> { })
-	function flow<R2, R3, R4, R5, R6, R7>(f2:(a:js.lib.ReturnType<T>) -> R2, f3:(a:R2) -> R3, f4:(a:R3) -> R4, f5:(a:R4) -> R5, f6:(a:R5) -> R6, f7:(a:R6) -> R7):FunctionChain<(args:haxe.extern.Rest<Any>) -> R7>;
-	@:overload(function<A, R1, R2, R3, R4>(f5:(a:R4) -> Dynamic, f4:(a:R3) -> R4, f3:(a:R2) -> R3, f2:(a:R1) -> R2, f1:(args:haxe.extern.Rest<Any>) -> R1):FunctionChain<(args:haxe.extern.Rest<Any>) -> js.lib.ReturnType<T>> { })
-	@:overload(function<A, R1, R2, R3>(f4:(a:R3) -> Dynamic, f3:(a:R2) -> R3, f2:(a:R1) -> R2, f1:(args:haxe.extern.Rest<Any>) -> R1):FunctionChain<(args:haxe.extern.Rest<Any>) -> js.lib.ReturnType<T>> { })
-	@:overload(function<A, R1, R2>(f3:(a:R2) -> Dynamic, f2:(a:R1) -> R2, f1:(args:haxe.extern.Rest<Any>) -> R1):FunctionChain<(args:haxe.extern.Rest<Any>) -> js.lib.ReturnType<T>> { })
-	@:overload(function<A, R1>(f2:(a:R1) -> Dynamic, f1:(args:haxe.extern.Rest<Any>) -> R1):FunctionChain<(args:haxe.extern.Rest<Any>) -> js.lib.ReturnType<T>> { })
-	@:overload(function<A>(f1:(args:haxe.extern.Rest<Any>) -> Dynamic):FunctionChain<(args:haxe.extern.Rest<Any>) -> js.lib.ReturnType<T>> { })
-	@:overload(function(func:haxe.extern.Rest<Many<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>>):FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> Dynamic> { })
-	function flowRight<A, R1, R2, R3, R4, R5>(f6:(a:R5) -> Dynamic, f5:(a:R4) -> R5, f4:(a:R3) -> R4, f3:(a:R2) -> R3, f2:(a:R1) -> R2, f1:(args:haxe.extern.Rest<Any>) -> R1):FunctionChain<(args:haxe.extern.Rest<Any>) -> js.lib.ReturnType<T>>;
-	function iteratee():FunctionChain<T>;
-	function over<TResult>(iteratees:haxe.extern.Rest<Many<(args:haxe.extern.Rest<Dynamic>) -> TResult>>):FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> Array<ts.AnyOf2<js.lib.ReturnType<T>, TResult>>>;
-	function overEvery<TArgs>(iteratees:haxe.extern.Rest<Many<(args:haxe.extern.Rest<TArgs>) -> Bool>>):FunctionChain<(args:haxe.extern.Rest<Any>) -> Bool>;
-	function overSome<TArgs>(iteratees:haxe.extern.Rest<Many<(args:haxe.extern.Rest<TArgs>) -> Bool>>):FunctionChain<(args:haxe.extern.Rest<Any>) -> Bool>;
-	function write():Dynamic;
-	@:overload(function<TResult>(method:(args:haxe.extern.Rest<Dynamic>) -> TResult, args:haxe.extern.Rest<Dynamic>):CollectionChain<TResult> { })
-	function invokeMap(methodName:String, args:haxe.extern.Rest<Dynamic>):CollectionChain<Dynamic>;
-	function size():PrimitiveChain<Float>;
-	function now():PrimitiveChain<Float>;
-	function bind(thisArg:Dynamic, partials:haxe.extern.Rest<Dynamic>):FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
-	function bindKey(key:String, partials:haxe.extern.Rest<Dynamic>):FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
-	function defer(args:haxe.extern.Rest<Dynamic>):PrimitiveChain<Float>;
-	function delay(wait:Float, args:haxe.extern.Rest<Dynamic>):PrimitiveChain<Float>;
-	function wrap<TArgs, TResult>(wrapper:(value:T, args:haxe.extern.Rest<TArgs>) -> TResult):FunctionChain<(args:haxe.extern.Rest<TArgs>) -> TResult>;
-	function clone():FunctionChain<T>;
-	function cloneDeep():FunctionChain<T>;
-	@:overload(function():FunctionChain<T> { })
-	function cloneDeepWith(customizer:CloneDeepWithCustomizer<T>):LoDashExplicitWrapper<Dynamic>;
-	@:overload(function<TResult>(customizer:CloneWithCustomizer<T, Null<TResult>>):ts.AnyOf2<ExpChain<T>, ExpChain<TResult>> { })
-	@:overload(function():FunctionChain<T> { })
-	function cloneWith<TResult>(customizer:CloneWithCustomizer<T, TResult>):ExpChain<TResult>;
-	function conformsTo(source:{ }):PrimitiveChain<Bool>;
-	function eq(other:Dynamic):PrimitiveChain<Bool>;
-	function gt(other:Dynamic):PrimitiveChain<Bool>;
-	function gte(other:Dynamic):PrimitiveChain<Bool>;
-	function isArguments():PrimitiveChain<Bool>;
-	function isArray():PrimitiveChain<Bool>;
-	function isArrayBuffer():PrimitiveChain<Bool>;
-	function isArrayLike():PrimitiveChain<Bool>;
-	function isArrayLikeObject():PrimitiveChain<Bool>;
-	function isBoolean():PrimitiveChain<Bool>;
-	function isBuffer():PrimitiveChain<Bool>;
-	function isDate():PrimitiveChain<Bool>;
-	function isElement():PrimitiveChain<Bool>;
-	function isEmpty():PrimitiveChain<Bool>;
-	function isEqual(other:Dynamic):PrimitiveChain<Bool>;
-	function isEqualWith(other:Dynamic, ?customizer:IsEqualCustomizer):PrimitiveChain<Bool>;
-	function isError():PrimitiveChain<Bool>;
-	function isFinite():PrimitiveChain<Bool>;
-	function isFunction():PrimitiveChain<Bool>;
-	function isInteger():PrimitiveChain<Bool>;
-	function isLength():PrimitiveChain<Bool>;
-	function isMap():PrimitiveChain<Bool>;
-	function isMatch(source:Dynamic):PrimitiveChain<Bool>;
-	function isMatchWith(source:Dynamic, customizer:IsMatchWithCustomizer):PrimitiveChain<Bool>;
-	function isNaN():PrimitiveChain<Bool>;
-	function isNative():PrimitiveChain<Bool>;
-	function isNil():PrimitiveChain<Bool>;
-	function isNull():PrimitiveChain<Bool>;
-	function isNumber():PrimitiveChain<Bool>;
-	function isObject():PrimitiveChain<Bool>;
-	function isObjectLike():PrimitiveChain<Bool>;
-	function isPlainObject():PrimitiveChain<Bool>;
-	function isRegExp():PrimitiveChain<Bool>;
-	function isSafeInteger():PrimitiveChain<Bool>;
-	function isSet():PrimitiveChain<Bool>;
-	function isString():PrimitiveChain<Bool>;
-	function isSymbol():PrimitiveChain<Bool>;
-	function isTypedArray():PrimitiveChain<Bool>;
-	function isUndefined():PrimitiveChain<Bool>;
-	function isWeakMap():PrimitiveChain<Bool>;
-	function isWeakSet():PrimitiveChain<Bool>;
-	function lt(other:Dynamic):PrimitiveChain<Bool>;
-	function lte(other:Dynamic):PrimitiveChain<Bool>;
-	function toFinite():PrimitiveChain<Float>;
-	function toInteger():PrimitiveChain<Float>;
-	function toLength():PrimitiveChain<Float>;
-	function toNumber():PrimitiveChain<Float>;
-	function toPlainObject():ObjectChain<Dynamic>;
-	function toSafeInteger():PrimitiveChain<Float>;
-	function add(addend:Float):PrimitiveChain<Float>;
-	function ceil(?precision:Float):PrimitiveChain<Float>;
-	function divide(divisor:Float):PrimitiveChain<Float>;
-	function floor(?precision:Float):PrimitiveChain<Float>;
-	function mean():PrimitiveChain<Float>;
-	function multiply(multiplicand:Float):PrimitiveChain<Float>;
-	function round(?precision:Float):PrimitiveChain<Float>;
-	function subtract(subtrahend:Float):PrimitiveChain<Float>;
-	function sum():PrimitiveChain<Float>;
-	@:overload(function(upper:Float):PrimitiveChain<Float> { })
-	function clamp(lower:Float, upper:Float):PrimitiveChain<Float>;
-	function inRange(start:Float, ?end:Float):PrimitiveChain<Bool>;
-	@:overload(function(max:Float, ?floating:Bool):PrimitiveChain<Float> { })
-	function random(?floating:Bool):PrimitiveChain<Float>;
-	function entries():CollectionChain<ts.Tuple2<String, Dynamic>>;
-	function entriesIn():CollectionChain<ts.Tuple2<String, Dynamic>>;
-	function findKey(?predicate:ts.AnyOf6<String, Float, js.lib.Symbol, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>, ObjectIterator<T, Any>, { }>):StringNullableChain;
-	function findLastKey(?predicate:ts.AnyOf6<String, Float, js.lib.Symbol, ts.Tuple2<ts.AnyOf3<String, Float, js.lib.Symbol>, Dynamic>, ObjectIterator<T, Any>, { }>):StringNullableChain;
-	function forIn(?iteratee:ObjectIterator<T, Dynamic>):FunctionChain<T>;
-	function forInRight(?iteratee:ObjectIterator<T, Dynamic>):FunctionChain<T>;
-	function forOwn(?iteratee:ObjectIterator<T, Dynamic>):FunctionChain<T>;
-	function forOwnRight(?iteratee:ObjectIterator<T, Dynamic>):FunctionChain<T>;
-	function functions():CollectionChain<String>;
-	function functionsIn():CollectionChain<String>;
-	function has(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>):PrimitiveChain<Bool>;
-	function hasIn(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>):PrimitiveChain<Bool>;
-	function invert():ObjectChain<Dictionary<String>>;
-	function invoke(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, args:haxe.extern.Rest<Dynamic>):LoDashExplicitWrapper<Dynamic>;
-	function keys():CollectionChain<String>;
-	function keysIn():CollectionChain<String>;
-	function result<TResult>(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, ?defaultValue:ts.AnyOf2<(args:haxe.extern.Rest<Dynamic>) -> TResult, TResult>):ExpChain<TResult>;
-	@:overload(function<TResult>(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, value:Dynamic):ExpChain<TResult> { })
-	function set(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, value:Dynamic):FunctionChain<T>;
-	@:overload(function<TResult>(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, value:Dynamic, ?customizer:SetWithCustomizer<T>):ExpChain<TResult> { })
-	function setWith(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, value:Dynamic, ?customizer:SetWithCustomizer<T>):FunctionChain<T>;
-	function toPairs():CollectionChain<ts.Tuple2<String, Dynamic>>;
-	function toPairsIn():CollectionChain<ts.Tuple2<String, Dynamic>>;
-	function unset(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>):PrimitiveChain<Bool>;
-	function update(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>, updater:(value:Dynamic) -> Dynamic):ObjectChain<Dynamic>;
-	function chain():FunctionChain<T>;
-	function commit():FunctionChain<T>;
-	function plant(value:Any):FunctionChain<T>;
-	function reverse():FunctionChain<T>;
-	function toJSON():T;
-	function value():T;
-	function valueOf():T;
-	function tap(interceptor:(value:T) -> Void):FunctionChain<T>;
-	function thru<TResult>(interceptor:(value:T) -> TResult):ExpChain<TResult>;
-	function camelCase():StringChain;
-	function capitalize():StringChain;
-	function deburr():StringChain;
-	function endsWith(?target:String, ?position:Float):PrimitiveChain<Bool>;
-	function escape():StringChain;
-	function escapeRegExp():StringChain;
-	function kebabCase():StringChain;
-	function lowerCase():StringChain;
-	function lowerFirst():StringChain;
-	function pad(?length:Float, ?chars:String):StringChain;
-	function padEnd(?length:Float, ?chars:String):StringChain;
-	function padStart(?length:Float, ?chars:String):StringChain;
-	function parseInt(?radix:Float):PrimitiveChain<Float>;
-	function repeat(?n:Float):StringChain;
-	@:overload(function(replacement:ts.AnyOf2<String, ReplaceFunction>):StringChain { })
-	function replace(pattern:ts.AnyOf2<String, js.lib.RegExp>, replacement:ts.AnyOf2<String, ReplaceFunction>):StringChain;
-	function snakeCase():StringChain;
-	function split(?separator:ts.AnyOf2<String, js.lib.RegExp>, ?limit:Float):CollectionChain<String>;
-	function startCase():StringChain;
-	function startsWith(?target:String, ?position:Float):PrimitiveChain<Bool>;
-	function template(?options:TemplateOptions):FunctionChain<TemplateExecutor>;
-	function toLower():StringChain;
-	function toUpper():StringChain;
-	function trim(?chars:String):StringChain;
-	function trimEnd(?chars:String):StringChain;
-	function trimStart(?chars:String):StringChain;
-	function truncate(?options:TruncateOptions):StringChain;
-	function unescape():StringChain;
-	function upperCase():StringChain;
-	function upperFirst():StringChain;
-	function words(?pattern:ts.AnyOf2<String, js.lib.RegExp>):CollectionChain<String>;
-	function attempt<TResult>(args:haxe.extern.Rest<Dynamic>):ts.AnyOf2<ObjectChain<js.lib.Error>, ExpChain<TResult>>;
-	function bindAll(methodNames:haxe.extern.Rest<Many<String>>):FunctionChain<T>;
-	function conforms():FunctionChain<(value:{ }) -> Bool>;
-	function constant():FunctionChain<() -> T>;
-	@:overload(function<TDefault>(defaultValue:TDefault):ExpChain<Dynamic> { })
-	function defaultTo(defaultValue:T):ExpChain<T>;
-	function identity():FunctionChain<T>;
-	function matches<V>():FunctionChain<(value:V) -> Bool>;
-	@:overload(function<SrcValue, Value>(srcValue:SrcValue):FunctionChain<(value:Value) -> Bool> { })
-	function matchesProperty<SrcValue>(srcValue:SrcValue):FunctionChain<(value:Dynamic) -> Bool>;
-	function method(args:haxe.extern.Rest<Dynamic>):FunctionChain<(object:Dynamic) -> Dynamic>;
-	function methodOf(args:haxe.extern.Rest<Dynamic>):LoDashExplicitWrapper<(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>) -> Dynamic>;
-	@:overload(function(?options:MixinOptions):LoDashExplicitWrapper<LoDashStatic> { })
-	function mixin(source:Dictionary<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>, ?options:MixinOptions):FunctionChain<T>;
-	function noConflict():LoDashExplicitWrapper<LoDashStatic>;
-	function noop(args:haxe.extern.Rest<Dynamic>):PrimitiveChain<Null<Any>>;
-	function nthArg():FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
-	function property<TObj, TResult>():FunctionChain<(obj:TObj) -> TResult>;
-	function propertyOf():LoDashExplicitWrapper<(path:Many<ts.AnyOf3<String, Float, js.lib.Symbol>>) -> Dynamic>;
-	function range(?end:Float, ?step:Float):CollectionChain<Float>;
-	function rangeRight(?end:Float, ?step:Float):CollectionChain<Float>;
-	function stubArray():CollectionChain<Dynamic>;
-	@:overload(function():LoDashExplicitWrapper<Bool> { })
-	function stubFalse():PrimitiveChain<Bool>;
-	function stubObject():LoDashExplicitWrapper<Dynamic>;
-	function stubString():StringChain;
-	@:overload(function():LoDashExplicitWrapper<Bool> { })
-	function stubTrue():PrimitiveChain<Bool>;
-	@:overload(function():CollectionChain<Float> { })
-	function times<TResult>(iteratee:(num:Float) -> TResult):CollectionChain<TResult>;
-	function toPath():CollectionChain<String>;
-	function uniqueId():StringChain;
+	function ary(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Dynamic>;
+	function curry(unknown:Dynamic):Dynamic;
+	function curryRight(unknown:Dynamic):Dynamic;
+	@:overload(function(unknown:Dynamic):Dynamic { })
+	function debounce(unknown:Dynamic):Dynamic;
+	function flip(unknown:Dynamic):FunctionChain<T>;
+	function memoize(unknown:Dynamic):FunctionChain<Dynamic>;
+	function negate(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Bool>;
+	function once(unknown:Dynamic):FunctionChain<T>;
+	function overArgs(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Dynamic>;
+	@:overload(function<T3>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1, T3>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T2, T3>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T3>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1, T4>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T2, T4>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1, T2, T4>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T3, T4>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1, T3, T4>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T2, T3, T4>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1, T2, T3, T4>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1, T2, T3>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1, T2>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function(unknown:Dynamic):FunctionChain<Dynamic> { })
+	function partial<T2>(unknown:Dynamic):FunctionChain<Dynamic>;
+	@:overload(function<T2>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T2>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1, T2>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T3>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1, T3>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T2, T3>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T2>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1, T2>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T3>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1, T3>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T2, T3>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1, T2, T3>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T4>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1, T4>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T2, T4>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1, T2, T4>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T3, T4>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T1, T3, T4>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<T2, T3, T4>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function<TS>(unknown:Dynamic):FunctionChain<Dynamic> { })
+	@:overload(function(unknown:Dynamic):FunctionChain<Dynamic> { })
+	function partialRight<T1>(unknown:Dynamic):FunctionChain<Dynamic>;
+	function rearg(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Dynamic>;
+	function rest(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Dynamic>;
+	function spread(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> js.lib.ReturnType<T>>;
+	@:overload(function(unknown:Dynamic):Dynamic { })
+	function throttle(unknown:Dynamic):Dynamic;
+	function unary(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> js.lib.ReturnType<T>>;
+	function castArray(unknown:Dynamic):CollectionChain<T>;
+	@:overload(function<R2, R3, R4, R5, R6, R7>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Dynamic> { })
+	@:overload(function<R2, R3, R4, R5, R6>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> R6> { })
+	@:overload(function<R2, R3, R4, R5>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> R5> { })
+	@:overload(function<R2, R3, R4>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> R4> { })
+	@:overload(function<R2, R3>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> R3> { })
+	@:overload(function<R2>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> R2> { })
+	@:overload(function(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Dynamic> { })
+	function flow<R2, R3, R4, R5, R6, R7>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> R7>;
+	@:overload(function<A, R1, R2, R3, R4>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> js.lib.ReturnType<T>> { })
+	@:overload(function<A, R1, R2, R3>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> js.lib.ReturnType<T>> { })
+	@:overload(function<A, R1, R2>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> js.lib.ReturnType<T>> { })
+	@:overload(function<A, R1>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> js.lib.ReturnType<T>> { })
+	@:overload(function<A>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> js.lib.ReturnType<T>> { })
+	@:overload(function(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Dynamic> { })
+	function flowRight<A, R1, R2, R3, R4, R5>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> js.lib.ReturnType<T>>;
+	function iteratee(unknown:Dynamic):FunctionChain<T>;
+	function over<TResult>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Array<ts.AnyOf2<js.lib.ReturnType<T>, TResult>>>;
+	function overEvery<TArgs>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Bool>;
+	function overSome<TArgs>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Bool>;
+	function write(unknown:Dynamic):Dynamic;
+	@:overload(function<TResult>(unknown:Dynamic):CollectionChain<TResult> { })
+	function invokeMap(unknown:Dynamic):CollectionChain<Dynamic>;
+	function size(unknown:Dynamic):PrimitiveChain<Float>;
+	function now(unknown:Dynamic):PrimitiveChain<Float>;
+	function bind(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Dynamic>;
+	function bindKey(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Dynamic>;
+	function defer(unknown:Dynamic):PrimitiveChain<Float>;
+	function delay(unknown:Dynamic):PrimitiveChain<Float>;
+	function wrap<TArgs, TResult>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> TResult>;
+	function clone(unknown:Dynamic):FunctionChain<T>;
+	function cloneDeep(unknown:Dynamic):FunctionChain<T>;
+	@:overload(function(unknown:Dynamic):FunctionChain<T> { })
+	function cloneDeepWith(unknown:Dynamic):LoDashExplicitWrapper<Dynamic>;
+	@:overload(function<TResult>(unknown:Dynamic):ts.AnyOf2<ExpChain<T>, ExpChain<TResult>> { })
+	@:overload(function(unknown:Dynamic):FunctionChain<T> { })
+	function cloneWith<TResult>(unknown:Dynamic):ExpChain<TResult>;
+	function conformsTo(unknown:Dynamic):PrimitiveChain<Bool>;
+	function eq(unknown:Dynamic):PrimitiveChain<Bool>;
+	function gt(unknown:Dynamic):PrimitiveChain<Bool>;
+	function gte(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isArguments(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isArray(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isArrayBuffer(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isArrayLike(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isArrayLikeObject(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isBoolean(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isBuffer(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isDate(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isElement(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isEmpty(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isEqual(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isEqualWith(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isError(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isFinite(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isFunction(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isInteger(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isLength(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isMap(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isMatch(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isMatchWith(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isNaN(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isNative(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isNil(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isNull(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isNumber(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isObject(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isObjectLike(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isPlainObject(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isRegExp(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isSafeInteger(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isSet(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isString(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isSymbol(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isTypedArray(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isUndefined(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isWeakMap(unknown:Dynamic):PrimitiveChain<Bool>;
+	function isWeakSet(unknown:Dynamic):PrimitiveChain<Bool>;
+	function lt(unknown:Dynamic):PrimitiveChain<Bool>;
+	function lte(unknown:Dynamic):PrimitiveChain<Bool>;
+	function toFinite(unknown:Dynamic):PrimitiveChain<Float>;
+	function toInteger(unknown:Dynamic):PrimitiveChain<Float>;
+	function toLength(unknown:Dynamic):PrimitiveChain<Float>;
+	function toNumber(unknown:Dynamic):PrimitiveChain<Float>;
+	function toPlainObject(unknown:Dynamic):ObjectChain<Dynamic>;
+	function toSafeInteger(unknown:Dynamic):PrimitiveChain<Float>;
+	function add(unknown:Dynamic):PrimitiveChain<Float>;
+	function ceil(unknown:Dynamic):PrimitiveChain<Float>;
+	function divide(unknown:Dynamic):PrimitiveChain<Float>;
+	function floor(unknown:Dynamic):PrimitiveChain<Float>;
+	function mean(unknown:Dynamic):PrimitiveChain<Float>;
+	function multiply(unknown:Dynamic):PrimitiveChain<Float>;
+	function round(unknown:Dynamic):PrimitiveChain<Float>;
+	function subtract(unknown:Dynamic):PrimitiveChain<Float>;
+	function sum(unknown:Dynamic):PrimitiveChain<Float>;
+	@:overload(function(unknown:Dynamic):PrimitiveChain<Float> { })
+	function clamp(unknown:Dynamic):PrimitiveChain<Float>;
+	function inRange(unknown:Dynamic):PrimitiveChain<Bool>;
+	@:overload(function(unknown:Dynamic):PrimitiveChain<Float> { })
+	function random(unknown:Dynamic):PrimitiveChain<Float>;
+	function entries(unknown:Dynamic):CollectionChain<ts.Tuple2<String, Dynamic>>;
+	function entriesIn(unknown:Dynamic):CollectionChain<ts.Tuple2<String, Dynamic>>;
+	function findKey(unknown:Dynamic):StringNullableChain;
+	function findLastKey(unknown:Dynamic):StringNullableChain;
+	function forIn(unknown:Dynamic):FunctionChain<T>;
+	function forInRight(unknown:Dynamic):FunctionChain<T>;
+	function forOwn(unknown:Dynamic):FunctionChain<T>;
+	function forOwnRight(unknown:Dynamic):FunctionChain<T>;
+	function functions(unknown:Dynamic):CollectionChain<String>;
+	function functionsIn(unknown:Dynamic):CollectionChain<String>;
+	function has(unknown:Dynamic):PrimitiveChain<Bool>;
+	function hasIn(unknown:Dynamic):PrimitiveChain<Bool>;
+	function invert(unknown:Dynamic):ObjectChain<Dictionary<String>>;
+	function invoke(unknown:Dynamic):LoDashExplicitWrapper<Dynamic>;
+	function keys(unknown:Dynamic):CollectionChain<String>;
+	function keysIn(unknown:Dynamic):CollectionChain<String>;
+	function result<TResult>(unknown:Dynamic):ExpChain<TResult>;
+	@:overload(function<TResult>(unknown:Dynamic):ExpChain<TResult> { })
+	function set(unknown:Dynamic):FunctionChain<T>;
+	@:overload(function<TResult>(unknown:Dynamic):ExpChain<TResult> { })
+	function setWith(unknown:Dynamic):FunctionChain<T>;
+	function toPairs(unknown:Dynamic):CollectionChain<ts.Tuple2<String, Dynamic>>;
+	function toPairsIn(unknown:Dynamic):CollectionChain<ts.Tuple2<String, Dynamic>>;
+	function unset(unknown:Dynamic):PrimitiveChain<Bool>;
+	function update(unknown:Dynamic):ObjectChain<Dynamic>;
+	function chain(unknown:Dynamic):FunctionChain<T>;
+	function commit(unknown:Dynamic):FunctionChain<T>;
+	function plant(unknown:Dynamic):FunctionChain<T>;
+	function reverse(unknown:Dynamic):FunctionChain<T>;
+	function toJSON(unknown:Dynamic):T;
+	function value(unknown:Dynamic):T;
+	function valueOf(unknown:Dynamic):T;
+	function tap(unknown:Dynamic):FunctionChain<T>;
+	function thru<TResult>(unknown:Dynamic):ExpChain<TResult>;
+	function camelCase(unknown:Dynamic):StringChain<String>;
+	function capitalize(unknown:Dynamic):StringChain<Dynamic>;
+	function deburr(unknown:Dynamic):StringChain<String>;
+	function endsWith(unknown:Dynamic):PrimitiveChain<Bool>;
+	function escape(unknown:Dynamic):StringChain<String>;
+	function escapeRegExp(unknown:Dynamic):StringChain<String>;
+	function kebabCase(unknown:Dynamic):StringChain<String>;
+	function lowerCase(unknown:Dynamic):StringChain<String>;
+	function lowerFirst(unknown:Dynamic):StringChain<Dynamic>;
+	function pad(unknown:Dynamic):StringChain<String>;
+	function padEnd(unknown:Dynamic):StringChain<String>;
+	function padStart(unknown:Dynamic):StringChain<String>;
+	function parseInt(unknown:Dynamic):PrimitiveChain<Float>;
+	function repeat(unknown:Dynamic):StringChain<String>;
+	@:overload(function(unknown:Dynamic):StringChain<String> { })
+	function replace(unknown:Dynamic):StringChain<String>;
+	function snakeCase(unknown:Dynamic):StringChain<String>;
+	function split(unknown:Dynamic):CollectionChain<String>;
+	function startCase(unknown:Dynamic):StringChain<String>;
+	function startsWith(unknown:Dynamic):PrimitiveChain<Bool>;
+	function template(unknown:Dynamic):FunctionChain<TemplateExecutor>;
+	function toLower(unknown:Dynamic):StringChain<Dynamic>;
+	function toUpper(unknown:Dynamic):StringChain<Dynamic>;
+	function trim(unknown:Dynamic):StringChain<String>;
+	function trimEnd(unknown:Dynamic):StringChain<String>;
+	function trimStart(unknown:Dynamic):StringChain<String>;
+	function truncate(unknown:Dynamic):StringChain<String>;
+	function unescape(unknown:Dynamic):StringChain<String>;
+	function upperCase(unknown:Dynamic):StringChain<String>;
+	function upperFirst(unknown:Dynamic):StringChain<Dynamic>;
+	function words(unknown:Dynamic):CollectionChain<String>;
+	function attempt<TResult>(unknown:Dynamic):ts.AnyOf2<ObjectChain<js.lib.Error>, ExpChain<TResult>>;
+	function bindAll(unknown:Dynamic):FunctionChain<T>;
+	function conforms(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Bool>;
+	function constant(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> T>;
+	@:overload(function<TDefault>(unknown:Dynamic):ExpChain<Dynamic> { })
+	function defaultTo(unknown:Dynamic):ExpChain<T>;
+	function identity(unknown:Dynamic):FunctionChain<T>;
+	function matches<V>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Bool>;
+	@:overload(function<SrcValue, Value>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Bool> { })
+	function matchesProperty<SrcValue>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Bool>;
+	function method(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Dynamic>;
+	function methodOf(unknown:Dynamic):LoDashExplicitWrapper<(unknown:Dynamic) -> Dynamic>;
+	@:overload(function(unknown:Dynamic):LoDashExplicitWrapper<LoDashStatic> { })
+	function mixin(unknown:Dynamic):FunctionChain<T>;
+	function noConflict(unknown:Dynamic):LoDashExplicitWrapper<LoDashStatic>;
+	function noop(unknown:Dynamic):PrimitiveChain<Null<Any>>;
+	function nthArg(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> Dynamic>;
+	function property<TObj, TResult>(unknown:Dynamic):FunctionChain<(unknown:Dynamic) -> TResult>;
+	function propertyOf(unknown:Dynamic):LoDashExplicitWrapper<(unknown:Dynamic) -> Dynamic>;
+	function range(unknown:Dynamic):CollectionChain<Float>;
+	function rangeRight(unknown:Dynamic):CollectionChain<Float>;
+	function stubArray(unknown:Dynamic):CollectionChain<Dynamic>;
+	@:overload(function(unknown:Dynamic):LoDashExplicitWrapper<Bool> { })
+	function stubFalse(unknown:Dynamic):PrimitiveChain<Bool>;
+	function stubObject(unknown:Dynamic):LoDashExplicitWrapper<Dynamic>;
+	function stubString(unknown:Dynamic):StringChain<String>;
+	@:overload(function(unknown:Dynamic):LoDashExplicitWrapper<Bool> { })
+	function stubTrue(unknown:Dynamic):PrimitiveChain<Bool>;
+	@:overload(function(unknown:Dynamic):CollectionChain<Float> { })
+	function times<TResult>(unknown:Dynamic):CollectionChain<TResult>;
+	function toPath(unknown:Dynamic):CollectionChain<String>;
+	function uniqueId(unknown:Dynamic):StringChain<String>;
 };

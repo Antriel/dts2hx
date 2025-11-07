@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "Texture") extern class Texture extends EventDispatcher {
-	function new(?image:ts.AnyOf3<js.html.CanvasElement, js.html.VideoElement, js.html.ImageElement>, ?mapping:Mapping, ?wrapS:Wrapping, ?wrapT:Wrapping, ?magFilter:TextureFilter, ?minFilter:TextureFilter, ?format:PixelFormat, ?type:TextureDataType, ?anisotropy:Float, ?encoding:TextureEncoding);
+	function new(unknown:Dynamic);
 	var id : Float;
 	var uuid : String;
 	var name : String;
@@ -27,12 +27,12 @@ package three;
 	var encoding : TextureEncoding;
 	var version : Float;
 	var needsUpdate : Bool;
-	dynamic function onUpdate():Void;
-	function clone():Texture;
-	function copy(source:Texture):Texture;
-	function toJSON(meta:Dynamic):Dynamic;
-	function dispose():Void;
-	function transformUv(uv:Vector):Void;
+	dynamic function onUpdate(unknown:Dynamic):Void;
+	function clone(unknown:Dynamic):Texture;
+	function copy(unknown:Dynamic):Texture;
+	function toJSON(unknown:Dynamic):Dynamic;
+	function dispose(unknown:Dynamic):Void;
+	function transformUv(unknown:Dynamic):Void;
 	static var prototype : Texture;
 	static var DEFAULT_IMAGE : Dynamic;
 	static var DEFAULT_MAPPING : Dynamic;

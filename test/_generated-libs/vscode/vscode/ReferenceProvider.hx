@@ -8,5 +8,5 @@ typedef ReferenceProvider = {
 	/**
 		Provide a set of project-wide references for the given position and document.
 	**/
-	function provideReferences(document:TextDocument, position:Position, context:ReferenceContext, token:CancellationToken):ProviderResult<Array<Location>>;
+	function provideReferences(unknown:Dynamic):ProviderResult<Array<Location>>;
 };

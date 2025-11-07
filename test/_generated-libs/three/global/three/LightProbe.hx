@@ -1,47 +1,47 @@
 package global.three;
 
 @:native("THREE.LightProbe") extern class LightProbe extends Light {
-	function new(?sh:SphericalHarmonics3, ?intensity:Float);
+	function new(unknown:Dynamic);
 	var isLightProbe : Bool;
 	var sh : SphericalHarmonics3;
-	function applyQuaternion(quaternion:Quaternion):LightProbe;
+	function applyQuaternion(unknown:Dynamic):LightProbe;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):LightProbe;
+	function rotateOnAxis(unknown:Dynamic):LightProbe;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):LightProbe;
-	function rotateX(angle:Float):LightProbe;
-	function rotateY(angle:Float):LightProbe;
-	function rotateZ(angle:Float):LightProbe;
-	function translateOnAxis(axis:Vector3, distance:Float):LightProbe;
+	function rotateOnWorldAxis(unknown:Dynamic):LightProbe;
+	function rotateX(unknown:Dynamic):LightProbe;
+	function rotateY(unknown:Dynamic):LightProbe;
+	function rotateZ(unknown:Dynamic):LightProbe;
+	function translateOnAxis(unknown:Dynamic):LightProbe;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):LightProbe;
+	function translateX(unknown:Dynamic):LightProbe;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):LightProbe;
+	function translateY(unknown:Dynamic):LightProbe;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):LightProbe;
+	function translateZ(unknown:Dynamic):LightProbe;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):LightProbe;
+	function add(unknown:Dynamic):LightProbe;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):LightProbe;
+	function remove(unknown:Dynamic):LightProbe;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):LightProbe;
-	function clone(?recursive:Bool):LightProbe;
-	function copy(source:LightProbe, ?recursive:Bool):LightProbe;
+	function attach(unknown:Dynamic):LightProbe;
+	function clone(unknown:Dynamic):LightProbe;
+	function copy(unknown:Dynamic):LightProbe;
 	static var prototype : LightProbe;
 }

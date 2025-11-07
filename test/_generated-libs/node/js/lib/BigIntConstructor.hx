@@ -2,16 +2,16 @@ package js.lib;
 
 typedef BigIntConstructor = {
 	@:selfCall
-	function call(?value:Dynamic):BigInt;
+	function call(unknown:Dynamic):BigInt;
 	final prototype : BigInt;
 	/**
 		Interprets the low bits of a BigInt as a 2's-complement signed integer.
 		All higher bits are discarded.
 	**/
-	function asIntN(bits:Float, int:BigInt):BigInt;
+	function asIntN(unknown:Dynamic):BigInt;
 	/**
 		Interprets the low bits of a BigInt as an unsigned integer.
 		All higher bits are discarded.
 	**/
-	function asUintN(bits:Float, int:BigInt):BigInt;
+	function asUintN(unknown:Dynamic):BigInt;
 };

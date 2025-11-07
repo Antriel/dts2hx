@@ -15,5 +15,5 @@ typedef TextEditorDecorationType = {
 	/**
 		Remove this decoration type and all decorations on all text editors using it.
 	**/
-	function dispose():Void;
+	function dispose(unknown:Dynamic):Void;
 };

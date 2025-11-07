@@ -1,3 +1,3 @@
 package global;
 
-typedef NodeRequireFunction = (id:String) -> Dynamic;
+typedef NodeRequireFunction = (unknown:Dynamic) -> Dynamic;

@@ -1,3 +1,3 @@
 package global._;
 
-typedef MemoIteratorCapped<T, TResult> = (prev:TResult, curr:T) -> TResult;
+typedef MemoIteratorCapped<T, TResult> = (unknown:Dynamic) -> TResult;

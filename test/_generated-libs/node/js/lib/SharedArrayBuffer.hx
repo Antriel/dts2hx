@@ -1,15 +1,14 @@
 package js.lib;
 
 @:native("SharedArrayBuffer") extern class SharedArrayBuffer {
-	function new(byteLength:Float);
+	function new(unknown:Dynamic);
 	/**
 		Read-only. The length of the ArrayBuffer (in bytes).
 	**/
 	final byteLength : Float;
-	var length : Float;
 	/**
 		Returns a section of an SharedArrayBuffer.
 	**/
-	function slice(begin:Float, ?end:Float):SharedArrayBuffer;
+	function slice(unknown:Dynamic):SharedArrayBuffer;
 	static final prototype : SharedArrayBuffer;
 }

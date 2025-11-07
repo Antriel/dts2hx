@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.LineDashedMaterial") extern class LineDashedMaterial extends LineBasicMaterial {
-	function new(?parameters:LineDashedMaterialParameters);
+	function new(unknown:Dynamic);
 	var scale : Float;
 	var dashSize : Float;
 	var gapSize : Float;
@@ -9,14 +9,14 @@ package global.three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(parameters:LineDashedMaterialParameters):Void;
+	function setValues(unknown:Dynamic):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone():LineDashedMaterial;
+	function clone(unknown:Dynamic):LineDashedMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(material:Material):LineDashedMaterial;
+	function copy(unknown:Dynamic):LineDashedMaterial;
 	static var prototype : LineDashedMaterial;
 }

@@ -1,35 +1,35 @@
 package node.fs;
 
 typedef FSWatcher = {
-	function close():Void;
+	function close(unknown:Dynamic):Void;
 	/**
 		events.EventEmitter
-		   1. change
-		   2. error
+		  1. change
+		  2. error
 	**/
-	@:overload(function(event:String, listener:(eventType:String, filename:ts.AnyOf2<String, global.Buffer>) -> Void):FSWatcher { })
-	@:overload(function(event:String, listener:(error:js.lib.Error) -> Void):FSWatcher { })
-	function addListener(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):FSWatcher;
-	@:overload(function(event:String, listener:(eventType:String, filename:ts.AnyOf2<String, global.Buffer>) -> Void):FSWatcher { })
-	@:overload(function(event:String, listener:(error:js.lib.Error) -> Void):FSWatcher { })
-	function on(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):FSWatcher;
-	@:overload(function(event:String, listener:(eventType:String, filename:ts.AnyOf2<String, global.Buffer>) -> Void):FSWatcher { })
-	@:overload(function(event:String, listener:(error:js.lib.Error) -> Void):FSWatcher { })
-	function once(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):FSWatcher;
-	@:overload(function(event:String, listener:(eventType:String, filename:ts.AnyOf2<String, global.Buffer>) -> Void):FSWatcher { })
-	@:overload(function(event:String, listener:(error:js.lib.Error) -> Void):FSWatcher { })
-	function prependListener(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):FSWatcher;
-	@:overload(function(event:String, listener:(eventType:String, filename:ts.AnyOf2<String, global.Buffer>) -> Void):FSWatcher { })
-	@:overload(function(event:String, listener:(error:js.lib.Error) -> Void):FSWatcher { })
-	function prependOnceListener(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):FSWatcher;
-	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):FSWatcher;
-	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):FSWatcher;
-	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):FSWatcher;
-	function setMaxListeners(n:Float):FSWatcher;
-	function getMaxListeners():Float;
-	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
-	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
-	function emit(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool;
-	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
-	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
+	@:overload(function(unknown:Dynamic):FSWatcher { })
+	@:overload(function(unknown:Dynamic):FSWatcher { })
+	function addListener(unknown:Dynamic):FSWatcher;
+	@:overload(function(unknown:Dynamic):FSWatcher { })
+	@:overload(function(unknown:Dynamic):FSWatcher { })
+	function on(unknown:Dynamic):FSWatcher;
+	@:overload(function(unknown:Dynamic):FSWatcher { })
+	@:overload(function(unknown:Dynamic):FSWatcher { })
+	function once(unknown:Dynamic):FSWatcher;
+	@:overload(function(unknown:Dynamic):FSWatcher { })
+	@:overload(function(unknown:Dynamic):FSWatcher { })
+	function prependListener(unknown:Dynamic):FSWatcher;
+	@:overload(function(unknown:Dynamic):FSWatcher { })
+	@:overload(function(unknown:Dynamic):FSWatcher { })
+	function prependOnceListener(unknown:Dynamic):FSWatcher;
+	function removeListener(unknown:Dynamic):FSWatcher;
+	function off(unknown:Dynamic):FSWatcher;
+	function removeAllListeners(unknown:Dynamic):FSWatcher;
+	function setMaxListeners(unknown:Dynamic):FSWatcher;
+	function getMaxListeners(unknown:Dynamic):Float;
+	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
+	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
+	function emit(unknown:Dynamic):Bool;
+	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	function listenerCount(unknown:Dynamic):Float;
 };

@@ -3,144 +3,143 @@ package express_serve_static_core;
 typedef RequestRanges = {
 	var type : String;
 	/**
-		Gets or sets the length of the array. This is a number one higher than the highest element defined in an array.
+		Gets or sets the length of the array. This is a number one higher than the highest index in the array.
 	**/
 	var length : Float;
 	/**
 		Returns a string representation of an array.
 	**/
-	function toString():String;
+	function toString(unknown:Dynamic):String;
 	/**
-		Returns a string representation of an array. The elements are converted to string using their toLocalString methods.
+		Returns a string representation of an array. The elements are converted to string using their toLocaleString methods.
 	**/
-	function toLocaleString():String;
+	@:overload(function(unknown:Dynamic):String { })
+	function toLocaleString(unknown:Dynamic):String;
 	/**
 		Removes the last element from an array and returns it.
+		If the array is empty, undefined is returned and the array is not modified.
 	**/
-	function pop():Null<range_parser.Range>;
+	function pop(unknown:Dynamic):Null<range_parser.Range>;
 	/**
-		Appends new elements to an array, and returns the new length of the array.
+		Appends new elements to the end of an array, and returns the new length of the array.
 	**/
-	function push(items:haxe.extern.Rest<range_parser.Range>):Float;
+	function push(unknown:Dynamic):Float;
 	/**
 		Combines two or more arrays.
-		
-		Combines two or more arrays.
+		This method returns a new array without modifying any existing arrays.
 	**/
-	@:overload(function(items:haxe.extern.Rest<ts.AnyOf2<range_parser.Range, js.lib.ConcatArray<range_parser.Range>>>):Array<range_parser.Range> { })
-	function concat(items:haxe.extern.Rest<js.lib.ConcatArray<range_parser.Range>>):Array<range_parser.Range>;
+	@:overload(function(unknown:Dynamic):Array<range_parser.Range> { })
+	function concat(unknown:Dynamic):Array<range_parser.Range>;
 	/**
-		Adds all the elements of an array separated by the specified separator string.
+		Adds all the elements of an array into a string, separated by the specified separator string.
 	**/
-	function join(?separator:String):String;
+	function join(unknown:Dynamic):String;
 	/**
-		Reverses the elements in an Array.
+		Reverses the elements in an array in place.
+		This method mutates the array and returns a reference to the same array.
 	**/
-	function reverse():Array<range_parser.Range>;
+	function reverse(unknown:Dynamic):Array<range_parser.Range>;
 	/**
 		Removes the first element from an array and returns it.
+		If the array is empty, undefined is returned and the array is not modified.
 	**/
-	function shift():Null<range_parser.Range>;
+	function shift(unknown:Dynamic):Null<range_parser.Range>;
 	/**
-		Returns a section of an array.
+		Returns a copy of a section of an array.
+		For both start and end, a negative index can be used to indicate an offset from the end of the array.
+		For example, -2 refers to the second to last element of the array.
 	**/
-	function slice(?start:Float, ?end:Float):Array<range_parser.Range>;
+	function slice(unknown:Dynamic):Array<range_parser.Range>;
 	/**
-		Sorts an array.
+		Sorts an array in place.
+		This method mutates the array and returns a reference to the same array.
 	**/
-	function sort(?compareFn:(a:range_parser.Range, b:range_parser.Range) -> Float):RequestRanges;
+	function sort(unknown:Dynamic):RequestRanges;
 	/**
 		Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
-		
-		Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
 	**/
-	@:overload(function(start:Float, deleteCount:Float, items:haxe.extern.Rest<range_parser.Range>):Array<range_parser.Range> { })
-	function splice(start:Float, ?deleteCount:Float):Array<range_parser.Range>;
+	@:overload(function(unknown:Dynamic):Array<range_parser.Range> { })
+	function splice(unknown:Dynamic):Array<range_parser.Range>;
 	/**
-		Inserts new elements at the start of an array.
+		Inserts new elements at the start of an array, and returns the new length of the array.
 	**/
-	function unshift(items:haxe.extern.Rest<range_parser.Range>):Float;
+	function unshift(unknown:Dynamic):Float;
 	/**
-		Returns the index of the first occurrence of a value in an array.
+		Returns the index of the first occurrence of a value in an array, or -1 if it is not present.
 	**/
-	function indexOf(searchElement:range_parser.Range, ?fromIndex:Float):Float;
+	function indexOf(unknown:Dynamic):Float;
 	/**
-		Returns the index of the last occurrence of a specified value in an array.
+		Returns the index of the last occurrence of a specified value in an array, or -1 if it is not present.
 	**/
-	function lastIndexOf(searchElement:range_parser.Range, ?fromIndex:Float):Float;
+	function lastIndexOf(unknown:Dynamic):Float;
 	/**
 		Determines whether all the members of an array satisfy the specified test.
 	**/
-	function every(callbackfn:(value:range_parser.Range, index:Float, array:Array<range_parser.Range>) -> Any, ?thisArg:Dynamic):Bool;
+	@:overload(function(unknown:Dynamic):Bool { })
+	function every<S>(unknown:Dynamic):Bool;
 	/**
 		Determines whether the specified callback function returns true for any element of an array.
 	**/
-	function some(callbackfn:(value:range_parser.Range, index:Float, array:Array<range_parser.Range>) -> Any, ?thisArg:Dynamic):Bool;
+	function some(unknown:Dynamic):Bool;
 	/**
 		Performs the specified action for each element in an array.
 	**/
-	function forEach(callbackfn:(value:range_parser.Range, index:Float, array:Array<range_parser.Range>) -> Void, ?thisArg:Dynamic):Void;
+	function forEach(unknown:Dynamic):Void;
 	/**
 		Calls a defined callback function on each element of an array, and returns an array that contains the results.
 	**/
-	function map<U>(callbackfn:(value:range_parser.Range, index:Float, array:Array<range_parser.Range>) -> U, ?thisArg:Dynamic):Array<U>;
+	function map<U>(unknown:Dynamic):Array<U>;
 	/**
 		Returns the elements of an array that meet the condition specified in a callback function.
-		
-		Returns the elements of an array that meet the condition specified in a callback function.
 	**/
-	@:overload(function(callbackfn:(value:range_parser.Range, index:Float, array:Array<range_parser.Range>) -> Any, ?thisArg:Dynamic):Array<range_parser.Range> { })
-	function filter<S>(callbackfn:(value:range_parser.Range, index:Float, array:Array<range_parser.Range>) -> Bool, ?thisArg:Dynamic):Array<S>;
+	@:overload(function(unknown:Dynamic):Array<range_parser.Range> { })
+	function filter<S>(unknown:Dynamic):Array<S>;
 	/**
 		Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
-		
-		Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
 	**/
-	@:overload(function(callbackfn:(previousValue:range_parser.Range, currentValue:range_parser.Range, currentIndex:Float, array:Array<range_parser.Range>) -> range_parser.Range, initialValue:range_parser.Range):range_parser.Range { })
-	@:overload(function<U>(callbackfn:(previousValue:U, currentValue:range_parser.Range, currentIndex:Float, array:Array<range_parser.Range>) -> U, initialValue:U):U { })
-	function reduce(callbackfn:(previousValue:range_parser.Range, currentValue:range_parser.Range, currentIndex:Float, array:Array<range_parser.Range>) -> range_parser.Range):range_parser.Range;
+	@:overload(function(unknown:Dynamic):range_parser.Range { })
+	@:overload(function<U>(unknown:Dynamic):U { })
+	function reduce(unknown:Dynamic):range_parser.Range;
 	/**
 		Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
-		
-		Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
 	**/
-	@:overload(function(callbackfn:(previousValue:range_parser.Range, currentValue:range_parser.Range, currentIndex:Float, array:Array<range_parser.Range>) -> range_parser.Range, initialValue:range_parser.Range):range_parser.Range { })
-	@:overload(function<U>(callbackfn:(previousValue:U, currentValue:range_parser.Range, currentIndex:Float, array:Array<range_parser.Range>) -> U, initialValue:U):U { })
-	function reduceRight(callbackfn:(previousValue:range_parser.Range, currentValue:range_parser.Range, currentIndex:Float, array:Array<range_parser.Range>) -> range_parser.Range):range_parser.Range;
+	@:overload(function(unknown:Dynamic):range_parser.Range { })
+	@:overload(function<U>(unknown:Dynamic):U { })
+	function reduceRight(unknown:Dynamic):range_parser.Range;
 	/**
 		Returns the value of the first element in the array where predicate is true, and undefined
 		otherwise.
 	**/
-	@:overload(function(predicate:(value:range_parser.Range, index:Float, obj:Array<range_parser.Range>) -> Any, ?thisArg:Dynamic):Null<range_parser.Range> { })
-	function find<S>(predicate:(value:range_parser.Range, index:Float, obj:Array<range_parser.Range>) -> Bool, ?thisArg:Dynamic):Null<S>;
+	@:overload(function(unknown:Dynamic):Null<range_parser.Range> { })
+	function find<S>(unknown:Dynamic):Null<S>;
 	/**
 		Returns the index of the first element in the array where predicate is true, and -1
 		otherwise.
 	**/
-	function findIndex(predicate:(value:range_parser.Range, index:Float, obj:Array<range_parser.Range>) -> Any, ?thisArg:Dynamic):Float;
+	function findIndex(unknown:Dynamic):Float;
 	/**
-		Returns the this object after filling the section identified by start and end with value
+		Changes all array elements from `start` to `end` index to a static `value` and returns the modified array
 	**/
-	function fill(value:range_parser.Range, ?start:Float, ?end:Float):RequestRanges;
+	function fill(unknown:Dynamic):RequestRanges;
 	/**
 		Returns the this object after copying a section of the array identified by start and end
 		to the same array starting at position target
 	**/
-	function copyWithin(target:Float, start:Float, ?end:Float):RequestRanges;
+	function copyWithin(unknown:Dynamic):RequestRanges;
 	/**
 		Returns an iterable of key, value pairs for every entry in the array
 	**/
-	function entries():js.lib.IterableIterator<ts.Tuple2<Float, range_parser.Range>>;
+	function entries(unknown:Dynamic):js.lib.ArrayIterator<ts.Tuple2<Float, range_parser.Range>>;
 	/**
 		Returns an iterable of keys in the array
 	**/
-	function keys():js.lib.IterableIterator<Float>;
+	function keys(unknown:Dynamic):js.lib.ArrayIterator<Float>;
 	/**
 		Returns an iterable of values in the array
 	**/
-	function values():js.lib.IterableIterator<range_parser.Range>;
+	function values(unknown:Dynamic):js.lib.ArrayIterator<range_parser.Range>;
 	/**
 		Determines whether an array includes a certain element, returning true or false as appropriate.
 	**/
-	function includes(searchElement:range_parser.Range, ?fromIndex:Float):Bool;
+	function includes(unknown:Dynamic):Bool;
 };

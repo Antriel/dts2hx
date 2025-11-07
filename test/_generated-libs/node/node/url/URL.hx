@@ -1,7 +1,7 @@
 package node.url;
 
 @:jsRequire("url", "URL") extern class URL {
-	function new(input:String, ?base:ts.AnyOf2<String, URL>);
+	function new(unknown:Dynamic);
 	var hash : String;
 	var host : String;
 	var hostname : String;
@@ -14,7 +14,7 @@ package node.url;
 	var search : String;
 	final searchParams : URLSearchParams;
 	var username : String;
-	function toString():String;
-	function toJSON():String;
+	function toString(unknown:Dynamic):String;
+	function toJSON(unknown:Dynamic):String;
 	static var prototype : URL;
 }

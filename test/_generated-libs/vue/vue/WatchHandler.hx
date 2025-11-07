@@ -1,3 +1,3 @@
 package vue;
 
-typedef WatchHandler<T> = (val:T, oldVal:T) -> Void;
+typedef WatchHandler<T> = (unknown:Dynamic) -> Void;

@@ -5,7 +5,7 @@ package vscode;
 	'Clean', 'Build', 'RebuildAll' and 'Test' group.
 **/
 @:jsRequire("vscode", "TaskGroup") extern class TaskGroup {
-	private function new(id:String, label:String);
+	private function new(unknown:Dynamic);
 	static var prototype : TaskGroup;
 	/**
 		The clean task group;

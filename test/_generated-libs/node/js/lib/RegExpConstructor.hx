@@ -1,10 +1,10 @@
 package js.lib;
 
 typedef RegExpConstructor = {
-	@:overload(function(pattern:String, ?flags:String):js.lib.RegExp { })
-	@:overload(function(pattern:ts.AnyOf2<String, js.lib.RegExp>, ?flags:String):js.lib.RegExp { })
+	@:overload(function(unknown:Dynamic):js.lib.RegExp { })
+	@:overload(function(unknown:Dynamic):js.lib.RegExp { })
 	@:selfCall
-	function call(pattern:ts.AnyOf2<String, js.lib.RegExp>):js.lib.RegExp;
+	function call(unknown:Dynamic):js.lib.RegExp;
 	final prototype : js.lib.RegExp;
 	@:native("$1")
 	var Dollar1 : String;
@@ -24,5 +24,19 @@ typedef RegExpConstructor = {
 	var Dollar8 : String;
 	@:native("$9")
 	var Dollar9 : String;
+	var input : String;
+	@:native("$_")
+	var Dollar__ : String;
 	var lastMatch : String;
+	@:native("$&")
+	var DollarAmpersand : String;
+	var lastParen : String;
+	@:native("$+")
+	var DollarPlus : String;
+	var leftContext : String;
+	@:native("$`")
+	var Dollar_ : String;
+	var rightContext : String;
+	@:native("$\'")
+	var Dollar : String;
 };

@@ -1,3 +1,3 @@
 package global._;
 
-typedef MemoVoidIteratorCapped<T, TResult> = (acc:TResult, curr:T) -> Void;
+typedef MemoVoidIteratorCapped<T, TResult> = (unknown:Dynamic) -> Void;

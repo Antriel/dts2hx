@@ -4,7 +4,7 @@ package global.three;
 	Scenes allow you to set up what and where is to be rendered by three.js. This is where you place objects, lights and cameras.
 **/
 @:native("THREE.Scene") extern class Scene extends Object3D {
-	function new();
+	function new(unknown:Dynamic);
 	/**
 		A fog instance defining the type of fog that affects everything rendered in the scene. Default is null.
 	**/
@@ -14,47 +14,47 @@ package global.three;
 	**/
 	var overrideMaterial : Null<Material>;
 	var autoUpdate : Bool;
-	var background : Null<ts.AnyOf2<Texture, Color>>;
-	function toJSON(?meta:Dynamic):Dynamic;
-	function dispose():Void;
-	function applyQuaternion(quaternion:Quaternion):Scene;
+	var background : Null<ts.AnyOf2<Color, Texture>>;
+	function toJSON(unknown:Dynamic):Dynamic;
+	function dispose(unknown:Dynamic):Void;
+	function applyQuaternion(unknown:Dynamic):Scene;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):Scene;
+	function rotateOnAxis(unknown:Dynamic):Scene;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):Scene;
-	function rotateX(angle:Float):Scene;
-	function rotateY(angle:Float):Scene;
-	function rotateZ(angle:Float):Scene;
-	function translateOnAxis(axis:Vector3, distance:Float):Scene;
+	function rotateOnWorldAxis(unknown:Dynamic):Scene;
+	function rotateX(unknown:Dynamic):Scene;
+	function rotateY(unknown:Dynamic):Scene;
+	function rotateZ(unknown:Dynamic):Scene;
+	function translateOnAxis(unknown:Dynamic):Scene;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):Scene;
+	function translateX(unknown:Dynamic):Scene;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):Scene;
+	function translateY(unknown:Dynamic):Scene;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):Scene;
+	function translateZ(unknown:Dynamic):Scene;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):Scene;
+	function add(unknown:Dynamic):Scene;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):Scene;
+	function remove(unknown:Dynamic):Scene;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):Scene;
-	function clone(?recursive:Bool):Scene;
-	function copy(source:Scene, ?recursive:Bool):Scene;
+	function attach(unknown:Dynamic):Scene;
+	function clone(unknown:Dynamic):Scene;
+	function copy(unknown:Dynamic):Scene;
 	static var prototype : Scene;
 }

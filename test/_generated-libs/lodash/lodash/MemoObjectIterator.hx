@@ -1,3 +1,3 @@
 package lodash;
 
-typedef MemoObjectIterator<T, TResult, TList> = (prev:TResult, curr:T, key:String, list:TList) -> TResult;
+typedef MemoObjectIterator<T, TResult, TList> = (unknown:Dynamic) -> TResult;

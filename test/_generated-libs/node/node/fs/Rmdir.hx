@@ -8,5 +8,5 @@ package node.fs;
 		Asynchronous rmdir(2) - delete a directory.
 	**/
 	@:selfCall
-	static function call(path:PathLike, callback:(err:global.nodejs.ErrnoException) -> Void):Void;
+	static function call(unknown:Dynamic):Void;
 }

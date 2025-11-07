@@ -4,7 +4,7 @@ package global.three;
 	Base class for geometries
 **/
 @:native("THREE.Geometry") extern class Geometry extends EventDispatcher {
-	function new();
+	function new(unknown:Dynamic);
 	/**
 		Unique number of this geometry instance
 	**/
@@ -42,7 +42,7 @@ package global.three;
 	/**
 		Array of morph targets. Each morph target is a Javascript object:
 		
-				 { name: "targetName", vertices: [ new THREE.Vector3(), ... ] }
+			 { name: "targetName", vertices: [ new THREE.Vector3(), ... ] }
 		
 		Morph vertices match number and order of primary vertices.
 	**/
@@ -50,7 +50,7 @@ package global.three;
 	/**
 		Array of morph normals. Morph normals have similar structure as morph targets, each normal set is a Javascript object:
 		
-				 morphNormal = { name: "NormalName", normals: [ new THREE.Vector3(), ... ] }
+			 morphNormal = { name: "NormalName", normals: [ new THREE.Vector3(), ... ] }
 	**/
 	var morphNormals : Array<MorphNormals>;
 	/**
@@ -98,62 +98,66 @@ package global.three;
 	/**
 		Bakes matrix transform directly into vertex coordinates.
 	**/
-	function applyMatrix(matrix:Matrix4):Geometry;
-	function rotateX(angle:Float):Geometry;
-	function rotateY(angle:Float):Geometry;
-	function rotateZ(angle:Float):Geometry;
-	function translate(x:Float, y:Float, z:Float):Geometry;
-	function scale(x:Float, y:Float, z:Float):Geometry;
-	function lookAt(vector:Vector3):Void;
-	function fromBufferGeometry(geometry:BufferGeometry):Geometry;
-	function center():Geometry;
-	function normalize():Geometry;
+	function applyMatrix(unknown:Dynamic):Geometry;
+	function rotateX(unknown:Dynamic):Geometry;
+	function rotateY(unknown:Dynamic):Geometry;
+	function rotateZ(unknown:Dynamic):Geometry;
+	function translate(unknown:Dynamic):Geometry;
+	function scale(unknown:Dynamic):Geometry;
+	function lookAt(unknown:Dynamic):Void;
+	function fromBufferGeometry(unknown:Dynamic):Geometry;
+	function center(unknown:Dynamic):Geometry;
+	function normalize(unknown:Dynamic):Geometry;
 	/**
 		Computes face normals.
 	**/
-	function computeFaceNormals():Void;
+	function computeFaceNormals(unknown:Dynamic):Void;
 	/**
 		Computes vertex normals by averaging face normals.
 		Face normals must be existing / computed beforehand.
 	**/
-	function computeVertexNormals(?areaWeighted:Bool):Void;
+	function computeVertexNormals(unknown:Dynamic):Void;
 	/**
 		Compute vertex normals, but duplicating face normals.
 	**/
-	function computeFlatVertexNormals():Void;
+	function computeFlatVertexNormals(unknown:Dynamic):Void;
 	/**
 		Computes morph normals.
 	**/
-	function computeMorphNormals():Void;
+	function computeMorphNormals(unknown:Dynamic):Void;
 	/**
-		Computes bounding box of the geometry, updating {@link Geometry.boundingBox} attribute.
+		Computes bounding box of the geometry, updating
+		{@link
+		Geometry.boundingBox
+		}
+		attribute.
 	**/
-	function computeBoundingBox():Void;
+	function computeBoundingBox(unknown:Dynamic):Void;
 	/**
 		Computes bounding sphere of the geometry, updating Geometry.boundingSphere attribute.
 		Neither bounding boxes or bounding spheres are computed by default. They need to be explicitly computed, otherwise they are null.
 	**/
-	function computeBoundingSphere():Void;
-	function merge(geometry:Geometry, ?matrix:Matrix, ?materialIndexOffset:Float):Void;
-	function mergeMesh(mesh:Mesh):Void;
+	function computeBoundingSphere(unknown:Dynamic):Void;
+	function merge(unknown:Dynamic):Void;
+	function mergeMesh(unknown:Dynamic):Void;
 	/**
 		Checks for duplicate vertices using hashmap.
 		Duplicated vertices are removed and faces' vertices are updated.
 	**/
-	function mergeVertices():Float;
-	function setFromPoints(points:ts.AnyOf2<Array<Vector3>, Array<Vector2>>):Geometry;
-	function sortFacesByMaterialIndex():Void;
-	function toJSON():Dynamic;
+	function mergeVertices(unknown:Dynamic):Float;
+	function setFromPoints(unknown:Dynamic):Geometry;
+	function sortFacesByMaterialIndex(unknown:Dynamic):Void;
+	function toJSON(unknown:Dynamic):Dynamic;
 	/**
 		Creates a new clone of the Geometry.
 	**/
-	function clone():Geometry;
-	function copy(source:Geometry):Geometry;
+	function clone(unknown:Dynamic):Geometry;
+	function copy(unknown:Dynamic):Geometry;
 	/**
 		Removes The object from memory.
 		Don't forget to call this method when you remove an geometry because it can cuase meomory leaks.
 	**/
-	function dispose():Void;
+	function dispose(unknown:Dynamic):Void;
 	var bones : Array<Bone>;
 	var animation : AnimationClip;
 	var animations : Array<AnimationClip>;

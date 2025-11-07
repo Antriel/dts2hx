@@ -1,22 +1,22 @@
 package node.net;
 
 @:jsRequire("net", "Socket") extern class Socket extends node.stream.Duplex {
-	function new(?options:SocketConstructorOpts);
-	@:overload(function(str:ts.AnyOf3<String, global.Buffer, js.lib.Uint8Array>, ?encoding:String, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool { })
-	function write(buffer:ts.AnyOf3<String, global.Buffer, js.lib.Uint8Array>, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool;
-	@:overload(function(port:Float, host:String, ?connectionListener:() -> Void):Socket { })
-	@:overload(function(port:Float, ?connectionListener:() -> Void):Socket { })
-	@:overload(function(path:String, ?connectionListener:() -> Void):Socket { })
-	function connect(options:SocketConnectOpts, ?connectionListener:() -> Void):Socket;
-	function setEncoding(?encoding:String):Socket;
-	function pause():Socket;
-	function resume():Socket;
-	function setTimeout(timeout:Float, ?callback:() -> Void):Socket;
-	function setNoDelay(?noDelay:Bool):Socket;
-	function setKeepAlive(?enable:Bool, ?initialDelay:Float):Socket;
-	function address():ts.AnyOf2<String, AddressInfo>;
-	function unref():Void;
-	function ref():Void;
+	function new(unknown:Dynamic);
+	@:overload(function(unknown:Dynamic):Bool { })
+	function write(unknown:Dynamic):Bool;
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	function connect(unknown:Dynamic):Socket;
+	function setEncoding(unknown:Dynamic):Socket;
+	function pause(unknown:Dynamic):Socket;
+	function resume(unknown:Dynamic):Socket;
+	function setTimeout(unknown:Dynamic):Socket;
+	function setNoDelay(unknown:Dynamic):Socket;
+	function setKeepAlive(unknown:Dynamic):Socket;
+	function address(unknown:Dynamic):ts.AnyOf2<String, AddressInfo>;
+	function unref(unknown:Dynamic):Void;
+	function ref(unknown:Dynamic):Void;
 	final bufferSize : Float;
 	final bytesRead : Float;
 	final bytesWritten : Float;
@@ -30,85 +30,85 @@ package node.net;
 	final remoteFamily : String;
 	@:optional
 	final remotePort : Float;
-	@:overload(function(buffer:ts.AnyOf3<String, global.Buffer, js.lib.Uint8Array>, ?cb:() -> Void):Void { })
-	@:overload(function(str:ts.AnyOf3<String, global.Buffer, js.lib.Uint8Array>, ?encoding:String, ?cb:() -> Void):Void { })
-	function end(?cb:() -> Void):Void;
+	@:overload(function(unknown:Dynamic):Void { })
+	@:overload(function(unknown:Dynamic):Void { })
+	function end(unknown:Dynamic):Void;
 	/**
 		events.EventEmitter
-		   1. close
-		   2. connect
-		   3. data
-		   4. drain
-		   5. end
-		   6. error
-		   7. lookup
-		   8. timeout
+		  1. close
+		  2. connect
+		  3. data
+		  4. drain
+		  5. end
+		  6. error
+		  7. lookup
+		  8. timeout
 	**/
-	@:overload(function(event:String, listener:(had_error:Bool) -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:(data:global.Buffer) -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Socket { })
-	@:overload(function(event:String, listener:(err:js.lib.Error, address:String, family:ts.AnyOf2<String, Float>, host:String) -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	function addListener(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Socket;
-	@:overload(function(event:String, had_error:Bool):Bool { })
-	@:overload(function(event:String):Bool { })
-	@:overload(function(event:String, data:global.Buffer):Bool { })
-	@:overload(function(event:String):Bool { })
-	@:overload(function(event:String):Bool { })
-	@:overload(function(event:String, err:js.lib.Error):Bool { })
-	@:overload(function(event:String, err:js.lib.Error, address:String, family:ts.AnyOf2<String, Float>, host:String):Bool { })
-	@:overload(function(event:String):Bool { })
-	function emit(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool;
-	@:overload(function(event:String, listener:(had_error:Bool) -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:(data:global.Buffer) -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Socket { })
-	@:overload(function(event:String, listener:(err:js.lib.Error, address:String, family:ts.AnyOf2<String, Float>, host:String) -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	function on(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Socket;
-	@:overload(function(event:String, listener:(had_error:Bool) -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:(data:global.Buffer) -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Socket { })
-	@:overload(function(event:String, listener:(err:js.lib.Error, address:String, family:ts.AnyOf2<String, Float>, host:String) -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	function once(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Socket;
-	@:overload(function(event:String, listener:(had_error:Bool) -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:(data:global.Buffer) -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Socket { })
-	@:overload(function(event:String, listener:(err:js.lib.Error, address:String, family:ts.AnyOf2<String, Float>, host:String) -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	function prependListener(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Socket;
-	@:overload(function(event:String, listener:(had_error:Bool) -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:(data:global.Buffer) -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Socket { })
-	@:overload(function(event:String, listener:(err:js.lib.Error, address:String, family:ts.AnyOf2<String, Float>, host:String) -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	function prependOnceListener(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Socket;
-	function setDefaultEncoding(encoding:String):Socket;
-	function unpipe(?destination:global.nodejs.WritableStream):Socket;
-	function wrap(oldStream:global.nodejs.ReadableStream):Socket;
-	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:() -> Void):Socket { })
-	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Socket { })
-	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Socket { })
-	function removeListener(event:String, listener:() -> Void):Socket;
-	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Socket;
-	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):Socket;
-	function setMaxListeners(n:Float):Socket;
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	function addListener(unknown:Dynamic):Socket;
+	@:overload(function(unknown:Dynamic):Bool { })
+	@:overload(function(unknown:Dynamic):Bool { })
+	@:overload(function(unknown:Dynamic):Bool { })
+	@:overload(function(unknown:Dynamic):Bool { })
+	@:overload(function(unknown:Dynamic):Bool { })
+	@:overload(function(unknown:Dynamic):Bool { })
+	@:overload(function(unknown:Dynamic):Bool { })
+	@:overload(function(unknown:Dynamic):Bool { })
+	function emit(unknown:Dynamic):Bool;
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	function on(unknown:Dynamic):Socket;
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	function once(unknown:Dynamic):Socket;
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	function prependListener(unknown:Dynamic):Socket;
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	function prependOnceListener(unknown:Dynamic):Socket;
+	function setDefaultEncoding(unknown:Dynamic):Socket;
+	function unpipe(unknown:Dynamic):Socket;
+	function wrap(unknown:Dynamic):Socket;
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	@:overload(function(unknown:Dynamic):Socket { })
+	function removeListener(unknown:Dynamic):Socket;
+	function off(unknown:Dynamic):Socket;
+	function removeAllListeners(unknown:Dynamic):Socket;
+	function setMaxListeners(unknown:Dynamic):Socket;
 	static var prototype : Socket;
 }

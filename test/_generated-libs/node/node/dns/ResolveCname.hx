@@ -2,5 +2,5 @@ package node.dns;
 
 @:jsRequire("dns", "resolveCname") @valueModuleOnly extern class ResolveCname {
 	@:selfCall
-	static function call(hostname:String, callback:(err:global.nodejs.ErrnoException, addresses:Array<String>) -> Void):Void;
+	static function call(unknown:Dynamic):Void;
 }

@@ -1,3 +1,3 @@
 package global.jquery;
 
-typedef TypeEventHandler<TDelegateTarget, TData, TCurrentTarget, TTarget, TType> = EventHandlerBase<TCurrentTarget, Dynamic>;
+typedef TypeEventHandler<TDelegateTarget, TData, TCurrentTarget, TTarget, TType> = (unknown:Dynamic) -> Dynamic;

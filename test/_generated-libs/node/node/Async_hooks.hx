@@ -7,13 +7,13 @@ package node;
 	/**
 		Returns the asyncId of the current execution context.
 	**/
-	static function executionAsyncId():Float;
+	static function executionAsyncId(unknown:Dynamic):Float;
 	/**
 		Returns the ID of the resource responsible for calling the callback that is currently being executed.
 	**/
-	static function triggerAsyncId():Float;
+	static function triggerAsyncId(unknown:Dynamic):Float;
 	/**
 		Registers functions to be called for different lifetime events of each async operation.
 	**/
-	static function createHook(options:node.async_hooks.HookCallbacks):node.async_hooks.AsyncHook;
+	static function createHook(unknown:Dynamic):node.async_hooks.AsyncHook;
 }

@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.CylinderBufferGeometry") extern class CylinderBufferGeometry extends BufferGeometry {
-	function new(?radiusTop:Float, ?radiusBottom:Float, ?height:Float, ?radialSegments:Float, ?heightSegments:Float, ?openEnded:Bool, ?thetaStart:Float, ?thetaLength:Float);
+	function new(unknown:Dynamic);
 	var parameters : {
 		var radiusTop : Float;
 		var radiusBottom : Float;
@@ -12,7 +12,7 @@ package global.three;
 		var thetaStart : Float;
 		var thetaLength : Float;
 	};
-	function clone():CylinderBufferGeometry;
-	function copy(source:BufferGeometry):CylinderBufferGeometry;
+	function clone(unknown:Dynamic):CylinderBufferGeometry;
+	function copy(unknown:Dynamic):CylinderBufferGeometry;
 	static var prototype : CylinderBufferGeometry;
 }

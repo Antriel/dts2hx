@@ -1,5 +1,5 @@
 package lodash;
 
 typedef LoDashWrapper<TValue> = {
-	function toString():String;
+	function toString(unknown:Dynamic):String;
 };

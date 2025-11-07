@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "MeshMatcapMaterial") extern class MeshMatcapMaterial extends Material {
-	function new(?parameters:MeshMatcapMaterialParameters);
+	function new(unknown:Dynamic);
 	var color : Color;
 	var matcap : Null<Texture>;
 	var map : Null<Texture>;
@@ -20,14 +20,14 @@ package three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(parameters:MeshMatcapMaterialParameters):Void;
+	function setValues(unknown:Dynamic):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone():MeshMatcapMaterial;
+	function clone(unknown:Dynamic):MeshMatcapMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(material:Material):MeshMatcapMaterial;
+	function copy(unknown:Dynamic):MeshMatcapMaterial;
 	static var prototype : MeshMatcapMaterial;
 }

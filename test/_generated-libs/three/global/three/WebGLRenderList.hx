@@ -4,9 +4,9 @@ package global.three;
 	function new();
 	var opaque : Array<RenderItem>;
 	var transparent : Array<RenderItem>;
-	function init():Void;
-	function push(object:Object3D, geometry:Null<BufferGeometry>, material:Material, groupOrder:Float, z:Float, group:Null<Group>):Void;
-	function unshift(object:Object3D, geometry:Null<BufferGeometry>, material:Material, groupOrder:Float, z:Float, group:Null<Group>):Void;
-	function sort():Void;
+	function init(unknown:Dynamic):Void;
+	function push(unknown:Dynamic):Void;
+	function unshift(unknown:Dynamic):Void;
+	function sort(unknown:Dynamic):Void;
 	static var prototype : WebGLRenderList;
 }

@@ -18,37 +18,37 @@ typedef ComponentOptions<V, Data, Methods, Computed, PropsDef, Props> = {
 	@:optional
 	var template : String;
 	@:optional
-	function render(createElement:CreateElement, hack:RenderContext<Props>):VNode;
+	function render(unknown:Dynamic):VNode;
 	@:optional
-	function renderError(createElement:CreateElement, err:js.lib.Error):VNode;
+	function renderError(unknown:Dynamic):VNode;
 	@:optional
-	var staticRenderFns : Array<(createElement:CreateElement) -> VNode>;
+	var staticRenderFns : Array<(unknown:Dynamic) -> VNode>;
 	@:optional
-	function beforeCreate():Void;
+	function beforeCreate(unknown:Dynamic):Void;
 	@:optional
-	function created():Void;
+	function created(unknown:Dynamic):Void;
 	@:optional
-	function beforeDestroy():Void;
+	function beforeDestroy(unknown:Dynamic):Void;
 	@:optional
-	function destroyed():Void;
+	function destroyed(unknown:Dynamic):Void;
 	@:optional
-	function beforeMount():Void;
+	function beforeMount(unknown:Dynamic):Void;
 	@:optional
-	function mounted():Void;
+	function mounted(unknown:Dynamic):Void;
 	@:optional
-	function beforeUpdate():Void;
+	function beforeUpdate(unknown:Dynamic):Void;
 	@:optional
-	function updated():Void;
+	function updated(unknown:Dynamic):Void;
 	@:optional
-	function activated():Void;
+	function activated(unknown:Dynamic):Void;
 	@:optional
-	function deactivated():Void;
+	function deactivated(unknown:Dynamic):Void;
 	@:optional
-	function errorCaptured(err:js.lib.Error, vm:Vue, info:String):ts.AnyOf2<Bool, ts.Undefined>;
+	function errorCaptured(unknown:Dynamic):Bool;
 	@:optional
-	function serverPrefetch():js.lib.Promise<ts.Undefined>;
+	function serverPrefetch(unknown:Dynamic):js.lib.Promise<ts.Undefined>;
 	@:optional
-	var directives : haxe.DynamicAccess<ts.AnyOf2<DirectiveOptions, DirectiveFunction>>;
+	var directives : haxe.DynamicAccess<ts.AnyOf2<DirectiveFunction, DirectiveOptions>>;
 	@:optional
 	var components : haxe.DynamicAccess<ts.AnyOf5<VueConstructor<Vue>, FunctionalComponentOptions<Dynamic, vue.types.options.PropsDefinition<Dynamic>>, ComponentOptions<Any, Dynamic, Dynamic, Dynamic, Dynamic, haxe.DynamicAccess<Dynamic>>, vue.types.options.AsyncComponentPromise<Dynamic, Dynamic, Dynamic, Dynamic>, vue.types.options.AsyncComponentFactory<Dynamic, Dynamic, Dynamic, Dynamic>>>;
 	@:optional
@@ -56,7 +56,7 @@ typedef ComponentOptions<V, Data, Methods, Computed, PropsDef, Props> = {
 	@:optional
 	var filters : haxe.DynamicAccess<haxe.Constraints.Function>;
 	@:optional
-	var provide : ts.AnyOf2<Dynamic, () -> Dynamic>;
+	var provide : ts.AnyOf2<Dynamic, (unknown:Dynamic) -> Dynamic>;
 	@:optional
 	var inject : vue.types.options.InjectOptions;
 	@:optional

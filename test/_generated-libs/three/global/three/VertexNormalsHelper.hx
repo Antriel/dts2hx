@@ -1,49 +1,49 @@
 package global.three;
 
 @:native("THREE.VertexNormalsHelper") extern class VertexNormalsHelper extends LineSegments {
-	function new(object:Object3D, ?size:Float, ?hex:Float, ?linewidth:Float);
+	function new(unknown:Dynamic);
 	var object : Object3D;
 	var size : Float;
-	function update(?object:Object3D):Void;
-	function computeLineDistances():VertexNormalsHelper;
-	function applyQuaternion(quaternion:Quaternion):VertexNormalsHelper;
+	function update(unknown:Dynamic):Void;
+	function computeLineDistances(unknown:Dynamic):VertexNormalsHelper;
+	function applyQuaternion(unknown:Dynamic):VertexNormalsHelper;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):VertexNormalsHelper;
+	function rotateOnAxis(unknown:Dynamic):VertexNormalsHelper;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):VertexNormalsHelper;
-	function rotateX(angle:Float):VertexNormalsHelper;
-	function rotateY(angle:Float):VertexNormalsHelper;
-	function rotateZ(angle:Float):VertexNormalsHelper;
-	function translateOnAxis(axis:Vector3, distance:Float):VertexNormalsHelper;
+	function rotateOnWorldAxis(unknown:Dynamic):VertexNormalsHelper;
+	function rotateX(unknown:Dynamic):VertexNormalsHelper;
+	function rotateY(unknown:Dynamic):VertexNormalsHelper;
+	function rotateZ(unknown:Dynamic):VertexNormalsHelper;
+	function translateOnAxis(unknown:Dynamic):VertexNormalsHelper;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):VertexNormalsHelper;
+	function translateX(unknown:Dynamic):VertexNormalsHelper;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):VertexNormalsHelper;
+	function translateY(unknown:Dynamic):VertexNormalsHelper;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):VertexNormalsHelper;
+	function translateZ(unknown:Dynamic):VertexNormalsHelper;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):VertexNormalsHelper;
+	function add(unknown:Dynamic):VertexNormalsHelper;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):VertexNormalsHelper;
+	function remove(unknown:Dynamic):VertexNormalsHelper;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):VertexNormalsHelper;
-	function clone(?recursive:Bool):VertexNormalsHelper;
-	function copy(source:VertexNormalsHelper, ?recursive:Bool):VertexNormalsHelper;
+	function attach(unknown:Dynamic):VertexNormalsHelper;
+	function clone(unknown:Dynamic):VertexNormalsHelper;
+	function copy(unknown:Dynamic):VertexNormalsHelper;
 	static var prototype : VertexNormalsHelper;
 }

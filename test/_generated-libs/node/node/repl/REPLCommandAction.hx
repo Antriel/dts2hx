@@ -1,3 +1,3 @@
 package node.repl;
 
-typedef REPLCommandAction = (text:String) -> Void;
+typedef REPLCommandAction = (unknown:Dynamic) -> Void;

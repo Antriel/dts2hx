@@ -1,7 +1,7 @@
 package global.jquery;
 
 typedef CoordinatesPartial = ts.AnyOf3<{
-	var left : Float;
+	var left : Dynamic;
 }, {
-	var top : Float;
+	var top : Dynamic;
 }, haxe.DynamicAccess<Any>>;

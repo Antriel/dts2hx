@@ -12,11 +12,11 @@ typedef SecureClientSessionOptions = {
 	@:optional
 	var peerMaxConcurrentStreams : Float;
 	@:optional
-	dynamic function selectPadding(frameLen:Float, maxFrameLen:Float):Float;
+	dynamic function selectPadding(unknown:Dynamic):Float;
 	@:optional
 	var settings : Settings;
 	@:optional
-	dynamic function createConnection(option:SessionOptions):node.stream.Duplex;
+	dynamic function createConnection(unknown:Dynamic):node.stream.Duplex;
 	@:optional
 	var host : String;
 	@:optional
@@ -28,11 +28,11 @@ typedef SecureClientSessionOptions = {
 	@:optional
 	var rejectUnauthorized : Bool;
 	@:optional
-	var NPNProtocols : ts.AnyOf5<Array<String>, global.Buffer, js.lib.Uint8Array, Array<js.lib.Uint8Array>, Array<global.Buffer>>;
+	var NPNProtocols : ts.AnyOf5<Array<String>, js.lib.Uint8Array_<js.lib.ArrayBufferLike>, global.Buffer, Array<js.lib.Uint8Array_<js.lib.ArrayBufferLike>>, Array<global.Buffer>>;
 	@:optional
-	var ALPNProtocols : ts.AnyOf5<Array<String>, global.Buffer, js.lib.Uint8Array, Array<js.lib.Uint8Array>, Array<global.Buffer>>;
+	var ALPNProtocols : ts.AnyOf5<Array<String>, js.lib.Uint8Array_<js.lib.ArrayBufferLike>, global.Buffer, Array<js.lib.Uint8Array_<js.lib.ArrayBufferLike>>, Array<global.Buffer>>;
 	@:optional
-	dynamic function checkServerIdentity(host:String, cert:node.tls.PeerCertificate):Null<js.lib.Error>;
+	dynamic function checkServerIdentity(unknown:Dynamic):Null<js.lib.Error>;
 	@:optional
 	var servername : String;
 	@:optional
@@ -42,7 +42,7 @@ typedef SecureClientSessionOptions = {
 	@:optional
 	var secureContext : node.tls.SecureContext;
 	@:optional
-	dynamic function lookup(hostname:String, options:node.dns.LookupOneOptions, callback:(err:Null<global.nodejs.ErrnoException>, address:String, family:Float) -> Void):Void;
+	dynamic function lookup(unknown:Dynamic):Void;
 	@:optional
 	var timeout : Float;
 	@:optional

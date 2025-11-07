@@ -7,22 +7,22 @@ typedef MapCache = {
 	/**
 		Removes `key` and its value from the cache.
 	**/
-	function delete(key:Dynamic):Bool;
+	function delete(unknown:Dynamic):Bool;
 	/**
 		Gets the cached value for `key`.
 	**/
-	function get(key:Dynamic):Dynamic;
+	function get(unknown:Dynamic):Dynamic;
 	/**
 		Checks if a cached value for `key` exists.
 	**/
-	function has(key:Dynamic):Bool;
+	function has(unknown:Dynamic):Bool;
 	/**
 		Sets `value` to `key` of the cache.
 	**/
-	function set(key:Dynamic, value:Dynamic):MapCache;
+	function set(unknown:Dynamic):MapCache;
 	/**
 		Removes all key-value entries from the map.
 	**/
 	@:optional
-	dynamic function clear():Void;
+	dynamic function clear(unknown:Dynamic):Void;
 };

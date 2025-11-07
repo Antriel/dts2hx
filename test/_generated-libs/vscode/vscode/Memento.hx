@@ -7,13 +7,11 @@ package vscode;
 typedef Memento = {
 	/**
 		Return a value.
-		
-		Return a value.
 	**/
-	@:overload(function<T>(key:String, defaultValue:T):T { })
-	function get<T>(key:String):Null<T>;
+	@:overload(function<T>(unknown:Dynamic):T { })
+	function get<T>(unknown:Dynamic):Null<T>;
 	/**
 		Store a value. The value must be JSON-stringifyable.
 	**/
-	function update(key:String, value:Dynamic):global.Thenable<ts.Undefined>;
+	function update(unknown:Dynamic):global.Thenable<ts.Undefined>;
 };

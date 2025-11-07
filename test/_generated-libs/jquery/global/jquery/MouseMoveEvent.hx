@@ -87,25 +87,25 @@ typedef MouseMoveEvent<TDelegateTarget, TData, TCurrentTarget, TTarget> = {
 	/**
 		Returns whether event.preventDefault() was ever called on this event object.
 	**/
-	function isDefaultPrevented():Bool;
+	function isDefaultPrevented(unknown:Dynamic):Bool;
 	/**
 		Returns whether event.stopImmediatePropagation() was ever called on this event object.
 	**/
-	function isImmediatePropagationStopped():Bool;
+	function isImmediatePropagationStopped(unknown:Dynamic):Bool;
 	/**
 		Returns whether event.stopPropagation() was ever called on this event object.
 	**/
-	function isPropagationStopped():Bool;
+	function isPropagationStopped(unknown:Dynamic):Bool;
 	/**
 		If this method is called, the default action of the event will not be triggered.
 	**/
-	function preventDefault():Void;
+	function preventDefault(unknown:Dynamic):Void;
 	/**
 		Keeps the rest of the handlers from being executed and prevents the event from bubbling up the DOM tree.
 	**/
-	function stopImmediatePropagation():Void;
+	function stopImmediatePropagation(unknown:Dynamic):Void;
 	/**
 		Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
 	**/
-	function stopPropagation():Void;
+	function stopPropagation(unknown:Dynamic):Void;
 };

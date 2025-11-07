@@ -2,35 +2,35 @@ package global.nodejs;
 
 typedef ReadWriteStream = {
 	var readable : Bool;
-	function read(?size:Float):ts.AnyOf2<String, global.Buffer>;
-	function setEncoding(encoding:String):ReadWriteStream;
-	function pause():ReadWriteStream;
-	function resume():ReadWriteStream;
-	function isPaused():Bool;
-	function pipe<T>(destination:T, ?options:{ @:optional var end : Bool; }):T;
-	function unpipe(?destination:WritableStream):ReadWriteStream;
-	@:overload(function(chunk:global.Buffer):Void { })
-	function unshift(chunk:String):Void;
-	function wrap(oldStream:ReadableStream):ReadWriteStream;
-	function addListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):ReadWriteStream;
-	function on(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):ReadWriteStream;
-	function once(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):ReadWriteStream;
-	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):ReadWriteStream;
-	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):ReadWriteStream;
-	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):ReadWriteStream;
-	function setMaxListeners(n:Float):ReadWriteStream;
-	function getMaxListeners():Float;
-	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
-	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
-	function emit(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool;
-	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
-	function prependListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):ReadWriteStream;
-	function prependOnceListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):ReadWriteStream;
-	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	function read(unknown:Dynamic):ts.AnyOf2<String, global.Buffer>;
+	function setEncoding(unknown:Dynamic):ReadWriteStream;
+	function pause(unknown:Dynamic):ReadWriteStream;
+	function resume(unknown:Dynamic):ReadWriteStream;
+	function isPaused(unknown:Dynamic):Bool;
+	function pipe<T>(unknown:Dynamic):T;
+	function unpipe(unknown:Dynamic):ReadWriteStream;
+	@:overload(function(unknown:Dynamic):Void { })
+	function unshift(unknown:Dynamic):Void;
+	function wrap(unknown:Dynamic):ReadWriteStream;
+	function addListener(unknown:Dynamic):ReadWriteStream;
+	function on(unknown:Dynamic):ReadWriteStream;
+	function once(unknown:Dynamic):ReadWriteStream;
+	function removeListener(unknown:Dynamic):ReadWriteStream;
+	function off(unknown:Dynamic):ReadWriteStream;
+	function removeAllListeners(unknown:Dynamic):ReadWriteStream;
+	function setMaxListeners(unknown:Dynamic):ReadWriteStream;
+	function getMaxListeners(unknown:Dynamic):Float;
+	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
+	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
+	function emit(unknown:Dynamic):Bool;
+	function listenerCount(unknown:Dynamic):Float;
+	function prependListener(unknown:Dynamic):ReadWriteStream;
+	function prependOnceListener(unknown:Dynamic):ReadWriteStream;
+	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
 	var writable : Bool;
-	@:overload(function(str:String, ?encoding:String, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool { })
-	function write(buffer:ts.AnyOf3<String, global.Buffer, js.lib.Uint8Array>, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool;
-	@:overload(function(data:ts.AnyOf3<String, global.Buffer, js.lib.Uint8Array>, ?cb:() -> Void):Void { })
-	@:overload(function(str:String, ?encoding:String, ?cb:() -> Void):Void { })
-	function end(?cb:() -> Void):Void;
+	@:overload(function(unknown:Dynamic):Bool { })
+	function write(unknown:Dynamic):Bool;
+	@:overload(function(unknown:Dynamic):Void { })
+	@:overload(function(unknown:Dynamic):Void { })
+	function end(unknown:Dynamic):Void;
 };

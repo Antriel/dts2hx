@@ -4,35 +4,35 @@ typedef Socket = {
 	@:optional
 	var isTTY : Bool;
 	var readable : Bool;
-	function read(?size:Float):ts.AnyOf2<String, global.Buffer>;
-	function setEncoding(encoding:String):Socket;
-	function pause():Socket;
-	function resume():Socket;
-	function isPaused():Bool;
-	function pipe<T>(destination:T, ?options:{ @:optional var end : Bool; }):T;
-	function unpipe(?destination:WritableStream):Socket;
-	@:overload(function(chunk:global.Buffer):Void { })
-	function unshift(chunk:String):Void;
-	function wrap(oldStream:ReadableStream):Socket;
-	function addListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Socket;
-	function on(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Socket;
-	function once(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Socket;
-	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Socket;
-	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Socket;
-	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):Socket;
-	function setMaxListeners(n:Float):Socket;
-	function getMaxListeners():Float;
-	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
-	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
-	function emit(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool;
-	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
-	function prependListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Socket;
-	function prependOnceListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Socket;
-	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	function read(unknown:Dynamic):ts.AnyOf2<String, global.Buffer>;
+	function setEncoding(unknown:Dynamic):Socket;
+	function pause(unknown:Dynamic):Socket;
+	function resume(unknown:Dynamic):Socket;
+	function isPaused(unknown:Dynamic):Bool;
+	function pipe<T>(unknown:Dynamic):T;
+	function unpipe(unknown:Dynamic):Socket;
+	@:overload(function(unknown:Dynamic):Void { })
+	function unshift(unknown:Dynamic):Void;
+	function wrap(unknown:Dynamic):Socket;
+	function addListener(unknown:Dynamic):Socket;
+	function on(unknown:Dynamic):Socket;
+	function once(unknown:Dynamic):Socket;
+	function removeListener(unknown:Dynamic):Socket;
+	function off(unknown:Dynamic):Socket;
+	function removeAllListeners(unknown:Dynamic):Socket;
+	function setMaxListeners(unknown:Dynamic):Socket;
+	function getMaxListeners(unknown:Dynamic):Float;
+	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
+	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
+	function emit(unknown:Dynamic):Bool;
+	function listenerCount(unknown:Dynamic):Float;
+	function prependListener(unknown:Dynamic):Socket;
+	function prependOnceListener(unknown:Dynamic):Socket;
+	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
 	var writable : Bool;
-	@:overload(function(str:String, ?encoding:String, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool { })
-	function write(buffer:ts.AnyOf3<String, global.Buffer, js.lib.Uint8Array>, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool;
-	@:overload(function(data:ts.AnyOf3<String, global.Buffer, js.lib.Uint8Array>, ?cb:() -> Void):Void { })
-	@:overload(function(str:String, ?encoding:String, ?cb:() -> Void):Void { })
-	function end(?cb:() -> Void):Void;
+	@:overload(function(unknown:Dynamic):Bool { })
+	function write(unknown:Dynamic):Bool;
+	@:overload(function(unknown:Dynamic):Void { })
+	@:overload(function(unknown:Dynamic):Void { })
+	function end(unknown:Dynamic):Void;
 };

@@ -1,12 +1,12 @@
 package global.three;
 
 @:native("THREE.TetrahedronGeometry") extern class TetrahedronGeometry extends PolyhedronGeometry {
-	function new(?radius:Float, ?detail:Float);
-	function setFromPoints(points:ts.AnyOf2<Array<Vector3>, Array<Vector2>>):TetrahedronGeometry;
+	function new(unknown:Dynamic);
+	function setFromPoints(unknown:Dynamic):TetrahedronGeometry;
 	/**
 		Creates a new clone of the Geometry.
 	**/
-	function clone():TetrahedronGeometry;
-	function copy(source:Geometry):TetrahedronGeometry;
+	function clone(unknown:Dynamic):TetrahedronGeometry;
+	function copy(unknown:Dynamic):TetrahedronGeometry;
 	static var prototype : TetrahedronGeometry;
 }

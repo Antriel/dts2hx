@@ -61,9 +61,9 @@ typedef SourceControl = {
 	/**
 		Create a new [resource group](#SourceControlResourceGroup).
 	**/
-	function createResourceGroup(id:String, label:String):SourceControlResourceGroup;
+	function createResourceGroup(unknown:Dynamic):SourceControlResourceGroup;
 	/**
 		Dispose this source control.
 	**/
-	function dispose():Void;
+	function dispose(unknown:Dynamic):Void;
 };

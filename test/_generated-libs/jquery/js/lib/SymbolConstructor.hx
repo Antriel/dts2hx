@@ -5,7 +5,7 @@ typedef SymbolConstructor = {
 		Returns a new unique Symbol value.
 	**/
 	@:selfCall
-	function call(?description:ts.AnyOf2<String, Float>):js.lib.Symbol;
+	function call(unknown:Dynamic):js.lib.Symbol;
 	/**
 		A method that returns the default iterator for an object. Called by the semantics of the
 		for-of statement.
@@ -20,12 +20,12 @@ typedef SymbolConstructor = {
 		Otherwise, returns a new symbol with this key.
 	**/
 	@:native("for")
-	function for_(key:String):js.lib.Symbol;
+	function for_(unknown:Dynamic):js.lib.Symbol;
 	/**
 		Returns a key from the global symbol registry matching the given Symbol if found.
 		Otherwise, returns a undefined.
 	**/
-	function keyFor(sym:js.lib.Symbol):Null<String>;
+	function keyFor(unknown:Dynamic):Null<String>;
 	/**
 		A method that determines if a constructor object recognizes an object as one of the
 		constructor’s instances. Called by the semantics of the instanceof operator.
@@ -69,13 +69,10 @@ typedef SymbolConstructor = {
 	/**
 		A String value that is used in the creation of the default string description of an object.
 		Called by the built-in method Object.prototype.toString.
-		
-		A String value that is used in the creation of the default string description of an object.
-		Called by the built-in method Object.prototype.toString.
 	**/
 	final toStringTag : js.lib.Symbol;
 	/**
-		An Object whose own property names are property names that are excluded from the 'with'
+		An Object whose truthy properties are properties that are excluded from the 'with'
 		environment bindings of the associated objects.
 	**/
 	final unscopables : js.lib.Symbol;

@@ -12,5 +12,5 @@ typedef OnTypeFormattingEditProvider = {
 		what range the position to expand to, like find the matching `{`
 		when `}` has been entered.
 	**/
-	function provideOnTypeFormattingEdits(document:TextDocument, position:Position, ch:String, options:FormattingOptions, token:CancellationToken):ProviderResult<Array<TextEdit>>;
+	function provideOnTypeFormattingEdits(unknown:Dynamic):ProviderResult<Array<TextEdit>>;
 };

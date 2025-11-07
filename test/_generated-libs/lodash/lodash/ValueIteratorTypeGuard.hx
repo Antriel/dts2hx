@@ -1,3 +1,3 @@
 package lodash;
 
-typedef ValueIteratorTypeGuard<T, S> = (value:T) -> Bool;
+typedef ValueIteratorTypeGuard<T, S> = (unknown:Dynamic) -> Bool;

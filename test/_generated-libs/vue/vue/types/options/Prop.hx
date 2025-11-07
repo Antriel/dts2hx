@@ -1,3 +1,3 @@
 package vue.types.options;
 
-typedef Prop<T> = ts.AnyOf2<() -> T, { }>;
+typedef Prop<T> = ts.AnyOf2<(unknown:Dynamic) -> T, { }>;

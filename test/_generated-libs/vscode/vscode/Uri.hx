@@ -8,7 +8,7 @@ package vscode;
 	/**
 		Use the `file` and `parse` factory functions to create new `Uri` objects.
 	**/
-	private function new(scheme:String, authority:String, path:String, query:String, fragment:String);
+	private function new(unknown:Dynamic);
 	/**
 		Scheme is the `http` part of `http://www.msft.com/some/path?query#fragment`.
 		The part before the first colon.
@@ -61,7 +61,7 @@ package vscode;
 		assert.ok(other.toString() === 'after:some/file/path');
 		```
 	**/
-	function with(change:{ @:optional var scheme : String; @:optional var authority : String; @:optional var path : String; @:optional var query : String; @:optional var fragment : String; }):Uri;
+	function with(unknown:Dynamic):Uri;
 	/**
 		Returns a string representation of this Uri. The representation and normalization
 		of a URI depends on the scheme.
@@ -75,11 +75,11 @@ package vscode;
 		reasons this cannot be changed anymore. If you suffer from too aggressive encoding you should use
 		the `skipEncoding`-argument: `uri.toString(true)`.
 	**/
-	function toString(?skipEncoding:Bool):String;
+	function toString(unknown:Dynamic):String;
 	/**
 		Returns a JSON representation of this Uri.
 	**/
-	function toJSON():Dynamic;
+	function toJSON(unknown:Dynamic):Dynamic;
 	static var prototype : Uri;
 	/**
 		Create an URI from a string, e.g. `http://www.msft.com/some/path`,
@@ -89,7 +89,7 @@ package vscode;
 		as all uris should have a scheme. To avoid breakage of existing code the optional
 		`strict`-argument has been added. We *strongly* advise to use it, e.g. `Uri.parse('my:uri', true)`
 	**/
-	static function parse(value:String, ?strict:Bool):Uri;
+	static function parse(unknown:Dynamic):Uri;
 	/**
 		Create an URI from a file system path. The [scheme](#Uri.scheme)
 		will be `file`.
@@ -110,7 +110,7 @@ package vscode;
 		bad.fragment === '/project1';
 		```
 	**/
-	static function file(path:String):Uri;
+	static function file(unknown:Dynamic):Uri;
 	/**
 		Create a new uri which path is the result of joining
 		the path of the base uri with the provided path segments.
@@ -127,5 +127,5 @@ package vscode;
 		- paths have a root which always remains, for instance on windows drive-letters are roots
 		so that is true: `joinPath(Uri.file('file:///c:/root'), '../../other').fsPath === 'c:/other'`
 	**/
-	static function joinPath(base:Uri, pathSegments:haxe.extern.Rest<String>):Uri;
+	static function joinPath(unknown:Dynamic):Uri;
 }

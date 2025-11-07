@@ -1,47 +1,47 @@
 package global.three;
 
 @:native("THREE.HemisphereLight") extern class HemisphereLight extends Light {
-	function new(?skyColor:ts.AnyOf3<String, Float, Color>, ?groundColor:ts.AnyOf3<String, Float, Color>, ?intensity:Float);
+	function new(unknown:Dynamic);
 	var skyColor : Color;
 	var groundColor : Color;
-	function applyQuaternion(quaternion:Quaternion):HemisphereLight;
+	function applyQuaternion(unknown:Dynamic):HemisphereLight;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):HemisphereLight;
+	function rotateOnAxis(unknown:Dynamic):HemisphereLight;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):HemisphereLight;
-	function rotateX(angle:Float):HemisphereLight;
-	function rotateY(angle:Float):HemisphereLight;
-	function rotateZ(angle:Float):HemisphereLight;
-	function translateOnAxis(axis:Vector3, distance:Float):HemisphereLight;
+	function rotateOnWorldAxis(unknown:Dynamic):HemisphereLight;
+	function rotateX(unknown:Dynamic):HemisphereLight;
+	function rotateY(unknown:Dynamic):HemisphereLight;
+	function rotateZ(unknown:Dynamic):HemisphereLight;
+	function translateOnAxis(unknown:Dynamic):HemisphereLight;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):HemisphereLight;
+	function translateX(unknown:Dynamic):HemisphereLight;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):HemisphereLight;
+	function translateY(unknown:Dynamic):HemisphereLight;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):HemisphereLight;
+	function translateZ(unknown:Dynamic):HemisphereLight;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):HemisphereLight;
+	function add(unknown:Dynamic):HemisphereLight;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):HemisphereLight;
+	function remove(unknown:Dynamic):HemisphereLight;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):HemisphereLight;
-	function clone(?recursive:Bool):HemisphereLight;
-	function copy(source:HemisphereLight, ?recursive:Bool):HemisphereLight;
+	function attach(unknown:Dynamic):HemisphereLight;
+	function clone(unknown:Dynamic):HemisphereLight;
+	function copy(unknown:Dynamic):HemisphereLight;
 	static var prototype : HemisphereLight;
 }

@@ -1,42 +1,42 @@
 package node;
 
 @:jsRequire("zlib") @valueModuleOnly extern class Zlib {
-	static function createBrotliCompress(?options:node.zlib.BrotliOptions):node.zlib.BrotliCompress;
-	static function createBrotliDecompress(?options:node.zlib.BrotliOptions):node.zlib.BrotliDecompress;
-	static function createGzip(?options:node.zlib.ZlibOptions):node.zlib.Gzip;
-	static function createGunzip(?options:node.zlib.ZlibOptions):node.zlib.Gunzip;
-	static function createDeflate(?options:node.zlib.ZlibOptions):node.zlib.Deflate;
-	static function createInflate(?options:node.zlib.ZlibOptions):node.zlib.Inflate;
-	static function createDeflateRaw(?options:node.zlib.ZlibOptions):node.zlib.DeflateRaw;
-	static function createInflateRaw(?options:node.zlib.ZlibOptions):node.zlib.InflateRaw;
-	static function createUnzip(?options:node.zlib.ZlibOptions):node.zlib.Unzip;
-	@:overload(function(buf:node.zlib.InputType, callback:node.zlib.CompressCallback):Void { })
-	static function brotliCompress(buf:node.zlib.InputType, options:node.zlib.BrotliOptions, callback:node.zlib.CompressCallback):Void;
-	static function brotliCompressSync(buf:node.zlib.InputType, ?options:node.zlib.BrotliOptions):global.Buffer;
-	@:overload(function(buf:node.zlib.InputType, callback:node.zlib.CompressCallback):Void { })
-	static function brotliDecompress(buf:node.zlib.InputType, options:node.zlib.BrotliOptions, callback:node.zlib.CompressCallback):Void;
-	static function brotliDecompressSync(buf:node.zlib.InputType, ?options:node.zlib.BrotliOptions):global.Buffer;
-	@:overload(function(buf:node.zlib.InputType, options:node.zlib.ZlibOptions, callback:node.zlib.CompressCallback):Void { })
-	static function deflate(buf:node.zlib.InputType, callback:node.zlib.CompressCallback):Void;
-	static function deflateSync(buf:node.zlib.InputType, ?options:node.zlib.ZlibOptions):global.Buffer;
-	@:overload(function(buf:node.zlib.InputType, options:node.zlib.ZlibOptions, callback:node.zlib.CompressCallback):Void { })
-	static function deflateRaw(buf:node.zlib.InputType, callback:node.zlib.CompressCallback):Void;
-	static function deflateRawSync(buf:node.zlib.InputType, ?options:node.zlib.ZlibOptions):global.Buffer;
-	@:overload(function(buf:node.zlib.InputType, options:node.zlib.ZlibOptions, callback:node.zlib.CompressCallback):Void { })
-	static function gzip(buf:node.zlib.InputType, callback:node.zlib.CompressCallback):Void;
-	static function gzipSync(buf:node.zlib.InputType, ?options:node.zlib.ZlibOptions):global.Buffer;
-	@:overload(function(buf:node.zlib.InputType, options:node.zlib.ZlibOptions, callback:node.zlib.CompressCallback):Void { })
-	static function gunzip(buf:node.zlib.InputType, callback:node.zlib.CompressCallback):Void;
-	static function gunzipSync(buf:node.zlib.InputType, ?options:node.zlib.ZlibOptions):global.Buffer;
-	@:overload(function(buf:node.zlib.InputType, options:node.zlib.ZlibOptions, callback:node.zlib.CompressCallback):Void { })
-	static function inflate(buf:node.zlib.InputType, callback:node.zlib.CompressCallback):Void;
-	static function inflateSync(buf:node.zlib.InputType, ?options:node.zlib.ZlibOptions):global.Buffer;
-	@:overload(function(buf:node.zlib.InputType, options:node.zlib.ZlibOptions, callback:node.zlib.CompressCallback):Void { })
-	static function inflateRaw(buf:node.zlib.InputType, callback:node.zlib.CompressCallback):Void;
-	static function inflateRawSync(buf:node.zlib.InputType, ?options:node.zlib.ZlibOptions):global.Buffer;
-	@:overload(function(buf:node.zlib.InputType, options:node.zlib.ZlibOptions, callback:node.zlib.CompressCallback):Void { })
-	static function unzip(buf:node.zlib.InputType, callback:node.zlib.CompressCallback):Void;
-	static function unzipSync(buf:node.zlib.InputType, ?options:node.zlib.ZlibOptions):global.Buffer;
+	static function createBrotliCompress(unknown:Dynamic):node.zlib.BrotliCompress;
+	static function createBrotliDecompress(unknown:Dynamic):node.zlib.BrotliDecompress;
+	static function createGzip(unknown:Dynamic):node.zlib.Gzip;
+	static function createGunzip(unknown:Dynamic):node.zlib.Gunzip;
+	static function createDeflate(unknown:Dynamic):node.zlib.Deflate;
+	static function createInflate(unknown:Dynamic):node.zlib.Inflate;
+	static function createDeflateRaw(unknown:Dynamic):node.zlib.DeflateRaw;
+	static function createInflateRaw(unknown:Dynamic):node.zlib.InflateRaw;
+	static function createUnzip(unknown:Dynamic):node.zlib.Unzip;
+	@:overload(function(unknown:Dynamic):Void { })
+	static function brotliCompress(unknown:Dynamic):Void;
+	static function brotliCompressSync(unknown:Dynamic):global.Buffer;
+	@:overload(function(unknown:Dynamic):Void { })
+	static function brotliDecompress(unknown:Dynamic):Void;
+	static function brotliDecompressSync(unknown:Dynamic):global.Buffer;
+	@:overload(function(unknown:Dynamic):Void { })
+	static function deflate(unknown:Dynamic):Void;
+	static function deflateSync(unknown:Dynamic):global.Buffer;
+	@:overload(function(unknown:Dynamic):Void { })
+	static function deflateRaw(unknown:Dynamic):Void;
+	static function deflateRawSync(unknown:Dynamic):global.Buffer;
+	@:overload(function(unknown:Dynamic):Void { })
+	static function gzip(unknown:Dynamic):Void;
+	static function gzipSync(unknown:Dynamic):global.Buffer;
+	@:overload(function(unknown:Dynamic):Void { })
+	static function gunzip(unknown:Dynamic):Void;
+	static function gunzipSync(unknown:Dynamic):global.Buffer;
+	@:overload(function(unknown:Dynamic):Void { })
+	static function inflate(unknown:Dynamic):Void;
+	static function inflateSync(unknown:Dynamic):global.Buffer;
+	@:overload(function(unknown:Dynamic):Void { })
+	static function inflateRaw(unknown:Dynamic):Void;
+	static function inflateRawSync(unknown:Dynamic):global.Buffer;
+	@:overload(function(unknown:Dynamic):Void { })
+	static function unzip(unknown:Dynamic):Void;
+	static function unzipSync(unknown:Dynamic):global.Buffer;
 	static final Z_NO_FLUSH : Float;
 	static final Z_PARTIAL_FLUSH : Float;
 	static final Z_SYNC_FLUSH : Float;

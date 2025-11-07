@@ -4,60 +4,60 @@ typedef CallSite = {
 	/**
 		Value of "this"
 	**/
-	function getThis():Dynamic;
+	function getThis(unknown:Dynamic):Dynamic;
 	/**
 		Type of "this" as a string.
 		This is the name of the function stored in the constructor field of
 		"this", if available.  Otherwise the object's [[Class]] internal
 		property.
 	**/
-	function getTypeName():Null<String>;
+	function getTypeName(unknown:Dynamic):Null<String>;
 	/**
 		Current function
 	**/
-	function getFunction():Null<haxe.Constraints.Function>;
+	function getFunction(unknown:Dynamic):Null<haxe.Constraints.Function>;
 	/**
 		Name of the current function, typically its name property.
 		If a name property is not available an attempt will be made to try
 		to infer a name from the function's context.
 	**/
-	function getFunctionName():Null<String>;
+	function getFunctionName(unknown:Dynamic):Null<String>;
 	/**
 		Name of the property [of "this" or one of its prototypes] that holds
 		the current function
 	**/
-	function getMethodName():Null<String>;
+	function getMethodName(unknown:Dynamic):Null<String>;
 	/**
 		Name of the script [if this function was defined in a script]
 	**/
-	function getFileName():Null<String>;
+	function getFileName(unknown:Dynamic):Null<String>;
 	/**
 		Current line number [if this function was defined in a script]
 	**/
-	function getLineNumber():Null<Float>;
+	function getLineNumber(unknown:Dynamic):Null<Float>;
 	/**
 		Current column number [if this function was defined in a script]
 	**/
-	function getColumnNumber():Null<Float>;
+	function getColumnNumber(unknown:Dynamic):Null<Float>;
 	/**
 		A call site object representing the location where eval was called
 		[if this function was created using a call to eval]
 	**/
-	function getEvalOrigin():Null<String>;
+	function getEvalOrigin(unknown:Dynamic):Null<String>;
 	/**
 		Is this a toplevel invocation, that is, is "this" the global object?
 	**/
-	function isToplevel():Bool;
+	function isToplevel(unknown:Dynamic):Bool;
 	/**
 		Does this call take place in code defined by a call to eval?
 	**/
-	function isEval():Bool;
+	function isEval(unknown:Dynamic):Bool;
 	/**
 		Is this call in native V8 code?
 	**/
-	function isNative():Bool;
+	function isNative(unknown:Dynamic):Bool;
 	/**
 		Is this a constructor call?
 	**/
-	function isConstructor():Bool;
+	function isConstructor(unknown:Dynamic):Bool;
 };

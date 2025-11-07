@@ -1,16 +1,16 @@
 package three;
 
 @:jsRequire("three", "DodecahedronGeometry") extern class DodecahedronGeometry extends Geometry {
-	function new(?radius:Float, ?detail:Float);
+	function new(unknown:Dynamic);
 	var parameters : {
 		var radius : Float;
 		var detail : Float;
 	};
-	function setFromPoints(points:ts.AnyOf2<Array<Vector3>, Array<Vector2>>):DodecahedronGeometry;
+	function setFromPoints(unknown:Dynamic):DodecahedronGeometry;
 	/**
 		Creates a new clone of the Geometry.
 	**/
-	function clone():DodecahedronGeometry;
-	function copy(source:Geometry):DodecahedronGeometry;
+	function clone(unknown:Dynamic):DodecahedronGeometry;
+	function copy(unknown:Dynamic):DodecahedronGeometry;
 	static var prototype : DodecahedronGeometry;
 }

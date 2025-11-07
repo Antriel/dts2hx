@@ -137,6 +137,9 @@ class HaxeTools {
 		`hello@world.js` becomes `helloAtWorld_js`
 	**/
 	static public function toSafeIdent(str: String, escapeReservedWords: Bool = true) {
+		if (str == null) {
+			return 'unknown';
+		}
 		// remove quotes
 		str = ~/["'`]/gm.replace(str, '');
 

@@ -8,5 +8,5 @@ package node.fs;
 		Asynchronous fstat(2) - Get file status.
 	**/
 	@:selfCall
-	static function call(fd:Float, callback:(err:global.nodejs.ErrnoException, stats:Stats) -> Void):Void;
+	static function call(unknown:Dynamic):Void;
 }

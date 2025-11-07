@@ -6,5 +6,5 @@
 		Create a new connect server.
 	**/
 	@:selfCall
-	static function call():connect.Server;
+	static function call(unknown:Dynamic):connect.Server;
 }

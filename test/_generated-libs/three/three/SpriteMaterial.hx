@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "SpriteMaterial") extern class SpriteMaterial extends Material {
-	function new(?parameters:SpriteMaterialParameters);
+	function new(unknown:Dynamic);
 	var color : Color;
 	var map : Null<Texture>;
 	var rotation : Float;
@@ -10,14 +10,14 @@ package three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(parameters:SpriteMaterialParameters):Void;
+	function setValues(unknown:Dynamic):Void;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(source:SpriteMaterial):SpriteMaterial;
+	function copy(unknown:Dynamic):SpriteMaterial;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone():SpriteMaterial;
+	function clone(unknown:Dynamic):SpriteMaterial;
 	static var prototype : SpriteMaterial;
 }

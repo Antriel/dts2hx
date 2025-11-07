@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.LineBasicMaterial") extern class LineBasicMaterial extends Material {
-	function new(?parameters:LineBasicMaterialParameters);
+	function new(unknown:Dynamic);
 	var color : Color;
 	var linewidth : Float;
 	var linecap : String;
@@ -9,14 +9,14 @@ package global.three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(parameters:LineBasicMaterialParameters):Void;
+	function setValues(unknown:Dynamic):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone():LineBasicMaterial;
+	function clone(unknown:Dynamic):LineBasicMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(material:Material):LineBasicMaterial;
+	function copy(unknown:Dynamic):LineBasicMaterial;
 	static var prototype : LineBasicMaterial;
 }

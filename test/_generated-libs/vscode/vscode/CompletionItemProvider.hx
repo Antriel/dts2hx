@@ -17,7 +17,7 @@ typedef CompletionItemProvider = {
 	/**
 		Provide completion items for the given position and document.
 	**/
-	function provideCompletionItems(document:TextDocument, position:Position, token:CancellationToken, context:CompletionContext):ProviderResult<ts.AnyOf2<CompletionList, Array<CompletionItem>>>;
+	function provideCompletionItems(unknown:Dynamic):ProviderResult<ts.AnyOf2<CompletionList, Array<CompletionItem>>>;
 	/**
 		Given a completion item fill in more data, like [doc-comment](#CompletionItem.documentation)
 		or [details](#CompletionItem.detail).
@@ -29,5 +29,5 @@ typedef CompletionItemProvider = {
 		be changed when resolving an item.
 	**/
 	@:optional
-	function resolveCompletionItem(item:CompletionItem, token:CancellationToken):ProviderResult<CompletionItem>;
+	function resolveCompletionItem(unknown:Dynamic):ProviderResult<CompletionItem>;
 };

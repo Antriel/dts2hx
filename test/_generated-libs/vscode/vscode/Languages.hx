@@ -15,9 +15,9 @@ package vscode;
 	
 	```javascript
 	languages.registerHoverProvider('javascript', {
-	     provideHover(document, position, token) {
-	         return new Hover('I am a hover!');
-	     }
+	    provideHover(document, position, token) {
+	        return new Hover('I am a hover!');
+	    }
 	});
 	```
 	
@@ -32,7 +32,7 @@ package vscode;
 	/**
 		Return the identifiers of all known languages.
 	**/
-	static function getLanguages():global.Thenable<Array<String>>;
+	static function getLanguages(unknown:Dynamic):global.Thenable<Array<String>>;
 	/**
 		Set (and change) the [language](#TextDocument.languageId) that is associated
 		with the given document.
@@ -40,7 +40,7 @@ package vscode;
 		*Note* that calling this function will trigger the [`onDidCloseTextDocument`](#workspace.onDidCloseTextDocument) event
 		followed by the [`onDidOpenTextDocument`](#workspace.onDidOpenTextDocument) event.
 	**/
-	static function setTextDocumentLanguage(document:TextDocument, languageId:String):global.Thenable<TextDocument>;
+	static function setTextDocumentLanguage(unknown:Dynamic):global.Thenable<TextDocument>;
 	/**
 		Compute the match between a document [selector](#DocumentSelector) and a document. Values
 		greater than zero mean the selector matches the document.
@@ -49,10 +49,10 @@ package vscode;
 		1. When [`DocumentSelector`](#DocumentSelector) is an array, compute the match for each contained `DocumentFilter` or language identifier and take the maximum value.
 		2. A string will be desugared to become the `language`-part of a [`DocumentFilter`](#DocumentFilter), so `"fooLang"` is like `{ language: "fooLang" }`.
 		3. A [`DocumentFilter`](#DocumentFilter) will be matched against the document by comparing its parts with the document. The following rules apply:
-		  1. When the `DocumentFilter` is empty (`{}`) the result is `0`
-		  2. When `scheme`, `language`, or `pattern` are defined but one doesn’t match, the result is `0`
-		  3. Matching against `*` gives a score of `5`, matching via equality or via a glob-pattern gives a score of `10`
-		  4. The result is the maximum value of each match
+		 1. When the `DocumentFilter` is empty (`{}`) the result is `0`
+		 2. When `scheme`, `language`, or `pattern` are defined but one doesn’t match, the result is `0`
+		 3. Matching against `*` gives a score of `5`, matching via equality or via a glob-pattern gives a score of `10`
+		 4. The result is the maximum value of each match
 		
 		Samples:
 		```js
@@ -74,18 +74,18 @@ package vscode;
 		match('*', doc); // 5
 		```
 	**/
-	static function match(selector:DocumentSelector, document:TextDocument):Float;
+	static function match(unknown:Dynamic):Float;
 	/**
 		Get all diagnostics for a given resource.
 		
 		Get all diagnostics.
 	**/
-	@:overload(function():Array<ts.Tuple2<Uri, Array<Diagnostic>>> { })
-	static function getDiagnostics(resource:Uri):Array<Diagnostic>;
+	@:overload(function(unknown:Dynamic):Array<ts.Tuple2<Uri, Array<Diagnostic>>> { })
+	static function getDiagnostics(unknown:Dynamic):Array<Diagnostic>;
 	/**
 		Create a diagnostics collection.
 	**/
-	static function createDiagnosticCollection(?name:String):DiagnosticCollection;
+	static function createDiagnosticCollection(unknown:Dynamic):DiagnosticCollection;
 	/**
 		Register a completion provider.
 		
@@ -100,7 +100,7 @@ package vscode;
 		the typed character. Because of that trigger characters should be different than [word characters](#LanguageConfiguration.wordPattern),
 		a common trigger character is `.` to trigger member completions.
 	**/
-	static function registerCompletionItemProvider(selector:DocumentSelector, provider:CompletionItemProvider, triggerCharacters:haxe.extern.Rest<String>):Disposable;
+	static function registerCompletionItemProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a code action provider.
 		
@@ -108,7 +108,7 @@ package vscode;
 		parallel and the results are merged. A failing provider (rejected promise or exception) will
 		not cause a failure of the whole operation.
 	**/
-	static function registerCodeActionsProvider(selector:DocumentSelector, provider:CodeActionProvider, ?metadata:CodeActionProviderMetadata):Disposable;
+	static function registerCodeActionsProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a code lens provider.
 		
@@ -116,7 +116,7 @@ package vscode;
 		parallel and the results are merged. A failing provider (rejected promise or exception) will
 		not cause a failure of the whole operation.
 	**/
-	static function registerCodeLensProvider(selector:DocumentSelector, provider:CodeLensProvider):Disposable;
+	static function registerCodeLensProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a definition provider.
 		
@@ -124,7 +124,7 @@ package vscode;
 		parallel and the results are merged. A failing provider (rejected promise or exception) will
 		not cause a failure of the whole operation.
 	**/
-	static function registerDefinitionProvider(selector:DocumentSelector, provider:DefinitionProvider):Disposable;
+	static function registerDefinitionProvider(unknown:Dynamic):Disposable;
 	/**
 		Register an implementation provider.
 		
@@ -132,7 +132,7 @@ package vscode;
 		parallel and the results are merged. A failing provider (rejected promise or exception) will
 		not cause a failure of the whole operation.
 	**/
-	static function registerImplementationProvider(selector:DocumentSelector, provider:ImplementationProvider):Disposable;
+	static function registerImplementationProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a type definition provider.
 		
@@ -140,7 +140,7 @@ package vscode;
 		parallel and the results are merged. A failing provider (rejected promise or exception) will
 		not cause a failure of the whole operation.
 	**/
-	static function registerTypeDefinitionProvider(selector:DocumentSelector, provider:TypeDefinitionProvider):Disposable;
+	static function registerTypeDefinitionProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a declaration provider.
 		
@@ -148,7 +148,7 @@ package vscode;
 		parallel and the results are merged. A failing provider (rejected promise or exception) will
 		not cause a failure of the whole operation.
 	**/
-	static function registerDeclarationProvider(selector:DocumentSelector, provider:DeclarationProvider):Disposable;
+	static function registerDeclarationProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a hover provider.
 		
@@ -156,14 +156,14 @@ package vscode;
 		parallel and the results are merged. A failing provider (rejected promise or exception) will
 		not cause a failure of the whole operation.
 	**/
-	static function registerHoverProvider(selector:DocumentSelector, provider:HoverProvider):Disposable;
+	static function registerHoverProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a provider that locates evaluatable expressions in text documents.
 		VS Code will evaluate the expression in the active debug session and will show the result in the debug hover.
 		
 		If multiple providers are registered for a language an arbitrary provider will be used.
 	**/
-	static function registerEvaluatableExpressionProvider(selector:DocumentSelector, provider:EvaluatableExpressionProvider):Disposable;
+	static function registerEvaluatableExpressionProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a document highlight provider.
 		
@@ -171,7 +171,7 @@ package vscode;
 		by their [score](#languages.match) and groups sequentially asked for document highlights.
 		The process stops when a provider returns a `non-falsy` or `non-failure` result.
 	**/
-	static function registerDocumentHighlightProvider(selector:DocumentSelector, provider:DocumentHighlightProvider):Disposable;
+	static function registerDocumentHighlightProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a document symbol provider.
 		
@@ -179,7 +179,7 @@ package vscode;
 		parallel and the results are merged. A failing provider (rejected promise or exception) will
 		not cause a failure of the whole operation.
 	**/
-	static function registerDocumentSymbolProvider(selector:DocumentSelector, provider:DocumentSymbolProvider, ?metaData:DocumentSymbolProviderMetadata):Disposable;
+	static function registerDocumentSymbolProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a workspace symbol provider.
 		
@@ -187,7 +187,7 @@ package vscode;
 		the results are merged. A failing provider (rejected promise or exception) will not cause
 		a failure of the whole operation.
 	**/
-	static function registerWorkspaceSymbolProvider(provider:WorkspaceSymbolProvider):Disposable;
+	static function registerWorkspaceSymbolProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a reference provider.
 		
@@ -195,7 +195,7 @@ package vscode;
 		parallel and the results are merged. A failing provider (rejected promise or exception) will
 		not cause a failure of the whole operation.
 	**/
-	static function registerReferenceProvider(selector:DocumentSelector, provider:ReferenceProvider):Disposable;
+	static function registerReferenceProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a rename provider.
 		
@@ -203,7 +203,7 @@ package vscode;
 		by their [score](#languages.match) and the best-matching provider is used. Failure
 		of the selected provider will cause a failure of the whole operation.
 	**/
-	static function registerRenameProvider(selector:DocumentSelector, provider:RenameProvider):Disposable;
+	static function registerRenameProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a semantic tokens provider for a whole document.
 		
@@ -211,7 +211,7 @@ package vscode;
 		by their [score](#languages.match) and the best-matching provider is used. Failure
 		of the selected provider will cause a failure of the whole operation.
 	**/
-	static function registerDocumentSemanticTokensProvider(selector:DocumentSelector, provider:DocumentSemanticTokensProvider, legend:SemanticTokensLegend):Disposable;
+	static function registerDocumentSemanticTokensProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a semantic tokens provider for a document range.
 		
@@ -225,7 +225,7 @@ package vscode;
 		by their [score](#languages.match) and the best-matching provider is used. Failure
 		of the selected provider will cause a failure of the whole operation.
 	**/
-	static function registerDocumentRangeSemanticTokensProvider(selector:DocumentSelector, provider:DocumentRangeSemanticTokensProvider, legend:SemanticTokensLegend):Disposable;
+	static function registerDocumentRangeSemanticTokensProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a formatting provider for a document.
 		
@@ -233,7 +233,7 @@ package vscode;
 		by their [score](#languages.match) and the best-matching provider is used. Failure
 		of the selected provider will cause a failure of the whole operation.
 	**/
-	static function registerDocumentFormattingEditProvider(selector:DocumentSelector, provider:DocumentFormattingEditProvider):Disposable;
+	static function registerDocumentFormattingEditProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a formatting provider for a document range.
 		
@@ -245,7 +245,7 @@ package vscode;
 		by their [score](#languages.match) and the best-matching provider is used. Failure
 		of the selected provider will cause a failure of the whole operation.
 	**/
-	static function registerDocumentRangeFormattingEditProvider(selector:DocumentSelector, provider:DocumentRangeFormattingEditProvider):Disposable;
+	static function registerDocumentRangeFormattingEditProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a formatting provider that works on type. The provider is active when the user enables the setting `editor.formatOnType`.
 		
@@ -253,7 +253,7 @@ package vscode;
 		by their [score](#languages.match) and the best-matching provider is used. Failure
 		of the selected provider will cause a failure of the whole operation.
 	**/
-	static function registerOnTypeFormattingEditProvider(selector:DocumentSelector, provider:OnTypeFormattingEditProvider, firstTriggerCharacter:String, moreTriggerCharacter:haxe.extern.Rest<String>):Disposable;
+	static function registerOnTypeFormattingEditProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a signature help provider.
 		
@@ -261,8 +261,8 @@ package vscode;
 		by their [score](#languages.match) and called sequentially until a provider returns a
 		valid result.
 	**/
-	@:overload(function(selector:DocumentSelector, provider:SignatureHelpProvider, metadata:SignatureHelpProviderMetadata):Disposable { })
-	static function registerSignatureHelpProvider(selector:DocumentSelector, provider:SignatureHelpProvider, triggerCharacters:haxe.extern.Rest<String>):Disposable;
+	@:overload(function(unknown:Dynamic):Disposable { })
+	static function registerSignatureHelpProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a document link provider.
 		
@@ -270,7 +270,7 @@ package vscode;
 		parallel and the results are merged. A failing provider (rejected promise or exception) will
 		not cause a failure of the whole operation.
 	**/
-	static function registerDocumentLinkProvider(selector:DocumentSelector, provider:DocumentLinkProvider):Disposable;
+	static function registerDocumentLinkProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a color provider.
 		
@@ -278,7 +278,7 @@ package vscode;
 		parallel and the results are merged. A failing provider (rejected promise or exception) will
 		not cause a failure of the whole operation.
 	**/
-	static function registerColorProvider(selector:DocumentSelector, provider:DocumentColorProvider):Disposable;
+	static function registerColorProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a folding range provider.
 		
@@ -290,7 +290,7 @@ package vscode;
 		A failing provider (rejected promise or exception) will
 		not cause a failure of the whole operation.
 	**/
-	static function registerFoldingRangeProvider(selector:DocumentSelector, provider:FoldingRangeProvider):Disposable;
+	static function registerFoldingRangeProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a selection range provider.
 		
@@ -298,18 +298,18 @@ package vscode;
 		parallel and the results are merged. A failing provider (rejected promise or exception) will
 		not cause a failure of the whole operation.
 	**/
-	static function registerSelectionRangeProvider(selector:DocumentSelector, provider:SelectionRangeProvider):Disposable;
+	static function registerSelectionRangeProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a call hierarchy provider.
 	**/
-	static function registerCallHierarchyProvider(selector:DocumentSelector, provider:CallHierarchyProvider):Disposable;
+	static function registerCallHierarchyProvider(unknown:Dynamic):Disposable;
 	/**
 		Set a [language configuration](#LanguageConfiguration) for a language.
 	**/
-	static function setLanguageConfiguration(language:String, configuration:LanguageConfiguration):Disposable;
+	static function setLanguageConfiguration(unknown:Dynamic):Disposable;
 	/**
 		An [event](#Event) which fires when the global set of diagnostics changes. This is
 		newly added and removed diagnostics.
 	**/
-	static function onDidChangeDiagnostics(listener:(e:DiagnosticChangeEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	static function onDidChangeDiagnostics(unknown:Dynamic):Disposable;
 }

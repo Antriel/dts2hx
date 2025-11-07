@@ -9,7 +9,7 @@ package vscode;
 	/**
 		Creates a new document highlight object.
 	**/
-	function new(range:Range, ?kind:DocumentHighlightKind);
+	function new(unknown:Dynamic);
 	/**
 		The range this highlight applies to.
 	**/

@@ -8,7 +8,7 @@ package vscode;
 	/**
 		Creates a new hover object.
 	**/
-	function new(contents:ts.AnyOf4<String, MarkdownString, { var language : String; var value : String; }, Array<MarkedString>>, ?range:Range);
+	function new(unknown:Dynamic);
 	/**
 		The contents of this hover.
 	**/

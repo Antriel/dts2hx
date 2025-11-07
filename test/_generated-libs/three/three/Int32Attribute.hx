@@ -1,8 +1,8 @@
 package three;
 
 @:jsRequire("three", "Int32Attribute") extern class Int32Attribute extends BufferAttribute {
-	function new(array:Dynamic, itemSize:Float);
-	function clone():Int32Attribute;
-	function copy(source:BufferAttribute):Int32Attribute;
+	function new(unknown:Dynamic);
+	function clone(unknown:Dynamic):Int32Attribute;
+	function copy(unknown:Dynamic):Int32Attribute;
 	static var prototype : Int32Attribute;
 }

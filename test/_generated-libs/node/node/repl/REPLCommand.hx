@@ -9,5 +9,5 @@ typedef REPLCommand = {
 	/**
 		The function to execute, optionally accepting a single string argument.
 	**/
-	dynamic function action(text:String):Void;
+	dynamic function action(unknown:Dynamic):Void;
 };

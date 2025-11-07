@@ -1,3 +1,3 @@
 package global.jquery.deferred;
 
-typedef FailCallback<TReject> = (args:haxe.extern.Rest<TReject>) -> Void;
+typedef FailCallback<TReject> = (unknown:Dynamic) -> Void;

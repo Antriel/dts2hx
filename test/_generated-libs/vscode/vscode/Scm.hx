@@ -4,7 +4,7 @@ package vscode;
 	/**
 		Creates a new [source control](#SourceControl) instance.
 	**/
-	static function createSourceControl(id:String, label:String, ?rootUri:Uri):SourceControl;
+	static function createSourceControl(unknown:Dynamic):SourceControl;
 	/**
 		~~The [input box](#SourceControlInputBox) for the last source control
 		created by the extension.~~

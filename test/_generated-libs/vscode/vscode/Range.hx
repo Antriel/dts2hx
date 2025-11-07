@@ -13,8 +13,8 @@ package vscode;
 		Create a new range from two positions. If `start` is not
 		before or equal to `end`, the values will be swapped.
 	**/
-	@:overload(function(startLine:Float, startCharacter:Float, endLine:Float, endCharacter:Float):Range { })
-	function new(start:Position, end:Position);
+	@:overload(function(unknown:Dynamic):Range { })
+	function new(unknown:Dynamic);
 	/**
 		The start position. It is before or equal to [end](#Range.end).
 	**/
@@ -34,26 +34,24 @@ package vscode;
 	/**
 		Check if a position or a range is contained in this range.
 	**/
-	function contains(positionOrRange:ts.AnyOf2<Range, Position>):Bool;
+	function contains(unknown:Dynamic):Bool;
 	/**
 		Check if `other` equals this range.
 	**/
-	function isEqual(other:Range):Bool;
+	function isEqual(unknown:Dynamic):Bool;
 	/**
 		Intersect `range` with this range and returns a new range or `undefined`
 		if the ranges have no overlap.
 	**/
-	function intersection(range:Range):Null<Range>;
+	function intersection(unknown:Dynamic):Null<Range>;
 	/**
 		Compute the union of `other` with this range.
 	**/
-	function union(other:Range):Range;
+	function union(unknown:Dynamic):Range;
 	/**
 		Derived a new range from this range.
-		
-		Derived a new range from this range.
 	**/
-	@:overload(function(change:{ @:optional var start : Position; @:optional var end : Position; }):Range { })
-	function with(?start:Position, ?end:Position):Range;
+	@:overload(function(unknown:Dynamic):Range { })
+	function with(unknown:Dynamic):Range;
 	static var prototype : Range;
 }

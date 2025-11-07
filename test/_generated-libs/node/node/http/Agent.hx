@@ -1,7 +1,7 @@
 package node.http;
 
 @:jsRequire("http", "Agent") extern class Agent {
-	function new(?opts:AgentOptions);
+	function new(unknown:Dynamic);
 	var maxFreeSockets : Float;
 	var maxSockets : Float;
 	final sockets : haxe.DynamicAccess<Array<node.net.Socket>>;
@@ -12,6 +12,6 @@ package node.http;
 		then it is best to explicitly shut down the agent when you know that it will no longer be used. Otherwise,
 		sockets may hang open for quite a long time before the server terminates them.
 	**/
-	function destroy():Void;
+	function destroy(unknown:Dynamic):Void;
 	static var prototype : Agent;
 }

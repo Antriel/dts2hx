@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "TorusKnotGeometry") extern class TorusKnotGeometry extends Geometry {
-	function new(?radius:Float, ?tube:Float, ?tubularSegments:Float, ?radialSegments:Float, ?p:Float, ?q:Float);
+	function new(unknown:Dynamic);
 	var parameters : {
 		var radius : Float;
 		var tube : Float;
@@ -11,11 +11,11 @@ package three;
 		var q : Float;
 		var heightScale : Float;
 	};
-	function setFromPoints(points:ts.AnyOf2<Array<Vector3>, Array<Vector2>>):TorusKnotGeometry;
+	function setFromPoints(unknown:Dynamic):TorusKnotGeometry;
 	/**
 		Creates a new clone of the Geometry.
 	**/
-	function clone():TorusKnotGeometry;
-	function copy(source:Geometry):TorusKnotGeometry;
+	function clone(unknown:Dynamic):TorusKnotGeometry;
+	function copy(unknown:Dynamic):TorusKnotGeometry;
 	static var prototype : TorusKnotGeometry;
 }

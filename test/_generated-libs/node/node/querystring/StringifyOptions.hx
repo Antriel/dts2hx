@@ -2,5 +2,5 @@ package node.querystring;
 
 typedef StringifyOptions = {
 	@:optional
-	dynamic function encodeURIComponent(str:String):String;
+	dynamic function encodeURIComponent(unknown:Dynamic):String;
 };

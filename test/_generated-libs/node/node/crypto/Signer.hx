@@ -1,29 +1,29 @@
 package node.crypto;
 
 typedef Signer = {
-	@:overload(function(data:String, input_encoding:Utf8AsciiLatin1Encoding):Signer { })
-	function update(data:ts.AnyOf12<String, global.Buffer, js.lib.Uint8Array, js.lib.Uint8ClampedArray, js.lib.Uint16Array, js.lib.Uint32Array, js.lib.Int8Array, js.lib.Int16Array, js.lib.Int32Array, js.lib.Float32Array, js.lib.Float64Array, js.lib.DataView>):Signer;
-	@:overload(function(private_key:ts.AnyOf4<String, global.Buffer, KeyObject, SignPrivateKeyInput>, output_format:HexBase64Latin1Encoding):String { })
-	function sign(private_key:ts.AnyOf4<String, global.Buffer, KeyObject, SignPrivateKeyInput>):global.Buffer;
+	@:overload(function(unknown:Dynamic):Signer { })
+	function update(unknown:Dynamic):Signer;
+	@:overload(function(unknown:Dynamic):String { })
+	function sign(unknown:Dynamic):global.Buffer;
 	var writable : Bool;
-	@:overload(function(str:String, ?encoding:String, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool { })
-	function write(buffer:ts.AnyOf3<String, global.Buffer, js.lib.Uint8Array>, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool;
-	@:overload(function(data:ts.AnyOf3<String, global.Buffer, js.lib.Uint8Array>, ?cb:() -> Void):Void { })
-	@:overload(function(str:String, ?encoding:String, ?cb:() -> Void):Void { })
-	function end(?cb:() -> Void):Void;
-	function addListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Signer;
-	function on(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Signer;
-	function once(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Signer;
-	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Signer;
-	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Signer;
-	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):Signer;
-	function setMaxListeners(n:Float):Signer;
-	function getMaxListeners():Float;
-	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
-	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
-	function emit(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool;
-	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
-	function prependListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Signer;
-	function prependOnceListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Signer;
-	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	@:overload(function(unknown:Dynamic):Bool { })
+	function write(unknown:Dynamic):Bool;
+	@:overload(function(unknown:Dynamic):Void { })
+	@:overload(function(unknown:Dynamic):Void { })
+	function end(unknown:Dynamic):Void;
+	function addListener(unknown:Dynamic):Signer;
+	function on(unknown:Dynamic):Signer;
+	function once(unknown:Dynamic):Signer;
+	function removeListener(unknown:Dynamic):Signer;
+	function off(unknown:Dynamic):Signer;
+	function removeAllListeners(unknown:Dynamic):Signer;
+	function setMaxListeners(unknown:Dynamic):Signer;
+	function getMaxListeners(unknown:Dynamic):Float;
+	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
+	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
+	function emit(unknown:Dynamic):Bool;
+	function listenerCount(unknown:Dynamic):Float;
+	function prependListener(unknown:Dynamic):Signer;
+	function prependOnceListener(unknown:Dynamic):Signer;
+	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
 };

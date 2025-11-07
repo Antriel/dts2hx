@@ -1,60 +1,60 @@
 package node;
 
 @:jsRequire("util") @valueModuleOnly extern class Util {
-	static function format(format:Dynamic, param:haxe.extern.Rest<Dynamic>):String;
-	static function formatWithOptions(inspectOptions:node.util.InspectOptions, format:String, param:haxe.extern.Rest<Dynamic>):String;
-	static function debug(string:String):Void;
-	static function error(param:haxe.extern.Rest<Dynamic>):Void;
-	static function puts(param:haxe.extern.Rest<Dynamic>):Void;
-	static function print(param:haxe.extern.Rest<Dynamic>):Void;
-	static function log(string:String):Void;
-	@:overload(function(object:Dynamic, options:node.util.InspectOptions):String { })
-	static function inspect(object:Dynamic, ?showHidden:Bool, ?depth:Float, ?color:Bool):String;
-	static function isArray(object:Dynamic):Bool;
-	static function isRegExp(object:Dynamic):Bool;
-	static function isDate(object:Dynamic):Bool;
-	static function isError(object:Dynamic):Bool;
-	static function inherits(constructor:Dynamic, superConstructor:Dynamic):Void;
-	static function debuglog(key:String):(msg:String, param:haxe.extern.Rest<Dynamic>) -> Void;
-	static function isBoolean(object:Dynamic):Bool;
-	static function isBuffer(object:Dynamic):Bool;
-	static function isFunction(object:Dynamic):Bool;
-	static function isNull(object:Dynamic):Bool;
-	static function isNullOrUndefined(object:Dynamic):Bool;
-	static function isNumber(object:Dynamic):Bool;
-	static function isObject(object:Dynamic):Bool;
-	static function isPrimitive(object:Dynamic):Bool;
-	static function isString(object:Dynamic):Bool;
-	static function isSymbol(object:Dynamic):Bool;
-	static function isUndefined(object:Dynamic):Bool;
-	static function deprecate<T>(fn:T, message:String):T;
-	static function isDeepStrictEqual(val1:Dynamic, val2:Dynamic):Bool;
-	@:overload(function<TResult>(fn:() -> js.lib.Promise<TResult>):(callback:(err:global.nodejs.ErrnoException, result:TResult) -> Void) -> Void { })
-	@:overload(function<T1>(fn:(arg1:T1) -> js.lib.Promise<ts.Undefined>):(arg1:T1, callback:(err:global.nodejs.ErrnoException) -> Void) -> Void { })
-	@:overload(function<T1, TResult>(fn:(arg1:T1) -> js.lib.Promise<TResult>):(arg1:T1, callback:(err:global.nodejs.ErrnoException, result:TResult) -> Void) -> Void { })
-	@:overload(function<T1, T2>(fn:(arg1:T1, arg2:T2) -> js.lib.Promise<ts.Undefined>):(arg1:T1, arg2:T2, callback:(err:global.nodejs.ErrnoException) -> Void) -> Void { })
-	@:overload(function<T1, T2, TResult>(fn:(arg1:T1, arg2:T2) -> js.lib.Promise<TResult>):(arg1:T1, arg2:T2, callback:(err:global.nodejs.ErrnoException, result:TResult) -> Void) -> Void { })
-	@:overload(function<T1, T2, T3>(fn:(arg1:T1, arg2:T2, arg3:T3) -> js.lib.Promise<ts.Undefined>):(arg1:T1, arg2:T2, arg3:T3, callback:(err:global.nodejs.ErrnoException) -> Void) -> Void { })
-	@:overload(function<T1, T2, T3, TResult>(fn:(arg1:T1, arg2:T2, arg3:T3) -> js.lib.Promise<TResult>):(arg1:T1, arg2:T2, arg3:T3, callback:(err:global.nodejs.ErrnoException, result:TResult) -> Void) -> Void { })
-	@:overload(function<T1, T2, T3, T4>(fn:(arg1:T1, arg2:T2, arg3:T3, arg4:T4) -> js.lib.Promise<ts.Undefined>):(arg1:T1, arg2:T2, arg3:T3, arg4:T4, callback:(err:global.nodejs.ErrnoException) -> Void) -> Void { })
-	@:overload(function<T1, T2, T3, T4, TResult>(fn:(arg1:T1, arg2:T2, arg3:T3, arg4:T4) -> js.lib.Promise<TResult>):(arg1:T1, arg2:T2, arg3:T3, arg4:T4, callback:(err:global.nodejs.ErrnoException, result:TResult) -> Void) -> Void { })
-	@:overload(function<T1, T2, T3, T4, T5>(fn:(arg1:T1, arg2:T2, arg3:T3, arg4:T4, arg5:T5) -> js.lib.Promise<ts.Undefined>):(arg1:T1, arg2:T2, arg3:T3, arg4:T4, arg5:T5, callback:(err:global.nodejs.ErrnoException) -> Void) -> Void { })
-	@:overload(function<T1, T2, T3, T4, T5, TResult>(fn:(arg1:T1, arg2:T2, arg3:T3, arg4:T4, arg5:T5) -> js.lib.Promise<TResult>):(arg1:T1, arg2:T2, arg3:T3, arg4:T4, arg5:T5, callback:(err:global.nodejs.ErrnoException, result:TResult) -> Void) -> Void { })
-	@:overload(function<T1, T2, T3, T4, T5, T6>(fn:(arg1:T1, arg2:T2, arg3:T3, arg4:T4, arg5:T5, arg6:T6) -> js.lib.Promise<ts.Undefined>):(arg1:T1, arg2:T2, arg3:T3, arg4:T4, arg5:T5, arg6:T6, callback:(err:global.nodejs.ErrnoException) -> Void) -> Void { })
-	@:overload(function<T1, T2, T3, T4, T5, T6, TResult>(fn:(arg1:T1, arg2:T2, arg3:T3, arg4:T4, arg5:T5, arg6:T6) -> js.lib.Promise<TResult>):(arg1:T1, arg2:T2, arg3:T3, arg4:T4, arg5:T5, arg6:T6, callback:(err:global.nodejs.ErrnoException, result:TResult) -> Void) -> Void { })
-	static function callbackify(fn:() -> js.lib.Promise<ts.Undefined>):(callback:(err:global.nodejs.ErrnoException) -> Void) -> Void;
-	@:overload(function<TResult>(fn:(callback:(err:Null<js.lib.Error>, result:TResult) -> Void) -> Void):() -> js.lib.Promise<TResult> { })
-	@:overload(function(fn:(callback:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>) -> Void):() -> js.lib.Promise<ts.Undefined> { })
-	@:overload(function<T1, TResult>(fn:(arg1:T1, callback:(err:Null<js.lib.Error>, result:TResult) -> Void) -> Void):(arg1:T1) -> js.lib.Promise<TResult> { })
-	@:overload(function<T1>(fn:(arg1:T1, callback:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>) -> Void):(arg1:T1) -> js.lib.Promise<ts.Undefined> { })
-	@:overload(function<T1, T2, TResult>(fn:(arg1:T1, arg2:T2, callback:(err:Null<js.lib.Error>, result:TResult) -> Void) -> Void):(arg1:T1, arg2:T2) -> js.lib.Promise<TResult> { })
-	@:overload(function<T1, T2>(fn:(arg1:T1, arg2:T2, callback:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>) -> Void):(arg1:T1, arg2:T2) -> js.lib.Promise<ts.Undefined> { })
-	@:overload(function<T1, T2, T3, TResult>(fn:(arg1:T1, arg2:T2, arg3:T3, callback:(err:Null<js.lib.Error>, result:TResult) -> Void) -> Void):(arg1:T1, arg2:T2, arg3:T3) -> js.lib.Promise<TResult> { })
-	@:overload(function<T1, T2, T3>(fn:(arg1:T1, arg2:T2, arg3:T3, callback:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>) -> Void):(arg1:T1, arg2:T2, arg3:T3) -> js.lib.Promise<ts.Undefined> { })
-	@:overload(function<T1, T2, T3, T4, TResult>(fn:(arg1:T1, arg2:T2, arg3:T3, arg4:T4, callback:(err:Null<js.lib.Error>, result:TResult) -> Void) -> Void):(arg1:T1, arg2:T2, arg3:T3, arg4:T4) -> js.lib.Promise<TResult> { })
-	@:overload(function<T1, T2, T3, T4>(fn:(arg1:T1, arg2:T2, arg3:T3, arg4:T4, callback:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>) -> Void):(arg1:T1, arg2:T2, arg3:T3, arg4:T4) -> js.lib.Promise<ts.Undefined> { })
-	@:overload(function<T1, T2, T3, T4, T5, TResult>(fn:(arg1:T1, arg2:T2, arg3:T3, arg4:T4, arg5:T5, callback:(err:Null<js.lib.Error>, result:TResult) -> Void) -> Void):(arg1:T1, arg2:T2, arg3:T3, arg4:T4, arg5:T5) -> js.lib.Promise<TResult> { })
-	@:overload(function<T1, T2, T3, T4, T5>(fn:(arg1:T1, arg2:T2, arg3:T3, arg4:T4, arg5:T5, callback:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>) -> Void):(arg1:T1, arg2:T2, arg3:T3, arg4:T4, arg5:T5) -> js.lib.Promise<ts.Undefined> { })
-	@:overload(function(fn:haxe.Constraints.Function):haxe.Constraints.Function { })
-	static function promisify<TCustom>(fn:node.util.CustomPromisify<TCustom>):TCustom;
+	static function format(unknown:Dynamic):String;
+	static function formatWithOptions(unknown:Dynamic):String;
+	static function debug(unknown:Dynamic):Void;
+	static function error(unknown:Dynamic):Void;
+	static function puts(unknown:Dynamic):Void;
+	static function print(unknown:Dynamic):Void;
+	static function log(unknown:Dynamic):Void;
+	@:overload(function(unknown:Dynamic):String { })
+	static function inspect(unknown:Dynamic):String;
+	static function isArray(unknown:Dynamic):Bool;
+	static function isRegExp(unknown:Dynamic):Bool;
+	static function isDate(unknown:Dynamic):Bool;
+	static function isError(unknown:Dynamic):Bool;
+	static function inherits(unknown:Dynamic):Void;
+	static function debuglog(unknown:Dynamic):(unknown:Dynamic) -> Void;
+	static function isBoolean(unknown:Dynamic):Bool;
+	static function isBuffer(unknown:Dynamic):Bool;
+	static function isFunction(unknown:Dynamic):Bool;
+	static function isNull(unknown:Dynamic):Bool;
+	static function isNullOrUndefined(unknown:Dynamic):Bool;
+	static function isNumber(unknown:Dynamic):Bool;
+	static function isObject(unknown:Dynamic):Bool;
+	static function isPrimitive(unknown:Dynamic):Bool;
+	static function isString(unknown:Dynamic):Bool;
+	static function isSymbol(unknown:Dynamic):Bool;
+	static function isUndefined(unknown:Dynamic):Bool;
+	static function deprecate<T>(unknown:Dynamic):T;
+	static function isDeepStrictEqual(unknown:Dynamic):Bool;
+	@:overload(function<TResult>(unknown:Dynamic):(unknown:Dynamic) -> Void { })
+	@:overload(function<T1>(unknown:Dynamic):(unknown:Dynamic) -> Void { })
+	@:overload(function<T1, TResult>(unknown:Dynamic):(unknown:Dynamic) -> Void { })
+	@:overload(function<T1, T2>(unknown:Dynamic):(unknown:Dynamic) -> Void { })
+	@:overload(function<T1, T2, TResult>(unknown:Dynamic):(unknown:Dynamic) -> Void { })
+	@:overload(function<T1, T2, T3>(unknown:Dynamic):(unknown:Dynamic) -> Void { })
+	@:overload(function<T1, T2, T3, TResult>(unknown:Dynamic):(unknown:Dynamic) -> Void { })
+	@:overload(function<T1, T2, T3, T4>(unknown:Dynamic):(unknown:Dynamic) -> Void { })
+	@:overload(function<T1, T2, T3, T4, TResult>(unknown:Dynamic):(unknown:Dynamic) -> Void { })
+	@:overload(function<T1, T2, T3, T4, T5>(unknown:Dynamic):(unknown:Dynamic) -> Void { })
+	@:overload(function<T1, T2, T3, T4, T5, TResult>(unknown:Dynamic):(unknown:Dynamic) -> Void { })
+	@:overload(function<T1, T2, T3, T4, T5, T6>(unknown:Dynamic):(unknown:Dynamic) -> Void { })
+	@:overload(function<T1, T2, T3, T4, T5, T6, TResult>(unknown:Dynamic):(unknown:Dynamic) -> Void { })
+	static function callbackify(unknown:Dynamic):(unknown:Dynamic) -> Void;
+	@:overload(function<TResult>(unknown:Dynamic):(unknown:Dynamic) -> js.lib.Promise<TResult> { })
+	@:overload(function(unknown:Dynamic):(unknown:Dynamic) -> js.lib.Promise<ts.Undefined> { })
+	@:overload(function<T1, TResult>(unknown:Dynamic):(unknown:Dynamic) -> js.lib.Promise<TResult> { })
+	@:overload(function<T1>(unknown:Dynamic):(unknown:Dynamic) -> js.lib.Promise<ts.Undefined> { })
+	@:overload(function<T1, T2, TResult>(unknown:Dynamic):(unknown:Dynamic) -> js.lib.Promise<TResult> { })
+	@:overload(function<T1, T2>(unknown:Dynamic):(unknown:Dynamic) -> js.lib.Promise<ts.Undefined> { })
+	@:overload(function<T1, T2, T3, TResult>(unknown:Dynamic):(unknown:Dynamic) -> js.lib.Promise<TResult> { })
+	@:overload(function<T1, T2, T3>(unknown:Dynamic):(unknown:Dynamic) -> js.lib.Promise<ts.Undefined> { })
+	@:overload(function<T1, T2, T3, T4, TResult>(unknown:Dynamic):(unknown:Dynamic) -> js.lib.Promise<TResult> { })
+	@:overload(function<T1, T2, T3, T4>(unknown:Dynamic):(unknown:Dynamic) -> js.lib.Promise<ts.Undefined> { })
+	@:overload(function<T1, T2, T3, T4, T5, TResult>(unknown:Dynamic):(unknown:Dynamic) -> js.lib.Promise<TResult> { })
+	@:overload(function<T1, T2, T3, T4, T5>(unknown:Dynamic):(unknown:Dynamic) -> js.lib.Promise<ts.Undefined> { })
+	@:overload(function(unknown:Dynamic):haxe.Constraints.Function { })
+	static function promisify<TCustom>(unknown:Dynamic):TCustom;
 }

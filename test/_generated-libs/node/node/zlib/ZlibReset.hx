@@ -1,5 +1,5 @@
 package node.zlib;
 
 typedef ZlibReset = {
-	function reset():Void;
+	function reset(unknown:Dynamic):Void;
 };

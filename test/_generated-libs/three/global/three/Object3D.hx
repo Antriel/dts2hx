@@ -4,7 +4,7 @@ package global.three;
 	Base class for scene graph objects
 **/
 @:native("THREE.Object3D") extern class Object3D extends EventDispatcher {
-	function new();
+	function new(unknown:Dynamic);
 	/**
 		Unique number of this object instance.
 	**/
@@ -105,97 +105,97 @@ package global.three;
 	/**
 		Calls before rendering object
 	**/
-	dynamic function onBeforeRender(renderer:WebGLRenderer, scene:Scene, camera:Camera, geometry:ts.AnyOf2<Geometry, BufferGeometry>, material:Material, group:Group):Void;
+	dynamic function onBeforeRender(unknown:Dynamic):Void;
 	/**
 		Calls after rendering object
 	**/
-	dynamic function onAfterRender(renderer:WebGLRenderer, scene:Scene, camera:Camera, geometry:ts.AnyOf2<Geometry, BufferGeometry>, material:Material, group:Group):Void;
+	dynamic function onAfterRender(unknown:Dynamic):Void;
 	/**
 		This updates the position, rotation and scale with the matrix.
 	**/
-	function applyMatrix(matrix:Matrix4):Void;
-	function applyQuaternion(quaternion:Quaternion):Object3D;
-	function setRotationFromAxisAngle(axis:Vector3, angle:Float):Void;
-	function setRotationFromEuler(euler:Euler):Void;
-	function setRotationFromMatrix(m:Matrix4):Void;
-	function setRotationFromQuaternion(q:Quaternion):Void;
+	function applyMatrix(unknown:Dynamic):Void;
+	function applyQuaternion(unknown:Dynamic):Object3D;
+	function setRotationFromAxisAngle(unknown:Dynamic):Void;
+	function setRotationFromEuler(unknown:Dynamic):Void;
+	function setRotationFromMatrix(unknown:Dynamic):Void;
+	function setRotationFromQuaternion(unknown:Dynamic):Void;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):Object3D;
+	function rotateOnAxis(unknown:Dynamic):Object3D;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):Object3D;
-	function rotateX(angle:Float):Object3D;
-	function rotateY(angle:Float):Object3D;
-	function rotateZ(angle:Float):Object3D;
-	function translateOnAxis(axis:Vector3, distance:Float):Object3D;
+	function rotateOnWorldAxis(unknown:Dynamic):Object3D;
+	function rotateX(unknown:Dynamic):Object3D;
+	function rotateY(unknown:Dynamic):Object3D;
+	function rotateZ(unknown:Dynamic):Object3D;
+	function translateOnAxis(unknown:Dynamic):Object3D;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):Object3D;
+	function translateX(unknown:Dynamic):Object3D;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):Object3D;
+	function translateY(unknown:Dynamic):Object3D;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):Object3D;
+	function translateZ(unknown:Dynamic):Object3D;
 	/**
 		Updates the vector from local space to world space.
 	**/
-	function localToWorld(vector:Vector3):Vector3;
+	function localToWorld(unknown:Dynamic):Vector3;
 	/**
 		Updates the vector from world space to local space.
 	**/
-	function worldToLocal(vector:Vector3):Vector3;
+	function worldToLocal(unknown:Dynamic):Vector3;
 	/**
 		Rotates object to face point in space.
 	**/
-	function lookAt(vector:ts.AnyOf2<Float, Vector3>, ?y:Float, ?z:Float):Void;
+	function lookAt(unknown:Dynamic):Void;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):Object3D;
+	function add(unknown:Dynamic):Object3D;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):Object3D;
+	function remove(unknown:Dynamic):Object3D;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):Object3D;
+	function attach(unknown:Dynamic):Object3D;
 	/**
 		Searches through the object's children and returns the first with a matching id.
 	**/
-	function getObjectById(id:Float):Null<Object3D>;
+	function getObjectById(unknown:Dynamic):Null<Object3D>;
 	/**
 		Searches through the object's children and returns the first with a matching name.
 	**/
-	function getObjectByName(name:String):Null<Object3D>;
-	function getObjectByProperty(name:String, value:String):Null<Object3D>;
-	function getWorldPosition(target:Vector3):Vector3;
-	function getWorldQuaternion(target:Quaternion):Quaternion;
-	function getWorldScale(target:Vector3):Vector3;
-	function getWorldDirection(target:Vector3):Vector3;
-	function raycast(raycaster:Raycaster, intersects:Array<Intersection>):Void;
-	function traverse(callback:(object:Object3D) -> Dynamic):Void;
-	function traverseVisible(callback:(object:Object3D) -> Dynamic):Void;
-	function traverseAncestors(callback:(object:Object3D) -> Dynamic):Void;
+	function getObjectByName(unknown:Dynamic):Null<Object3D>;
+	function getObjectByProperty(unknown:Dynamic):Null<Object3D>;
+	function getWorldPosition(unknown:Dynamic):Vector3;
+	function getWorldQuaternion(unknown:Dynamic):Quaternion;
+	function getWorldScale(unknown:Dynamic):Vector3;
+	function getWorldDirection(unknown:Dynamic):Vector3;
+	function raycast(unknown:Dynamic):Void;
+	function traverse(unknown:Dynamic):Void;
+	function traverseVisible(unknown:Dynamic):Void;
+	function traverseAncestors(unknown:Dynamic):Void;
 	/**
 		Updates local transform.
 	**/
-	function updateMatrix():Void;
+	function updateMatrix(unknown:Dynamic):Void;
 	/**
 		Updates global transform of the object and its children.
 	**/
-	function updateMatrixWorld(?force:Bool):Void;
-	function updateWorldMatrix(updateParents:Bool, updateChildren:Bool):Void;
-	function toJSON(?meta:{ var geometries : Dynamic; var materials : Dynamic; var textures : Dynamic; var images : Dynamic; }):Dynamic;
-	function clone(?recursive:Bool):Object3D;
-	function copy(source:Object3D, ?recursive:Bool):Object3D;
+	function updateMatrixWorld(unknown:Dynamic):Void;
+	function updateWorldMatrix(unknown:Dynamic):Void;
+	function toJSON(unknown:Dynamic):Dynamic;
+	function clone(unknown:Dynamic):Object3D;
+	function copy(unknown:Dynamic):Object3D;
 	static var prototype : Object3D;
 	static var DefaultUp : Vector3;
 	static var DefaultMatrixAutoUpdate : Bool;

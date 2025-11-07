@@ -3,7 +3,11 @@ package global.jquery;
 /**
 	jQuery's event system normalizes the event object according to W3C standards. The event object is guaranteed to be passed to the event handler (no checks for window.event required). It normalizes the target, relatedTarget, which, metaKey and pageX/Y properties and provides both stopPropagation() and preventDefault() methods.
 	
-	Those properties are all documented, and accompanied by examples, on the \`{@link http://api.jquery.com/category/events/event-object/ Event object}\` page.
+	Those properties are all documented, and accompanied by examples, on the \`
+	{@link
+	http://api.jquery.com/category/events/event-object/ Event object
+	}
+	\` page.
 	
 	The standard events in the Document Object Model are: `blur`, `focus`, `load`, `resize`, `scroll`, `unload`, `beforeunload`, `click`, `dblclick`, `mousedown`, `mouseup`, `mousemove`, `mouseover`, `mouseout`, `mouseenter`, `mouseleave`, `change`, `select`, `submit`, `keydown`, `keypress`, and `keyup`. Since the DOM event names have predefined meanings for some elements, using them for other purposes is not recommended. jQuery's event model can trigger an event by any name on an element, and it is propagated up the DOM tree to which that element belongs, if any.
 **/
@@ -61,25 +65,25 @@ typedef Event = {
 	/**
 		Returns whether event.preventDefault() was ever called on this event object.
 	**/
-	function isDefaultPrevented():Bool;
+	function isDefaultPrevented(unknown:Dynamic):Bool;
 	/**
 		Returns whether event.stopImmediatePropagation() was ever called on this event object.
 	**/
-	function isImmediatePropagationStopped():Bool;
+	function isImmediatePropagationStopped(unknown:Dynamic):Bool;
 	/**
 		Returns whether event.stopPropagation() was ever called on this event object.
 	**/
-	function isPropagationStopped():Bool;
+	function isPropagationStopped(unknown:Dynamic):Bool;
 	/**
 		If this method is called, the default action of the event will not be triggered.
 	**/
-	function preventDefault():Void;
+	function preventDefault(unknown:Dynamic):Void;
 	/**
 		Keeps the rest of the handlers from being executed and prevents the event from bubbling up the DOM tree.
 	**/
-	function stopImmediatePropagation():Void;
+	function stopImmediatePropagation(unknown:Dynamic):Void;
 	/**
 		Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
 	**/
-	function stopPropagation():Void;
+	function stopPropagation(unknown:Dynamic):Void;
 };

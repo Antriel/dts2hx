@@ -1,8 +1,8 @@
 package three;
 
 @:jsRequire("three", "WireframeGeometry") extern class WireframeGeometry extends BufferGeometry {
-	function new(geometry:ts.AnyOf2<Geometry, BufferGeometry>);
-	function clone():WireframeGeometry;
-	function copy(source:BufferGeometry):WireframeGeometry;
+	function new(unknown:Dynamic);
+	function clone(unknown:Dynamic):WireframeGeometry;
+	function copy(unknown:Dynamic):WireframeGeometry;
 	static var prototype : WireframeGeometry;
 }

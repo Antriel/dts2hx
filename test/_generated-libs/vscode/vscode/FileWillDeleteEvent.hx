@@ -20,11 +20,11 @@ typedef FileWillDeleteEvent = {
 		
 		```ts
 		workspace.onWillCreateFiles(event => {
-		     // async, will *throw* an error
-		     setTimeout(() => event.waitUntil(promise));
+		    // async, will *throw* an error
+		    setTimeout(() => event.waitUntil(promise));
 		
-		     // sync, OK
-		     event.waitUntil(promise);
+		    // sync, OK
+		    event.waitUntil(promise);
 		})
 		```
 		
@@ -32,6 +32,6 @@ typedef FileWillDeleteEvent = {
 		
 		*Note:* This function can only be called during event dispatch.
 	**/
-	@:overload(function(thenable:global.Thenable<Dynamic>):Void { })
-	function waitUntil(thenable:global.Thenable<WorkspaceEdit>):Void;
+	@:overload(function(unknown:Dynamic):Void { })
+	function waitUntil(unknown:Dynamic):Void;
 };
