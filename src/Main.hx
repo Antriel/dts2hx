@@ -565,6 +565,10 @@ class Main {
 		`@actions/core.js` -> `actions-core,js`
 	**/
 	static function haxelibLibraryName(moduleName: String) {
+		if (moduleName == null) {
+			Log.warn('haxelibLibraryName called with null moduleName, using "unknown"');
+			moduleName = 'unknown';
+		}
 		var safeName = moduleName.replace('/', '-').replace('\\', '-');
 		// replace directory separators with -
 		// replace space with -
