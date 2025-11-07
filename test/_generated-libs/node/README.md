@@ -2,7 +2,7 @@
 
 Generated from **@types/node v11.11.3** by **[dts2hx](https://github.com/haxiomic/dts2hx) x.x.x** using **TypeScript 3.7.4** with arguments:
 
-	dts2hx node --output _generated-libs --noDts2hxVersion
+	dts2hx express --output _generated-libs --noDts2hxVersion
 
 ## Contributors to @types/node
 - [Microsoft TypeScript](https://github.com/Microsoft)

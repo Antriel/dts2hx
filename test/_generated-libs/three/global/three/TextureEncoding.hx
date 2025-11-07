@@ -1,0 +1,12 @@
+package global.three;
+
+@:enum @:native("THREE") extern abstract TextureEncoding(Int) {
+	final LinearEncoding : TextureEncoding;
+	final sRGBEncoding : TextureEncoding;
+	final GammaEncoding : TextureEncoding;
+	final RGBEEncoding : TextureEncoding;
+	final LogLuvEncoding : TextureEncoding;
+	final RGBM7Encoding : TextureEncoding;
+	final RGBM16Encoding : TextureEncoding;
+	final RGBDEncoding : TextureEncoding;
+}
