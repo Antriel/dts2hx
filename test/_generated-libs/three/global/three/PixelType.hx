@@ -1,6 +1,6 @@
 package global.three;
 
-@:enum @:native("THREE") extern abstract PixelType(Int) from Int to Int {
+@:enum @:native("THREE") extern abstract PixelType(Int) {
 	final UnsignedShort4444Type : PixelType;
 	final UnsignedShort5551Type : PixelType;
 	final UnsignedShort565Type : PixelType;

@@ -1,6 +1,6 @@
 package global.three;
 
-@:native("THREE.PathActions") @:enum extern abstract PathActions(Int) from Int to Int {
+@:native("THREE.PathActions") @:enum extern abstract PathActions(Int) {
 	var MOVE_TO;
 	var LINE_TO;
 	var QUADRATIC_CURVE_TO;

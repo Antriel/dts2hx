@@ -1,6 +1,6 @@
 package three;
 
-@:enum @:jsRequire("three") extern abstract CompressedPixelFormat(Int) from Int to Int {
+@:enum @:jsRequire("three") extern abstract CompressedPixelFormat(Int) {
 	final RGB_S3TC_DXT1_Format : CompressedPixelFormat;
 	final RGBA_S3TC_DXT1_Format : CompressedPixelFormat;
 	final RGBA_S3TC_DXT3_Format : CompressedPixelFormat;

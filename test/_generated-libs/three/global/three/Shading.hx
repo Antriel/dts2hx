@@ -1,6 +1,6 @@
 package global.three;
 
-@:enum @:native("THREE") extern abstract Shading(Int) from Int to Int {
+@:enum @:native("THREE") extern abstract Shading(Int) {
 	final FlatShading : Shading;
 	final SmoothShading : Shading;
 }

@@ -1,6 +1,6 @@
 package three;
 
-@:enum @:jsRequire("three") extern abstract StencilFunc(Int) from Int to Int {
+@:enum @:jsRequire("three") extern abstract StencilFunc(Int) {
 	final NeverStencilFunc : StencilFunc;
 	final LessStencilFunc : StencilFunc;
 	final EqualStencilFunc : StencilFunc;

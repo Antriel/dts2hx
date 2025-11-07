@@ -1,6 +1,6 @@
 package three;
 
-@:enum @:jsRequire("three") extern abstract ToneMapping(Int) from Int to Int {
+@:enum @:jsRequire("three") extern abstract ToneMapping(Int) {
 	final NoToneMapping : ToneMapping;
 	final LinearToneMapping : ToneMapping;
 	final ReinhardToneMapping : ToneMapping;

@@ -2,10 +2,12 @@
 
 -p lib
 -p src
+-cp .haxe/hxnodejs/src
 
 -main Main
--lib hxnodejs
 
+--macro allowPackage('sys')
+-D nodejs
 -dce full
 
 -js dist/dts2hx.js

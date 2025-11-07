@@ -1,6 +1,6 @@
 package three;
 
-@:enum @:jsRequire("three") extern abstract TextureFilter(Int) from Int to Int {
+@:enum @:jsRequire("three") extern abstract TextureFilter(Int) {
 	final NearestFilter : TextureFilter;
 	final NearestMipmapNearestFilter : TextureFilter;
 	final NearestMipMapNearestFilter : TextureFilter;

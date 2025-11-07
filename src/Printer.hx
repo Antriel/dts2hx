@@ -164,7 +164,8 @@ class Printer extends haxe.macro.Printer {
 						case _: printComplexType(ct);
 					})
 					+ ";";
-				case TDAbstract(tthis, from, to):
+				case TDAbstract(tthis, flags, from, to):
+					(flags?.has(AbEnum) ? "enum " : "") +
 					"abstract "
 					+ t.name
 					+ ((t.params != null && t.params.length > 0) ? "<" + t.params.map(printTypeParamDecl).join(", ") + ">" : "")

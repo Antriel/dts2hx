@@ -1,6 +1,6 @@
 package global.three;
 
-@:enum @:native("THREE") extern abstract Side(Int) from Int to Int {
+@:enum @:native("THREE") extern abstract Side(Int) {
 	final FrontSide : Side;
 	final BackSide : Side;
 	final DoubleSide : Side;

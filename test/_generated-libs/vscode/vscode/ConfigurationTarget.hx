@@ -3,7 +3,7 @@ package vscode;
 /**
 	The configuration target
 **/
-@:jsRequire("vscode", "ConfigurationTarget") @:enum extern abstract ConfigurationTarget(Int) from Int to Int {
+@:jsRequire("vscode", "ConfigurationTarget") @:enum extern abstract ConfigurationTarget(Int) {
 	/**
 		Global configuration
 	**/

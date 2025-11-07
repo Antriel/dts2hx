@@ -3,7 +3,7 @@ package vscode;
 /**
 	Debug console mode used by debug session, see [options](#DebugSessionOptions).
 **/
-@:jsRequire("vscode", "DebugConsoleMode") @:enum extern abstract DebugConsoleMode(Int) from Int to Int {
+@:jsRequire("vscode", "DebugConsoleMode") @:enum extern abstract DebugConsoleMode(Int) {
 	/**
 		Debug session should have a separate debug console.
 	**/

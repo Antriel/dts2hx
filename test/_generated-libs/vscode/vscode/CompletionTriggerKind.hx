@@ -3,7 +3,7 @@ package vscode;
 /**
 	How a [completion provider](#CompletionItemProvider) was triggered
 **/
-@:jsRequire("vscode", "CompletionTriggerKind") @:enum extern abstract CompletionTriggerKind(Int) from Int to Int {
+@:jsRequire("vscode", "CompletionTriggerKind") @:enum extern abstract CompletionTriggerKind(Int) {
 	/**
 		Completion was triggered normally.
 	**/

@@ -3,7 +3,7 @@ package vscode;
 /**
 	Rendering style of the line numbers.
 **/
-@:jsRequire("vscode", "TextEditorLineNumbersStyle") @:enum extern abstract TextEditorLineNumbersStyle(Int) from Int to Int {
+@:jsRequire("vscode", "TextEditorLineNumbersStyle") @:enum extern abstract TextEditorLineNumbersStyle(Int) {
 	/**
 		Do not render the line numbers.
 	**/

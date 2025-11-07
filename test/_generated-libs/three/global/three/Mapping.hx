@@ -1,6 +1,6 @@
 package global.three;
 
-@:enum @:native("THREE") extern abstract Mapping(Int) from Int to Int {
+@:enum @:native("THREE") extern abstract Mapping(Int) {
 	final UVMapping : Mapping;
 	final CubeReflectionMapping : Mapping;
 	final CubeRefractionMapping : Mapping;

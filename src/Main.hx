@@ -19,9 +19,9 @@ using tool.StringTools;
 using tool.TsSymbolTools;
 
 typedef CliOptions = {
-	cwd: String,
-	outputPath: String,
-	tsConfigFilePath: String,
+	cwd: Null<String>,
+	outputPath: Null<String>,
+	tsConfigFilePath: Null<String>,
 	tsCompilerOptions: Array<String>,
 	moduleNames: Array<String>,
 	moduleSearchPath: String,
@@ -47,7 +47,7 @@ typedef CliOptions = {
 @:nullSafety
 class Main {
 
-	static public final dts2hxPackageJson = Macro.getJson('package.json');
+	static public final dts2hxPackageJson:Dynamic = Macro.getJson('package.json');
 	static final defaultStdLibTypeMap: TypeMap = Macro.getJson('src/typemap/std-4.2.5.json');
 	static final defaultHxnodejsTypeMap: TypeMap = Macro.getJson('src/typemap/hxnodejs-12.1.0.json');
 
@@ -156,7 +156,7 @@ class Main {
 
 			@doc('Set the name of the package for global modules (default <$defaultValueFormatting>"${cliOptions.globalPackageName}"</>)')
 			'--globalPackageName' => (name: String) -> {
-				name = StringTools.trim(name);
+				name = name.trim();
 				cliOptions.globalPackageName = name == '' ? null : name;
 				explicitGlobalPackageName = true;
 			},

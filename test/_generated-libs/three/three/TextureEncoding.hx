@@ -1,6 +1,6 @@
 package three;
 
-@:enum @:jsRequire("three") extern abstract TextureEncoding(Int) from Int to Int {
+@:enum @:jsRequire("three") extern abstract TextureEncoding(Int) {
 	final LinearEncoding : TextureEncoding;
 	final sRGBEncoding : TextureEncoding;
 	final GammaEncoding : TextureEncoding;

@@ -1,6 +1,6 @@
 package unit.symbols;
 
-@:jsRequire("./unit/symbols", "ConstructorTypeClassAlias") @:forward @:forwardStatics extern abstract ConstructorTypeClassAlias(ExampleClass) from ExampleClass to ExampleClass {
+@:jsRequire("./unit/symbols", "ConstructorTypeClassAlias") @:forward @:forwardStatics extern abstract ConstructorTypeClassAlias(ExampleClass) {
 	function new(constructorTypeParam:Array<Bool>);
 	@:selfCall
 	static function call(constructorTypeCallParam:Float):Void;

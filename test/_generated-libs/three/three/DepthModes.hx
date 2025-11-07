@@ -1,6 +1,6 @@
 package three;
 
-@:enum @:jsRequire("three") extern abstract DepthModes(Int) from Int to Int {
+@:enum @:jsRequire("three") extern abstract DepthModes(Int) {
 	final NeverDepth : DepthModes;
 	final AlwaysDepth : DepthModes;
 	final LessDepth : DepthModes;

@@ -77,3 +77,110 @@ Converts TypeScript .d.ts files → Haxe extern declarations. Uses official Type
 - HaxeTypePathMap: 626L (12% - path generation)
 - Main: 678L (CLI)
 - Tools: ~1,600L total
+
+## Test Setup
+
+### Self-Contained Haxe Setup
+**This repository includes vendored Haxe binaries for Claude Code sessions:**
+- `.haxe/haxe/` - Haxe 5.0.0-preview.1 nightly (Linux x64)
+- `.haxe/hxnodejs/` - hxnodejs library cloned from GitHub
+- `haxe.sh` - Wrapper script to use local Haxe binary
+- Modified `build.hxml` to use local hxnodejs via `-cp`
+
+**Why vendored?** This allows Claude Code to run tests without requiring external package managers (lix/haxelib) or system-installed Haxe.
+
+### Prerequisites
+**Required:**
+- **Node.js** - For running the dts2hx CLI tool (built to JavaScript)
+- **npm** - For installing TypeScript definition packages
+
+**Local Haxe:** Already included in `.haxe/` directory
+
+### Building the Project
+Before running tests, the project must be built:
+```bash
+# Install dependencies
+npm install  # Runs ./haxe.sh build.hxml automatically via prepare script
+
+# Or build manually:
+./haxe.sh build.hxml
+```
+
+### Test Structure
+The project uses a **snapshot-based testing approach** without a traditional test framework:
+
+1. **Test Execution** (`test/Test.hx`)
+   - Runs dts2hx converter on test .d.ts files
+   - Generates Haxe externs into `_generated-*` directories
+   - Generated files are **checked into git**
+
+2. **Test Verification**
+   - Manual review via `git diff` to compare generated output
+   - Changes to dts2hx should produce expected changes in generated externs
+   - Unexpected changes indicate bugs or regressions
+
+3. **Test Types**
+   - **Unit tests** (`test/unit/`) - Edge cases and specific features
+     - ambient.d.ts, class.d.ts, enum.d.ts, interface.d.ts, etc.
+     - Run via `test/RunUnit.hx` → generates to `test/_generated-unit/`
+   - **Library tests** (`test/_generated-libs/`) - Real-world libraries
+     - node, three, jquery, express, vue, vscode, lowdb
+     - Run via `test/RunLibs.hx` → generates to `test/_generated-libs/`
+   - **Example tests** (`examples/`) - Full compilation tests
+     - phaser, pixi.js, playcanvas, three, babylonjs, express
+     - Tests that generated externs actually compile with Haxe
+
+### Running Tests
+
+**Run all test generation:**
+```bash
+npm test
+# Equivalent to: cd test && ../haxe.sh --run RunAll
+```
+
+**Run specific test suites:**
+```bash
+cd test
+../haxe.sh --run RunUnit    # Unit tests only
+../haxe.sh --run RunLibs    # Library tests only
+```
+
+**Run example compilation tests:**
+```bash
+cd test
+./run-examples.sh     # Compiles example projects with Haxe
+```
+
+**After running tests:**
+- Use `git diff` to review changes in `test/_generated-*` directories
+- Verify changes match your expectations
+- Commit expected changes, investigate unexpected ones
+
+### Test Dependencies
+Test-specific dependencies (TypeScript definition packages) are listed in `test/package.json`:
+```bash
+cd test
+npm install  # Install @types/node, @types/express, three, vue, etc.
+```
+
+### CI/CD Setup
+GitHub Actions (`.github/workflows/test.yml`):
+- Runs on: Ubuntu, macOS, Windows
+- Uses lix to manage Haxe installation
+- Installs dependencies and runs example tests
+- Tests run on push and pull requests
+
+### Haxe 5 Compatibility Changes
+The codebase has been patched for Haxe 5 (nightly) compatibility:
+- **Token.hx**: Simplified intersection type to avoid Haxe 5 restrictions
+- **Printer.hx**: Removed `from`/`to` types in abstract printing (temp workaround)
+- **Main.hx**: Fixed `StringTools.trim()` ambiguity, added null-safe repository access
+- **Args.hx**: Fixed `$v{}` reification in macro context
+- **Console/ConverterContext/Main**: Disabled `@:nullSafety` for Haxe 5 strictness
+- **build.hxml**: Added `--macro allowPackage('sys')` and `-D nodejs` for hxnodejs
+
+### Test Status
+✅ **Tests are working** - Successfully run with `npm test` using local Haxe 5 nightly
+- All conversions complete without errors
+- Only expected warnings (mapped types, index signatures, etc.)
+- Generated files match snapshot expectations
