@@ -8,6 +8,7 @@ import haxe.ds.ReadOnlyArray;
 
 using tool.StringTools;
 using tool.HaxeTools;
+using tool.TsSymbolTools;
 
 class SymbolAccessTools {
 	
@@ -36,7 +37,7 @@ class SymbolAccessTools {
 	}
 
 	static public function getIdentifierChain(access: SymbolAccess): Array<String> {
-		return extractSymbolChain(access).map(s -> s.name);
+		return extractSymbolChain(access).map(s -> s.getSymbolName());
 	}
 
 	static public function toAccessMetadata(access: SymbolAccess): MetadataEntry {

@@ -29,7 +29,7 @@ class TsProgramTools {
 
 	static public function isAmbientModule(program: Program, moduleName: String) {
 		var tc = program.getTypeChecker();
-		return tc.getAmbientModules().exists(s -> tool.StringTools.unwrapQuotes(s.name) == normalizeModuleName(moduleName));
+		return tc.getAmbientModules().exists(s -> tool.StringTools.unwrapQuotes(s.getSymbolName()) == normalizeModuleName(moduleName));
 	}
 
 	static public function getDependencies(program: Program, sourceFiles: Array<SourceFile>, normalizedInputModuleName: String, host: CompilerHost) {

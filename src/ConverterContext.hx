@@ -247,7 +247,7 @@ class ConverterContext {
 
 				if (isGlobalField(tc, symbol, access)) {
 					var globalModule = this.getGlobalModuleForFieldSymbol(symbol, access);
-					var field = fieldFromSymbol(symbol.name, symbol, symbol, Global([]), null);
+					var field = fieldFromSymbol(symbol.getSymbolName(), symbol, symbol, Global([]), null);
 					field.enableAccess(AStatic);
 					globalModule.fields.push(field);
 				}
@@ -1192,7 +1192,7 @@ class ConverterContext {
 				complexTypeFromTsType(thisTarget, moduleSymbol, accessContext, enclosingDeclaration);
 			} else {
 				TPath({
-					name: typeParameter.symbol.name.toSafeTypeName(),
+					name: typeParameter.symbol.getSymbolName().toSafeTypeName(),
 					pack: [],
 				});
 			}
@@ -1760,8 +1760,16 @@ class ConverterContext {
 			// I don't think d.ts files allow default values for parameters but we'll keep this here anyway
 			var value = parameterDeclaration != null ? HaxeTools.primitiveValueToExpr(tc.getConstantValue(parameterDeclaration)) : null;
 
+			// Get parameter name - for transient symbols from tuple expansion, check declaration name first
+			var paramName: String = if (parameterDeclaration != null && parameterDeclaration.name != null) {
+				// Try to get name from the declaration node
+				untyped parameterDeclaration.name.getText != null ? untyped parameterDeclaration.name.getText() : s.getSymbolName();
+			} else {
+				s.getSymbolName();
+			}
+
 			return ({
-				name: s.name.toSafeIdent(),
+				name: paramName.toSafeIdent(),
 				type: hxType,
 				opt: isOptional,
 				value: value
@@ -1802,7 +1810,7 @@ class ConverterContext {
 			complexTypeFromTypeNode(typeParamNode.constraint, moduleSymbol, accessContext, enclosingDeclaration);
 		} else null;
 		return {
-			name: typeParameter.symbol.name.toSafeTypeName(),
+			name: typeParameter.symbol.getSymbolName().toSafeTypeName(),
 			constraints: hxConstraint != null ? [hxConstraint] : null,
 		}
 	}

@@ -228,7 +228,7 @@ class HaxeTypePathMap {
 								return 1;
 							} else {
 								// if everything else is equal, use ascii sort for some stable difference
-								return a.symbol.name > b.symbol.name ? -1 : 1;
+								return a.symbol.getSymbolName() > b.symbol.getSymbolName() ? -1 : 1;
 							}
 						});
 
@@ -409,9 +409,9 @@ class HaxeTypePathMap {
 				var moduleNamePack = splitModulePath(getDeclaringModuleName(symbol));
 				pack = pack.concat(moduleNamePack).concat(
 					symbol.getSymbolParents()
-					.filter(s -> !~/^__\w/.match(s.name)) // skip special names (like '__global')
+					.filter(s -> !~/^__\w/.match(s.getSymbolName())) // skip special names (like '__global')
 					.filter(s -> !s.isSourceFileSymbol())
-					.map(s -> s.name)
+					.map(s -> s.getSymbolName())
 				);
 		}
 
@@ -458,9 +458,9 @@ class HaxeTypePathMap {
 				var lastSymbol = symbolChain[symbolChain.length - 1];
 				if (lastSymbol != null) {
 					if (lastSymbol.escapedName.isInternalSymbolName()) {
-						symbol.name;
+						symbol.getSymbolName();
 					} else {
-						lastSymbol.name;
+						lastSymbol.getSymbolName();
 					}
 				} else {
 					splitModulePath(path).pop();
@@ -469,12 +469,12 @@ class HaxeTypePathMap {
 				var lastSymbol = symbolChain[symbolChain.length - 1];
 				if (lastSymbol != null) {
 					if (lastSymbol.escapedName.isInternalSymbolName()) {
-						symbol.name;
+						symbol.getSymbolName();
 					} else {
-						lastSymbol.name;
+						lastSymbol.getSymbolName();
 					}
 				} else {
-					symbol.name;
+					symbol.getSymbolName();
 				}
 			case Inaccessible:
 				symbol.name;

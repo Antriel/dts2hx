@@ -41,7 +41,7 @@ class PostProcess {
 							var fieldChain = access.getIdentifierChain().copy();
 							enumTypeChain.pop(); fieldChain.pop();
 							if (enumTypeChain.join('.') == fieldChain.join('.')) { // matching access path
-								var enumField = ctx.fieldFromSymbol(symbol.name, symbol, enumTypeSymbol, enumTypeSymbolAccess, null);
+								var enumField = ctx.fieldFromSymbol(symbol.getSymbolName(), symbol, enumTypeSymbol, enumTypeSymbolAccess, null);
 								hxEnumModule.fields.push(enumField);
 							}
 

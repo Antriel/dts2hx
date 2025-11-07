@@ -136,7 +136,7 @@ class SymbolAccessMap {
 				case ExportModule(moduleName, sourceFileSymbol, _):
 					var newSourceFile = symbol.valueDeclaration.getSourceFile();
 					if (symbol != sourceFileSymbol) {
-						Log.warn('Changing symbol access module from <b>ExportModule($moduleName, ${sourceFileSymbol.name})</> to <b>ExportModule(${newSourceFile.moduleName}, ${symbol.name})</>', symbol);
+						Log.warn('Changing symbol access module from <b>ExportModule($moduleName, ${sourceFileSymbol.getSymbolName()})</> to <b>ExportModule(${newSourceFile.moduleName}, ${symbol.getSymbolName()})</>', symbol);
 					}
 					var moduleName = newSourceFile.moduleName;
 					if (moduleName == './') {
@@ -151,23 +151,23 @@ class SymbolAccessMap {
 					access;
 				case Inaccessible:
 					// making accessible via the sourceFile
-					ExportModule(symbol.name, symbol, []);
+					ExportModule(symbol.getSymbolName(), symbol, []);
 			}
 		} else if (TsSymbolTools.isExternalModuleSymbol(symbol)) {
 			return switch access {
 				case ExportModule(rootModuleName, rootSourceFileSymbol, _):
-					Log.error('Cannot change symbol access from <b>ExportModule($rootModuleName, ${rootSourceFileSymbol.name})</> to <b>AmbientModule("${symbol.name}")</>', symbol);
+					Log.error('Cannot change symbol access from <b>ExportModule($rootModuleName, ${rootSourceFileSymbol.getSymbolName()})</> to <b>AmbientModule("${symbol.getSymbolName()}")</>', symbol);
 					access;
 				case AmbientModule(_):
 					// replace ambient module with a new one (we assume nested ambient modules is not possible)
 					Log.warn('Nested ambient modules should be impossible. This might indicate an internal error', symbol);
-					AmbientModule(symbol.name, symbol, []);
+					AmbientModule(symbol.getSymbolName(), symbol, []);
 				case Global(_):
 					// change from global access to ambient module access
-					AmbientModule(symbol.name, symbol, []);
+					AmbientModule(symbol.getSymbolName(), symbol, []);
 				case Inaccessible:
 					// make accessible via the ambient module
-					AmbientModule(symbol.name, symbol, []);
+					AmbientModule(symbol.getSymbolName(), symbol, []);
 			}
 		} else {
 			// handle special symbols (only for ExportModule access)
