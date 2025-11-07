@@ -1,6 +1,6 @@
 package unit.enum_.enums;
 
-@:enum extern abstract ConstEnum(Any) {
+extern abstract ConstEnum(Any) from Any to Any {
 	var A = 1;
 	var B = 2;
 	var C = "ceee";
