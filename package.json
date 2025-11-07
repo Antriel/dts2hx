@@ -17,8 +17,8 @@
     "url": "https://github.com/haxiomic/dts2hx"
   },
   "scripts": {
-    "prepare": "haxe build.hxml",
-    "test": "cd test && haxe --run RunAll"
+    "prepare": "./haxe.sh build.hxml",
+    "test": "cd test && ../haxe.sh --run RunAll"
   },
   "homepage": "https://github.com/haxiomic/dts2hx",
   "author": "haxiomic",

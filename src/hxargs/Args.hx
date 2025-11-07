@@ -90,13 +90,14 @@ class Args {
 				__index += $v{fArgs.length};
 			} else macro {
 				var __argInfo = $a{fArgs.map(function(arg) {
-					var arg = {
+					var argValue = arg.value == null ? null : arg.value.getValue();
+					var argInfo = {
 						name: arg.name.replace("_", " "),
 						type: arg.type,
 						opt: arg.opt || arg.value != null,
-						value: $v{arg.value == null ? null : arg.value.getValue()}
+						value: argValue
 					}
-					return macro $v{arg};
+					return macro $v{argInfo};
 				})};
 				while (__index + $v{fArgs.length} > __args.length) {
 					var currentArg = __argInfo[__args.length - 1];

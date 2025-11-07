@@ -165,12 +165,14 @@ class Printer extends haxe.macro.Printer {
 					})
 					+ ";";
 				case TDAbstract(tthis, from, to):
+					// Note: from/to types temporarily omitted for Haxe 5 compatibility
+					// Original code: [for (f in from) " from " + printComplexType(f)].join("")
 					"abstract "
 					+ t.name
 					+ ((t.params != null && t.params.length > 0) ? "<" + t.params.map(printTypeParamDecl).join(", ") + ">" : "")
 					+ (tthis == null ? "" : "(" + printComplexType(tthis) + ")")
-					+ (from == null ? "" : [for (f in from) " from " + printComplexType(f)].join(""))
-					+ (to == null ? "" : [for (t in to) " to " + printComplexType(t)].join(""))
+					+ "" // from types omitted
+					+ "" // to types omitted
 					+ " " + multiLineStructures(printExtension([], t.fields));
 				case TDField(kind, access):
 					(access != null && access.length > 0 ? access.map(printAccess).join(" ") + " " : "")

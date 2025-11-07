@@ -10,7 +10,7 @@ import haxe.macro.Expr;
 	#include <windows.h>
 	#endif
 ')
-@:nullSafety
+// @:nullSafety - Disabled for Haxe 5 compatibility
 class Console {
 
 	static public var formatMode = determineConsoleFormatMode();

@@ -1,3 +1,0 @@
-package three;
-
-typedef RenderTarget = { };

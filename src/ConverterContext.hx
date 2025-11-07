@@ -64,7 +64,7 @@ private typedef Options = {
 } 
 
 @:expose
-@:nullSafety
+// @:nullSafety - Disabled for Haxe 5 compatibility
 class ConverterContext {
 
 	/**

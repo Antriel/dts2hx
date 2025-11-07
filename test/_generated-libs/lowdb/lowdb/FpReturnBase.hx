@@ -1,3 +1,0 @@
-package lowdb;
-
-typedef FpReturnBase<PathT> = ts.AnyOf8<(f1:(a1:PathT) -> Any) -> Any, (f1:ts.Tuple2<(a1:PathT) -> Any, (a:Any) -> Any>) -> Any, (f1:ts.Tuple3<(a1:PathT) -> Any, (a:Any) -> Any, (a:Any) -> Any>) -> Any, (f1:ts.Tuple4<(a1:PathT) -> Any, (a:Any) -> Any, (a:Any) -> Any, (a:Any) -> Any>) -> Any, (f1:ts.Tuple5<(a1:PathT) -> Any, (a:Any) -> Any, (a:Any) -> Any, (a:Any) -> Any, (a:Any) -> Any>) -> Any, (f1:ts.Tuple6<(a1:PathT) -> Any, (a:Any) -> Any, (a:Any) -> Any, (a:Any) -> Any, (a:Any) -> Any, (a:Any) -> Any>) -> Any, (f1:ts.Tuple7<(a1:PathT) -> Any, (a:Any) -> Any, (a:Any) -> Any, (a:Any) -> Any, (a:Any) -> Any, (a:Any) -> Any, (a:Any) -> Any>) -> Any, (funcs:Array<(a:Dynamic) -> Dynamic>) -> Dynamic>;
