@@ -902,6 +902,12 @@ class ConverterContext {
 		- `preferInterfaceStructure` - set to true return the interface-structure version of a type in haxe. This is not handled recursively, so only the top-level reference will prefer-interface-structure
 	**/
 	function complexTypeFromTsType(type: TsType, moduleSymbol: Symbol, accessContext: SymbolAccess, ?enclosingDeclaration: Node, ?disallowAliasTarget: Symbol, preferInterfaceStructure: Bool = false): ComplexType {
+		// Handle null/undefined type (defensive programming for TS 5.x API changes)
+		if (type == null) {
+			Log.warn('Received null/undefined type in complexTypeFromTsType, returning Dynamic');
+			return macro :Dynamic;
+		}
+
 		// alias : this -> real type
 		if (type.isThisType()) {
 			var thisTarget = type.getThisTypeTarget();

@@ -50,7 +50,11 @@ class TsTypeTools {
 	}
 
 	public static function isThisType(type: TsType): Bool {
-		return untyped !!type.isThisType;
+		// In TypeScript 5.x, the isThisType property was removed
+		// Check if the internal isThisType property exists (TS 3.x/4.x compatibility)
+		if (type == null) return false;
+		var isThisProp = untyped type.isThisType;
+		return isThisProp != null && isThisProp == true;
 	}
 
 	public static function getThisTypeTarget(type: TsType): Null<TsType> {
