@@ -21,18 +21,18 @@ package vscode;
 	register a command handler with the identifier `extension.sayHello`.
 	```javascript
 	commands.registerCommand('extension.sayHello', () => {
-	     window.showInformationMessage('Hello World!');
+	    window.showInformationMessage('Hello World!');
 	});
 	```
 	Second, bind the command identifier to a title under which it will show in the palette (`package.json`).
 	```json
 	{
-	     "contributes": {
-	         "commands": [{
-	             "command": "extension.sayHello",
-	             "title": "Hello World"
-	         }]
-	     }
+	    "contributes": {
+	        "commands": [{
+	            "command": "extension.sayHello",
+	            "title": "Hello World"
+	        }]
+	    }
 	}
 	```
 **/
@@ -44,7 +44,7 @@ package vscode;
 		Registering a command with an existing command identifier twice
 		will cause an error.
 	**/
-	static function registerCommand(command:String, callback:(args:haxe.extern.Rest<Dynamic>) -> Dynamic, ?thisArg:Dynamic):Disposable;
+	static function registerCommand(unknown:Dynamic):Disposable;
 	/**
 		Registers a text editor command that can be invoked via a keyboard shortcut,
 		a menu item, an action, or directly.
@@ -54,7 +54,7 @@ package vscode;
 		command handler of an editor command has access to the active editor and to an
 		[edit](#TextEditorEdit)-builder.
 	**/
-	static function registerTextEditorCommand(command:String, callback:(textEditor:TextEditor, edit:TextEditorEdit, args:haxe.extern.Rest<Dynamic>) -> Void, ?thisArg:Dynamic):Disposable;
+	static function registerTextEditorCommand(unknown:Dynamic):Disposable;
 	/**
 		Executes the command denoted by the given command identifier.
 		
@@ -64,10 +64,10 @@ package vscode;
 		* *Note 2:* There are no restrictions when executing commands that have been contributed
 		by extensions.
 	**/
-	static function executeCommand<T>(command:String, rest:haxe.extern.Rest<Dynamic>):global.Thenable<Null<T>>;
+	static function executeCommand<T>(unknown:Dynamic):global.Thenable<Null<T>>;
 	/**
 		Retrieve the list of all available commands. Commands starting with an underscore are
 		treated as internal commands.
 	**/
-	static function getCommands(?filterInternal:Bool):global.Thenable<Array<String>>;
+	static function getCommands(unknown:Dynamic):global.Thenable<Array<String>>;
 }

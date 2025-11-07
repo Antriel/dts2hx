@@ -4,7 +4,7 @@ package three;
 	A class for displaying particles in the form of variable size points. For example, if using the WebGLRenderer, the particles are displayed using GL_POINTS.
 **/
 @:jsRequire("three", "Points") extern class Points extends Object3D {
-	function new(?geometry:ts.AnyOf2<Geometry, BufferGeometry>, ?material:ts.AnyOf2<Material, Array<Material>>);
+	function new(unknown:Dynamic);
 	@:optional
 	var morphTargetInfluences : Array<Float>;
 	@:optional
@@ -18,45 +18,45 @@ package three;
 		An instance of Material, defining the object's appearance. Default is a PointsMaterial with randomised colour.
 	**/
 	var material : ts.AnyOf2<Material, Array<Material>>;
-	function updateMorphTargets():Void;
-	function applyQuaternion(quaternion:Quaternion):Points;
+	function updateMorphTargets(unknown:Dynamic):Void;
+	function applyQuaternion(unknown:Dynamic):Points;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):Points;
+	function rotateOnAxis(unknown:Dynamic):Points;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):Points;
-	function rotateX(angle:Float):Points;
-	function rotateY(angle:Float):Points;
-	function rotateZ(angle:Float):Points;
-	function translateOnAxis(axis:Vector3, distance:Float):Points;
+	function rotateOnWorldAxis(unknown:Dynamic):Points;
+	function rotateX(unknown:Dynamic):Points;
+	function rotateY(unknown:Dynamic):Points;
+	function rotateZ(unknown:Dynamic):Points;
+	function translateOnAxis(unknown:Dynamic):Points;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):Points;
+	function translateX(unknown:Dynamic):Points;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):Points;
+	function translateY(unknown:Dynamic):Points;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):Points;
+	function translateZ(unknown:Dynamic):Points;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):Points;
+	function add(unknown:Dynamic):Points;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):Points;
+	function remove(unknown:Dynamic):Points;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):Points;
-	function clone(?recursive:Bool):Points;
-	function copy(source:Points, ?recursive:Bool):Points;
+	function attach(unknown:Dynamic):Points;
+	function clone(unknown:Dynamic):Points;
+	function copy(unknown:Dynamic):Points;
 	static var prototype : Points;
 }

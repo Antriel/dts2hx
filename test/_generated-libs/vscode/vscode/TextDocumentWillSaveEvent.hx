@@ -26,11 +26,11 @@ typedef TextDocumentWillSaveEvent = {
 		
 		```ts
 		workspace.onWillSaveTextDocument(event => {
-		     // async, will *throw* an error
-		     setTimeout(() => event.waitUntil(promise));
+		    // async, will *throw* an error
+		    setTimeout(() => event.waitUntil(promise));
 		
-		     // sync, OK
-		     event.waitUntil(promise);
+		    // sync, OK
+		    event.waitUntil(promise);
 		})
 		```
 		
@@ -38,6 +38,6 @@ typedef TextDocumentWillSaveEvent = {
 		
 		*Note:* This function can only be called during event dispatch.
 	**/
-	@:overload(function(thenable:global.Thenable<Dynamic>):Void { })
-	function waitUntil(thenable:global.Thenable<Array<TextEdit>>):Void;
+	@:overload(function(unknown:Dynamic):Void { })
+	function waitUntil(unknown:Dynamic):Void;
 };

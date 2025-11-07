@@ -1,3 +1,3 @@
 package global.jquery.deferred;
 
-typedef DoneCallback<TResolve> = (args:haxe.extern.Rest<TResolve>) -> Void;
+typedef DoneCallback<TResolve> = (unknown:Dynamic) -> Void;

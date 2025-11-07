@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.DirectGeometry") extern class DirectGeometry extends EventDispatcher {
-	function new();
+	function new(unknown:Dynamic);
 	var id : Float;
 	var uuid : String;
 	var name : String;
@@ -26,10 +26,10 @@ package global.three;
 	var colorsNeedUpdate : Bool;
 	var uvsNeedUpdate : Bool;
 	var groupsNeedUpdate : Bool;
-	function computeBoundingBox():Void;
-	function computeBoundingSphere():Void;
-	function computeGroups(geometry:Geometry):Void;
-	function fromGeometry(geometry:Geometry):DirectGeometry;
-	function dispose():Void;
+	function computeBoundingBox(unknown:Dynamic):Void;
+	function computeBoundingSphere(unknown:Dynamic):Void;
+	function computeGroups(unknown:Dynamic):Void;
+	function fromGeometry(unknown:Dynamic):DirectGeometry;
+	function dispose(unknown:Dynamic):Void;
 	static var prototype : DirectGeometry;
 }

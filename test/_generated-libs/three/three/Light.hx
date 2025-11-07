@@ -4,7 +4,7 @@ package three;
 	Abstract base class for lights.
 **/
 @:jsRequire("three", "Light") extern class Light extends Object3D {
-	function new(?hex:ts.AnyOf2<String, Float>, ?intensity:Float);
+	function new(unknown:Dynamic);
 	var color : Color;
 	var intensity : Float;
 	var isLight : Bool;
@@ -19,44 +19,44 @@ package three;
 	var shadowBias : Dynamic;
 	var shadowMapWidth : Dynamic;
 	var shadowMapHeight : Dynamic;
-	function applyQuaternion(quaternion:Quaternion):Light;
+	function applyQuaternion(unknown:Dynamic):Light;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):Light;
+	function rotateOnAxis(unknown:Dynamic):Light;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):Light;
-	function rotateX(angle:Float):Light;
-	function rotateY(angle:Float):Light;
-	function rotateZ(angle:Float):Light;
-	function translateOnAxis(axis:Vector3, distance:Float):Light;
+	function rotateOnWorldAxis(unknown:Dynamic):Light;
+	function rotateX(unknown:Dynamic):Light;
+	function rotateY(unknown:Dynamic):Light;
+	function rotateZ(unknown:Dynamic):Light;
+	function translateOnAxis(unknown:Dynamic):Light;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):Light;
+	function translateX(unknown:Dynamic):Light;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):Light;
+	function translateY(unknown:Dynamic):Light;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):Light;
+	function translateZ(unknown:Dynamic):Light;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):Light;
+	function add(unknown:Dynamic):Light;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):Light;
+	function remove(unknown:Dynamic):Light;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):Light;
-	function clone(?recursive:Bool):Light;
-	function copy(source:Light, ?recursive:Bool):Light;
+	function attach(unknown:Dynamic):Light;
+	function clone(unknown:Dynamic):Light;
+	function copy(unknown:Dynamic):Light;
 	static var prototype : Light;
 }

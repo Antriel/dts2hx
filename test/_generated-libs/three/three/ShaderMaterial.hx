@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "ShaderMaterial") extern class ShaderMaterial extends Material {
-	function new(?parameters:ShaderMaterialParameters);
+	function new(unknown:Dynamic);
 	var defines : Dynamic;
 	var uniforms : haxe.DynamicAccess<IUniform>;
 	var vertexShader : String;
@@ -25,18 +25,18 @@ package three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(parameters:ShaderMaterialParameters):Void;
+	function setValues(unknown:Dynamic):Void;
 	/**
 		Convert the material to three.js JSON format.
 	**/
-	function toJSON(meta:Dynamic):Dynamic;
+	function toJSON(unknown:Dynamic):Dynamic;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone():ShaderMaterial;
+	function clone(unknown:Dynamic):ShaderMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(material:Material):ShaderMaterial;
+	function copy(unknown:Dynamic):ShaderMaterial;
 	static var prototype : ShaderMaterial;
 }

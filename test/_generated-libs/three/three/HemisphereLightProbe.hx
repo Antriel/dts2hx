@@ -1,46 +1,46 @@
 package three;
 
 @:jsRequire("three", "HemisphereLightProbe") extern class HemisphereLightProbe extends LightProbe {
-	function new(?skyColor:ts.AnyOf3<String, Float, Color>, ?groundColor:ts.AnyOf3<String, Float, Color>, ?intensity:Float);
+	function new(unknown:Dynamic);
 	var isHemisphereLightProbe : Bool;
-	function applyQuaternion(quaternion:Quaternion):HemisphereLightProbe;
+	function applyQuaternion(unknown:Dynamic):HemisphereLightProbe;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):HemisphereLightProbe;
+	function rotateOnAxis(unknown:Dynamic):HemisphereLightProbe;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):HemisphereLightProbe;
-	function rotateX(angle:Float):HemisphereLightProbe;
-	function rotateY(angle:Float):HemisphereLightProbe;
-	function rotateZ(angle:Float):HemisphereLightProbe;
-	function translateOnAxis(axis:Vector3, distance:Float):HemisphereLightProbe;
+	function rotateOnWorldAxis(unknown:Dynamic):HemisphereLightProbe;
+	function rotateX(unknown:Dynamic):HemisphereLightProbe;
+	function rotateY(unknown:Dynamic):HemisphereLightProbe;
+	function rotateZ(unknown:Dynamic):HemisphereLightProbe;
+	function translateOnAxis(unknown:Dynamic):HemisphereLightProbe;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):HemisphereLightProbe;
+	function translateX(unknown:Dynamic):HemisphereLightProbe;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):HemisphereLightProbe;
+	function translateY(unknown:Dynamic):HemisphereLightProbe;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):HemisphereLightProbe;
+	function translateZ(unknown:Dynamic):HemisphereLightProbe;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):HemisphereLightProbe;
+	function add(unknown:Dynamic):HemisphereLightProbe;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):HemisphereLightProbe;
+	function remove(unknown:Dynamic):HemisphereLightProbe;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):HemisphereLightProbe;
-	function clone(?recursive:Bool):HemisphereLightProbe;
-	function copy(source:HemisphereLightProbe, ?recursive:Bool):HemisphereLightProbe;
+	function attach(unknown:Dynamic):HemisphereLightProbe;
+	function clone(unknown:Dynamic):HemisphereLightProbe;
+	function copy(unknown:Dynamic):HemisphereLightProbe;
 	static var prototype : HemisphereLightProbe;
 }

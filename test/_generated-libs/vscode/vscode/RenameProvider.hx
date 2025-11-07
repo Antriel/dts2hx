@@ -9,7 +9,7 @@ typedef RenameProvider = {
 		Provide an edit that describes changes that have to be made to one
 		or many resources to rename a symbol to a different name.
 	**/
-	function provideRenameEdits(document:TextDocument, position:Position, newName:String, token:CancellationToken):ProviderResult<WorkspaceEdit>;
+	function provideRenameEdits(unknown:Dynamic):ProviderResult<WorkspaceEdit>;
 	/**
 		Optional function for resolving and validating a position *before* running rename. The result can
 		be a range or a range and a placeholder text. The placeholder text should be the identifier of the symbol
@@ -19,7 +19,7 @@ typedef RenameProvider = {
 		doesn't allow for a rename.
 	**/
 	@:optional
-	function prepareRename(document:TextDocument, position:Position, token:CancellationToken):ProviderResult<ts.AnyOf2<Range, {
+	function prepareRename(unknown:Dynamic):ProviderResult<ts.AnyOf2<Range, {
 		var range : Range;
 		var placeholder : String;
 	}>>;

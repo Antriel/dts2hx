@@ -9,7 +9,7 @@ package vscode;
 	from an existing position.
 **/
 @:jsRequire("vscode", "Position") extern class Position {
-	function new(line:Float, character:Float);
+	function new(unknown:Dynamic);
 	/**
 		The zero-based line value.
 	**/
@@ -21,40 +21,40 @@ package vscode;
 	/**
 		Check if this position is before `other`.
 	**/
-	function isBefore(other:Position):Bool;
+	function isBefore(unknown:Dynamic):Bool;
 	/**
 		Check if this position is before or equal to `other`.
 	**/
-	function isBeforeOrEqual(other:Position):Bool;
+	function isBeforeOrEqual(unknown:Dynamic):Bool;
 	/**
 		Check if this position is after `other`.
 	**/
-	function isAfter(other:Position):Bool;
+	function isAfter(unknown:Dynamic):Bool;
 	/**
 		Check if this position is after or equal to `other`.
 	**/
-	function isAfterOrEqual(other:Position):Bool;
+	function isAfterOrEqual(unknown:Dynamic):Bool;
 	/**
 		Check if this position is equal to `other`.
 	**/
-	function isEqual(other:Position):Bool;
+	function isEqual(unknown:Dynamic):Bool;
 	/**
 		Compare this to `other`.
 	**/
-	function compareTo(other:Position):Float;
+	function compareTo(unknown:Dynamic):Float;
 	/**
 		Create a new position relative to this position.
 		
 		Derived a new position relative to this position.
 	**/
-	@:overload(function(change:{ @:optional var lineDelta : Float; @:optional var characterDelta : Float; }):Position { })
-	function translate(?lineDelta:Float, ?characterDelta:Float):Position;
+	@:overload(function(unknown:Dynamic):Position { })
+	function translate(unknown:Dynamic):Position;
 	/**
 		Create a new position derived from this position.
 		
 		Derived a new position from this position.
 	**/
-	@:overload(function(change:{ @:optional var line : Float; @:optional var character : Float; }):Position { })
-	function with(?line:Float, ?character:Float):Position;
+	@:overload(function(unknown:Dynamic):Position { })
+	function with(unknown:Dynamic):Position;
 	static var prototype : Position;
 }

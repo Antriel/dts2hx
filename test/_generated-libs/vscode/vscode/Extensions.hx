@@ -9,16 +9,16 @@ package vscode;
 	
 	```javascript
 	export function activate(context: vscode.ExtensionContext) {
-	     let api = {
-	         sum(a, b) {
-	             return a + b;
-	         },
-	         mul(a, b) {
-	             return a * b;
-	         }
-	     };
-	     // 'export' public api-surface
-	     return api;
+	    let api = {
+	        sum(a, b) {
+	            return a + b;
+	        },
+	        mul(a, b) {
+	            return a * b;
+	        }
+	    };
+	    // 'export' public api-surface
+	    return api;
 	}
 	```
 	When depending on the API of another extension add an `extensionDependencies`-entry
@@ -35,11 +35,9 @@ package vscode;
 @:jsRequire("vscode", "extensions") @valueModuleOnly extern class Extensions {
 	/**
 		Get an extension by its full identifier in the form of: `publisher.name`.
-		
-		Get an extension by its full identifier in the form of: `publisher.name`.
 	**/
-	@:overload(function<T>(extensionId:String):Null<Extension<T>> { })
-	static function getExtension(extensionId:String):Null<Extension<Dynamic>>;
+	@:overload(function<T>(unknown:Dynamic):Null<Extension<T>> { })
+	static function getExtension(unknown:Dynamic):Null<Extension<Dynamic>>;
 	/**
 		All extensions currently known to the system.
 	**/
@@ -48,5 +46,5 @@ package vscode;
 		An event which fires when `extensions.all` changes. This can happen when extensions are
 		installed, uninstalled, enabled or disabled.
 	**/
-	static function onDidChange(listener:(e:ts.Undefined) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	static function onDidChange(unknown:Dynamic):Disposable;
 }

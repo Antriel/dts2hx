@@ -1,44 +1,44 @@
 package node.crypto;
 
 typedef Decipher = {
-	@:overload(function(data:String, input_encoding:HexBase64BinaryEncoding):global.Buffer { })
-	@:overload(function(data:Binary, input_encoding:Null<Any>, output_encoding:Utf8AsciiBinaryEncoding):String { })
-	@:overload(function(data:String, input_encoding:Null<HexBase64BinaryEncoding>, output_encoding:Utf8AsciiBinaryEncoding):String { })
-	function update(data:Binary):global.Buffer;
+	@:overload(function(unknown:Dynamic):global.Buffer { })
+	@:overload(function(unknown:Dynamic):String { })
+	@:overload(function(unknown:Dynamic):String { })
+	function update(unknown:Dynamic):global.Buffer;
 	@:native("final")
-	@:overload(function(output_encoding:String):String { })
-	function final_():global.Buffer;
-	function setAutoPadding(?auto_padding:Bool):Decipher;
+	@:overload(function(unknown:Dynamic):String { })
+	function final_(unknown:Dynamic):global.Buffer;
+	function setAutoPadding(unknown:Dynamic):Decipher;
 	var readable : Bool;
-	function read(?size:Float):ts.AnyOf2<String, global.Buffer>;
-	function setEncoding(encoding:String):Decipher;
-	function pause():Decipher;
-	function resume():Decipher;
-	function isPaused():Bool;
-	function pipe<T>(destination:T, ?options:{ @:optional var end : Bool; }):T;
-	function unpipe(?destination:global.nodejs.WritableStream):Decipher;
-	@:overload(function(chunk:global.Buffer):Void { })
-	function unshift(chunk:String):Void;
-	function wrap(oldStream:global.nodejs.ReadableStream):Decipher;
-	function addListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Decipher;
-	function on(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Decipher;
-	function once(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Decipher;
-	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Decipher;
-	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Decipher;
-	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):Decipher;
-	function setMaxListeners(n:Float):Decipher;
-	function getMaxListeners():Float;
-	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
-	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
-	function emit(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool;
-	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
-	function prependListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Decipher;
-	function prependOnceListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Decipher;
-	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	function read(unknown:Dynamic):ts.AnyOf2<String, global.Buffer>;
+	function setEncoding(unknown:Dynamic):Decipher;
+	function pause(unknown:Dynamic):Decipher;
+	function resume(unknown:Dynamic):Decipher;
+	function isPaused(unknown:Dynamic):Bool;
+	function pipe<T>(unknown:Dynamic):T;
+	function unpipe(unknown:Dynamic):Decipher;
+	@:overload(function(unknown:Dynamic):Void { })
+	function unshift(unknown:Dynamic):Void;
+	function wrap(unknown:Dynamic):Decipher;
+	function addListener(unknown:Dynamic):Decipher;
+	function on(unknown:Dynamic):Decipher;
+	function once(unknown:Dynamic):Decipher;
+	function removeListener(unknown:Dynamic):Decipher;
+	function off(unknown:Dynamic):Decipher;
+	function removeAllListeners(unknown:Dynamic):Decipher;
+	function setMaxListeners(unknown:Dynamic):Decipher;
+	function getMaxListeners(unknown:Dynamic):Float;
+	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
+	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
+	function emit(unknown:Dynamic):Bool;
+	function listenerCount(unknown:Dynamic):Float;
+	function prependListener(unknown:Dynamic):Decipher;
+	function prependOnceListener(unknown:Dynamic):Decipher;
+	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
 	var writable : Bool;
-	@:overload(function(str:String, ?encoding:String, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool { })
-	function write(buffer:ts.AnyOf3<String, global.Buffer, js.lib.Uint8Array>, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool;
-	@:overload(function(data:ts.AnyOf3<String, global.Buffer, js.lib.Uint8Array>, ?cb:() -> Void):Void { })
-	@:overload(function(str:String, ?encoding:String, ?cb:() -> Void):Void { })
-	function end(?cb:() -> Void):Void;
+	@:overload(function(unknown:Dynamic):Bool { })
+	function write(unknown:Dynamic):Bool;
+	@:overload(function(unknown:Dynamic):Void { })
+	@:overload(function(unknown:Dynamic):Void { })
+	function end(unknown:Dynamic):Void;
 };

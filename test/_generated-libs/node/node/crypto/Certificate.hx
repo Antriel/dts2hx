@@ -1,10 +1,10 @@
 package node.crypto;
 
 @:jsRequire("crypto", "Certificate") extern class Certificate {
-	function new();
-	function exportChallenge(spkac:ts.AnyOf12<String, global.Buffer, js.lib.Uint8Array, js.lib.Uint8ClampedArray, js.lib.Uint16Array, js.lib.Uint32Array, js.lib.Int8Array, js.lib.Int16Array, js.lib.Int32Array, js.lib.Float32Array, js.lib.Float64Array, js.lib.DataView>):global.Buffer;
-	function exportPublicKey(spkac:ts.AnyOf12<String, global.Buffer, js.lib.Uint8Array, js.lib.Uint8ClampedArray, js.lib.Uint16Array, js.lib.Uint32Array, js.lib.Int8Array, js.lib.Int16Array, js.lib.Int32Array, js.lib.Float32Array, js.lib.Float64Array, js.lib.DataView>):global.Buffer;
-	function verifySpkac(spkac:Binary):Bool;
+	function new(unknown:Dynamic);
+	function exportChallenge(unknown:Dynamic):global.Buffer;
+	function exportPublicKey(unknown:Dynamic):global.Buffer;
+	function verifySpkac(unknown:Dynamic):Bool;
 	@:selfCall
-	static function call():Certificate;
+	static function call(unknown:Dynamic):Certificate;
 }

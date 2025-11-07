@@ -1,10 +1,10 @@
 package three.propertybinding;
 
 @:jsRequire("three", "PropertyBinding.Composite") extern class Composite {
-	function new(targetGroup:Dynamic, path:Dynamic, ?parsedPath:Dynamic);
-	function getValue(array:Dynamic, offset:Float):Dynamic;
-	function setValue(array:Dynamic, offset:Float):Void;
-	function bind():Void;
-	function unbind():Void;
+	function new(unknown:Dynamic);
+	function getValue(unknown:Dynamic):Dynamic;
+	function setValue(unknown:Dynamic):Void;
+	function bind(unknown:Dynamic):Void;
+	function unbind(unknown:Dynamic):Void;
 	static var prototype : Composite;
 }

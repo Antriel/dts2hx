@@ -1,3 +1,3 @@
 package node.readline;
 
-typedef Completer = (line:String) -> CompleterResult;
+typedef Completer = (unknown:Dynamic) -> CompleterResult;

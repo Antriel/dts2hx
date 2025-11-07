@@ -24,17 +24,17 @@ typedef CommentController = {
 		Create a [comment thread](#CommentThread). The comment thread will be displayed in visible text editors (if the resource matches)
 		and Comments Panel once created.
 	**/
-	function createCommentThread(uri:Uri, range:Range, comments:Array<Comment>):CommentThread;
+	function createCommentThread(unknown:Dynamic):CommentThread;
 	/**
 		Optional reaction handler for creating and deleting reactions on a [comment](#Comment).
 	**/
 	@:optional
-	dynamic function reactionHandler(comment:Comment, reaction:CommentReaction):js.lib.Promise<ts.Undefined>;
+	dynamic function reactionHandler(unknown:Dynamic):js.lib.Promise<ts.Undefined>;
 	/**
 		Dispose this comment controller.
 		
 		Once disposed, all [comment threads](#CommentThread) created by this comment controller will also be removed from the editor
 		and Comments Panel.
 	**/
-	function dispose():Void;
+	function dispose(unknown:Dynamic):Void;
 };

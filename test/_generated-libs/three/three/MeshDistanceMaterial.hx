@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "MeshDistanceMaterial") extern class MeshDistanceMaterial extends Material {
-	function new(?parameters:MeshDistanceMaterialParameters);
+	function new(unknown:Dynamic);
 	var referencePosition : Vector3;
 	var nearDistance : Float;
 	var farDistance : Float;
@@ -11,14 +11,14 @@ package three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(parameters:MeshDistanceMaterialParameters):Void;
+	function setValues(unknown:Dynamic):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone():MeshDistanceMaterial;
+	function clone(unknown:Dynamic):MeshDistanceMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(material:Material):MeshDistanceMaterial;
+	function copy(unknown:Dynamic):MeshDistanceMaterial;
 	static var prototype : MeshDistanceMaterial;
 }

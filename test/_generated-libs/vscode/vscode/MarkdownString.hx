@@ -11,7 +11,7 @@ package vscode;
 	/**
 		Creates a new markdown string with the given value.
 	**/
-	function new(?value:String, ?supportThemeIcons:Bool);
+	function new(unknown:Dynamic);
 	/**
 		The markdown string.
 	**/
@@ -25,14 +25,14 @@ package vscode;
 	/**
 		Appends and escapes the given string to this markdown string.
 	**/
-	function appendText(value:String):MarkdownString;
+	function appendText(unknown:Dynamic):MarkdownString;
 	/**
 		Appends the given string 'as is' to this markdown string. When [`supportThemeIcons`](#MarkdownString.supportThemeIcons) is `true`, [ThemeIcons](#ThemeIcon) in the `value` will be iconified.
 	**/
-	function appendMarkdown(value:String):MarkdownString;
+	function appendMarkdown(unknown:Dynamic):MarkdownString;
 	/**
 		Appends the given string as codeblock using the provided language.
 	**/
-	function appendCodeblock(value:String, ?language:String):MarkdownString;
+	function appendCodeblock(unknown:Dynamic):MarkdownString;
 	static var prototype : MarkdownString;
 }

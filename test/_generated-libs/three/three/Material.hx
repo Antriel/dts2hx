@@ -4,13 +4,17 @@ package three;
 	Materials describe the appearance of objects. They are defined in a (mostly) renderer-independent way, so you don't have to rewrite materials if you decide to use a different renderer.
 **/
 @:jsRequire("three", "Material") extern class Material extends EventDispatcher {
-	function new();
+	function new(unknown:Dynamic);
 	/**
 		Sets the alpha value to be used when running an alpha test. Default is 0.
 	**/
 	var alphaTest : Float;
 	/**
-		Blending destination. It's one of the blending mode constants defined in Three.js. Default is {@link OneMinusSrcAlphaFactor}.
+		Blending destination. It's one of the blending mode constants defined in Three.js. Default is
+		{@link
+		OneMinusSrcAlphaFactor
+		}
+		.
 	**/
 	var blendDst : BlendingDstFactor;
 	/**
@@ -18,7 +22,11 @@ package three;
 	**/
 	var blendDstAlpha : Null<Float>;
 	/**
-		Blending equation to use when applying blending. It's one of the constants defined in Three.js. Default is {@link AddEquation}.
+		Blending equation to use when applying blending. It's one of the constants defined in Three.js. Default is
+		{@link
+		AddEquation
+		}
+		.
 	**/
 	var blendEquation : BlendingEquation;
 	/**
@@ -26,11 +34,19 @@ package three;
 	**/
 	var blendEquationAlpha : Null<Float>;
 	/**
-		Which blending to use when displaying objects with this material. Default is {@link NormalBlending}.
+		Which blending to use when displaying objects with this material. Default is
+		{@link
+		NormalBlending
+		}
+		.
 	**/
 	var blending : Blending;
 	/**
-		Blending source. It's one of the blending mode constants defined in Three.js. Default is {@link SrcAlphaFactor}.
+		Blending source. It's one of the blending mode constants defined in Three.js. Default is
+		{@link
+		SrcAlphaFactor
+		}
+		.
 	**/
 	var blendSrc : ts.AnyOf2<BlendingDstFactor, BlendingSrcFactor>;
 	/**
@@ -54,7 +70,11 @@ package three;
 	**/
 	var colorWrite : Bool;
 	/**
-		Which depth function to use. Default is {@link LessEqualDepth}. See the depth mode constants for all possible values.
+		Which depth function to use. Default is
+		{@link
+		LessEqualDepth
+		}
+		. See the depth mode constants for all possible values.
 	**/
 	var depthFunc : DepthModes;
 	/**
@@ -79,7 +99,11 @@ package three;
 	**/
 	var stencilWrite : Bool;
 	/**
-		The stencil comparison function to use. Default is {@link AlwaysStencilFunc}. See stencil operation constants for all possible values.
+		The stencil comparison function to use. Default is
+		{@link
+		AlwaysStencilFunc
+		}
+		. See stencil operation constants for all possible values.
 	**/
 	var stencilFunc : StencilFunc;
 	/**
@@ -91,15 +115,27 @@ package three;
 	**/
 	var stencilMask : Float;
 	/**
-		Which stencil operation to perform when the comparison function returns false. Default is {@link KeepStencilOp}. See the stencil operation constants for all possible values.
+		Which stencil operation to perform when the comparison function returns false. Default is
+		{@link
+		KeepStencilOp
+		}
+		. See the stencil operation constants for all possible values.
 	**/
 	var stencilFail : StencilOp;
 	/**
-		Which stencil operation to perform when the comparison function returns true but the depth test fails. Default is {@link KeepStencilOp}. See the stencil operation constants for all possible values.
+		Which stencil operation to perform when the comparison function returns true but the depth test fails. Default is
+		{@link
+		KeepStencilOp
+		}
+		. See the stencil operation constants for all possible values.
 	**/
 	var stencilZFail : StencilOp;
 	/**
-		Which stencil operation to perform when the comparison function returns true and the depth test passes. Default is {@link KeepStencilOp}. See the stencil operation constants for all possible values.
+		Which stencil operation to perform when the comparison function returns true and the depth test passes. Default is
+		{@link
+		KeepStencilOp
+		}
+		. See the stencil operation constants for all possible values.
 	**/
 	var stencilZPass : StencilOp;
 	/**
@@ -194,30 +230,34 @@ package three;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone():Material;
+	function clone(unknown:Dynamic):Material;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(material:Material):Material;
+	function copy(unknown:Dynamic):Material;
 	/**
-		This disposes the material. Textures of a material don't get disposed. These needs to be disposed by {@link Texture}.
+		This disposes the material. Textures of a material don't get disposed. These needs to be disposed by
+		{@link
+		Texture
+		}
+		.
 	**/
-	function dispose():Void;
+	function dispose(unknown:Dynamic):Void;
 	/**
 		An optional callback that is executed immediately before the shader program is compiled. This function is called with the shader source code as a parameter. Useful for the modification of built-in materials.
 	**/
-	function onBeforeCompile(shader:Shader, renderer:WebGLRenderer):Void;
+	function onBeforeCompile(unknown:Dynamic):Void;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(values:MaterialParameters):Void;
+	function setValues(unknown:Dynamic):Void;
 	/**
 		Convert the material to three.js JSON format.
 	**/
-	function toJSON(?meta:Dynamic):Dynamic;
+	function toJSON(unknown:Dynamic):Dynamic;
 	/**
 		Call .dispatchEvent ( { type: 'update' }) on the material.
 	**/
-	function update():Void;
+	function update(unknown:Dynamic):Void;
 	static var prototype : Material;
 }

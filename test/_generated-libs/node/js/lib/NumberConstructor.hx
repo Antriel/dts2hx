@@ -2,7 +2,7 @@ package js.lib;
 
 typedef NumberConstructor = {
 	@:selfCall
-	function call(?value:Dynamic):Float;
+	function call(unknown:Dynamic):Float;
 	final prototype : Number;
 	/**
 		The largest number that can be represented in JavaScript. Equal to approximately 1.79E+308.
@@ -38,21 +38,21 @@ typedef NumberConstructor = {
 		Unlike the global isFinite, Number.isFinite doesn't forcibly convert the parameter to a
 		number. Only finite values of the type number, result in true.
 	**/
-	function isFinite(number:Float):Bool;
+	function isFinite(unknown:Dynamic):Bool;
 	/**
 		Returns true if the value passed is an integer, false otherwise.
 	**/
-	function isInteger(number:Float):Bool;
+	function isInteger(unknown:Dynamic):Bool;
 	/**
 		Returns a Boolean value that indicates whether a value is the reserved value NaN (not a
 		number). Unlike the global isNaN(), Number.isNaN() doesn't forcefully convert the parameter
 		to a number. Only values of the type number, that are also NaN, result in true.
 	**/
-	function isNaN(number:Float):Bool;
+	function isNaN(unknown:Dynamic):Bool;
 	/**
 		Returns true if the value passed is a safe integer.
 	**/
-	function isSafeInteger(number:Float):Bool;
+	function isSafeInteger(unknown:Dynamic):Bool;
 	/**
 		The value of the largest integer n such that n and n + 1 are both exactly representable as
 		a Number value.
@@ -68,9 +68,9 @@ typedef NumberConstructor = {
 	/**
 		Converts a string to a floating-point number.
 	**/
-	function parseFloat(string:String):Float;
+	function parseFloat(unknown:Dynamic):Float;
 	/**
 		Converts A string to an integer.
 	**/
-	function parseInt(string:String, ?radix:Float):Float;
+	function parseInt(unknown:Dynamic):Float;
 };

@@ -9,5 +9,5 @@ typedef Selectors = {
 	var attrHandle : sizzle.selectors.AttrHandleFunctions;
 	var pseudos : sizzle.selectors.PseudoFunctions;
 	var setFilters : sizzle.selectors.SetFilterFunctions;
-	function createPseudo(fn:sizzle.selectors.CreatePseudoFunction):sizzle.selectors.PseudoFunction;
+	function createPseudo(unknown:Dynamic):sizzle.selectors.PseudoFunction;
 };

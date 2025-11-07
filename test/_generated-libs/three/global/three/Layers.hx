@@ -1,12 +1,12 @@
 package global.three;
 
 @:native("THREE.Layers") extern class Layers {
-	function new();
+	function new(unknown:Dynamic);
 	var mask : Float;
-	function set(channel:Float):Void;
-	function enable(channel:Float):Void;
-	function toggle(channel:Float):Void;
-	function disable(channel:Float):Void;
-	function test(layers:Layers):Bool;
+	function set(unknown:Dynamic):Void;
+	function enable(unknown:Dynamic):Void;
+	function toggle(unknown:Dynamic):Void;
+	function disable(unknown:Dynamic):Void;
+	function test(unknown:Dynamic):Bool;
 	static var prototype : Layers;
 }

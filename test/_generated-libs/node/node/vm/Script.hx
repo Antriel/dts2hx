@@ -1,9 +1,9 @@
 package node.vm;
 
 @:jsRequire("vm", "Script") extern class Script {
-	function new(code:String, ?options:ScriptOptions);
-	function runInContext(contextifiedSandbox:Context, ?options:RunningScriptOptions):Dynamic;
-	function runInNewContext(?sandbox:Context, ?options:RunningScriptOptions):Dynamic;
-	function runInThisContext(?options:RunningScriptOptions):Dynamic;
+	function new(unknown:Dynamic);
+	function runInContext(unknown:Dynamic):Dynamic;
+	function runInNewContext(unknown:Dynamic):Dynamic;
+	function runInThisContext(unknown:Dynamic):Dynamic;
 	static var prototype : Script;
 }

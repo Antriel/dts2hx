@@ -13,15 +13,15 @@ package vscode;
 	/**
 		The event listeners can subscribe to.
 	**/
-	dynamic function event(listener:(e:T) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	dynamic function event(unknown:Dynamic):Disposable;
 	/**
 		Notify all subscribers of the [event](#EventEmitter.event). Failure
 		of one or more listener will not fail this function call.
 	**/
-	function fire(data:T):Void;
+	function fire(unknown:Dynamic):Void;
 	/**
 		Dispose this object and free resources.
 	**/
-	function dispose():Void;
+	function dispose(unknown:Dynamic):Void;
 	static var prototype : EventEmitter<Dynamic>;
 }

@@ -1,7 +1,13 @@
 package js.lib;
 
 typedef IWeakSet<T> = {
-	function add(value:T):WeakSet_<T>;
-	function delete(value:T):Bool;
-	function has(value:T):Bool;
+	/**
+		Appends a new value to the end of the WeakSet.
+	**/
+	function add(unknown:Dynamic):WeakSet_<T>;
+	/**
+		Removes the specified element from the WeakSet.
+	**/
+	function delete(unknown:Dynamic):Bool;
+	function has(unknown:Dynamic):Bool;
 };

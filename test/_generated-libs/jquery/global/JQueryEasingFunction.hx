@@ -1,3 +1,3 @@
 package global;
 
-typedef JQueryEasingFunction = (percent:Float) -> Float;
+typedef JQueryEasingFunction = (unknown:Dynamic) -> Float;

@@ -9,7 +9,7 @@ package vscode;
 	/**
 		Creates a new signature information object.
 	**/
-	function new(label:String, ?documentation:ts.AnyOf2<String, MarkdownString>);
+	function new(unknown:Dynamic);
 	/**
 		The label of this signature. Will be shown in
 		the UI.

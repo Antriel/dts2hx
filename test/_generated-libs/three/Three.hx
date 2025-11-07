@@ -1,7 +1,7 @@
 @:jsRequire("three") @valueModuleOnly extern class Three {
-	static function warn(?message:Dynamic, optionalParams:haxe.extern.Rest<Dynamic>):Void;
-	static function error(?message:Dynamic, optionalParams:haxe.extern.Rest<Dynamic>):Void;
-	static function log(?message:Dynamic, optionalParams:haxe.extern.Rest<Dynamic>):Void;
+	static function warn(unknown:Dynamic):Void;
+	static function error(unknown:Dynamic):Void;
+	static function log(unknown:Dynamic):Void;
 	static var ShaderLib : {
 		var basic : three.Shader;
 		var lambert : three.Shader;

@@ -15,14 +15,14 @@ package vscode;
 		* returns `undefined` when the given uri doesn't match any workspace folder
 		* returns the *input* when the given uri is a workspace folder itself
 	**/
-	static function getWorkspaceFolder(uri:Uri):Null<WorkspaceFolder>;
+	static function getWorkspaceFolder(unknown:Dynamic):Null<WorkspaceFolder>;
 	/**
 		Returns a path that is relative to the workspace folder or folders.
 		
 		When there are no [workspace folders](#workspace.workspaceFolders) or when the path
 		is not contained in them, the input is returned.
 	**/
-	static function asRelativePath(pathOrUri:ts.AnyOf2<String, Uri>, ?includeWorkspaceFolder:Bool):String;
+	static function asRelativePath(unknown:Dynamic):String;
 	/**
 		This method replaces `deleteCount` [workspace folders](#workspace.workspaceFolders) starting at index `start`
 		by an optional set of `workspaceFoldersToAdd` on the `vscode.workspace.workspaceFolders` array. This "splice"
@@ -56,7 +56,7 @@ package vscode;
 		**Note:** it is not valid to call [updateWorkspaceFolders()](#updateWorkspaceFolders) multiple times
 		without waiting for the [`onDidChangeWorkspaceFolders()`](#onDidChangeWorkspaceFolders) to fire.
 	**/
-	static function updateWorkspaceFolders(start:Float, deleteCount:Null<Float>, workspaceFoldersToAdd:haxe.extern.Rest<{ var uri : Uri; @:optional var name : String; }>):Bool;
+	static function updateWorkspaceFolders(unknown:Dynamic):Bool;
 	/**
 		Creates a file system watcher.
 		
@@ -65,15 +65,15 @@ package vscode;
 		
 		*Note* that only files within the current [workspace folders](#workspace.workspaceFolders) can be watched.
 	**/
-	static function createFileSystemWatcher(globPattern:GlobPattern, ?ignoreCreateEvents:Bool, ?ignoreChangeEvents:Bool, ?ignoreDeleteEvents:Bool):FileSystemWatcher;
+	static function createFileSystemWatcher(unknown:Dynamic):FileSystemWatcher;
 	/**
 		Find files across all [workspace folders](#workspace.workspaceFolders) in the workspace.
 	**/
-	static function findFiles(include:GlobPattern, ?exclude:GlobPattern, ?maxResults:Float, ?token:CancellationToken):global.Thenable<Array<Uri>>;
+	static function findFiles(unknown:Dynamic):global.Thenable<Array<Uri>>;
 	/**
 		Save all dirty files.
 	**/
-	static function saveAll(?includeUntitled:Bool):global.Thenable<Bool>;
+	static function saveAll(unknown:Dynamic):global.Thenable<Bool>;
 	/**
 		Make changes to one or many resources or create, delete, and rename resources as defined by the given
 		[workspace edit](#WorkspaceEdit).
@@ -87,7 +87,7 @@ package vscode;
 		A workspace edit with resource creations or deletions aborts the operation, e.g. consecutive edits will
 		not be attempted, when a single edit fails.
 	**/
-	static function applyEdit(edit:WorkspaceEdit):global.Thenable<Bool>;
+	static function applyEdit(unknown:Dynamic):global.Thenable<Bool>;
 	/**
 		Opens a document. Will return early if this document is already open. Otherwise
 		the document is loaded and the [didOpen](#workspace.onDidOpenTextDocument)-event fires.
@@ -109,15 +109,15 @@ package vscode;
 		path when the document is to be saved. The `options` parameter allows to
 		specify the *language* and/or the *content* of the document.
 	**/
-	@:overload(function(fileName:String):global.Thenable<TextDocument> { })
-	@:overload(function(?options:{ @:optional var language : String; @:optional var content : String; }):global.Thenable<TextDocument> { })
-	static function openTextDocument(uri:Uri):global.Thenable<TextDocument>;
+	@:overload(function(unknown:Dynamic):global.Thenable<TextDocument> { })
+	@:overload(function(unknown:Dynamic):global.Thenable<TextDocument> { })
+	static function openTextDocument(unknown:Dynamic):global.Thenable<TextDocument>;
 	/**
 		Register a text document content provider.
 		
 		Only one provider can be registered per scheme.
 	**/
-	static function registerTextDocumentContentProvider(scheme:String, provider:TextDocumentContentProvider):Disposable;
+	static function registerTextDocumentContentProvider(unknown:Dynamic):Disposable;
 	/**
 		Get a workspace configuration object.
 		
@@ -127,18 +127,18 @@ package vscode;
 		
 		When a scope is provided configuraiton confined to that scope is returned. Scope can be a resource or a language identifier or both.
 	**/
-	static function getConfiguration(?section:String, ?scope:ConfigurationScope):WorkspaceConfiguration;
+	static function getConfiguration(unknown:Dynamic):WorkspaceConfiguration;
 	/**
 		~~Register a task provider.~~
 	**/
-	static function registerTaskProvider(type:String, provider:TaskProvider):Disposable;
+	static function registerTaskProvider(unknown:Dynamic):Disposable;
 	/**
 		Register a filesystem provider for a given scheme, e.g. `ftp`.
 		
 		There can only be one provider per scheme and an error is being thrown when a scheme
 		has been claimed by another provider or when it is reserved.
 	**/
-	static function registerFileSystemProvider(scheme:String, provider:FileSystemProvider, ?options:{ @:optional final isCaseSensitive : Bool; @:optional final isReadonly : Bool; }):Disposable;
+	static function registerFileSystemProvider(unknown:Dynamic):Disposable;
 	/**
 		A [file system](#FileSystem) instance that allows to interact with local and remote
 		files, e.g. `vscode.workspace.fs.readDirectory(someUri)` allows to retrieve all entries
@@ -173,8 +173,8 @@ package vscode;
 		for a workspace that is untitled and not yet saved.
 		
 		Depending on the workspace that is opened, the value will be:
-		  * `undefined` when no workspace or  a single folder is opened
-		  * the path of the workspace file as `Uri` otherwise. if the workspace
+		 * `undefined` when no workspace or  a single folder is opened
+		 * the path of the workspace file as `Uri` otherwise. if the workspace
 		is untitled, the returned URI will use the `untitled:` scheme
 		
 		The location can e.g. be used with the `vscode.openFolder` command to
@@ -194,7 +194,7 @@ package vscode;
 	/**
 		An event that is emitted when a workspace folder is added or removed.
 	**/
-	static function onDidChangeWorkspaceFolders(listener:(e:WorkspaceFoldersChangeEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	static function onDidChangeWorkspaceFolders(unknown:Dynamic):Disposable;
 	/**
 		All text documents currently known to the system.
 	**/
@@ -210,7 +210,7 @@ package vscode;
 		[active text editor](#window.activeTextEditor)
 		- When a [text document](#TextDocument) is already open (e.g.: open in another [visible text editor](#window.visibleTextEditors)) this event is not emitted
 	**/
-	static function onDidOpenTextDocument(listener:(e:TextDocument) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	static function onDidOpenTextDocument(unknown:Dynamic):Disposable;
 	/**
 		An event that is emitted when a [text document](#TextDocument) is disposed or when the language id
 		of a text document [has been changed](#languages.setTextDocumentLanguage).
@@ -219,13 +219,13 @@ package vscode;
 		[window](#window) namespace. Note that this event is not emitted when a [TextEditor](#TextEditor) is closed
 		but the document remains open in another [visible text editor](#window.visibleTextEditors).
 	**/
-	static function onDidCloseTextDocument(listener:(e:TextDocument) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	static function onDidCloseTextDocument(unknown:Dynamic):Disposable;
 	/**
 		An event that is emitted when a [text document](#TextDocument) is changed. This usually happens
 		when the [contents](#TextDocument.getText) changes but also when other things like the
 		[dirty](#TextDocument.isDirty)-state changes.
 	**/
-	static function onDidChangeTextDocument(listener:(e:TextDocumentChangeEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	static function onDidChangeTextDocument(unknown:Dynamic):Disposable;
 	/**
 		An event that is emitted when a [text document](#TextDocument) will be saved to disk.
 		
@@ -234,16 +234,16 @@ package vscode;
 		
 		*Note 2:* Subscribers are called sequentially and they can [delay](#TextDocumentWillSaveEvent.waitUntil) saving
 		by registering asynchronous work. Protection against misbehaving listeners is implemented as such:
-		  * there is an overall time budget that all listeners share and if that is exhausted no further listener is called
-		  * listeners that take a long time or produce errors frequently will not be called anymore
+		 * there is an overall time budget that all listeners share and if that is exhausted no further listener is called
+		 * listeners that take a long time or produce errors frequently will not be called anymore
 		
 		The current thresholds are 1.5 seconds as overall time budget and a listener can misbehave 3 times before being ignored.
 	**/
-	static function onWillSaveTextDocument(listener:(e:TextDocumentWillSaveEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	static function onWillSaveTextDocument(unknown:Dynamic):Disposable;
 	/**
 		An event that is emitted when a [text document](#TextDocument) is saved to disk.
 	**/
-	static function onDidSaveTextDocument(listener:(e:TextDocument) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	static function onDidSaveTextDocument(unknown:Dynamic):Disposable;
 	/**
 		An event that is emitted when files are being created.
 		
@@ -254,7 +254,7 @@ package vscode;
 		
 		*Note 2:* When this event is fired, edits to files thare are being created cannot be applied.
 	**/
-	static function onWillCreateFiles(listener:(e:FileWillCreateEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	static function onWillCreateFiles(unknown:Dynamic):Disposable;
 	/**
 		An event that is emitted when files have been created.
 		
@@ -263,7 +263,7 @@ package vscode;
 		files change on disk, e.g triggered by another application, or when using the
 		[`workspace.fs`](#FileSystem)-api.
 	**/
-	static function onDidCreateFiles(listener:(e:FileCreateEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	static function onDidCreateFiles(unknown:Dynamic):Disposable;
 	/**
 		An event that is emitted when files are being deleted.
 		
@@ -274,7 +274,7 @@ package vscode;
 		
 		*Note 2:* When deleting a folder with children only one event is fired.
 	**/
-	static function onWillDeleteFiles(listener:(e:FileWillDeleteEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	static function onWillDeleteFiles(unknown:Dynamic):Disposable;
 	/**
 		An event that is emitted when files have been deleted.
 		
@@ -285,7 +285,7 @@ package vscode;
 		
 		*Note 2:* When deleting a folder with children only one event is fired.
 	**/
-	static function onDidDeleteFiles(listener:(e:FileDeleteEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	static function onDidDeleteFiles(unknown:Dynamic):Disposable;
 	/**
 		An event that is emitted when files are being renamed.
 		
@@ -296,7 +296,7 @@ package vscode;
 		
 		*Note 2:* When renaming a folder with children only one event is fired.
 	**/
-	static function onWillRenameFiles(listener:(e:FileWillRenameEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	static function onWillRenameFiles(unknown:Dynamic):Disposable;
 	/**
 		An event that is emitted when files have been renamed.
 		
@@ -307,9 +307,9 @@ package vscode;
 		
 		*Note 2:* When renaming a folder with children only one event is fired.
 	**/
-	static function onDidRenameFiles(listener:(e:FileRenameEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	static function onDidRenameFiles(unknown:Dynamic):Disposable;
 	/**
 		An event that is emitted when the [configuration](#WorkspaceConfiguration) changed.
 	**/
-	static function onDidChangeConfiguration(listener:(e:ConfigurationChangeEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	static function onDidChangeConfiguration(unknown:Dynamic):Disposable;
 }

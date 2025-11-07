@@ -1,47 +1,47 @@
 package three;
 
 @:jsRequire("three", "RectAreaLight") extern class RectAreaLight extends Light {
-	function new(?color:ts.AnyOf3<String, Float, Color>, ?intensity:Float, ?width:Float, ?height:Float);
+	function new(unknown:Dynamic);
 	var width : Float;
 	var height : Float;
-	function applyQuaternion(quaternion:Quaternion):RectAreaLight;
+	function applyQuaternion(unknown:Dynamic):RectAreaLight;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):RectAreaLight;
+	function rotateOnAxis(unknown:Dynamic):RectAreaLight;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):RectAreaLight;
-	function rotateX(angle:Float):RectAreaLight;
-	function rotateY(angle:Float):RectAreaLight;
-	function rotateZ(angle:Float):RectAreaLight;
-	function translateOnAxis(axis:Vector3, distance:Float):RectAreaLight;
+	function rotateOnWorldAxis(unknown:Dynamic):RectAreaLight;
+	function rotateX(unknown:Dynamic):RectAreaLight;
+	function rotateY(unknown:Dynamic):RectAreaLight;
+	function rotateZ(unknown:Dynamic):RectAreaLight;
+	function translateOnAxis(unknown:Dynamic):RectAreaLight;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):RectAreaLight;
+	function translateX(unknown:Dynamic):RectAreaLight;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):RectAreaLight;
+	function translateY(unknown:Dynamic):RectAreaLight;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):RectAreaLight;
+	function translateZ(unknown:Dynamic):RectAreaLight;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):RectAreaLight;
+	function add(unknown:Dynamic):RectAreaLight;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):RectAreaLight;
+	function remove(unknown:Dynamic):RectAreaLight;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):RectAreaLight;
-	function clone(?recursive:Bool):RectAreaLight;
-	function copy(source:RectAreaLight, ?recursive:Bool):RectAreaLight;
+	function attach(unknown:Dynamic):RectAreaLight;
+	function clone(unknown:Dynamic):RectAreaLight;
+	function copy(unknown:Dynamic):RectAreaLight;
 	static var prototype : RectAreaLight;
 }

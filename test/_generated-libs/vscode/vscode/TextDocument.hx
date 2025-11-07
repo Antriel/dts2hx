@@ -44,7 +44,7 @@ typedef TextDocument = {
 	/**
 		Save the underlying file.
 	**/
-	function save():global.Thenable<Bool>;
+	function save(unknown:Dynamic):global.Thenable<Bool>;
 	/**
 		The [end of line](#EndOfLine) sequence that is predominately
 		used in this document.
@@ -65,23 +65,23 @@ typedef TextDocument = {
 		
 		The position will be [adjusted](#TextDocument.validatePosition).
 	**/
-	@:overload(function(position:Position):TextLine { })
-	function lineAt(line:Float):TextLine;
+	@:overload(function(unknown:Dynamic):TextLine { })
+	function lineAt(unknown:Dynamic):TextLine;
 	/**
 		Converts the position to a zero-based offset.
 		
 		The position will be [adjusted](#TextDocument.validatePosition).
 	**/
-	function offsetAt(position:Position):Float;
+	function offsetAt(unknown:Dynamic):Float;
 	/**
 		Converts a zero-based offset to a position.
 	**/
-	function positionAt(offset:Float):Position;
+	function positionAt(unknown:Dynamic):Position;
 	/**
 		Get the text of this document. A substring can be retrieved by providing
 		a range. The range will be [adjusted](#TextDocument.validateRange).
 	**/
-	function getText(?range:Range):String;
+	function getText(unknown:Dynamic):String;
 	/**
 		Get a word-range at the given position. By default words are defined by
 		common separators, like space, -, _, etc. In addition, per language custom
@@ -96,13 +96,13 @@ typedef TextDocument = {
 		
 		The position will be [adjusted](#TextDocument.validatePosition).
 	**/
-	function getWordRangeAtPosition(position:Position, ?regex:js.lib.RegExp):Null<Range>;
+	function getWordRangeAtPosition(unknown:Dynamic):Null<Range>;
 	/**
 		Ensure a range is completely contained in this document.
 	**/
-	function validateRange(range:Range):Range;
+	function validateRange(unknown:Dynamic):Range;
 	/**
 		Ensure a position is contained in the range of this document.
 	**/
-	function validatePosition(position:Position):Position;
+	function validatePosition(unknown:Dynamic):Position;
 };

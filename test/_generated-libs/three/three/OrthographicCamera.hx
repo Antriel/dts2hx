@@ -4,7 +4,7 @@ package three;
 	Camera with orthographic projection
 **/
 @:jsRequire("three", "OrthographicCamera") extern class OrthographicCamera extends Camera {
-	function new(left:Float, right:Float, top:Float, bottom:Float, ?near:Float, ?far:Float);
+	function new(unknown:Dynamic);
 	var isOrthographicCamera : Bool;
 	var zoom : Float;
 	var view : Null<{
@@ -43,48 +43,48 @@ package three;
 	/**
 		Updates the camera projection matrix. Must be called after change of parameters.
 	**/
-	function updateProjectionMatrix():Void;
-	function setViewOffset(fullWidth:Float, fullHeight:Float, offsetX:Float, offsetY:Float, width:Float, height:Float):Void;
-	function clearViewOffset():Void;
-	function toJSON(?meta:Dynamic):Dynamic;
-	function applyQuaternion(quaternion:Quaternion):OrthographicCamera;
+	function updateProjectionMatrix(unknown:Dynamic):Void;
+	function setViewOffset(unknown:Dynamic):Void;
+	function clearViewOffset(unknown:Dynamic):Void;
+	function toJSON(unknown:Dynamic):Dynamic;
+	function applyQuaternion(unknown:Dynamic):OrthographicCamera;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):OrthographicCamera;
+	function rotateOnAxis(unknown:Dynamic):OrthographicCamera;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):OrthographicCamera;
-	function rotateX(angle:Float):OrthographicCamera;
-	function rotateY(angle:Float):OrthographicCamera;
-	function rotateZ(angle:Float):OrthographicCamera;
-	function translateOnAxis(axis:Vector3, distance:Float):OrthographicCamera;
+	function rotateOnWorldAxis(unknown:Dynamic):OrthographicCamera;
+	function rotateX(unknown:Dynamic):OrthographicCamera;
+	function rotateY(unknown:Dynamic):OrthographicCamera;
+	function rotateZ(unknown:Dynamic):OrthographicCamera;
+	function translateOnAxis(unknown:Dynamic):OrthographicCamera;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):OrthographicCamera;
+	function translateX(unknown:Dynamic):OrthographicCamera;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):OrthographicCamera;
+	function translateY(unknown:Dynamic):OrthographicCamera;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):OrthographicCamera;
+	function translateZ(unknown:Dynamic):OrthographicCamera;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):OrthographicCamera;
+	function add(unknown:Dynamic):OrthographicCamera;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):OrthographicCamera;
+	function remove(unknown:Dynamic):OrthographicCamera;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):OrthographicCamera;
-	function clone(?recursive:Bool):OrthographicCamera;
-	function copy(source:OrthographicCamera, ?recursive:Bool):OrthographicCamera;
+	function attach(unknown:Dynamic):OrthographicCamera;
+	function clone(unknown:Dynamic):OrthographicCamera;
+	function copy(unknown:Dynamic):OrthographicCamera;
 	static var prototype : OrthographicCamera;
 }

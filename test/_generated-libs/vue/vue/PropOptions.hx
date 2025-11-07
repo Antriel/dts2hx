@@ -7,7 +7,7 @@ typedef PropOptions<T> = {
 	var required : Bool;
 	@:optional
 	@:native("default")
-	var default_ : ts.AnyOf2<() -> Null<T>, T>;
+	var default_ : ts.AnyOf2<(unknown:Dynamic) -> Null<T>, T>;
 	@:optional
-	function validator(value:T):Bool;
+	function validator(unknown:Dynamic):Bool;
 };

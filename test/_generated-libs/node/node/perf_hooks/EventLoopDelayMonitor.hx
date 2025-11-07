@@ -4,19 +4,19 @@ typedef EventLoopDelayMonitor = {
 	/**
 		Enables the event loop delay sample timer. Returns `true` if the timer was started, `false` if it was already started.
 	**/
-	function enable():Bool;
+	function enable(unknown:Dynamic):Bool;
 	/**
 		Disables the event loop delay sample timer. Returns `true` if the timer was stopped, `false` if it was already stopped.
 	**/
-	function disable():Bool;
+	function disable(unknown:Dynamic):Bool;
 	/**
 		Resets the collected histogram data.
 	**/
-	function reset():Void;
+	function reset(unknown:Dynamic):Void;
 	/**
 		Returns the value at the given percentile.
 	**/
-	function percentile(percentile:Float):Float;
+	function percentile(unknown:Dynamic):Float;
 	/**
 		A `Map` object detailing the accumulated percentile distribution.
 	**/

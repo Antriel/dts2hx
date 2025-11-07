@@ -7,7 +7,7 @@ package vscode;
 	/**
 		Create a description for a debug adapter running as a socket based server.
 	**/
-	function new(port:Float, ?host:String);
+	function new(unknown:Dynamic);
 	/**
 		The port.
 	**/

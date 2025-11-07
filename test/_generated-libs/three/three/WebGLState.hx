@@ -1,35 +1,35 @@
 package three;
 
 @:jsRequire("three", "WebGLState") extern class WebGLState {
-	function new(gl:js.html.webgl.RenderingContext, extensions:WebGLExtensions, utils:Dynamic, capabilities:WebGLCapabilities);
+	function new(unknown:Dynamic);
 	var buffers : {
 		var color : WebGLColorBuffer;
 		var depth : WebGLDepthBuffer;
 		var stencil : WebGLStencilBuffer;
 	};
-	function initAttributes():Void;
-	function enableAttribute(attribute:Float):Void;
-	function enableAttributeAndDivisor(attribute:Float, meshPerAttribute:Float):Void;
-	function disableUnusedAttributes():Void;
-	function enable(id:Float):Void;
-	function disable(id:Float):Void;
-	function getCompressedTextureFormats():Array<Float>;
-	function useProgram(program:Dynamic):Bool;
-	function setBlending(blending:Blending, ?blendEquation:BlendingEquation, ?blendSrc:BlendingSrcFactor, ?blendDst:BlendingDstFactor, ?blendEquationAlpha:BlendingEquation, ?blendSrcAlpha:BlendingSrcFactor, ?blendDstAlpha:BlendingDstFactor, ?premultiplyAlpha:Bool):Void;
-	function setMaterial(material:Material, frontFaceCW:Bool):Void;
-	function setFlipSided(flipSided:Bool):Void;
-	function setCullFace(cullFace:CullFace):Void;
-	function setLineWidth(width:Float):Void;
-	function setPolygonOffset(polygonoffset:Bool, factor:Float, units:Float):Void;
-	function setScissorTest(scissorTest:Bool):Void;
-	function activeTexture(webglSlot:Float):Void;
-	function bindTexture(webglType:Float, webglTexture:Dynamic):Void;
-	function compressedTexImage2D(target:Float, level:Float, internalformat:Float, width:Float, height:Float, border:Float, data:js.lib.ArrayBufferView):Void;
-	@:overload(function(target:Float, level:Float, internalformat:Float, format:Float, type:Float, source:Dynamic):Void { })
-	function texImage2D(target:Float, level:Float, internalformat:Float, width:Float, height:Float, border:Float, format:Float, type:Float, pixels:Null<js.lib.ArrayBufferView>):Void;
-	function texImage3D(target:Float, level:Float, internalformat:Float, width:Float, height:Float, depth:Float, border:Float, format:Float, type:Float, pixels:Dynamic):Void;
-	function scissor(scissor:Vector4):Void;
-	function viewport(viewport:Vector4):Void;
-	function reset():Void;
+	function initAttributes(unknown:Dynamic):Void;
+	function enableAttribute(unknown:Dynamic):Void;
+	function enableAttributeAndDivisor(unknown:Dynamic):Void;
+	function disableUnusedAttributes(unknown:Dynamic):Void;
+	function enable(unknown:Dynamic):Void;
+	function disable(unknown:Dynamic):Void;
+	function getCompressedTextureFormats(unknown:Dynamic):Array<Float>;
+	function useProgram(unknown:Dynamic):Bool;
+	function setBlending(unknown:Dynamic):Void;
+	function setMaterial(unknown:Dynamic):Void;
+	function setFlipSided(unknown:Dynamic):Void;
+	function setCullFace(unknown:Dynamic):Void;
+	function setLineWidth(unknown:Dynamic):Void;
+	function setPolygonOffset(unknown:Dynamic):Void;
+	function setScissorTest(unknown:Dynamic):Void;
+	function activeTexture(unknown:Dynamic):Void;
+	function bindTexture(unknown:Dynamic):Void;
+	function compressedTexImage2D(unknown:Dynamic):Void;
+	@:overload(function(unknown:Dynamic):Void { })
+	function texImage2D(unknown:Dynamic):Void;
+	function texImage3D(unknown:Dynamic):Void;
+	function scissor(unknown:Dynamic):Void;
+	function viewport(unknown:Dynamic):Void;
+	function reset(unknown:Dynamic):Void;
 	static var prototype : WebGLState;
 }

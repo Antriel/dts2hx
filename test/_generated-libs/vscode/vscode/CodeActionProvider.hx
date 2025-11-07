@@ -10,5 +10,5 @@ typedef CodeActionProvider = {
 	/**
 		Provide commands for the given document and range.
 	**/
-	function provideCodeActions(document:TextDocument, range:ts.AnyOf2<Range, Selection>, context:CodeActionContext, token:CancellationToken):ProviderResult<Array<ts.AnyOf2<Command, CodeAction>>>;
+	function provideCodeActions(unknown:Dynamic):ProviderResult<Array<ts.AnyOf2<Command, CodeAction>>>;
 };

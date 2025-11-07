@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "EllipseCurve") extern class EllipseCurve extends Curve<Vector2> {
-	function new(aX:Float, aY:Float, xRadius:Float, yRadius:Float, aStartAngle:Float, aEndAngle:Float, aClockwise:Bool, aRotation:Float);
+	function new(unknown:Dynamic);
 	var aX : Float;
 	var aY : Float;
 	var xRadius : Float;

@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "MeshLambertMaterial") extern class MeshLambertMaterial extends Material {
-	function new(?parameters:MeshLambertMaterialParameters);
+	function new(unknown:Dynamic);
 	var color : Color;
 	var emissive : Color;
 	var emissiveIntensity : Float;
@@ -27,14 +27,14 @@ package three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(parameters:MeshLambertMaterialParameters):Void;
+	function setValues(unknown:Dynamic):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone():MeshLambertMaterial;
+	function clone(unknown:Dynamic):MeshLambertMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(material:Material):MeshLambertMaterial;
+	function copy(unknown:Dynamic):MeshLambertMaterial;
 	static var prototype : MeshLambertMaterial;
 }

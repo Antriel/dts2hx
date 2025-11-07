@@ -9,503 +9,31 @@ typedef ClientHttp2Stream = {
 		3. end
 		4. readable
 		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
-		
-		Event emitter
-		The defined events on documents including:
-		1. close
-		2. data
-		3. end
-		4. readable
-		5. error
 	**/
-	@:overload(function(event:String, listener:(headers:IncomingHttpHeaders & IncomingHttpStatusHeader, flags:Float) -> Void):ClientHttp2Stream { })
-	@:overload(function(event:String, listener:(headers:IncomingHttpHeaders, flags:Float) -> Void):ClientHttp2Stream { })
-	@:overload(function(event:String, listener:(headers:IncomingHttpHeaders & IncomingHttpStatusHeader, flags:Float) -> Void):ClientHttp2Stream { })
-	function addListener(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):ClientHttp2Stream;
-	@:overload(function(event:String, headers:IncomingHttpHeaders & IncomingHttpStatusHeader, flags:Float):Bool { })
-	@:overload(function(event:String, headers:IncomingHttpHeaders, flags:Float):Bool { })
-	@:overload(function(event:String, headers:IncomingHttpHeaders & IncomingHttpStatusHeader, flags:Float):Bool { })
-	function emit(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool;
-	@:overload(function(event:String, listener:(headers:IncomingHttpHeaders & IncomingHttpStatusHeader, flags:Float) -> Void):ClientHttp2Stream { })
-	@:overload(function(event:String, listener:(headers:IncomingHttpHeaders, flags:Float) -> Void):ClientHttp2Stream { })
-	@:overload(function(event:String, listener:(headers:IncomingHttpHeaders & IncomingHttpStatusHeader, flags:Float) -> Void):ClientHttp2Stream { })
-	function on(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):ClientHttp2Stream;
-	@:overload(function(event:String, listener:(headers:IncomingHttpHeaders & IncomingHttpStatusHeader, flags:Float) -> Void):ClientHttp2Stream { })
-	@:overload(function(event:String, listener:(headers:IncomingHttpHeaders, flags:Float) -> Void):ClientHttp2Stream { })
-	@:overload(function(event:String, listener:(headers:IncomingHttpHeaders & IncomingHttpStatusHeader, flags:Float) -> Void):ClientHttp2Stream { })
-	function once(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):ClientHttp2Stream;
-	@:overload(function(event:String, listener:(headers:IncomingHttpHeaders & IncomingHttpStatusHeader, flags:Float) -> Void):ClientHttp2Stream { })
-	@:overload(function(event:String, listener:(headers:IncomingHttpHeaders, flags:Float) -> Void):ClientHttp2Stream { })
-	@:overload(function(event:String, listener:(headers:IncomingHttpHeaders & IncomingHttpStatusHeader, flags:Float) -> Void):ClientHttp2Stream { })
-	function prependListener(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):ClientHttp2Stream;
-	@:overload(function(event:String, listener:(headers:IncomingHttpHeaders & IncomingHttpStatusHeader, flags:Float) -> Void):ClientHttp2Stream { })
-	@:overload(function(event:String, listener:(headers:IncomingHttpHeaders, flags:Float) -> Void):ClientHttp2Stream { })
-	@:overload(function(event:String, listener:(headers:IncomingHttpHeaders & IncomingHttpStatusHeader, flags:Float) -> Void):ClientHttp2Stream { })
-	function prependOnceListener(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):ClientHttp2Stream;
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	function addListener(unknown:Dynamic):ClientHttp2Stream;
+	@:overload(function(unknown:Dynamic):Bool { })
+	@:overload(function(unknown:Dynamic):Bool { })
+	@:overload(function(unknown:Dynamic):Bool { })
+	function emit(unknown:Dynamic):Bool;
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	function on(unknown:Dynamic):ClientHttp2Stream;
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	function once(unknown:Dynamic):ClientHttp2Stream;
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	function prependListener(unknown:Dynamic):ClientHttp2Stream;
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	function prependOnceListener(unknown:Dynamic):ClientHttp2Stream;
 	final aborted : Bool;
 	final closed : Bool;
 	final destroyed : Bool;
@@ -523,53 +51,53 @@ typedef ClientHttp2Stream = {
 		indicating that no additional data should be received and the readable side of the Http2Stream will be closed.
 	**/
 	final endAfterHeaders : Bool;
-	function close(?code:Float, ?callback:() -> Void):Void;
-	function priority(options:StreamPriorityOptions):Void;
-	function setTimeout(msecs:Float, ?callback:() -> Void):Void;
-	function sendTrailers(headers:node.http.OutgoingHttpHeaders):ClientHttp2Stream;
+	function close(unknown:Dynamic):Void;
+	function priority(unknown:Dynamic):Void;
+	function setTimeout(unknown:Dynamic):Void;
+	function sendTrailers(unknown:Dynamic):ClientHttp2Stream;
 	var writable : Bool;
 	final writableHighWaterMark : Float;
 	final writableLength : Float;
-	function _write(chunk:Dynamic, encoding:String, callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
+	function _write(unknown:Dynamic):Void;
 	@:optional
-	function _writev(chunks:Array<{ var chunk : Dynamic; var encoding : String; }>, callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
-	function _destroy(error:Null<js.lib.Error>, callback:(error:Null<js.lib.Error>) -> Void):Void;
-	function _final(callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
-	@:overload(function(chunk:Dynamic, ?cb:(error:Null<js.lib.Error>) -> Void):Bool { })
-	function write(chunk:Dynamic, ?encoding:String, ?cb:(error:Null<js.lib.Error>) -> Void):Bool;
-	function setDefaultEncoding(encoding:String):ClientHttp2Stream;
-	@:overload(function(chunk:Dynamic, ?cb:() -> Void):Void { })
-	@:overload(function(chunk:Dynamic, ?encoding:String, ?cb:() -> Void):Void { })
-	function end(?cb:() -> Void):Void;
-	function cork():Void;
-	function uncork():Void;
+	function _writev(unknown:Dynamic):Void;
+	function _destroy(unknown:Dynamic):Void;
+	function _final(unknown:Dynamic):Void;
+	@:overload(function(unknown:Dynamic):Bool { })
+	function write(unknown:Dynamic):Bool;
+	function setDefaultEncoding(unknown:Dynamic):ClientHttp2Stream;
+	@:overload(function(unknown:Dynamic):Void { })
+	@:overload(function(unknown:Dynamic):Void { })
+	function end(unknown:Dynamic):Void;
+	function cork(unknown:Dynamic):Void;
+	function uncork(unknown:Dynamic):Void;
 	var readable : Bool;
 	final readableHighWaterMark : Float;
 	final readableLength : Float;
-	function _read(size:Float):Void;
-	function read(?size:Float):Dynamic;
-	function setEncoding(encoding:String):ClientHttp2Stream;
-	function pause():ClientHttp2Stream;
-	function resume():ClientHttp2Stream;
-	function isPaused():Bool;
-	function unpipe(?destination:global.nodejs.WritableStream):ClientHttp2Stream;
-	function unshift(chunk:Dynamic):Void;
-	function wrap(oldStream:global.nodejs.ReadableStream):ClientHttp2Stream;
-	function push(chunk:Dynamic, ?encoding:String):Bool;
-	function destroy(?error:js.lib.Error):Void;
-	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):ClientHttp2Stream { })
-	@:overload(function(event:String, listener:() -> Void):ClientHttp2Stream { })
-	@:overload(function(event:String, listener:() -> Void):ClientHttp2Stream { })
-	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):ClientHttp2Stream { })
-	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):ClientHttp2Stream { })
-	function removeListener(event:String, listener:() -> Void):ClientHttp2Stream;
-	function pipe<T>(destination:T, ?options:{ @:optional var end : Bool; }):T;
-	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):ClientHttp2Stream;
-	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):ClientHttp2Stream;
-	function setMaxListeners(n:Float):ClientHttp2Stream;
-	function getMaxListeners():Float;
-	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
-	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
-	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
-	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
+	function _read(unknown:Dynamic):Void;
+	function read(unknown:Dynamic):Dynamic;
+	function setEncoding(unknown:Dynamic):ClientHttp2Stream;
+	function pause(unknown:Dynamic):ClientHttp2Stream;
+	function resume(unknown:Dynamic):ClientHttp2Stream;
+	function isPaused(unknown:Dynamic):Bool;
+	function unpipe(unknown:Dynamic):ClientHttp2Stream;
+	function unshift(unknown:Dynamic):Void;
+	function wrap(unknown:Dynamic):ClientHttp2Stream;
+	function push(unknown:Dynamic):Bool;
+	function destroy(unknown:Dynamic):Void;
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	@:overload(function(unknown:Dynamic):ClientHttp2Stream { })
+	function removeListener(unknown:Dynamic):ClientHttp2Stream;
+	function pipe<T>(unknown:Dynamic):T;
+	function off(unknown:Dynamic):ClientHttp2Stream;
+	function removeAllListeners(unknown:Dynamic):ClientHttp2Stream;
+	function setMaxListeners(unknown:Dynamic):ClientHttp2Stream;
+	function getMaxListeners(unknown:Dynamic):Float;
+	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
+	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
+	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	function listenerCount(unknown:Dynamic):Float;
 };

@@ -1,10 +1,18 @@
 package three;
 
 /**
-	Affects objects using {@link MeshLambertMaterial} or {@link MeshPhongMaterial}.
+	Affects objects using
+	{@link
+	MeshLambertMaterial
+	}
+	or
+	{@link
+	MeshPhongMaterial
+	}
+	.
 **/
 @:jsRequire("three", "PointLight") extern class PointLight extends Light {
-	function new(?color:ts.AnyOf3<String, Float, Color>, ?intensity:Float, ?distance:Float, ?decay:Float);
+	function new(unknown:Dynamic);
 	/**
 		If non-zero, light will attenuate linearly from maximum intensity at light position down to zero at distance.
 		Default — 0.0.
@@ -12,44 +20,44 @@ package three;
 	var distance : Float;
 	var decay : Float;
 	var power : Float;
-	function applyQuaternion(quaternion:Quaternion):PointLight;
+	function applyQuaternion(unknown:Dynamic):PointLight;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):PointLight;
+	function rotateOnAxis(unknown:Dynamic):PointLight;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):PointLight;
-	function rotateX(angle:Float):PointLight;
-	function rotateY(angle:Float):PointLight;
-	function rotateZ(angle:Float):PointLight;
-	function translateOnAxis(axis:Vector3, distance:Float):PointLight;
+	function rotateOnWorldAxis(unknown:Dynamic):PointLight;
+	function rotateX(unknown:Dynamic):PointLight;
+	function rotateY(unknown:Dynamic):PointLight;
+	function rotateZ(unknown:Dynamic):PointLight;
+	function translateOnAxis(unknown:Dynamic):PointLight;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):PointLight;
+	function translateX(unknown:Dynamic):PointLight;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):PointLight;
+	function translateY(unknown:Dynamic):PointLight;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):PointLight;
+	function translateZ(unknown:Dynamic):PointLight;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):PointLight;
+	function add(unknown:Dynamic):PointLight;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):PointLight;
+	function remove(unknown:Dynamic):PointLight;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):PointLight;
-	function clone(?recursive:Bool):PointLight;
-	function copy(source:PointLight, ?recursive:Bool):PointLight;
+	function attach(unknown:Dynamic):PointLight;
+	function clone(unknown:Dynamic):PointLight;
+	function copy(unknown:Dynamic):PointLight;
 	static var prototype : PointLight;
 }

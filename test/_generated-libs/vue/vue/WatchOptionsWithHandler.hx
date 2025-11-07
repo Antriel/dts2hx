@@ -1,7 +1,7 @@
 package vue;
 
 typedef WatchOptionsWithHandler<T> = {
-	dynamic function handler(val:T, oldVal:T):Void;
+	dynamic function handler(unknown:Dynamic):Void;
 	@:optional
 	var deep : Bool;
 	@:optional

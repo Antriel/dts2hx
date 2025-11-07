@@ -7,11 +7,11 @@ typedef TreeView<T> = {
 	/**
 		Event that is fired when an element is expanded
 	**/
-	function onDidExpandElement(listener:(e:TreeViewExpansionEvent<T>) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	function onDidExpandElement(unknown:Dynamic):Disposable;
 	/**
 		Event that is fired when an element is collapsed
 	**/
-	function onDidCollapseElement(listener:(e:TreeViewExpansionEvent<T>) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	function onDidCollapseElement(unknown:Dynamic):Disposable;
 	/**
 		Currently selected elements.
 	**/
@@ -19,7 +19,7 @@ typedef TreeView<T> = {
 	/**
 		Event that is fired when the [selection](#TreeView.selection) has changed
 	**/
-	function onDidChangeSelection(listener:(e:TreeViewSelectionChangeEvent<T>) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	function onDidChangeSelection(unknown:Dynamic):Disposable;
 	/**
 		`true` if the [tree view](#TreeView) is visible otherwise `false`.
 	**/
@@ -27,7 +27,7 @@ typedef TreeView<T> = {
 	/**
 		Event that is fired when [visibility](#TreeView.visible) has changed
 	**/
-	function onDidChangeVisibility(listener:(e:TreeViewVisibilityChangeEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	function onDidChangeVisibility(unknown:Dynamic):Disposable;
 	/**
 		An optional human-readable message that will be rendered in the view.
 		Setting the message to null, undefined, or empty string will remove the message from the view.
@@ -52,9 +52,9 @@ typedef TreeView<T> = {
 		
 		**NOTE:** [TreeDataProvider](#TreeDataProvider) is required to implement [getParent](#TreeDataProvider.getParent) method to access this API.
 	**/
-	function reveal(element:T, ?options:{ @:optional var select : Bool; @:optional var focus : Bool; @:optional var expand : ts.AnyOf2<Float, Bool>; }):global.Thenable<ts.Undefined>;
+	function reveal(unknown:Dynamic):global.Thenable<ts.Undefined>;
 	/**
 		Dispose this object.
 	**/
-	function dispose():Dynamic;
+	function dispose(unknown:Dynamic):Dynamic;
 };

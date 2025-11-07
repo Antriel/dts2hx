@@ -9,16 +9,16 @@ package vscode;
 		Creates a new Disposable calling the provided function
 		on dispose.
 	**/
-	function new(callOnDispose:haxe.Constraints.Function);
+	function new(unknown:Dynamic);
 	/**
 		Dispose this object.
 	**/
-	function dispose():Dynamic;
+	function dispose(unknown:Dynamic):Dynamic;
 	static var prototype : Disposable;
 	/**
 		Combine many disposable-likes into one. Use this method
 		when having objects with a dispose function which are not
 		instances of Disposable.
 	**/
-	static function from(disposableLikes:haxe.extern.Rest<{ dynamic function dispose():Dynamic; }>):Disposable;
+	static function from(unknown:Dynamic):Disposable;
 }

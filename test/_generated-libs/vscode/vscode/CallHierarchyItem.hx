@@ -8,7 +8,7 @@ package vscode;
 	/**
 		Creates a new call hierarchy item.
 	**/
-	function new(kind:SymbolKind, name:String, detail:String, uri:Uri, range:Range, selectionRange:Range);
+	function new(unknown:Dynamic);
 	/**
 		The name of this item.
 	**/

@@ -43,5 +43,5 @@ typedef Extension<T> = {
 	/**
 		Activates this extension and returns its public API.
 	**/
-	function activate():global.Thenable<T>;
+	function activate(unknown:Dynamic):global.Thenable<T>;
 };

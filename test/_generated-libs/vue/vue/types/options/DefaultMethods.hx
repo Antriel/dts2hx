@@ -1,3 +1,3 @@
 package vue.types.options;
 
-typedef DefaultMethods<V> = haxe.DynamicAccess<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
+typedef DefaultMethods<V> = haxe.DynamicAccess<(unknown:Dynamic) -> Dynamic>;

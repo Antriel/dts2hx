@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "WebGLExtensions") extern class WebGLExtensions {
-	function new(gl:js.html.webgl.RenderingContext);
-	function get(name:String):Dynamic;
+	function new(unknown:Dynamic);
+	function get(unknown:Dynamic):Dynamic;
 	static var prototype : WebGLExtensions;
 }

@@ -10,6 +10,6 @@ typedef Thenable<T> = {
 	/**
 		Attaches callbacks for the resolution and/or rejection of the Promise.
 	**/
-	@:overload(function<TResult>(?onfulfilled:(value:T) -> ts.AnyOf2<Thenable<TResult>, TResult>, ?onrejected:(reason:Dynamic) -> Void):Thenable<TResult> { })
-	function then<TResult>(?onfulfilled:(value:T) -> ts.AnyOf2<Thenable<TResult>, TResult>, ?onrejected:(reason:Dynamic) -> ts.AnyOf2<Thenable<TResult>, TResult>):Thenable<TResult>;
+	@:overload(function<TResult>(unknown:Dynamic):Thenable<TResult> { })
+	function then<TResult>(unknown:Dynamic):Thenable<TResult>;
 };

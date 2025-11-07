@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "MeshPhongMaterial") extern class MeshPhongMaterial extends Material {
-	function new(?parameters:MeshPhongMaterialParameters);
+	function new(unknown:Dynamic);
 	var color : Color;
 	var specular : Color;
 	var shininess : Float;
@@ -38,14 +38,14 @@ package three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(parameters:MeshPhongMaterialParameters):Void;
+	function setValues(unknown:Dynamic):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone():MeshPhongMaterial;
+	function clone(unknown:Dynamic):MeshPhongMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(material:Material):MeshPhongMaterial;
+	function copy(unknown:Dynamic):MeshPhongMaterial;
 	static var prototype : MeshPhongMaterial;
 }

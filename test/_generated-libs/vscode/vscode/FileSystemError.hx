@@ -10,7 +10,7 @@ package vscode;
 	/**
 		Creates a new filesystem error.
 	**/
-	function new(?messageOrUri:ts.AnyOf2<String, Uri>);
+	function new(unknown:Dynamic);
 	/**
 		A code that identifies this error.
 		
@@ -22,27 +22,27 @@ package vscode;
 	/**
 		Create an error to signal that a file or folder wasn't found.
 	**/
-	static function FileNotFound(?messageOrUri:ts.AnyOf2<String, Uri>):FileSystemError;
+	static function FileNotFound(unknown:Dynamic):FileSystemError;
 	/**
 		Create an error to signal that a file or folder already exists, e.g. when
 		creating but not overwriting a file.
 	**/
-	static function FileExists(?messageOrUri:ts.AnyOf2<String, Uri>):FileSystemError;
+	static function FileExists(unknown:Dynamic):FileSystemError;
 	/**
 		Create an error to signal that a file is not a folder.
 	**/
-	static function FileNotADirectory(?messageOrUri:ts.AnyOf2<String, Uri>):FileSystemError;
+	static function FileNotADirectory(unknown:Dynamic):FileSystemError;
 	/**
 		Create an error to signal that a file is a folder.
 	**/
-	static function FileIsADirectory(?messageOrUri:ts.AnyOf2<String, Uri>):FileSystemError;
+	static function FileIsADirectory(unknown:Dynamic):FileSystemError;
 	/**
 		Create an error to signal that an operation lacks required permissions.
 	**/
-	static function NoPermissions(?messageOrUri:ts.AnyOf2<String, Uri>):FileSystemError;
+	static function NoPermissions(unknown:Dynamic):FileSystemError;
 	/**
 		Create an error to signal that the file system is unavailable or too busy to
 		complete a request.
 	**/
-	static function Unavailable(?messageOrUri:ts.AnyOf2<String, Uri>):FileSystemError;
+	static function Unavailable(unknown:Dynamic):FileSystemError;
 }

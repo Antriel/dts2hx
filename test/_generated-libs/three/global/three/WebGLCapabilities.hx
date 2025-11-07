@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.WebGLCapabilities") extern class WebGLCapabilities {
-	function new(gl:js.html.webgl.RenderingContext, extensions:Dynamic, parameters:WebGLCapabilitiesParameters);
+	function new(unknown:Dynamic);
 	var precision : Dynamic;
 	var logarithmicDepthBuffer : Dynamic;
 	var maxTextures : Dynamic;
@@ -15,7 +15,7 @@ package global.three;
 	var vertexTextures : Dynamic;
 	var floatFragmentTextures : Dynamic;
 	var floatVertexTextures : Dynamic;
-	function getMaxAnisotropy():Float;
-	function getMaxPrecision(precision:String):String;
+	function getMaxAnisotropy(unknown:Dynamic):Float;
+	function getMaxPrecision(unknown:Dynamic):String;
 	static var prototype : WebGLCapabilities;
 }

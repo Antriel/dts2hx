@@ -8,7 +8,7 @@ package vscode;
 	/**
 		Create a new TextEdit.
 	**/
-	function new(range:Range, newText:String);
+	function new(unknown:Dynamic);
 	/**
 		The range this edit applies to.
 	**/
@@ -29,17 +29,17 @@ package vscode;
 	/**
 		Utility to create a replace edit.
 	**/
-	static function replace(range:Range, newText:String):TextEdit;
+	static function replace(unknown:Dynamic):TextEdit;
 	/**
 		Utility to create an insert edit.
 	**/
-	static function insert(position:Position, newText:String):TextEdit;
+	static function insert(unknown:Dynamic):TextEdit;
 	/**
 		Utility to create a delete edit.
 	**/
-	static function delete(range:Range):TextEdit;
+	static function delete(unknown:Dynamic):TextEdit;
 	/**
 		Utility to create an eol-edit.
 	**/
-	static function setEndOfLine(eol:EndOfLine):TextEdit;
+	static function setEndOfLine(unknown:Dynamic):TextEdit;
 }

@@ -10,7 +10,7 @@ package vscode;
 		Creates a new relative pattern object with a base path and pattern to match. This pattern
 		will be matched on file paths relative to the base path.
 	**/
-	function new(base:ts.AnyOf2<String, WorkspaceFolder>, pattern:String);
+	function new(unknown:Dynamic);
 	/**
 		A base file path to which this pattern will be matched against relatively.
 	**/

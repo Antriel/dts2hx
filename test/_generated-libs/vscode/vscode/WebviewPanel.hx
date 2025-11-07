@@ -45,7 +45,7 @@ typedef WebviewPanel = {
 	/**
 		Fired when the panel's view state changes.
 	**/
-	function onDidChangeViewState(listener:(e:WebviewPanelOnDidChangeViewStateEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	function onDidChangeViewState(unknown:Dynamic):Disposable;
 	/**
 		Fired when the panel is disposed.
 		
@@ -54,14 +54,14 @@ typedef WebviewPanel = {
 		
 		Trying to use the panel after it has been disposed throws an exception.
 	**/
-	function onDidDispose(listener:(e:ts.Undefined) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	function onDidDispose(unknown:Dynamic):Disposable;
 	/**
 		Show the webview panel in a given column.
 		
 		A webview panel may only show in a single column at a time. If it is already showing, this
 		method moves it to a new column.
 	**/
-	function reveal(?viewColumn:ViewColumn, ?preserveFocus:Bool):Void;
+	function reveal(unknown:Dynamic):Void;
 	/**
 		Dispose of the webview panel.
 		
@@ -69,5 +69,5 @@ typedef WebviewPanel = {
 		Webview panels are also disposed when the user closes the webview panel. Both cases
 		fire the `onDispose` event.
 	**/
-	function dispose():Dynamic;
+	function dispose(unknown:Dynamic):Dynamic;
 };

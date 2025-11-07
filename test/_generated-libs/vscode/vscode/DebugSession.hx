@@ -31,5 +31,5 @@ typedef DebugSession = {
 	/**
 		Send a custom request to the debug adapter.
 	**/
-	function customRequest(command:String, ?args:Dynamic):global.Thenable<Dynamic>;
+	function customRequest(unknown:Dynamic):global.Thenable<Dynamic>;
 };

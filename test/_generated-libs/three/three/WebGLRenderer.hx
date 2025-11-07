@@ -8,7 +8,7 @@ package three;
 	/**
 		parameters is an optional object with properties defining the renderer's behaviour. The constructor also accepts no parameters at all. In all cases, it will assume sane defaults when parameters are missing.
 	**/
-	function new(?parameters:WebGLRendererParameters);
+	function new(unknown:Dynamic);
 	/**
 		A Canvas where the renderer draws its output.
 		This is automatically created by the renderer in the constructor (if not provided already); you just need to add it to your page.
@@ -80,128 +80,152 @@ package three;
 	/**
 		Return the WebGL context.
 	**/
-	function getContext():js.html.webgl.RenderingContext;
-	function getContextAttributes():Dynamic;
-	function forceContextLoss():Void;
-	function getMaxAnisotropy():Float;
-	function getPrecision():String;
-	function getPixelRatio():Float;
-	function setPixelRatio(value:Float):Void;
-	function getDrawingBufferSize(target:Vector2):Vector2;
-	function setDrawingBufferSize(width:Float, height:Float, pixelRatio:Float):Void;
-	function getSize(target:Vector2):Vector2;
+	function getContext(unknown:Dynamic):js.html.webgl.RenderingContext;
+	function getContextAttributes(unknown:Dynamic):Dynamic;
+	function forceContextLoss(unknown:Dynamic):Void;
+	function getMaxAnisotropy(unknown:Dynamic):Float;
+	function getPrecision(unknown:Dynamic):String;
+	function getPixelRatio(unknown:Dynamic):Float;
+	function setPixelRatio(unknown:Dynamic):Void;
+	function getDrawingBufferSize(unknown:Dynamic):Vector2;
+	function setDrawingBufferSize(unknown:Dynamic):Void;
+	function getSize(unknown:Dynamic):Vector2;
 	/**
 		Resizes the output canvas to (width, height), and also sets the viewport to fit that size, starting in (0, 0).
 	**/
-	function setSize(width:Float, height:Float, ?updateStyle:Bool):Void;
-	function getCurrentViewport(target:Vector4):Vector4;
+	function setSize(unknown:Dynamic):Void;
+	function getCurrentViewport(unknown:Dynamic):Vector4;
 	/**
 		Copies the viewport into target.
 	**/
-	function getViewport(target:Vector4):Vector4;
+	function getViewport(unknown:Dynamic):Vector4;
 	/**
 		Sets the viewport to render from (x, y) to (x + width, y + height).
 		(x, y) is the lower-left corner of the region.
 	**/
-	function setViewport(x:ts.AnyOf2<Float, Vector4>, ?y:Float, ?width:Float, ?height:Float):Void;
+	function setViewport(unknown:Dynamic):Void;
 	/**
 		Copies the scissor area into target.
 	**/
-	function getScissor(target:Vector4):Vector4;
+	function getScissor(unknown:Dynamic):Vector4;
 	/**
 		Sets the scissor area from (x, y) to (x + width, y + height).
 	**/
-	function setScissor(x:ts.AnyOf2<Float, Vector4>, ?y:Float, ?width:Float, ?height:Float):Void;
+	function setScissor(unknown:Dynamic):Void;
 	/**
 		Returns true if scissor test is enabled; returns false otherwise.
 	**/
-	function getScissorTest():Bool;
+	function getScissorTest(unknown:Dynamic):Bool;
 	/**
 		Enable the scissor test. When this is enabled, only the pixels within the defined scissor area will be affected by further renderer actions.
 	**/
-	function setScissorTest(enable:Bool):Void;
+	function setScissorTest(unknown:Dynamic):Void;
 	/**
 		Returns a THREE.Color instance with the current clear color.
 	**/
-	function getClearColor():Color;
+	function getClearColor(unknown:Dynamic):Color;
 	/**
 		Sets the clear color, using color for the color and alpha for the opacity.
 	**/
-	@:overload(function(color:String, ?alpha:Float):Void { })
-	@:overload(function(color:Float, ?alpha:Float):Void { })
-	function setClearColor(color:Color, ?alpha:Float):Void;
+	@:overload(function(unknown:Dynamic):Void { })
+	@:overload(function(unknown:Dynamic):Void { })
+	function setClearColor(unknown:Dynamic):Void;
 	/**
 		Returns a float with the current clear alpha. Ranges from 0 to 1.
 	**/
-	function getClearAlpha():Float;
-	function setClearAlpha(alpha:Float):Void;
+	function getClearAlpha(unknown:Dynamic):Float;
+	function setClearAlpha(unknown:Dynamic):Void;
 	/**
 		Tells the renderer to clear its color, depth or stencil drawing buffer(s).
 		Arguments default to true
 	**/
-	function clear(?color:Bool, ?depth:Bool, ?stencil:Bool):Void;
-	function clearColor():Void;
-	function clearDepth():Void;
-	function clearStencil():Void;
-	function clearTarget(renderTarget:WebGLRenderTarget, color:Bool, depth:Bool, stencil:Bool):Void;
-	function resetGLState():Void;
-	function dispose():Void;
+	function clear(unknown:Dynamic):Void;
+	function clearColor(unknown:Dynamic):Void;
+	function clearDepth(unknown:Dynamic):Void;
+	function clearStencil(unknown:Dynamic):Void;
+	function clearTarget(unknown:Dynamic):Void;
+	function resetGLState(unknown:Dynamic):Void;
+	function dispose(unknown:Dynamic):Void;
 	/**
 		Tells the shadow map plugin to update using the passed scene and camera parameters.
 	**/
-	function renderBufferImmediate(object:Object3D, program:Dynamic, material:Material):Void;
-	function renderBufferDirect(camera:Camera, fog:Fog, geometry:ts.AnyOf2<Geometry, BufferGeometry>, material:Material, object:Object3D, geometryGroup:Dynamic):Void;
+	function renderBufferImmediate(unknown:Dynamic):Void;
+	function renderBufferDirect(unknown:Dynamic):Void;
 	/**
 		A build in function that can be used instead of requestAnimationFrame. For WebVR projects this function must be used.
 	**/
-	function setAnimationLoop(callback:haxe.Constraints.Function):Void;
-	function animate(callback:haxe.Constraints.Function):Void;
+	function setAnimationLoop(unknown:Dynamic):Void;
+	function animate(unknown:Dynamic):Void;
 	/**
 		Compiles all materials in the scene with the camera. This is useful to precompile shaders before the first rendering.
 	**/
-	function compile(scene:Scene, camera:Camera):Void;
+	function compile(unknown:Dynamic):Void;
 	/**
 		Render a scene using a camera.
-		The render is done to a previously specified {@link WebGLRenderTarget#renderTarget .renderTarget} set by calling
-		{@link WebGLRenderer#setRenderTarget .setRenderTarget} or to the canvas as usual.
+		The render is done to a previously specified
+		{@link
+		WebGLRenderTarget#renderTarget .renderTarget
+		}
+		set by calling
+		{@link
+		WebGLRenderer#setRenderTarget .setRenderTarget
+		}
+		or to the canvas as usual.
 		
 		By default render buffers are cleared before rendering but you can prevent this by setting the property
-		{@link WebGLRenderer#autoClear autoClear} to false. If you want to prevent only certain buffers being cleared
-		you can set either the {@link WebGLRenderer#autoClearColor autoClearColor},
-		{@link WebGLRenderer#autoClearStencil autoClearStencil} or {@link WebGLRenderer#autoClearDepth autoClearDepth}
-		properties to false. To forcibly clear one ore more buffers call {@link WebGLRenderer#clear .clear}.
+		{@link
+		WebGLRenderer#autoClear autoClear
+		}
+		to false. If you want to prevent only certain buffers being cleared
+		you can set either the
+		{@link
+		WebGLRenderer#autoClearColor autoClearColor
+		}
+		,
+		{@link
+		WebGLRenderer#autoClearStencil autoClearStencil
+		}
+		or
+		{@link
+		WebGLRenderer#autoClearDepth autoClearDepth
+		}
+		properties to false. To forcibly clear one ore more buffers call
+		{@link
+		WebGLRenderer#clear .clear
+		}
+		.
 	**/
-	function render(scene:Scene, camera:Camera):Void;
+	function render(unknown:Dynamic):Void;
 	/**
 		Returns the current active cube face.
 	**/
-	function getActiveCubeFace():Float;
+	function getActiveCubeFace(unknown:Dynamic):Float;
 	/**
 		Returns the current active mipmap level.
 	**/
-	function getActiveMipmapLevel():Float;
+	function getActiveMipmapLevel(unknown:Dynamic):Float;
 	/**
 		Returns the current render target. If no render target is set, null is returned.
 	**/
-	function getRenderTarget():Null<RenderTarget>;
-	function getCurrentRenderTarget():Null<RenderTarget>;
+	function getRenderTarget(unknown:Dynamic):Null<RenderTarget>;
+	function getCurrentRenderTarget(unknown:Dynamic):Null<RenderTarget>;
 	/**
 		Sets the active render target.
 	**/
-	function setRenderTarget(renderTarget:Null<RenderTarget>, ?activeCubeFace:Float, ?activeMipmapLevel:Float):Void;
-	function readRenderTargetPixels(renderTarget:RenderTarget, x:Float, y:Float, width:Float, height:Float, buffer:Dynamic, ?activeCubeFaceIndex:Float):Void;
+	function setRenderTarget(unknown:Dynamic):Void;
+	function readRenderTargetPixels(unknown:Dynamic):Void;
 	var gammaFactor : Float;
 	var shadowMapEnabled : Bool;
 	var shadowMapType : ShadowMapType;
 	var shadowMapCullFace : CullFace;
-	function supportsFloatTextures():Dynamic;
-	function supportsHalfFloatTextures():Dynamic;
-	function supportsStandardDerivatives():Dynamic;
-	function supportsCompressedTextureS3TC():Dynamic;
-	function supportsCompressedTexturePVRTC():Dynamic;
-	function supportsBlendMinMax():Dynamic;
-	function supportsVertexTextures():Dynamic;
-	function supportsInstancedArrays():Dynamic;
-	function enableScissorTest(boolean:Dynamic):Dynamic;
+	function supportsFloatTextures(unknown:Dynamic):Dynamic;
+	function supportsHalfFloatTextures(unknown:Dynamic):Dynamic;
+	function supportsStandardDerivatives(unknown:Dynamic):Dynamic;
+	function supportsCompressedTextureS3TC(unknown:Dynamic):Dynamic;
+	function supportsCompressedTexturePVRTC(unknown:Dynamic):Dynamic;
+	function supportsBlendMinMax(unknown:Dynamic):Dynamic;
+	function supportsVertexTextures(unknown:Dynamic):Dynamic;
+	function supportsInstancedArrays(unknown:Dynamic):Dynamic;
+	function enableScissorTest(unknown:Dynamic):Dynamic;
 	static var prototype : WebGLRenderer;
 }

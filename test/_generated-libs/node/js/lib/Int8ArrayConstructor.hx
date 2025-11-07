@@ -1,7 +1,7 @@
 package js.lib;
 
 typedef Int8ArrayConstructor = {
-	final prototype : js.lib.Int8Array;
+	final prototype : Int8Array_<ArrayBufferLike>;
 	/**
 		The size in bytes of each element in the array.
 	**/
@@ -9,15 +9,12 @@ typedef Int8ArrayConstructor = {
 	/**
 		Returns a new array from a set of elements.
 	**/
-	function of(items:haxe.extern.Rest<Float>):js.lib.Int8Array;
+	function of(unknown:Dynamic):Int8Array_<js.lib.ArrayBuffer>;
 	/**
 		Creates an array from an array-like or iterable object.
-		
-		Creates an array from an array-like or iterable object.
-		
-		Creates an array from an array-like or iterable object.
 	**/
-	@:overload(function<T>(arrayLike:ArrayLike<T>, mapfn:(v:T, k:Float) -> Float, ?thisArg:Dynamic):js.lib.Int8Array { })
-	@:overload(function(arrayLike:Iterable<Float>, ?mapfn:(v:Float, k:Float) -> Float, ?thisArg:Dynamic):js.lib.Int8Array { })
-	function from(arrayLike:ArrayLike<Float>):js.lib.Int8Array;
+	@:overload(function<T>(unknown:Dynamic):Int8Array_<js.lib.ArrayBuffer> { })
+	@:overload(function(unknown:Dynamic):Int8Array_<js.lib.ArrayBuffer> { })
+	@:overload(function<T>(unknown:Dynamic):Int8Array_<js.lib.ArrayBuffer> { })
+	function from(unknown:Dynamic):Int8Array_<js.lib.ArrayBuffer>;
 };

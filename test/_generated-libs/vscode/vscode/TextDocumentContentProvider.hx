@@ -14,7 +14,7 @@ typedef TextDocumentContentProvider = {
 		An event to signal a resource has changed.
 	**/
 	@:optional
-	dynamic function onDidChange(listener:(e:Uri) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
+	dynamic function onDidChange(unknown:Dynamic):Disposable;
 	/**
 		Provide textual content for a given uri.
 		
@@ -25,5 +25,5 @@ typedef TextDocumentContentProvider = {
 		**Note**: The contents of the created [document](#TextDocument) might not be
 		identical to the provided text due to end-of-line-sequence normalization.
 	**/
-	function provideTextDocumentContent(uri:Uri, token:CancellationToken):ProviderResult<String>;
+	function provideTextDocumentContent(unknown:Dynamic):ProviderResult<String>;
 };

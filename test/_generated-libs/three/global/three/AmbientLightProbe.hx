@@ -1,46 +1,46 @@
 package global.three;
 
 @:native("THREE.AmbientLightProbe") extern class AmbientLightProbe extends LightProbe {
-	function new(?color:ts.AnyOf3<String, Float, Color>, ?intensity:Float);
+	function new(unknown:Dynamic);
 	var isAmbientLightProbe : Bool;
-	function applyQuaternion(quaternion:Quaternion):AmbientLightProbe;
+	function applyQuaternion(unknown:Dynamic):AmbientLightProbe;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):AmbientLightProbe;
+	function rotateOnAxis(unknown:Dynamic):AmbientLightProbe;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):AmbientLightProbe;
-	function rotateX(angle:Float):AmbientLightProbe;
-	function rotateY(angle:Float):AmbientLightProbe;
-	function rotateZ(angle:Float):AmbientLightProbe;
-	function translateOnAxis(axis:Vector3, distance:Float):AmbientLightProbe;
+	function rotateOnWorldAxis(unknown:Dynamic):AmbientLightProbe;
+	function rotateX(unknown:Dynamic):AmbientLightProbe;
+	function rotateY(unknown:Dynamic):AmbientLightProbe;
+	function rotateZ(unknown:Dynamic):AmbientLightProbe;
+	function translateOnAxis(unknown:Dynamic):AmbientLightProbe;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):AmbientLightProbe;
+	function translateX(unknown:Dynamic):AmbientLightProbe;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):AmbientLightProbe;
+	function translateY(unknown:Dynamic):AmbientLightProbe;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):AmbientLightProbe;
+	function translateZ(unknown:Dynamic):AmbientLightProbe;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):AmbientLightProbe;
+	function add(unknown:Dynamic):AmbientLightProbe;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):AmbientLightProbe;
+	function remove(unknown:Dynamic):AmbientLightProbe;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):AmbientLightProbe;
-	function clone(?recursive:Bool):AmbientLightProbe;
-	function copy(source:AmbientLightProbe, ?recursive:Bool):AmbientLightProbe;
+	function attach(unknown:Dynamic):AmbientLightProbe;
+	function clone(unknown:Dynamic):AmbientLightProbe;
+	function copy(unknown:Dynamic):AmbientLightProbe;
 	static var prototype : AmbientLightProbe;
 }

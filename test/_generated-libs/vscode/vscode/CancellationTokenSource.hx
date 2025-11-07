@@ -12,10 +12,10 @@ package vscode;
 	/**
 		Signal cancellation on the token.
 	**/
-	function cancel():Void;
+	function cancel(unknown:Dynamic):Void;
 	/**
 		Dispose object and free resources.
 	**/
-	function dispose():Void;
+	function dispose(unknown:Dynamic):Void;
 	static var prototype : CancellationTokenSource;
 }

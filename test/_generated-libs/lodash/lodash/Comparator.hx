@@ -1,3 +1,3 @@
 package lodash;
 
-typedef Comparator<T> = (a:T, b:T) -> Bool;
+typedef Comparator<T> = (unknown:Dynamic) -> Bool;

@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "TubeBufferGeometry") extern class TubeBufferGeometry extends BufferGeometry {
-	function new(path:Curve<Vector3>, ?tubularSegments:Float, ?radius:Float, ?radiusSegments:Float, ?closed:Bool);
+	function new(unknown:Dynamic);
 	var parameters : {
 		var path : Curve<Vector3>;
 		var tubularSegments : Float;
@@ -12,7 +12,7 @@ package three;
 	var tangents : Array<Vector3>;
 	var normals : Array<Vector3>;
 	var binormals : Array<Vector3>;
-	function clone():TubeBufferGeometry;
-	function copy(source:BufferGeometry):TubeBufferGeometry;
+	function clone(unknown:Dynamic):TubeBufferGeometry;
+	function copy(unknown:Dynamic):TubeBufferGeometry;
 	static var prototype : TubeBufferGeometry;
 }

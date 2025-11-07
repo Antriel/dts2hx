@@ -4,7 +4,7 @@ package global.three;
 	A 4x4 Matrix.
 **/
 @:native("THREE.Matrix4") extern class Matrix4 {
-	function new();
+	function new(unknown:Dynamic);
 	/**
 		Array with matrix values.
 	**/
@@ -12,130 +12,130 @@ package global.three;
 	/**
 		Sets all fields of this matrix.
 	**/
-	function set(n11:Float, n12:Float, n13:Float, n14:Float, n21:Float, n22:Float, n23:Float, n24:Float, n31:Float, n32:Float, n33:Float, n34:Float, n41:Float, n42:Float, n43:Float, n44:Float):Matrix4;
+	function set(unknown:Dynamic):Matrix4;
 	/**
 		Resets this matrix to identity.
 	**/
-	function identity():Matrix4;
+	function identity(unknown:Dynamic):Matrix4;
 	/**
 		clone():T;
 	**/
-	function clone():Matrix4;
+	function clone(unknown:Dynamic):Matrix4;
 	/**
 		copy(m:T):T;
 	**/
-	function copy(m:Matrix4):Matrix4;
-	function copyPosition(m:Matrix4):Matrix4;
-	function extractBasis(xAxis:Vector3, yAxis:Vector3, zAxis:Vector3):Matrix4;
-	function makeBasis(xAxis:Vector3, yAxis:Vector3, zAxis:Vector3):Matrix4;
+	function copy(unknown:Dynamic):Matrix4;
+	function copyPosition(unknown:Dynamic):Matrix4;
+	function extractBasis(unknown:Dynamic):Matrix4;
+	function makeBasis(unknown:Dynamic):Matrix4;
 	/**
 		Copies the rotation component of the supplied matrix m into this matrix rotation component.
 	**/
-	function extractRotation(m:Matrix4):Matrix4;
-	function makeRotationFromEuler(euler:Euler):Matrix4;
-	function makeRotationFromQuaternion(q:Quaternion):Matrix4;
+	function extractRotation(unknown:Dynamic):Matrix4;
+	function makeRotationFromEuler(unknown:Dynamic):Matrix4;
+	function makeRotationFromQuaternion(unknown:Dynamic):Matrix4;
 	/**
 		Constructs a rotation matrix, looking from eye towards center with defined up vector.
 	**/
-	function lookAt(eye:Vector3, target:Vector3, up:Vector3):Matrix4;
+	function lookAt(unknown:Dynamic):Matrix4;
 	/**
 		Multiplies this matrix by m.
 	**/
-	function multiply(m:Matrix4):Matrix4;
-	function premultiply(m:Matrix4):Matrix4;
+	function multiply(unknown:Dynamic):Matrix4;
+	function premultiply(unknown:Dynamic):Matrix4;
 	/**
 		Sets this matrix to a x b.
 	**/
-	function multiplyMatrices(a:Matrix4, b:Matrix4):Matrix4;
+	function multiplyMatrices(unknown:Dynamic):Matrix4;
 	/**
 		Sets this matrix to a x b and stores the result into the flat array r.
 		r can be either a regular Array or a TypedArray.
 	**/
-	function multiplyToArray(a:Matrix4, b:Matrix4, r:Array<Float>):Matrix4;
+	function multiplyToArray(unknown:Dynamic):Matrix4;
 	/**
 		Multiplies this matrix by s.
 	**/
-	function multiplyScalar(s:Float):Matrix4;
-	function applyToBuffer(buffer:BufferAttribute, ?offset:Float, ?length:Float):BufferAttribute;
-	function applyToBufferAttribute(attribute:BufferAttribute):BufferAttribute;
+	function multiplyScalar(unknown:Dynamic):Matrix4;
+	function applyToBuffer(unknown:Dynamic):BufferAttribute;
+	function applyToBufferAttribute(unknown:Dynamic):BufferAttribute;
 	/**
 		Computes determinant of this matrix.
 		Based on http://www.euclideanspace.com/maths/algebra/matrix/functions/inverse/fourD/index.htm
 	**/
-	function determinant():Float;
+	function determinant(unknown:Dynamic):Float;
 	/**
 		Transposes this matrix.
 	**/
-	function transpose():Matrix4;
+	function transpose(unknown:Dynamic):Matrix4;
 	/**
 		Sets the position component for this matrix from vector v.
 	**/
-	function setPosition(v:ts.AnyOf2<Float, Vector3>, ?y:Float, ?z:Float):Matrix4;
+	function setPosition(unknown:Dynamic):Matrix4;
 	/**
 		Sets this matrix to the inverse of matrix m.
 		Based on http://www.euclideanspace.com/maths/algebra/matrix/functions/inverse/fourD/index.htm.
 	**/
-	function getInverse(m:Matrix4, ?throwOnDegeneratee:Bool):Matrix4;
+	function getInverse(unknown:Dynamic):Matrix4;
 	/**
 		Multiplies the columns of this matrix by vector v.
 	**/
-	function scale(v:Vector3):Matrix4;
-	function getMaxScaleOnAxis():Float;
+	function scale(unknown:Dynamic):Matrix4;
+	function getMaxScaleOnAxis(unknown:Dynamic):Float;
 	/**
 		Sets this matrix as translation transform.
 	**/
-	function makeTranslation(x:Float, y:Float, z:Float):Matrix4;
+	function makeTranslation(unknown:Dynamic):Matrix4;
 	/**
 		Sets this matrix as rotation transform around x axis by theta radians.
 	**/
-	function makeRotationX(theta:Float):Matrix4;
+	function makeRotationX(unknown:Dynamic):Matrix4;
 	/**
 		Sets this matrix as rotation transform around y axis by theta radians.
 	**/
-	function makeRotationY(theta:Float):Matrix4;
+	function makeRotationY(unknown:Dynamic):Matrix4;
 	/**
 		Sets this matrix as rotation transform around z axis by theta radians.
 	**/
-	function makeRotationZ(theta:Float):Matrix4;
+	function makeRotationZ(unknown:Dynamic):Matrix4;
 	/**
 		Sets this matrix as rotation transform around axis by angle radians.
 		Based on http://www.gamedev.net/reference/articles/article1199.asp.
 	**/
-	function makeRotationAxis(axis:Vector3, angle:Float):Matrix4;
+	function makeRotationAxis(unknown:Dynamic):Matrix4;
 	/**
 		Sets this matrix as scale transform.
 	**/
-	function makeScale(x:Float, y:Float, z:Float):Matrix4;
+	function makeScale(unknown:Dynamic):Matrix4;
 	/**
 		Sets this matrix to the transformation composed of translation, rotation and scale.
 	**/
-	function compose(translation:Vector3, rotation:Quaternion, scale:Vector3):Matrix4;
+	function compose(unknown:Dynamic):Matrix4;
 	/**
 		Decomposes this matrix into the translation, rotation and scale components.
 		If parameters are not passed, new instances will be created.
 	**/
-	function decompose(?translation:Vector3, ?rotation:Quaternion, ?scale:Vector3):Array<Dynamic>;
+	function decompose(unknown:Dynamic):Array<Dynamic>;
 	/**
 		Creates a frustum matrix.
 		
 		Creates a perspective projection matrix.
 	**/
-	@:overload(function(fov:Float, aspect:Float, near:Float, far:Float):Matrix4 { })
-	function makePerspective(left:Float, right:Float, bottom:Float, top:Float, near:Float, far:Float):Matrix4;
+	@:overload(function(unknown:Dynamic):Matrix4 { })
+	function makePerspective(unknown:Dynamic):Matrix4;
 	/**
 		Creates an orthographic projection matrix.
 	**/
-	function makeOrthographic(left:Float, right:Float, top:Float, bottom:Float, near:Float, far:Float):Matrix4;
-	function equals(matrix:Matrix4):Bool;
-	function fromArray(array:Array<Float>, ?offset:Float):Matrix4;
-	function toArray(?array:Array<Float>, ?offset:Float):Array<Float>;
-	function extractPosition(m:Matrix4):Matrix4;
-	function setRotationFromQuaternion(q:Quaternion):Matrix4;
-	function multiplyVector3(v:Dynamic):Dynamic;
-	function multiplyVector4(v:Dynamic):Dynamic;
-	function multiplyVector3Array(array:Array<Float>):Array<Float>;
-	function rotateAxis(v:Dynamic):Void;
-	function crossVector(v:Dynamic):Void;
-	function flattenToArrayOffset(array:Array<Float>, offset:Float):Array<Float>;
+	function makeOrthographic(unknown:Dynamic):Matrix4;
+	function equals(unknown:Dynamic):Bool;
+	function fromArray(unknown:Dynamic):Matrix4;
+	function toArray(unknown:Dynamic):Array<Float>;
+	function extractPosition(unknown:Dynamic):Matrix4;
+	function setRotationFromQuaternion(unknown:Dynamic):Matrix4;
+	function multiplyVector3(unknown:Dynamic):Dynamic;
+	function multiplyVector4(unknown:Dynamic):Dynamic;
+	function multiplyVector3Array(unknown:Dynamic):Array<Float>;
+	function rotateAxis(unknown:Dynamic):Void;
+	function crossVector(unknown:Dynamic):Void;
+	function flattenToArrayOffset(unknown:Dynamic):Array<Float>;
 	static var prototype : Matrix4;
 }

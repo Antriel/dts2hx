@@ -8,5 +8,5 @@ typedef SignatureHelpProvider = {
 	/**
 		Provide help for the signature at the given position and document.
 	**/
-	function provideSignatureHelp(document:TextDocument, position:Position, token:CancellationToken, context:SignatureHelpContext):ProviderResult<SignatureHelp>;
+	function provideSignatureHelp(unknown:Dynamic):ProviderResult<SignatureHelp>;
 };

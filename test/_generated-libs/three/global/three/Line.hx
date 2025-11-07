@@ -1,49 +1,49 @@
 package global.three;
 
 @:native("THREE.Line") extern class Line extends Object3D {
-	function new(?geometry:ts.AnyOf2<Geometry, BufferGeometry>, ?material:ts.AnyOf2<Material, Array<Material>>, ?mode:Float);
+	function new(unknown:Dynamic);
 	var geometry : ts.AnyOf2<Geometry, BufferGeometry>;
 	var material : ts.AnyOf2<Material, Array<Material>>;
 	var isLine : Bool;
-	function computeLineDistances():Line;
-	function applyQuaternion(quaternion:Quaternion):Line;
+	function computeLineDistances(unknown:Dynamic):Line;
+	function applyQuaternion(unknown:Dynamic):Line;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):Line;
+	function rotateOnAxis(unknown:Dynamic):Line;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):Line;
-	function rotateX(angle:Float):Line;
-	function rotateY(angle:Float):Line;
-	function rotateZ(angle:Float):Line;
-	function translateOnAxis(axis:Vector3, distance:Float):Line;
+	function rotateOnWorldAxis(unknown:Dynamic):Line;
+	function rotateX(unknown:Dynamic):Line;
+	function rotateY(unknown:Dynamic):Line;
+	function rotateZ(unknown:Dynamic):Line;
+	function translateOnAxis(unknown:Dynamic):Line;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):Line;
+	function translateX(unknown:Dynamic):Line;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):Line;
+	function translateY(unknown:Dynamic):Line;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):Line;
+	function translateZ(unknown:Dynamic):Line;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):Line;
+	function add(unknown:Dynamic):Line;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):Line;
+	function remove(unknown:Dynamic):Line;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):Line;
-	function clone(?recursive:Bool):Line;
-	function copy(source:Line, ?recursive:Bool):Line;
+	function attach(unknown:Dynamic):Line;
+	function clone(unknown:Dynamic):Line;
+	function copy(unknown:Dynamic):Line;
 	static var prototype : Line;
 }

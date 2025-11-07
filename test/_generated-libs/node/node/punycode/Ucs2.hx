@@ -1,6 +1,6 @@
 package node.punycode;
 
 @:jsRequire("punycode", "ucs2") extern class Ucs2 {
-	function decode(string:String):Array<Float>;
-	function encode(codePoints:Array<Float>):String;
+	function decode(unknown:Dynamic):Array<Float>;
+	function encode(unknown:Dynamic):String;
 }

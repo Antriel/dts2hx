@@ -1,12 +1,12 @@
 package three;
 
 @:jsRequire("three", "IcosahedronGeometry") extern class IcosahedronGeometry extends PolyhedronGeometry {
-	function new(?radius:Float, ?detail:Float);
-	function setFromPoints(points:ts.AnyOf2<Array<Vector3>, Array<Vector2>>):IcosahedronGeometry;
+	function new(unknown:Dynamic);
+	function setFromPoints(unknown:Dynamic):IcosahedronGeometry;
 	/**
 		Creates a new clone of the Geometry.
 	**/
-	function clone():IcosahedronGeometry;
-	function copy(source:Geometry):IcosahedronGeometry;
+	function clone(unknown:Dynamic):IcosahedronGeometry;
+	function copy(unknown:Dynamic):IcosahedronGeometry;
 	static var prototype : IcosahedronGeometry;
 }

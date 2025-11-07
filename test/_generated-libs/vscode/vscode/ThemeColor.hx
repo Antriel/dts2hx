@@ -8,6 +8,6 @@ package vscode;
 	/**
 		Creates a reference to a theme color.
 	**/
-	function new(id:String);
+	function new(unknown:Dynamic);
 	static var prototype : ThemeColor;
 }

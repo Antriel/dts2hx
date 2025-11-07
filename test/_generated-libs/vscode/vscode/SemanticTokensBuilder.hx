@@ -5,17 +5,17 @@ package vscode;
 	which contains delta encoded semantic tokens.
 **/
 @:jsRequire("vscode", "SemanticTokensBuilder") extern class SemanticTokensBuilder {
-	function new(?legend:SemanticTokensLegend);
+	function new(unknown:Dynamic);
 	/**
 		Add another token.
 		
 		Add another token. Use only when providing a legend.
 	**/
-	@:overload(function(range:Range, tokenType:String, ?tokenModifiers:Array<String>):Void { })
-	function push(line:Float, char:Float, length:Float, tokenType:Float, ?tokenModifiers:Float):Void;
+	@:overload(function(unknown:Dynamic):Void { })
+	function push(unknown:Dynamic):Void;
 	/**
 		Finish and create a `SemanticTokens` instance.
 	**/
-	function build(?resultId:String):SemanticTokens;
+	function build(unknown:Dynamic):SemanticTokens;
 	static var prototype : SemanticTokensBuilder;
 }

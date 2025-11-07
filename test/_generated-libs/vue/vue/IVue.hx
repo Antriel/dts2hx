@@ -12,7 +12,7 @@ typedef IVue = {
 	@:native("$children")
 	final DollarChildren : Array<Vue>;
 	@:native("$refs")
-	final DollarRefs : haxe.DynamicAccess<ts.AnyOf4<js.html.DOMElement, Vue, Array<Vue>, Array<js.html.DOMElement>>>;
+	final DollarRefs : haxe.DynamicAccess<ts.AnyOf4<js.html.DOMElement, Array<js.html.DOMElement>, Vue, Array<Vue>>>;
 	@:native("$slots")
 	final DollarSlots : haxe.DynamicAccess<Null<Array<VNode>>>;
 	@:native("$scopedSlots")
@@ -32,32 +32,32 @@ typedef IVue = {
 	@:native("$listeners")
 	final DollarListeners : haxe.DynamicAccess<ts.AnyOf2<haxe.Constraints.Function, Array<haxe.Constraints.Function>>>;
 	@:native("$mount")
-	function DollarMount(?elementOrSelector:ts.AnyOf2<String, js.html.DOMElement>, ?hydrating:Bool):Vue;
+	function DollarMount(unknown:Dynamic):Vue;
 	@:native("$forceUpdate")
-	function DollarForceUpdate():Void;
+	function DollarForceUpdate(unknown:Dynamic):Void;
 	@:native("$destroy")
-	function DollarDestroy():Void;
+	function DollarDestroy(unknown:Dynamic):Void;
 	@:native("$set")
-	@:overload(function<T>(array:Array<T>, key:Float, value:T):T { })
-	dynamic function DollarSet<T>(object:Dynamic, key:ts.AnyOf2<String, Float>, value:T):T;
+	@:overload(function<T>(unknown:Dynamic):T { })
+	dynamic function DollarSet<T>(unknown:Dynamic):T;
 	@:native("$delete")
-	@:overload(function<T>(array:Array<T>, key:Float):Void { })
-	dynamic function DollarDelete(object:Dynamic, key:ts.AnyOf2<String, Float>):Void;
+	@:overload(function<T>(unknown:Dynamic):Void { })
+	dynamic function DollarDelete(unknown:Dynamic):Void;
 	@:native("$watch")
-	@:overload(function<T>(expOrFn:() -> T, callback:(n:T, o:T) -> Void, ?options:WatchOptions):() -> Void { })
-	function DollarWatch(expOrFn:String, callback:(n:Dynamic, o:Dynamic) -> Void, ?options:WatchOptions):() -> Void;
+	@:overload(function<T>(unknown:Dynamic):(unknown:Dynamic) -> Void { })
+	function DollarWatch(unknown:Dynamic):(unknown:Dynamic) -> Void;
 	@:native("$on")
-	function DollarOn(event:ts.AnyOf2<String, Array<String>>, callback:haxe.Constraints.Function):Vue;
+	function DollarOn(unknown:Dynamic):Vue;
 	@:native("$once")
-	function DollarOnce(event:ts.AnyOf2<String, Array<String>>, callback:haxe.Constraints.Function):Vue;
+	function DollarOnce(unknown:Dynamic):Vue;
 	@:native("$off")
-	function DollarOff(?event:ts.AnyOf2<String, Array<String>>, ?callback:haxe.Constraints.Function):Vue;
+	function DollarOff(unknown:Dynamic):Vue;
 	@:native("$emit")
-	function DollarEmit(event:String, args:haxe.extern.Rest<Dynamic>):Vue;
+	function DollarEmit(unknown:Dynamic):Vue;
 	@:native("$nextTick")
-	@:overload(function():js.lib.Promise<ts.Undefined> { })
-	function DollarNextTick(callback:() -> Void):Void;
+	@:overload(function(unknown:Dynamic):js.lib.Promise<ts.Undefined> { })
+	function DollarNextTick(unknown:Dynamic):Void;
 	@:native("$createElement")
-	@:overload(function(?tag:ts.AnyOf7<String, VueConstructor<Vue>, FunctionalComponentOptions<Dynamic, vue.types.options.PropsDefinition<Dynamic>>, ComponentOptions<Any, Dynamic, Dynamic, Dynamic, Dynamic, haxe.DynamicAccess<Dynamic>>, vue.types.options.AsyncComponentPromise<Dynamic, Dynamic, Dynamic, Dynamic>, vue.types.options.AsyncComponentFactory<Dynamic, Dynamic, Dynamic, Dynamic>, () -> Component<vue.types.options.DefaultData<Any>, vue.types.options.DefaultMethods<Any>, vue.types.options.DefaultComputed, haxe.DynamicAccess<Dynamic>>>, ?data:VNodeData, ?children:VNodeChildren):VNode { })
-	dynamic function DollarCreateElement(?tag:ts.AnyOf7<String, VueConstructor<Vue>, FunctionalComponentOptions<Dynamic, vue.types.options.PropsDefinition<Dynamic>>, ComponentOptions<Any, Dynamic, Dynamic, Dynamic, Dynamic, haxe.DynamicAccess<Dynamic>>, vue.types.options.AsyncComponentPromise<Dynamic, Dynamic, Dynamic, Dynamic>, vue.types.options.AsyncComponentFactory<Dynamic, Dynamic, Dynamic, Dynamic>, () -> Component<vue.types.options.DefaultData<Any>, vue.types.options.DefaultMethods<Any>, vue.types.options.DefaultComputed, haxe.DynamicAccess<Dynamic>>>, ?children:VNodeChildren):VNode;
+	@:overload(function(unknown:Dynamic):VNode { })
+	dynamic function DollarCreateElement(unknown:Dynamic):VNode;
 };

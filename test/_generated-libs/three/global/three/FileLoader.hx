@@ -1,17 +1,17 @@
 package global.three;
 
 @:native("THREE.FileLoader") extern class FileLoader {
-	function new(?manager:LoadingManager);
+	function new(unknown:Dynamic);
 	var manager : LoadingManager;
 	var mimeType : js.html.MimeType;
 	var path : String;
 	var responseType : String;
 	var withCredentials : String;
-	function load(url:String, ?onLoad:(response:ts.AnyOf2<String, js.lib.ArrayBuffer>) -> Void, ?onProgress:(request:js.html.ProgressEvent_<js.html.EventTarget>) -> Void, ?onError:(event:js.html.ErrorEvent) -> Void):Dynamic;
-	function setMimeType(mimeType:js.html.MimeType):FileLoader;
-	function setPath(path:String):FileLoader;
-	function setResponseType(responseType:String):FileLoader;
-	function setWithCredentials(value:String):FileLoader;
-	function setRequestHeader(value:haxe.DynamicAccess<String>):FileLoader;
+	function load(unknown:Dynamic):Dynamic;
+	function setMimeType(unknown:Dynamic):FileLoader;
+	function setPath(unknown:Dynamic):FileLoader;
+	function setResponseType(unknown:Dynamic):FileLoader;
+	function setWithCredentials(unknown:Dynamic):FileLoader;
+	function setRequestHeader(unknown:Dynamic):FileLoader;
 	static var prototype : FileLoader;
 }

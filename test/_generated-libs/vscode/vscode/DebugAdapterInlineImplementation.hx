@@ -7,6 +7,6 @@ package vscode;
 	/**
 		Create a descriptor for an inline implementation of a debug adapter.
 	**/
-	function new(implementation:DebugAdapter);
+	function new(unknown:Dynamic);
 	static var prototype : DebugAdapterInlineImplementation;
 }

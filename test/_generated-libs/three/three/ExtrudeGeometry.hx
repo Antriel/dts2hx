@@ -1,15 +1,15 @@
 package three;
 
 @:jsRequire("three", "ExtrudeGeometry") extern class ExtrudeGeometry extends Geometry {
-	function new(shapes:ts.AnyOf2<Shape, Array<Shape>>, ?options:ExtrudeGeometryOptions);
-	function addShapeList(shapes:Array<Shape>, ?options:Dynamic):Void;
-	function addShape(shape:Shape, ?options:Dynamic):Void;
-	function setFromPoints(points:ts.AnyOf2<Array<Vector3>, Array<Vector2>>):ExtrudeGeometry;
+	function new(unknown:Dynamic);
+	function addShapeList(unknown:Dynamic):Void;
+	function addShape(unknown:Dynamic):Void;
+	function setFromPoints(unknown:Dynamic):ExtrudeGeometry;
 	/**
 		Creates a new clone of the Geometry.
 	**/
-	function clone():ExtrudeGeometry;
-	function copy(source:Geometry):ExtrudeGeometry;
+	function clone(unknown:Dynamic):ExtrudeGeometry;
+	function copy(unknown:Dynamic):ExtrudeGeometry;
 	static var prototype : ExtrudeGeometry;
 	static var WorldUVGenerator : UVGenerator;
 }

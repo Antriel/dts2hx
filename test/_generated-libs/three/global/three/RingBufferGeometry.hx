@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.RingBufferGeometry") extern class RingBufferGeometry extends BufferGeometry {
-	function new(?innerRadius:Float, ?outerRadius:Float, ?thetaSegments:Float, ?phiSegments:Float, ?thetaStart:Float, ?thetaLength:Float);
+	function new(unknown:Dynamic);
 	var parameters : {
 		var innerRadius : Float;
 		var outerRadius : Float;
@@ -10,7 +10,7 @@ package global.three;
 		var thetaStart : Float;
 		var thetaLength : Float;
 	};
-	function clone():RingBufferGeometry;
-	function copy(source:BufferGeometry):RingBufferGeometry;
+	function clone(unknown:Dynamic):RingBufferGeometry;
+	function copy(unknown:Dynamic):RingBufferGeometry;
 	static var prototype : RingBufferGeometry;
 }

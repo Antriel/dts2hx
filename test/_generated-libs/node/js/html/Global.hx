@@ -1,15 +1,30 @@
 package js.html;
 
 @:native("") extern class Global {
-	@:overload(function(callback:(args:haxe.extern.Rest<Dynamic>) -> Void, ms:Float, args:haxe.extern.Rest<Dynamic>):global.nodejs.Timeout { })
-	static function setTimeout(handler:TimerHandler, ?timeout:Float, arguments:haxe.extern.Rest<Dynamic>):Float;
-	@:overload(function(timeoutId:global.nodejs.Timeout):Void { })
-	static function clearTimeout(?handle:Float):Void;
-	@:overload(function(callback:(args:haxe.extern.Rest<Dynamic>) -> Void, ms:Float, args:haxe.extern.Rest<Dynamic>):global.nodejs.Timeout { })
-	static function setInterval(handler:js.html.TimerHandler, ?timeout:Float, arguments:haxe.extern.Rest<Dynamic>):Float;
-	@:overload(function(intervalId:global.nodejs.Timeout):Void { })
-	static function clearInterval(?handle:Float):Void;
-	@:overload(function(callback:() -> Void):Void { })
-	static function queueMicrotask(callback:haxe.Constraints.Function):Void;
+	/**
+		[MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/setTimeout)
+	**/
+	@:overload(function(unknown:Dynamic):global.nodejs.Timeout { })
+	static function setTimeout(unknown:Dynamic):Float;
+	/**
+		[MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/clearTimeout)
+	**/
+	@:overload(function(unknown:Dynamic):Void { })
+	static function clearTimeout(unknown:Dynamic):Void;
+	/**
+		[MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/setInterval)
+	**/
+	@:overload(function(unknown:Dynamic):global.nodejs.Timeout { })
+	static function setInterval(unknown:Dynamic):Float;
+	/**
+		[MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/clearInterval)
+	**/
+	@:overload(function(unknown:Dynamic):Void { })
+	static function clearInterval(unknown:Dynamic):Void;
+	/**
+		[MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/queueMicrotask)
+	**/
+	@:overload(function(unknown:Dynamic):Void { })
+	static function queueMicrotask(unknown:Dynamic):Void;
 	static var console : js.html.Console;
 }

@@ -2,13 +2,13 @@ package node.fs;
 
 @:jsRequire("fs", "Stats") extern class Stats {
 	function new();
-	function isFile():Bool;
-	function isDirectory():Bool;
-	function isBlockDevice():Bool;
-	function isCharacterDevice():Bool;
-	function isSymbolicLink():Bool;
-	function isFIFO():Bool;
-	function isSocket():Bool;
+	function isFile(unknown:Dynamic):Bool;
+	function isDirectory(unknown:Dynamic):Bool;
+	function isBlockDevice(unknown:Dynamic):Bool;
+	function isCharacterDevice(unknown:Dynamic):Bool;
+	function isSymbolicLink(unknown:Dynamic):Bool;
+	function isFIFO(unknown:Dynamic):Bool;
+	function isSocket(unknown:Dynamic):Bool;
 	var dev : Float;
 	var ino : Float;
 	var mode : Float;

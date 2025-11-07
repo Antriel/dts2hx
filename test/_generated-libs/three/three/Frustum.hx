@@ -4,19 +4,19 @@ package three;
 	Frustums are used to determine what is inside the camera's field of view. They help speed up the rendering process.
 **/
 @:jsRequire("three", "Frustum") extern class Frustum {
-	function new(?p0:Plane, ?p1:Plane, ?p2:Plane, ?p3:Plane, ?p4:Plane, ?p5:Plane);
+	function new(unknown:Dynamic);
 	/**
 		Array of 6 vectors.
 	**/
 	var planes : Array<Plane>;
-	function set(?p0:Float, ?p1:Float, ?p2:Float, ?p3:Float, ?p4:Float, ?p5:Float):Frustum;
-	function clone():Frustum;
-	function copy(frustum:Frustum):Frustum;
-	function setFromMatrix(m:Matrix4):Frustum;
-	function intersectsObject(object:Object3D):Bool;
-	function intersectsSprite(sprite:Sprite):Bool;
-	function intersectsSphere(sphere:Sphere):Bool;
-	function intersectsBox(box:Box3):Bool;
-	function containsPoint(point:Vector3):Bool;
+	function set(unknown:Dynamic):Frustum;
+	function clone(unknown:Dynamic):Frustum;
+	function copy(unknown:Dynamic):Frustum;
+	function setFromMatrix(unknown:Dynamic):Frustum;
+	function intersectsObject(unknown:Dynamic):Bool;
+	function intersectsSprite(unknown:Dynamic):Bool;
+	function intersectsSphere(unknown:Dynamic):Bool;
+	function intersectsBox(unknown:Dynamic):Bool;
+	function containsPoint(unknown:Dynamic):Bool;
 	static var prototype : Frustum;
 }

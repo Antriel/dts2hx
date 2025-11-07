@@ -1,3 +1,3 @@
 package lodash;
 
-typedef Function0<R> = () -> R;
+typedef Function0<R> = (unknown:Dynamic) -> R;

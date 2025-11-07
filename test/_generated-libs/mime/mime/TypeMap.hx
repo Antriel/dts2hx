@@ -1,3 +1,0 @@
-package mime;
-
-typedef TypeMap = { };

@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.PointsMaterial") extern class PointsMaterial extends Material {
-	function new(?parameters:PointsMaterialParameters);
+	function new(unknown:Dynamic);
 	var color : Color;
 	var map : Null<Texture>;
 	var size : Float;
@@ -9,14 +9,14 @@ package global.three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(parameters:PointsMaterialParameters):Void;
+	function setValues(unknown:Dynamic):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone():PointsMaterial;
+	function clone(unknown:Dynamic):PointsMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(material:Material):PointsMaterial;
+	function copy(unknown:Dynamic):PointsMaterial;
 	static var prototype : PointsMaterial;
 }

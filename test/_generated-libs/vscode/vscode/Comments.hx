@@ -4,5 +4,5 @@ package vscode;
 	/**
 		Creates a new [comment controller](#CommentController) instance.
 	**/
-	static function createCommentController(id:String, label:String):CommentController;
+	static function createCommentController(unknown:Dynamic):CommentController;
 }

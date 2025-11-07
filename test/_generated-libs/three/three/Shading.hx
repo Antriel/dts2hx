@@ -1,6 +1,6 @@
 package three;
 
-@:enum @:jsRequire("three") extern abstract Shading(Int) {
+@:jsRequire("three") extern enum abstract Shading(Int) from Int to Int {
 	final FlatShading : Shading;
 	final SmoothShading : Shading;
 }

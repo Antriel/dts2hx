@@ -33,5 +33,5 @@ typedef QuickPickOptions = {
 		An optional function that is invoked whenever an item is selected.
 	**/
 	@:optional
-	function onDidSelectItem(item:ts.AnyOf2<String, QuickPickItem>):Dynamic;
+	function onDidSelectItem(unknown:Dynamic):Dynamic;
 };

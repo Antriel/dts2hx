@@ -1,10 +1,10 @@
 package three;
 
 @:jsRequire("three", "CompressedTextureLoader") extern class CompressedTextureLoader {
-	function new(?manager:LoadingManager);
+	function new(unknown:Dynamic);
 	var manager : LoadingManager;
 	var path : String;
-	function load(url:String, onLoad:(texture:CompressedTexture) -> Void, ?onProgress:(event:js.html.ProgressEvent_<js.html.EventTarget>) -> Void, ?onError:(event:js.html.ErrorEvent) -> Void):Void;
-	function setPath(path:String):CompressedTextureLoader;
+	function load(unknown:Dynamic):Void;
+	function setPath(unknown:Dynamic):CompressedTextureLoader;
 	static var prototype : CompressedTextureLoader;
 }

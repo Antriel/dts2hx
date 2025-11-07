@@ -11,5 +11,5 @@ typedef EvaluatableExpressionProvider = {
 		VS Code will evaluate this expression in the active debug session and will show the result in the debug hover.
 		The expression can be implicitly specified by the range in the underlying document or by explicitly returning an expression.
 	**/
-	function provideEvaluatableExpression(document:TextDocument, position:Position, token:CancellationToken):ProviderResult<EvaluatableExpression>;
+	function provideEvaluatableExpression(unknown:Dynamic):ProviderResult<EvaluatableExpression>;
 };

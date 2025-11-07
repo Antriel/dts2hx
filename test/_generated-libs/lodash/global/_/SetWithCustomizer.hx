@@ -1,3 +1,3 @@
 package global._;
 
-typedef SetWithCustomizer<T> = (nsValue:Dynamic, key:String, nsObject:T) -> Dynamic;
+typedef SetWithCustomizer<T> = (unknown:Dynamic) -> Dynamic;

@@ -8,5 +8,5 @@ package node.fs;
 		Asynchronous chown(2) - Change ownership of a file.
 	**/
 	@:selfCall
-	static function call(path:PathLike, uid:Float, gid:Float, callback:(err:global.nodejs.ErrnoException) -> Void):Void;
+	static function call(unknown:Dynamic):Void;
 }

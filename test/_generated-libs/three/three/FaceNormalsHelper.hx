@@ -1,49 +1,49 @@
 package three;
 
 @:jsRequire("three", "FaceNormalsHelper") extern class FaceNormalsHelper extends LineSegments {
-	function new(object:Object3D, ?size:Float, ?hex:Float, ?linewidth:Float);
+	function new(unknown:Dynamic);
 	var object : Object3D;
 	var size : Float;
-	function update(?object:Object3D):Void;
-	function computeLineDistances():FaceNormalsHelper;
-	function applyQuaternion(quaternion:Quaternion):FaceNormalsHelper;
+	function update(unknown:Dynamic):Void;
+	function computeLineDistances(unknown:Dynamic):FaceNormalsHelper;
+	function applyQuaternion(unknown:Dynamic):FaceNormalsHelper;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):FaceNormalsHelper;
+	function rotateOnAxis(unknown:Dynamic):FaceNormalsHelper;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):FaceNormalsHelper;
-	function rotateX(angle:Float):FaceNormalsHelper;
-	function rotateY(angle:Float):FaceNormalsHelper;
-	function rotateZ(angle:Float):FaceNormalsHelper;
-	function translateOnAxis(axis:Vector3, distance:Float):FaceNormalsHelper;
+	function rotateOnWorldAxis(unknown:Dynamic):FaceNormalsHelper;
+	function rotateX(unknown:Dynamic):FaceNormalsHelper;
+	function rotateY(unknown:Dynamic):FaceNormalsHelper;
+	function rotateZ(unknown:Dynamic):FaceNormalsHelper;
+	function translateOnAxis(unknown:Dynamic):FaceNormalsHelper;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):FaceNormalsHelper;
+	function translateX(unknown:Dynamic):FaceNormalsHelper;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):FaceNormalsHelper;
+	function translateY(unknown:Dynamic):FaceNormalsHelper;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):FaceNormalsHelper;
+	function translateZ(unknown:Dynamic):FaceNormalsHelper;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):FaceNormalsHelper;
+	function add(unknown:Dynamic):FaceNormalsHelper;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):FaceNormalsHelper;
+	function remove(unknown:Dynamic):FaceNormalsHelper;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):FaceNormalsHelper;
-	function clone(?recursive:Bool):FaceNormalsHelper;
-	function copy(source:FaceNormalsHelper, ?recursive:Bool):FaceNormalsHelper;
+	function attach(unknown:Dynamic):FaceNormalsHelper;
+	function clone(unknown:Dynamic):FaceNormalsHelper;
+	function copy(unknown:Dynamic):FaceNormalsHelper;
 	static var prototype : FaceNormalsHelper;
 }

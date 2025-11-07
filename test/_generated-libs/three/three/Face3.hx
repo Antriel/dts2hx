@@ -4,10 +4,10 @@ package three;
 	Triangle face.
 **/
 @:jsRequire("three", "Face3") extern class Face3 {
-	@:overload(function(a:Float, b:Float, c:Float, ?normal:Vector3, ?vertexColors:Array<Color>, ?materialIndex:Float):Face3 { })
-	@:overload(function(a:Float, b:Float, c:Float, ?vertexNormals:Array<Vector3>, ?color:Color, ?materialIndex:Float):Face3 { })
-	@:overload(function(a:Float, b:Float, c:Float, ?vertexNormals:Array<Vector3>, ?vertexColors:Array<Color>, ?materialIndex:Float):Face3 { })
-	function new(a:Float, b:Float, c:Float, ?normal:Vector3, ?color:Color, ?materialIndex:Float);
+	@:overload(function(unknown:Dynamic):Face3 { })
+	@:overload(function(unknown:Dynamic):Face3 { })
+	@:overload(function(unknown:Dynamic):Face3 { })
+	function new(unknown:Dynamic);
 	/**
 		Vertex A index.
 	**/
@@ -37,10 +37,14 @@ package three;
 	**/
 	var vertexColors : Array<Color>;
 	/**
-		Material index (points to {@link Geometry.materials}).
+		Material index (points to
+		{@link
+		Geometry.materials
+		}
+		).
 	**/
 	var materialIndex : Float;
-	function clone():Face3;
-	function copy(source:Face3):Face3;
+	function clone(unknown:Dynamic):Face3;
+	function copy(unknown:Dynamic):Face3;
 	static var prototype : Face3;
 }

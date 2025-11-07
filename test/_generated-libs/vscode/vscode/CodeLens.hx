@@ -11,7 +11,7 @@ package vscode;
 	/**
 		Creates a new code lens object.
 	**/
-	function new(range:Range, ?command:Command);
+	function new(unknown:Dynamic);
 	/**
 		The range in which this code lens is valid. Should only span a single line.
 	**/

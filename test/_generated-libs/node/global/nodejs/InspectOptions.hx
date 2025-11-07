@@ -36,5 +36,5 @@ typedef InspectOptions = {
 	@:optional
 	var compact : ts.AnyOf2<Float, Bool>;
 	@:optional
-	var sorted : ts.AnyOf2<Bool, (a:String, b:String) -> Float>;
+	var sorted : ts.AnyOf2<Bool, (unknown:Dynamic) -> Float>;
 };

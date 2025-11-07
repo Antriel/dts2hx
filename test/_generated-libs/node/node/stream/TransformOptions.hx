@@ -2,20 +2,20 @@ package node.stream;
 
 typedef TransformOptions = {
 	@:optional
-	function read(size:Float):Void;
+	function read(unknown:Dynamic):Void;
 	@:optional
-	function write(chunk:Dynamic, encoding:String, callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
+	function write(unknown:Dynamic):Void;
 	@:optional
-	function writev(chunks:Array<{ var chunk : Dynamic; var encoding : String; }>, callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
+	function writev(unknown:Dynamic):Void;
 	@:optional
 	@:native("final")
-	function final_(callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
+	function final_(unknown:Dynamic):Void;
 	@:optional
-	function destroy(error:Null<js.lib.Error>, callback:(error:Null<js.lib.Error>) -> Void):Void;
+	function destroy(unknown:Dynamic):Void;
 	@:optional
-	function transform(chunk:Dynamic, encoding:String, callback:TransformCallback):Void;
+	function transform(unknown:Dynamic):Void;
 	@:optional
-	function flush(callback:TransformCallback):Void;
+	function flush(unknown:Dynamic):Void;
 	@:optional
 	var allowHalfOpen : Bool;
 	@:optional

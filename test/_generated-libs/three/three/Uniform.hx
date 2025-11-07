@@ -1,13 +1,13 @@
 package three;
 
 @:jsRequire("three", "Uniform") extern class Uniform {
-	@:overload(function(type:String, value:Dynamic):Uniform { })
-	function new(value:Dynamic);
+	@:overload(function(unknown:Dynamic):Uniform { })
+	function new(unknown:Dynamic);
 	var type : String;
 	var value : Dynamic;
 	@:native("dynamic")
 	var dynamic_ : Bool;
 	var onUpdateCallback : haxe.Constraints.Function;
-	function onUpdate(callback:haxe.Constraints.Function):Uniform;
+	function onUpdate(unknown:Dynamic):Uniform;
 	static var prototype : Uniform;
 }

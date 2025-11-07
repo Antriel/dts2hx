@@ -1,50 +1,50 @@
 package global.three;
 
 @:native("THREE.ArrowHelper") extern class ArrowHelper extends Object3D {
-	function new(dir:Vector3, ?origin:Vector3, ?length:Float, ?hex:Float, ?headLength:Float, ?headWidth:Float);
+	function new(unknown:Dynamic);
 	var line : Line;
 	var cone : Mesh;
-	function setDirection(dir:Vector3):Void;
-	function setLength(length:Float, ?headLength:Float, ?headWidth:Float):Void;
-	function setColor(color:ts.AnyOf3<String, Float, Color>):Void;
-	function applyQuaternion(quaternion:Quaternion):ArrowHelper;
+	function setDirection(unknown:Dynamic):Void;
+	function setLength(unknown:Dynamic):Void;
+	function setColor(unknown:Dynamic):Void;
+	function applyQuaternion(unknown:Dynamic):ArrowHelper;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):ArrowHelper;
+	function rotateOnAxis(unknown:Dynamic):ArrowHelper;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):ArrowHelper;
-	function rotateX(angle:Float):ArrowHelper;
-	function rotateY(angle:Float):ArrowHelper;
-	function rotateZ(angle:Float):ArrowHelper;
-	function translateOnAxis(axis:Vector3, distance:Float):ArrowHelper;
+	function rotateOnWorldAxis(unknown:Dynamic):ArrowHelper;
+	function rotateX(unknown:Dynamic):ArrowHelper;
+	function rotateY(unknown:Dynamic):ArrowHelper;
+	function rotateZ(unknown:Dynamic):ArrowHelper;
+	function translateOnAxis(unknown:Dynamic):ArrowHelper;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(distance:Float):ArrowHelper;
+	function translateX(unknown:Dynamic):ArrowHelper;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(distance:Float):ArrowHelper;
+	function translateY(unknown:Dynamic):ArrowHelper;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(distance:Float):ArrowHelper;
+	function translateZ(unknown:Dynamic):ArrowHelper;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):ArrowHelper;
+	function add(unknown:Dynamic):ArrowHelper;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):ArrowHelper;
+	function remove(unknown:Dynamic):ArrowHelper;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(object:Object3D):ArrowHelper;
-	function clone(?recursive:Bool):ArrowHelper;
-	function copy(source:ArrowHelper, ?recursive:Bool):ArrowHelper;
+	function attach(unknown:Dynamic):ArrowHelper;
+	function clone(unknown:Dynamic):ArrowHelper;
+	function copy(unknown:Dynamic):ArrowHelper;
 	static var prototype : ArrowHelper;
 }

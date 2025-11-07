@@ -1,7 +1,7 @@
 package js.lib;
 
 typedef Uint16ArrayConstructor = {
-	final prototype : js.lib.Uint16Array;
+	final prototype : Uint16Array_<ArrayBufferLike>;
 	/**
 		The size in bytes of each element in the array.
 	**/
@@ -9,15 +9,12 @@ typedef Uint16ArrayConstructor = {
 	/**
 		Returns a new array from a set of elements.
 	**/
-	function of(items:haxe.extern.Rest<Float>):js.lib.Uint16Array;
+	function of(unknown:Dynamic):Uint16Array_<js.lib.ArrayBuffer>;
 	/**
 		Creates an array from an array-like or iterable object.
-		
-		Creates an array from an array-like or iterable object.
-		
-		Creates an array from an array-like or iterable object.
 	**/
-	@:overload(function<T>(arrayLike:ArrayLike<T>, mapfn:(v:T, k:Float) -> Float, ?thisArg:Dynamic):js.lib.Uint16Array { })
-	@:overload(function(arrayLike:Iterable<Float>, ?mapfn:(v:Float, k:Float) -> Float, ?thisArg:Dynamic):js.lib.Uint16Array { })
-	function from(arrayLike:ArrayLike<Float>):js.lib.Uint16Array;
+	@:overload(function<T>(unknown:Dynamic):Uint16Array_<js.lib.ArrayBuffer> { })
+	@:overload(function(unknown:Dynamic):Uint16Array_<js.lib.ArrayBuffer> { })
+	@:overload(function<T>(unknown:Dynamic):Uint16Array_<js.lib.ArrayBuffer> { })
+	function from(unknown:Dynamic):Uint16Array_<js.lib.ArrayBuffer>;
 };

@@ -8,7 +8,7 @@ package vscode;
 	/**
 		Creates a new completion list.
 	**/
-	function new(?items:Array<CompletionItem>, ?isIncomplete:Bool);
+	function new(unknown:Dynamic);
 	/**
 		This list is not complete. Further typing should result in recomputing
 		this list.

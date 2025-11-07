@@ -7,5 +7,5 @@ typedef UriHandler = {
 	/**
 		Handle the provided system-wide [uri](#Uri).
 	**/
-	function handleUri(uri:Uri):ProviderResult<ts.Undefined>;
+	function handleUri(unknown:Dynamic):ProviderResult<ts.Undefined>;
 };

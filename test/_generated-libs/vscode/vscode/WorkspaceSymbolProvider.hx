@@ -17,7 +17,7 @@ typedef WorkspaceSymbolProvider = {
 		[location](#SymbolInformation.location)-objects, without a `range` defined. The editor will then call
 		`resolveWorkspaceSymbol` for selected symbols only, e.g. when opening a workspace symbol.
 	**/
-	function provideWorkspaceSymbols(query:String, token:CancellationToken):ProviderResult<Array<SymbolInformation>>;
+	function provideWorkspaceSymbols(unknown:Dynamic):ProviderResult<Array<SymbolInformation>>;
 	/**
 		Given a symbol fill in its [location](#SymbolInformation.location). This method is called whenever a symbol
 		is selected in the UI. Providers can implement this method and return incomplete symbols from
@@ -25,5 +25,5 @@ typedef WorkspaceSymbolProvider = {
 		performance.
 	**/
 	@:optional
-	function resolveWorkspaceSymbol(symbol:SymbolInformation, token:CancellationToken):ProviderResult<SymbolInformation>;
+	function resolveWorkspaceSymbol(unknown:Dynamic):ProviderResult<SymbolInformation>;
 };

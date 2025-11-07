@@ -8,7 +8,7 @@ package vscode;
 	/**
 		Creates a new selection range.
 	**/
-	function new(range:Range, ?parent:SelectionRange);
+	function new(unknown:Dynamic);
 	/**
 		The [range](#Range) of this selection range.
 	**/

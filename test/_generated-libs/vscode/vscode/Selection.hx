@@ -7,8 +7,8 @@ package vscode;
 	/**
 		Create a selection from two positions.
 	**/
-	@:overload(function(anchorLine:Float, anchorCharacter:Float, activeLine:Float, activeCharacter:Float):Selection { })
-	function new(anchor:Position, active:Position);
+	@:overload(function(unknown:Dynamic):Selection { })
+	function new(unknown:Dynamic);
 	/**
 		The position at which the selection starts.
 		This position might be before or after [active](#Selection.active).
