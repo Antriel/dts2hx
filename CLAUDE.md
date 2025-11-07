@@ -160,20 +160,20 @@ cd test
 
 ### Common Setup Issues
 
-**Missing hxnodejs library:**
-- Symptom: Build fails with "Type not found: js.node.*" errors
-- Solution: Clone hxnodejs into `.haxe/hxnodejs/`:
-  ```bash
-  cd .haxe
-  git clone https://github.com/HaxeFoundation/hxnodejs.git hxnodejs
-  ```
-
 **Missing npm dependencies:**
 - Symptom: Tests fail with "Cannot find module 'typescript'" errors
 - Solution: Install dependencies in BOTH locations:
   ```bash
   npm install                    # Root dependencies (TypeScript)
   cd test && npm install         # Test dependencies (@types/* packages)
+  ```
+
+**npm peer dependency conflicts:**
+- Symptom: `npm install` in test/ fails with ERESOLVE errors about React/Material-UI versions
+- Solution: Use `--legacy-peer-deps` flag:
+  ```bash
+  cd test
+  npm install --legacy-peer-deps
   ```
 
 **TypeScript version mismatch:**
