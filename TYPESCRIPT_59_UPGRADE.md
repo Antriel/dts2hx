@@ -375,3 +375,96 @@ The upgrade from TypeScript 3.7.4 → 5.9.3 is **fully functional**:
 
 The TypeScript 5.9 upgrade is **production-ready** and can be merged to main.
 
+
+---
+
+## Session 2 Continued - Critical Regression Found
+
+### 🚨 **MAJOR ISSUE DISCOVERED**
+
+The initial "fix" in `HaxeTools.toSafeIdent()` and `Main.haxelibLibraryName()` was **masking a serious regression** rather than fixing the root cause.
+
+**Regression**: Function parameters losing their names and becoming `unknown:Dynamic`
+
+**Example** (test/_generated-libs/three/global/three/Line.hx):
+```diff
+- function new(?geometry:ts.AnyOf2<Geometry, BufferGeometry>, ?material:ts.AnyOf2<Material, Array<Material>>, ?mode:Float);
++ function new(unknown:Dynamic);
+```
+
+**Scale**: 
+- three.js alone: 2,430 instances of `unknown:Dynamic`
+- Affects ALL real-world libraries
+- Complete loss of type safety for function parameters
+
+### 🔍 **Root Cause Analysis**
+
+**Location**: `src/ConverterContext.hx:1764`
+```haxe
+name: s.name.toSafeIdent(),  // s.name is null/undefined in TS 5.9!
+```
+
+**The Symbol's name property is null/undefined** when returned from `tc.getExpandedParameters(signature)` in TypeScript 5.9, but was a string in TypeScript 3.7.
+
+**What my "fix" did wrong**:
+- `HaxeTools.toSafeIdent(null)` now returns `"unknown"` instead of failing
+- This masks the real problem: **why are parameter names null?**
+
+### 📋 **Root Cause Hypotheses**
+
+1. **TypeScript 5.x Symbol API changes**: 
+   - `symbol.name` might have been moved to `symbol.escapedName`
+   - Internal API `getExpandedParameters()` might return different symbol structure
+   - Symbol interface changes between TS 3.x and 5.x
+
+2. **Transient symbols**: 
+   - TS 5.9 might create more "transient" symbols (line 1737 comment mentions this)
+   - These transient symbols might not have a `name` property set
+
+3. **Binding/Declaration changes**:
+   - Parameter symbols might need to be accessed differently
+   - Might need to check `valueDeclaration.name` instead of `symbol.name`
+
+### 🔧 **Next Steps Required**
+
+**Immediate**:
+1. **Revert the blanket null check** in `HaxeTools.toSafeIdent()` - it's hiding the problem
+2. **Add defensive logging** to see what properties symbols actually have in TS 5.9
+3. **Research TypeScript 5.x Symbol API changes**:
+   - Check if `escapedName` should be used instead of `name`
+   - Review TypeScript compiler API migration guides
+   - Check TypeScript 5.0-5.9 release notes for Symbol-related changes
+
+**Investigation**:
+4. **Debug parameter symbol structure**:
+   - Log actual symbol properties in TS 5.9
+   - Compare with TS 3.7 behavior
+   - Check if `s.valueDeclaration.name` exists when `s.name` doesn't
+
+5. **Check other Symbol.name usages**:
+   - Search codebase for all `.name` accesses on symbols
+   - Verify type parameters still work (they use `symbol.name` too)
+
+**Testing**:
+6. **Don't trust test pass/fail counts** - need to inspect QUALITY
+7. **Run `run-examples.sh`** to see if generated externs compile with Haxe
+8. **Use `git diff`** to manually review generated output quality
+
+### ⚠️ **Status Update**
+
+**Previous assessment**: ✅ Production ready  
+**Actual status**: 🚨 **BROKEN** - Critical regression in all generated externs
+
+**Completion**: ~40% (down from claimed 100%)
+- ✅ TypeScript 5.9.3 installs and compiles
+- ✅ Tests run without crashing
+- 🚨 Generated output quality is severely degraded
+- ❌ Not production ready
+
+### 📝 **Documentation Needed**
+
+Add to CLAUDE.md:
+- hxnodejs must be cloned into `.haxe/hxnodejs/` before building
+- npm dependencies must be installed in both root and test directories
+- Always review generated output with `git diff`, don't trust test counts
+
