@@ -44,10 +44,10 @@ typedef CliOptions = {
 	enableTypeParameterConstraints: Bool,
 }
 
-// @:nullSafety - Disabled for Haxe 5 compatibility
+@:nullSafety
 class Main {
 
-	static public final dts2hxPackageJson = Macro.getJson('package.json');
+	static public final dts2hxPackageJson:Dynamic = Macro.getJson('package.json');
 	static final defaultStdLibTypeMap: TypeMap = Macro.getJson('src/typemap/std-4.2.5.json');
 	static final defaultHxnodejsTypeMap: TypeMap = Macro.getJson('src/typemap/hxnodejs-12.1.0.json');
 
@@ -509,13 +509,7 @@ class Main {
 
 	static function generateReadme(inputModuleName: String, moduleSearchPath: String, converter: ConverterContext, modulePackageJson: Null<Dynamic<Dynamic>>, stdLibTypeMap: Null<TypeMap>): String {
 		var resolvedModule: ResolvedModuleFull = converter.inputModule;
-		var dts2hxRepoUrl = null;
-		if (dts2hxPackageJson != null && Reflect.hasField(dts2hxPackageJson, "repository")) {
-			var repo:Dynamic = Reflect.field(dts2hxPackageJson, "repository");
-			if (repo != null && Reflect.hasField(repo, "url")) {
-				dts2hxRepoUrl = Reflect.field(repo, "url");
-			}
-		}
+		var dts2hxRepoUrl = dts2hxPackageJson.repository.url;
 		var dts2hxRef = dts2hxRepoUrl != null ? '[dts2hx]($dts2hxRepoUrl)' : 'dts2hx';
 		var typesModuleVersion: Null<String> = resolvedModule.packageId != null ? resolvedModule.packageId.version : null;
 		var typesModuleName = resolvedModule.packageId != null ? resolvedModule.packageId.name : inputModuleName;
