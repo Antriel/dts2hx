@@ -21,7 +21,7 @@ function run_example() {
 	rm -rf .haxelib
 	npm run postinstall
 
-	haxe build.hxml && echo -e "${CYAN}TEST SUCCESS $1${RESET}" || echo -e "${RED}TEST FALURE $1${RESET}"
+	../../haxe.sh build.hxml && echo -e "${CYAN}TEST SUCCESS $1${RESET}" || echo -e "${RED}TEST FALURE $1${RESET}"
 	popd
 }
 

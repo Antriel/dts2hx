@@ -4,15 +4,16 @@
   "description": "",
   "main": "dist/bundle.js",
   "scripts": {
-    "postinstall": "dts2hx --modular three three/examples/jsm/controls/OrbitControls"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "esbuild": "^0.1.18",
-    "dts2hx": "*"
+    "dts2hx": "*",
+    "typescript": "5.9.3"
   },
   "dependencies": {
-    "three": "0.116.0"
+    "three": "0.181.0",
+    "@types/three": "0.181.0"
   }
 }
