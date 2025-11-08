@@ -1,0 +1,3 @@
+package discord_js.typings.index;
+
+typedef Interaction<Cached> = ts.AnyOf12<ChatInputCommandInteraction<Cached>, MessageContextMenuCommandInteraction<Cached>, UserContextMenuCommandInteraction<Cached>, PrimaryEntryPointCommandInteraction<Cached>, StringSelectMenuInteraction<Cached>, UserSelectMenuInteraction<Cached>, RoleSelectMenuInteraction<Cached>, MentionableSelectMenuInteraction<Cached>, ChannelSelectMenuInteraction<Cached>, ButtonInteraction<Cached>, AutocompleteInteraction<Cached>, ModalSubmitInteraction<Cached>>;

@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef APIApplicationCommandInteraction = ts.AnyOf4<APIChatInputApplicationCommandInteraction, APIUserApplicationCommandInteraction, APIMessageApplicationCommandInteraction, APIPrimaryEntryPointCommandInteraction>;

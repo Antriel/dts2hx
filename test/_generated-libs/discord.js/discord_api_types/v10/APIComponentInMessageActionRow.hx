@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef APIComponentInMessageActionRow = ts.AnyOf8<APIButtonComponentWithCustomId, APIButtonComponentWithSKUId, APIButtonComponentWithURL, APIChannelSelectComponent, APIMentionableSelectComponent, APIRoleSelectComponent, APIStringSelectComponent, APIUserSelectComponent>;

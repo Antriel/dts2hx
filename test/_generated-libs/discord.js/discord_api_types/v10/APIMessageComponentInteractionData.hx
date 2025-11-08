@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef APIMessageComponentInteractionData = ts.AnyOf6<APIMessageButtonInteractionData, APIMessageChannelSelectInteractionData, APIMessageMentionableSelectInteractionData, APIMessageRoleSelectInteractionData, APIMessageStringSelectInteractionData, APIMessageUserSelectInteractionData>;

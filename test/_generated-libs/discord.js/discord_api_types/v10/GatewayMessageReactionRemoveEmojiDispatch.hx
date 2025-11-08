@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef GatewayMessageReactionRemoveEmojiDispatch = _DataPayload<String, GatewayMessageReactionRemoveEmojiDispatchData>;

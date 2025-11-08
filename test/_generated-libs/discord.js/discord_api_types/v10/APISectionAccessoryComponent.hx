@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef APISectionAccessoryComponent = ts.AnyOf4<APIButtonComponentWithCustomId, APIButtonComponentWithSKUId, APIButtonComponentWithURL, APIThumbnailComponent>;

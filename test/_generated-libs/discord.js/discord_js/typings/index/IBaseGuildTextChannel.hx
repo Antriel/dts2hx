@@ -1,0 +1,144 @@
+package discord_js.typings.index;
+
+typedef IBaseGuildTextChannel = {
+	@:optional
+	var defaultAutoArchiveDuration : discord_api_types.v10.ThreadAutoArchiveDuration;
+	var defaultThreadRateLimitPerUser : Null<Float>;
+	var rateLimitPerUser : Null<Float>;
+	var nsfw : Bool;
+	var threads : GuildTextThreadManager<Int>;
+	var topic : Null<String>;
+	function createInvite(?options:InviteCreateOptions):js.lib.Promise<Invite>;
+	function fetchInvites(?cache:Bool):js.lib.Promise<Collection<String, Invite>>;
+	function setDefaultAutoArchiveDuration(defaultAutoArchiveDuration:discord_api_types.v10.ThreadAutoArchiveDuration, ?reason:String):js.lib.Promise<BaseGuildTextChannel>;
+	function setTopic(topic:Null<String>, ?reason:String):js.lib.Promise<BaseGuildTextChannel>;
+	@:overload(function(type:Int, ?reason:String):js.lib.Promise<NewsChannel> { })
+	function setType(type:Int, ?reason:String):js.lib.Promise<TextChannel>;
+	function memberPermissions(member:GuildMember, checkAdmin:Bool):{
+		var any : Dynamic;
+		var has : Dynamic;
+		var missing : Dynamic;
+		var serialize : Dynamic;
+		var toArray : Dynamic;
+		var bitfield : Dynamic;
+		var add : Dynamic;
+		var equals : Dynamic;
+		var freeze : Dynamic;
+		var remove : Dynamic;
+		var toJSON : Dynamic;
+		var valueOf : Dynamic;
+	};
+	function rolePermissions(role:Role, checkAdmin:Bool):{
+		var any : Dynamic;
+		var has : Dynamic;
+		var missing : Dynamic;
+		var serialize : Dynamic;
+		var toArray : Dynamic;
+		var bitfield : Dynamic;
+		var add : Dynamic;
+		var equals : Dynamic;
+		var freeze : Dynamic;
+		var remove : Dynamic;
+		var toJSON : Dynamic;
+		var valueOf : Dynamic;
+	};
+	final createdAt : js.lib.Date;
+	final createdTimestamp : Float;
+	final deletable : Bool;
+	var flags : {
+		var bitfield : Dynamic;
+		var add : Dynamic;
+		var any : Dynamic;
+		var equals : Dynamic;
+		var freeze : Dynamic;
+		var has : Dynamic;
+		var missing : Dynamic;
+		var remove : Dynamic;
+		var serialize : Dynamic;
+		var toArray : Dynamic;
+		var toJSON : Dynamic;
+		var valueOf : Dynamic;
+	};
+	var guild : Guild;
+	var guildId : String;
+	final manageable : Bool;
+	final members : Collection<String, GuildMember>;
+	var name : String;
+	final parent : Null<CategoryChannel>;
+	var parentId : Null<String>;
+	var permissionOverwrites : PermissionOverwriteManager;
+	final permissionsLocked : Null<Bool>;
+	final position : Float;
+	var rawPosition : Float;
+	var type : GuildChannelTypes;
+	final viewable : Bool;
+	function clone(?options:GuildChannelCloneOptions):js.lib.Promise<BaseGuildTextChannel>;
+	function delete(?reason:String):js.lib.Promise<BaseGuildTextChannel>;
+	function edit(options:GuildChannelEditOptions):js.lib.Promise<BaseGuildTextChannel>;
+	function equals(channel:GuildChannel):Bool;
+	function lockPermissions():js.lib.Promise<BaseGuildTextChannel>;
+	@:overload(function(memberOrRole:ts.AnyOf6<String, User, GuildMember, Role, Message<Bool>, ThreadMember<Bool>>, ?checkAdmin:Bool):Null<{
+		var any : Dynamic;
+		var has : Dynamic;
+		var missing : Dynamic;
+		var serialize : Dynamic;
+		var toArray : Dynamic;
+		var bitfield : Dynamic;
+		var add : Dynamic;
+		var equals : Dynamic;
+		var freeze : Dynamic;
+		var remove : Dynamic;
+		var toJSON : Dynamic;
+		var valueOf : Dynamic;
+	}> { })
+	function permissionsFor(memberOrRole:ts.AnyOf2<GuildMember, Role>, ?checkAdmin:Bool):{
+		var any : Dynamic;
+		var has : Dynamic;
+		var missing : Dynamic;
+		var serialize : Dynamic;
+		var toArray : Dynamic;
+		var bitfield : Dynamic;
+		var add : Dynamic;
+		var equals : Dynamic;
+		var freeze : Dynamic;
+		var remove : Dynamic;
+		var toJSON : Dynamic;
+		var valueOf : Dynamic;
+	};
+	function setName(name:String, ?reason:String):js.lib.Promise<BaseGuildTextChannel>;
+	function setParent(channel:Null<CategoryChannelResolvable>, ?options:SetParentOptions):js.lib.Promise<BaseGuildTextChannel>;
+	function setPosition(position:Float, ?options:SetChannelPositionOptions):js.lib.Promise<BaseGuildTextChannel>;
+	function isTextBased():Bool;
+	/**
+		Returns a string representation of an object.
+	**/
+	function toString():Dynamic;
+	var id : String;
+	final partial : Bool;
+	final url : String;
+	function fetch(?force:Bool):js.lib.Promise<BaseGuildTextChannel>;
+	function isThread():Bool;
+	function isDMBased():Bool;
+	function isVoiceBased():Bool;
+	function isThreadOnly():Bool;
+	function isSendable():Bool;
+	final client : Client<Bool>;
+	function toJSON(props:haxe.extern.Rest<haxe.DynamicAccess<ts.AnyOf2<String, Bool>>>):Any;
+	function valueOf():String;
+	var lastMessageId : Null<String>;
+	final lastMessage : Null<Message<Bool>>;
+	var lastPinTimestamp : Null<Float>;
+	final lastPinAt : Null<js.lib.Date>;
+	var messages : GuildMessageManager;
+	function awaitMessageComponent<ComponentType>(?options:AwaitMessageCollectorOptionsParams<ComponentType, Bool>):js.lib.Promise<Dynamic>;
+	function awaitMessages(?options:AwaitMessagesOptions):js.lib.Promise<Collection<String, Message<Bool>>>;
+	function bulkDelete(messages:ts.AnyOf3<Float, Collection<String, Message<Bool>>, haxe.ds.ReadOnlyArray<MessageResolvable>>, ?filterOld:Bool):js.lib.Promise<Collection<String, Null<ts.AnyOf2<Message<Bool>, PartialMessage<Bool>>>>>;
+	function createMessageComponentCollector<ComponentType>(?options:MessageChannelCollectorOptionsParams<ComponentType, Bool>):InteractionCollector<Dynamic>;
+	function createMessageCollector(?options:MessageCollectorOptions):MessageCollector;
+	function createWebhook(options:ChannelWebhookCreateOptions):js.lib.Promise<Webhook<Int>>;
+	function fetchWebhooks():js.lib.Promise<Collection<String, Webhook<Int>>>;
+	function sendTyping():js.lib.Promise<ts.Undefined>;
+	function setRateLimitPerUser(rateLimitPerUser:Float, ?reason:String):js.lib.Promise<BaseGuildTextChannel>;
+	function setNSFW(?nsfw:Bool, ?reason:String):js.lib.Promise<BaseGuildTextChannel>;
+	function send(options:ts.AnyOf3<String, MessagePayload, MessageCreateOptions>):js.lib.Promise<Message<Bool>>;
+};

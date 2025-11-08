@@ -1,0 +1,42 @@
+package discord_js.typings.index;
+
+@:jsRequire("discord.js/typings/index", "BaseGuildVoiceChannel") extern class BaseGuildVoiceChannel extends GuildChannel {
+	public function new(guild:Guild, ?data:discord_js.typings.rawdatatypes.RawGuildChannelData);
+	public var bitrate : Float;
+	public final full : Bool;
+	public final joinable : Bool;
+	public var nsfw : Bool;
+	public var rateLimitPerUser : Null<Float>;
+	public var rtcRegion : Null<String>;
+	public var userLimit : Float;
+	public var videoQualityMode : Null<discord_api_types.v10.VideoQualityMode>;
+	public function createInvite(?options:InviteCreateOptions):js.lib.Promise<Invite>;
+	public function fetchInvites(?cache:Bool):js.lib.Promise<Collection<String, Invite>>;
+	public function setBitrate(bitrate:Float, ?reason:String):js.lib.Promise<BaseGuildVoiceChannel>;
+	public function setRTCRegion(rtcRegion:Null<String>, ?reason:String):js.lib.Promise<BaseGuildVoiceChannel>;
+	public function setUserLimit(userLimit:Float, ?reason:String):js.lib.Promise<BaseGuildVoiceChannel>;
+	public function setVideoQualityMode(videoQualityMode:discord_api_types.v10.VideoQualityMode, ?reason:String):js.lib.Promise<BaseGuildVoiceChannel>;
+	public function clone(?options:GuildChannelCloneOptions):js.lib.Promise<BaseGuildVoiceChannel>;
+	public function delete(?reason:String):js.lib.Promise<BaseGuildVoiceChannel>;
+	public function edit(options:GuildChannelEditOptions):js.lib.Promise<BaseGuildVoiceChannel>;
+	public function lockPermissions():js.lib.Promise<BaseGuildVoiceChannel>;
+	public function setName(name:String, ?reason:String):js.lib.Promise<BaseGuildVoiceChannel>;
+	public function setParent(channel:Null<CategoryChannelResolvable>, ?options:SetParentOptions):js.lib.Promise<BaseGuildVoiceChannel>;
+	public function setPosition(position:Float, ?options:SetChannelPositionOptions):js.lib.Promise<BaseGuildVoiceChannel>;
+	public function fetch(?force:Bool):js.lib.Promise<BaseGuildVoiceChannel>;
+	var messages : Dynamic;
+	var bulkDelete : Dynamic;
+	var fetchWebhooks : Dynamic;
+	var createWebhook : Dynamic;
+	var setRateLimitPerUser : Dynamic;
+	var setNSFW : Dynamic;
+	var lastMessageId : Dynamic;
+	var lastMessage : Dynamic;
+	var awaitMessageComponent : Dynamic;
+	var awaitMessages : Dynamic;
+	var createMessageComponentCollector : Dynamic;
+	var createMessageCollector : Dynamic;
+	var sendTyping : Dynamic;
+	var send : Dynamic;
+	static var prototype : BaseGuildVoiceChannel;
+}

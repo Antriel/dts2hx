@@ -1,0 +1,3 @@
+package discord_js.typings.index;
+
+typedef ApplicationCommandDataResolvable = ts.AnyOf8<discord_api_types.v10.RESTPostAPIChatInputApplicationCommandsJSONBody, discord_api_types.v10.RESTPostAPIContextMenuApplicationCommandsJSONBody, discord_api_types.v10.RESTPostAPIPrimaryEntryPointApplicationCommandJSONBody, UserApplicationCommandData, MessageApplicationCommandData, ChatInputApplicationCommandData, PrimaryEntryPointCommandData, JSONEncodable<discord_api_types.v10.RESTPostAPIApplicationCommandsJSONBody>>;

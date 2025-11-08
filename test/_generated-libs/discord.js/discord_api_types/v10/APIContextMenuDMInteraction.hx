@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef APIContextMenuDMInteraction = ts.AnyOf2<APIUserApplicationCommandDMInteraction, APIMessageApplicationCommandDMInteraction>;

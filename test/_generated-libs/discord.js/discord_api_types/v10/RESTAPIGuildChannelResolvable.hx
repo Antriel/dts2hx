@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef RESTAPIGuildChannelResolvable = ts.AnyOf10<APITextChannel, APINewsChannel, APIGuildCategoryChannel, APIGuildVoiceChannel, APIGuildStageVoiceChannel, APIPublicThreadChannel, APIPrivateThreadChannel, APIAnnouncementThreadChannel, APIGuildForumChannel, APIGuildMediaChannel>;

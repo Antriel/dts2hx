@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef RESTPostAPIApplicationCommandsJSONBody = ts.AnyOf3<RESTPostAPIChatInputApplicationCommandsJSONBody, RESTPostAPIContextMenuApplicationCommandsJSONBody, RESTPostAPIPrimaryEntryPointApplicationCommandJSONBody>;

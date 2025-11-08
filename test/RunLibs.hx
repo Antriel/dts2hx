@@ -7,5 +7,8 @@ function main() {
         'vue',
         'vscode',
         'lowdb',
-    ],['--noDts2hxVersion']);
+        'discord.js',
+    ],['--noDts2hxVersion'], [
+        'discord.js' => ['--noDts2hxVersion', '--target', 'ESNext', '--module', 'NodeNext', '--moduleResolution', 'NodeNext']
+    ]);
 }

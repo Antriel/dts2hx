@@ -1,0 +1,3 @@
+package discord_js.typings.index;
+
+typedef ApplicationCommandData = ts.AnyOf4<UserApplicationCommandData, MessageApplicationCommandData, ChatInputApplicationCommandData, PrimaryEntryPointCommandData>;

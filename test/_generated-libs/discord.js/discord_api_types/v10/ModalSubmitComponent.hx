@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef ModalSubmitComponent = ts.AnyOf7<APIModalSubmitTextInputComponent, APIModalSubmitStringSelectComponent, APIModalSubmitUserSelectComponent, APIModalSubmitRoleSelectComponent, APIModalSubmitMentionableSelectComponent, APIModalSubmitChannelSelectComponent, APIModalSubmitFileUploadComponent>;

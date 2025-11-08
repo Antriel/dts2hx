@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef APIModalSubmissionComponent = ts.AnyOf3<ModalSubmitActionRowComponent, ModalSubmitTextDisplayComponent, ModalSubmitLabelComponent>;

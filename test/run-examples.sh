@@ -31,3 +31,4 @@ run_example playcanvas
 run_example three
 run_example babylonjs
 run_example express
+run_example discord.js

@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef GatewayRequestGuildMembersData = ts.AnyOf2<GatewayRequestGuildMembersDataWithQuery, GatewayRequestGuildMembersDataWithUserIds>;

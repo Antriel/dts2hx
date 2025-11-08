@@ -1,0 +1,3 @@
+package discord_js.typings.index;
+
+typedef MessageActionRowComponentData = ts.AnyOf8<JSONEncodable<discord_api_types.v10.APIComponentInMessageActionRow>, InteractionButtonComponentData, LinkButtonComponentData, StringSelectMenuComponentData, UserSelectMenuComponentData, RoleSelectMenuComponentData, MentionableSelectMenuComponentData, ChannelSelectMenuComponentData>;

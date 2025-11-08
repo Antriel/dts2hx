@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef RPCSubscribeArgs = ts.AnyOf10<haxe.DynamicAccess<Any>, RPCSubscribeGuildStatusArgs, RPCSubscribeMessageCreateArgs, RPCSubscribeMessageDeleteArgs, RPCSubscribeMessageUpdateArgs, RPCSubscribeSpeakingStartArgs, RPCSubscribeSpeakingStopArgs, RPCSubscribeVoiceStateCreateArgs, RPCSubscribeVoiceStateDeleteArgs, RPCSubscribeVoiceStateUpdateArgs>;

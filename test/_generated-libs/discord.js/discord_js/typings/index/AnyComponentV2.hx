@@ -1,0 +1,3 @@
+package discord_js.typings.index;
+
+typedef AnyComponentV2 = ts.AnyOf8<discord_api_types.v10.APIContainerComponent, discord_api_types.v10.APIFileComponent, discord_api_types.v10.APIMediaGalleryComponent, discord_api_types.v10.APISectionComponent, discord_api_types.v10.APISeparatorComponent, discord_api_types.v10.APITextDisplayComponent, discord_api_types.v10.APIThumbnailComponent, discord_api_types.v10.APIActionRowComponent<discord_api_types.v10.APIComponentInMessageActionRow>>;

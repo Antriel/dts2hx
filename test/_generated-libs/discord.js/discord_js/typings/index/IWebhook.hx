@@ -1,0 +1,32 @@
+package discord_js.typings.index;
+
+typedef IWebhook<Type> = {
+	var avatar : Null<String>;
+	function avatarURL(?options:ImageURLOptions):Null<String>;
+	var channelId : String;
+	final client : Client<Bool>;
+	var guildId : String;
+	var name : String;
+	var owner : Dynamic;
+	var sourceGuild : Dynamic;
+	var sourceChannel : Dynamic;
+	var token : Dynamic;
+	var type : Type;
+	var applicationId : Dynamic;
+	final channel : Null<ts.AnyOf6<NewsChannel, StageChannel, TextChannel, VoiceChannel, ForumChannel, MediaChannel>>;
+	function isUserCreated():Bool;
+	function isApplicationCreated():Bool;
+	function isIncoming():Bool;
+	function isChannelFollower():Bool;
+	function editMessage(message:MessageResolvable, options:ts.AnyOf3<String, MessagePayload, WebhookMessageEditOptions>):js.lib.Promise<Message<Bool>>;
+	function fetchMessage(message:String, ?options:WebhookFetchMessageOptions):js.lib.Promise<Message<Bool>>;
+	function send(options:ts.AnyOf3<String, MessagePayload, WebhookMessageCreateOptions>):js.lib.Promise<Message<Bool>>;
+	final createdAt : js.lib.Date;
+	final createdTimestamp : Float;
+	function delete(?reason:String):js.lib.Promise<ts.Undefined>;
+	function edit(options:WebhookEditOptions):js.lib.Promise<Webhook<Type>>;
+	function sendSlackMessage(body:Any):js.lib.Promise<Bool>;
+	var id : String;
+	final url : String;
+	function deleteMessage(message:ts.AnyOf3<String, discord_api_types.v10.APIMessage, Message<Bool>>, ?threadId:String):js.lib.Promise<ts.Undefined>;
+};

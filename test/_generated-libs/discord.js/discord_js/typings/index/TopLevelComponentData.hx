@@ -1,0 +1,3 @@
+package discord_js.typings.index;
+
+typedef TopLevelComponentData = ts.AnyOf7<ActionRowData<MessageActionRowComponentData>, ContainerComponentData<ts.AnyOf7<FileComponentData, MediaGalleryComponentData, SectionComponentData, SeparatorComponentData, TextDisplayComponentData, ActionRowData<ActionRowComponentData>, JSONEncodable<discord_api_types.v10.APIComponentInContainer>>>, FileComponentData, MediaGalleryComponentData, SectionComponentData, SeparatorComponentData, TextDisplayComponentData>;

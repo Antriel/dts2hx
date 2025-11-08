@@ -1,0 +1,3 @@
+package discord_js.typings.index;
+
+typedef ActionRowComponentOptions = ts.AnyOf7<InteractionButtonComponentData, LinkButtonComponentData, StringSelectMenuComponentData, UserSelectMenuComponentData, RoleSelectMenuComponentData, MentionableSelectMenuComponentData, ChannelSelectMenuComponentData>;

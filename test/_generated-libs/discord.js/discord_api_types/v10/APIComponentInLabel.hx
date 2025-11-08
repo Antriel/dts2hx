@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef APIComponentInLabel = ts.AnyOf7<APIChannelSelectComponent, APIMentionableSelectComponent, APIRoleSelectComponent, APIStringSelectComponent, APIUserSelectComponent, APITextInputComponent, APIFileUploadComponent>;

@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef APIMessageInteractionMetadata = ts.AnyOf3<APIApplicationCommandInteractionMetadata, APIMessageComponentInteractionMetadata, APIModalSubmitInteractionMetadata>;

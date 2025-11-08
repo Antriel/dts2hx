@@ -1,0 +1,9 @@
+package discord_js.typings.index;
+
+@:jsRequire("discord.js/typings/index", "ActionRow") extern class ActionRow<ComponentType> extends Component<discord_api_types.v10.APIActionRowComponent<ts.AnyOf9<discord_api_types.v10.APIButtonComponentWithCustomId, discord_api_types.v10.APIButtonComponentWithSKUId, discord_api_types.v10.APIButtonComponentWithURL, discord_api_types.v10.APIChannelSelectComponent, discord_api_types.v10.APIMentionableSelectComponent, discord_api_types.v10.APIRoleSelectComponent, discord_api_types.v10.APIStringSelectComponent, discord_api_types.v10.APIUserSelectComponent, discord_api_types.v10.APITextInputComponent>>> {
+	private function new(data:discord_api_types.v10.APIActionRowComponent<ts.AnyOf9<discord_api_types.v10.APIButtonComponentWithCustomId, discord_api_types.v10.APIButtonComponentWithSKUId, discord_api_types.v10.APIButtonComponentWithURL, discord_api_types.v10.APIChannelSelectComponent, discord_api_types.v10.APIMentionableSelectComponent, discord_api_types.v10.APIRoleSelectComponent, discord_api_types.v10.APIStringSelectComponent, discord_api_types.v10.APIUserSelectComponent, discord_api_types.v10.APITextInputComponent>>);
+	public final components : Array<ComponentType>;
+	public function toJSON():discord_api_types.v10.APIActionRowComponent<js.lib.ReturnType<Dynamic>>;
+	public function equals(other:ts.AnyOf2<discord_api_types.v10.APIActionRowComponent<ts.AnyOf9<discord_api_types.v10.APIButtonComponentWithCustomId, discord_api_types.v10.APIButtonComponentWithSKUId, discord_api_types.v10.APIButtonComponentWithURL, discord_api_types.v10.APIChannelSelectComponent, discord_api_types.v10.APIMentionableSelectComponent, discord_api_types.v10.APIRoleSelectComponent, discord_api_types.v10.APIStringSelectComponent, discord_api_types.v10.APIUserSelectComponent, discord_api_types.v10.APITextInputComponent>>, ActionRow<ComponentType>>):Bool;
+	static var prototype : ActionRow<Dynamic>;
+}

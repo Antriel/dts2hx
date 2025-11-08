@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef APIDMInteraction = ts.AnyOf7<APIChatInputApplicationCommandDMInteraction, APIUserApplicationCommandDMInteraction, APIMessageApplicationCommandDMInteraction, APIPrimaryEntryPointCommandDMInteraction, APIApplicationCommandAutocompleteDMInteraction, APIMessageComponentDMInteraction, APIModalSubmitDMInteraction>;

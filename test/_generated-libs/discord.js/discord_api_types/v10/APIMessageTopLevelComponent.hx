@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef APIMessageTopLevelComponent = ts.AnyOf7<APIActionRowComponent<APIComponentInMessageActionRow>, APIContainerComponent, APIFileComponent, APIMediaGalleryComponent, APISectionComponent, APISeparatorComponent, APITextDisplayComponent>;

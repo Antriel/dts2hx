@@ -1,0 +1,3 @@
+package discord_js.typings.index;
+
+typedef ComponentInLabelData = ts.AnyOf7<StringSelectMenuComponentData, UserSelectMenuComponentData, RoleSelectMenuComponentData, MentionableSelectMenuComponentData, ChannelSelectMenuComponentData, TextInputComponentData, FileUploadComponentData>;

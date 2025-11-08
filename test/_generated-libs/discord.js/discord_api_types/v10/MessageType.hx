@@ -1,0 +1,42 @@
+package discord_api_types.v10;
+
+@:jsRequire("discord-api-types/v10", "MessageType") extern enum abstract MessageType(Int) from Int to Int {
+	var Default;
+	var RecipientAdd;
+	var RecipientRemove;
+	var Call;
+	var ChannelNameChange;
+	var ChannelIconChange;
+	var ChannelPinnedMessage;
+	var UserJoin;
+	var GuildBoost;
+	var GuildBoostTier1;
+	var GuildBoostTier2;
+	var GuildBoostTier3;
+	var ChannelFollowAdd;
+	var GuildDiscoveryDisqualified;
+	var GuildDiscoveryRequalified;
+	var GuildDiscoveryGracePeriodInitialWarning;
+	var GuildDiscoveryGracePeriodFinalWarning;
+	var ThreadCreated;
+	var Reply;
+	var ChatInputCommand;
+	var ThreadStarterMessage;
+	var GuildInviteReminder;
+	var ContextMenuCommand;
+	var AutoModerationAction;
+	var RoleSubscriptionPurchase;
+	var InteractionPremiumUpsell;
+	var StageStart;
+	var StageEnd;
+	var StageSpeaker;
+	var StageRaiseHand;
+	var StageTopic;
+	var GuildApplicationPremiumSubscription;
+	var GuildIncidentAlertModeEnabled;
+	var GuildIncidentAlertModeDisabled;
+	var GuildIncidentReportRaid;
+	var GuildIncidentReportFalseAlarm;
+	var PurchaseNotification;
+	var PollResult;
+}

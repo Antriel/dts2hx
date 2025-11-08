@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef GatewayGuildScheduledEventUserRemoveDispatch = _DataPayload<String, GatewayGuildScheduledEventUserAddDispatchData>;

@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef APIMessageSelectMenuInteractionData = ts.AnyOf5<APIMessageChannelSelectInteractionData, APIMessageMentionableSelectInteractionData, APIMessageRoleSelectInteractionData, APIMessageStringSelectInteractionData, APIMessageUserSelectInteractionData>;

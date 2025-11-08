@@ -1,0 +1,5 @@
+-lib discord.js
+
+-main Bot
+-js dist/bot.js
+-dce full

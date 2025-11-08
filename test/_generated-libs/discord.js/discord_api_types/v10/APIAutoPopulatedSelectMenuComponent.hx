@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef APIAutoPopulatedSelectMenuComponent = ts.AnyOf4<APIChannelSelectComponent, APIMentionableSelectComponent, APIRoleSelectComponent, APIUserSelectComponent>;

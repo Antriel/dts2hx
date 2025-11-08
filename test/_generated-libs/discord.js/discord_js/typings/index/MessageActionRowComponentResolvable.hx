@@ -1,0 +1,3 @@
+package discord_js.typings.index;
+
+typedef MessageActionRowComponentResolvable = ts.AnyOf13<InteractionButtonComponentData, LinkButtonComponentData, StringSelectMenuComponentData, UserSelectMenuComponentData, RoleSelectMenuComponentData, MentionableSelectMenuComponentData, ChannelSelectMenuComponentData, ButtonComponent, StringSelectMenuComponent, UserSelectMenuComponent, RoleSelectMenuComponent, MentionableSelectMenuComponent, ChannelSelectMenuComponent>;

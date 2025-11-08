@@ -1,0 +1,3 @@
+package discord_js.typings.index;
+
+typedef AllowedPartial = ts.AnyOf21<User, CategoryChannel, DMChannel, PartialDMChannel, PartialGroupDMChannel, NewsChannel, StageChannel, TextChannel, PublicThreadChannel<Bool>, PrivateThreadChannel, VoiceChannel, ForumChannel, MediaChannel, GuildMember, Poll, MessageReaction, SoundboardSound, PollAnswer, Message<Bool>, GuildScheduledEvent<discord_api_types.v10.GuildScheduledEventStatus>, ThreadMember<Bool>>;

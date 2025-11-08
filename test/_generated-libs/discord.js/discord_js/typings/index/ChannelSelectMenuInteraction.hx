@@ -1,0 +1,11 @@
+package discord_js.typings.index;
+
+@:jsRequire("discord.js/typings/index", "ChannelSelectMenuInteraction") extern class ChannelSelectMenuInteraction<Cached> extends MessageComponentInteraction<Cached> {
+	public function new(client:Client<Bool>, data:discord_api_types.v10.APIMessageChannelSelectInteractionData);
+	public var values : Array<String>;
+	public var channels : Collection<String, CacheTypeReducer<Cached, Channel, discord_api_types.v10.APIChannel, ts.AnyOf24<discord_api_types.v10.APITextChannel, discord_api_types.v10.APINewsChannel, discord_api_types.v10.APIGuildCategoryChannel, discord_api_types.v10.APIGuildVoiceChannel, discord_api_types.v10.APIGuildStageVoiceChannel, discord_api_types.v10.APIDMChannel, discord_api_types.v10.APIGroupDMChannel, discord_api_types.v10.APIPublicThreadChannel, discord_api_types.v10.APIPrivateThreadChannel, discord_api_types.v10.APIAnnouncementThreadChannel, discord_api_types.v10.APIGuildForumChannel, discord_api_types.v10.APIGuildMediaChannel, CategoryChannel, DMChannel, PartialDMChannel, PartialGroupDMChannel, NewsChannel, StageChannel, TextChannel, PublicThreadChannel<Bool>, PrivateThreadChannel, VoiceChannel, ForumChannel, MediaChannel>, ts.AnyOf24<discord_api_types.v10.APITextChannel, discord_api_types.v10.APINewsChannel, discord_api_types.v10.APIGuildCategoryChannel, discord_api_types.v10.APIGuildVoiceChannel, discord_api_types.v10.APIGuildStageVoiceChannel, discord_api_types.v10.APIDMChannel, discord_api_types.v10.APIGroupDMChannel, discord_api_types.v10.APIPublicThreadChannel, discord_api_types.v10.APIPrivateThreadChannel, discord_api_types.v10.APIAnnouncementThreadChannel, discord_api_types.v10.APIGuildForumChannel, discord_api_types.v10.APIGuildMediaChannel, CategoryChannel, DMChannel, PartialDMChannel, PartialGroupDMChannel, NewsChannel, StageChannel, TextChannel, PublicThreadChannel<Bool>, PrivateThreadChannel, VoiceChannel, ForumChannel, MediaChannel>>>;
+	public function inGuild():Bool;
+	public function inCachedGuild():Bool;
+	public function inRawGuild():Bool;
+	static var prototype : ChannelSelectMenuInteraction<Dynamic>;
+}

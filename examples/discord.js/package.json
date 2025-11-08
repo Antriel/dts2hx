@@ -1,0 +1,18 @@
+{
+  "name": "discord.js-example",
+  "version": "1.0.0",
+  "description": "Discord.js example for dts2hx",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "dts2hx --all --target ESNext --module NodeNext --moduleResolution NodeNext --useSystemHaxe"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.0.0"
+  },
+  "devDependencies": {
+    "dts2hx": "*"
+  }
+}

@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef APIModalComponent = ts.AnyOf9<APIChannelSelectComponent, APIMentionableSelectComponent, APIRoleSelectComponent, APIStringSelectComponent, APIUserSelectComponent, APITextInputComponent, APILabelComponent, APIFileUploadComponent, APIActionRowComponent<APITextInputComponent>>;

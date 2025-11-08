@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef APIGuildScheduledEvent = ts.AnyOf3<APIStageInstanceGuildScheduledEvent, APIVoiceGuildScheduledEvent, APIExternalGuildScheduledEvent>;

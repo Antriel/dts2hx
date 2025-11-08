@@ -1,0 +1,3 @@
+package discord_api_types.v10;
+
+typedef APIContextMenuGuildInteraction = ts.AnyOf2<APIUserApplicationCommandGuildInteraction, APIMessageApplicationCommandGuildInteraction>;
