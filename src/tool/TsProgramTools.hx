@@ -218,7 +218,16 @@ class TsProgramTools {
 				}
 
 				if (!sourceFile.hasNoDefaultLib && result.resolvedModule.packageId != null && result.resolvedModule.packageId.name != null) {
-					packageNames.tryEnqueue(result.resolvedModule.packageId.name);
+					// Only queue for Phase 2 verification if this is the main package entry point
+					// For sub-path imports (e.g., "discord-api-types/v10"), skip Phase 2 since:
+					// 1. Their moduleName is already correct from Phase 1
+					// 2. The package might not have a root entry point (exports-only packages)
+					var subModuleName = result.resolvedModule.packageId.subModuleName;
+					var isMainEntryPoint = subModuleName == null || subModuleName == '' || subModuleName == 'index' || subModuleName == 'index.d.ts';
+
+					if (isMainEntryPoint) {
+						packageNames.tryEnqueue(result.resolvedModule.packageId.name);
+					}
 				}
 			} else {
 				Log.warn('Internal error: Failed to resolve module <b>$lookupName</>');
