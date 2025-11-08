@@ -279,8 +279,11 @@ class HaxeTypePathMap {
 				'ReadonlyArray' => {name: 'ReadOnlyArray', moduleName: 'ReadOnlyArray', pack: ['haxe', 'ds']},
 				'String' => {name: 'String', moduleName: 'String', pack: []},
 				'Symbol' => {name: 'Symbol', moduleName: 'Symbol', pack: ['js', 'lib']},
-				'Iterable' => {name: 'Iterable', moduleName: 'Iterable', pack: []}, // this is a bit questionable; need to fully review native js iteration
-				'Function' => {name: 'Function', moduleName: 'Constraints', pack: ['haxe']}, // this is a bit questionable; need to fully review native js iteration
+				// Note: Iterable is intentionally NOT mapped to Haxe's native Iterable
+				// TypeScript's Iterable uses JavaScript iteration protocol (Symbol.iterator)
+				// which is incompatible with Haxe's iterator protocol (hasNext/next)
+				// It will generate as js.lib.Iterable instead
+				'Function' => {name: 'Function', moduleName: 'Constraints', pack: ['haxe']},
 				// map `object` aka `js.lib.Object` to `Dynamic`
 				// maybe in the future we can remove this if `js.lib.Object` could unify with other types
 				'Object' => {name: 'Dynamic', moduleName: 'Dynamic', pack: []},
@@ -592,7 +595,6 @@ class HaxeTypePathMap {
 		"Bool",
 		"Dynamic",
 		"Iterator",
-		"Iterable",
 		"KeyValueIterator",
 		"KeyValueIterable",
 		"ArrayAccess",

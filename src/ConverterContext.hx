@@ -68,19 +68,6 @@ private typedef Options = {
 class ConverterContext {
 
 	/**
-		Map of Haxe type paths to their expected type parameter counts.
-		This is used to handle cases where TypeScript types have more type parameters
-		(with defaults) than their corresponding Haxe types.
-		Key format: "pack.pack.TypeName" or "TypeName" for root types
-	**/
-	static final haxeTypeParameterCounts: Map<String, Int> = [
-		"Iterable" => 1,
-		"Iterator" => 1,
-		"KeyValueIterable" => 1,
-		"KeyValueIterator" => 2,
-	];
-
-	/**
 		Normalized input module id (without prefix @types/).
 		This is the value to use in `require()` to load the module at runtime.
 		It may be a path, for example `./modules/example`
@@ -363,7 +350,9 @@ class ConverterContext {
 
 		// if accessContext symbol has the same package as the target symbol, we can shorten the type path by removing the pack
 		// we don't shorten std lib types because they are not generated
-		var noPack = if (shortenTypePaths && !hxTypePath.isExistingStdLibType) {
+		// we also don't shorten types that would clash with Haxe stdlib types (like Iterable, Iterator, etc.)
+		var wouldClashWithHaxeStdLib = hxTypePath.pack.length > 0 && ["Iterable", "Iterator", "KeyValueIterable", "KeyValueIterator"].indexOf(hxTypePath.moduleName) != -1;
+		var noPack = if (shortenTypePaths && !hxTypePath.isExistingStdLibType && !wouldClashWithHaxeStdLib) {
 			if (moduleSymbol != null) {
 				var contextTypePath = haxeTypePathMap.getTypePath(moduleSymbol, accessContext, false);
 				contextTypePath.pack.join('.') == hxTypePath.pack.join('.'); // same package context
@@ -1479,19 +1468,8 @@ class ConverterContext {
 				case TPath(p):
 					var argumentCount = hxTypeArguments.length;
 					var paramCount = p.params != null ? p.params.length : 0;
-
-					// Check if this is a known Haxe type with a specific parameter count
-					var typeKey = p.pack.length > 0 ? p.pack.join('.') + '.' + p.name : p.name;
-					var expectedParamCount = haxeTypeParameterCounts.get(typeKey);
-
-					if (expectedParamCount != null && argumentCount > expectedParamCount) {
-						// TypeScript type has more parameters than the Haxe equivalent
-						Log.warn('TypeReference has <b>$argumentCount</> arguments but Haxe type <b>${typeKey}</> expects <b>$expectedParamCount</> parameters (using first $expectedParamCount)', typeReference);
-						hxTypeArguments = hxTypeArguments.slice(0, expectedParamCount);
-					} else if (paramCount != argumentCount && paramCount > 0) {
+					if (paramCount != argumentCount) {
 						Log.warn('TypeReference has <b>$argumentCount</> arguments but target has <b>$paramCount</> parameters', typeReference);
-						// Only use the first paramCount arguments to match the target's parameter count
-						hxTypeArguments = hxTypeArguments.slice(0, paramCount);
 					}
 					p.params = hxTypeArguments;
 				default: Log.error('Internal error: Expected TPath from TypeReference', typeReference);

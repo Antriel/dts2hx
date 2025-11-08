@@ -9,7 +9,7 @@ package js.lib;
 	@:overload(function<TArrayBuffer>(buffer:TArrayBuffer, ?byteOffset:Float, ?length:Float):Int8Array_<TArrayBuffer> { })
 	@:overload(function(buffer:js.lib.ArrayBuffer, ?byteOffset:Float, ?length:Float):Int8Array_<js.lib.ArrayBuffer> { })
 	@:overload(function(array:ts.AnyOf2<js.lib.ArrayBuffer, ArrayLike<Float>>):Int8Array_<js.lib.ArrayBuffer> { })
-	@:overload(function(elements:Iterable<Float>):Int8Array_<js.lib.ArrayBuffer> { })
+	@:overload(function(elements:js.lib.Iterable<Float, Dynamic, Dynamic>):Int8Array_<js.lib.ArrayBuffer> { })
 	@:overload(function():Int8Array_<js.lib.ArrayBuffer> { })
 	function new(length:Float);
 	/**
@@ -164,7 +164,7 @@ package js.lib;
 		Creates an array from an array-like or iterable object.
 	**/
 	@:overload(function<T>(arrayLike:ArrayLike<T>, mapfn:(v:T, k:Float) -> Float, ?thisArg:Dynamic):Int8Array_<js.lib.ArrayBuffer> { })
-	@:overload(function(elements:Iterable<Float>):Int8Array_<js.lib.ArrayBuffer> { })
-	@:overload(function<T>(elements:Iterable<T>, ?mapfn:(v:T, k:Float) -> Float, ?thisArg:Dynamic):Int8Array_<js.lib.ArrayBuffer> { })
+	@:overload(function(elements:js.lib.Iterable<Float, Dynamic, Dynamic>):Int8Array_<js.lib.ArrayBuffer> { })
+	@:overload(function<T>(elements:js.lib.Iterable<T, Dynamic, Dynamic>, ?mapfn:(v:T, k:Float) -> Float, ?thisArg:Dynamic):Int8Array_<js.lib.ArrayBuffer> { })
 	static function from(arrayLike:ArrayLike<Float>):Int8Array_<js.lib.ArrayBuffer>;
 }

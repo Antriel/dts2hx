@@ -14,7 +14,7 @@ typedef Int32ArrayConstructor = {
 		Creates an array from an array-like or iterable object.
 	**/
 	@:overload(function<T>(arrayLike:ArrayLike<T>, mapfn:(v:T, k:Float) -> Float, ?thisArg:Dynamic):Int32Array_<js.lib.ArrayBuffer> { })
-	@:overload(function(elements:Iterable<Float>):Int32Array_<js.lib.ArrayBuffer> { })
-	@:overload(function<T>(elements:Iterable<T>, ?mapfn:(v:T, k:Float) -> Float, ?thisArg:Dynamic):Int32Array_<js.lib.ArrayBuffer> { })
+	@:overload(function(elements:js.lib.Iterable<Float, Dynamic, Dynamic>):Int32Array_<js.lib.ArrayBuffer> { })
+	@:overload(function<T>(elements:js.lib.Iterable<T, Dynamic, Dynamic>, ?mapfn:(v:T, k:Float) -> Float, ?thisArg:Dynamic):Int32Array_<js.lib.ArrayBuffer> { })
 	function from(arrayLike:ArrayLike<Float>):Int32Array_<js.lib.ArrayBuffer>;
 };

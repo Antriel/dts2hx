@@ -9,7 +9,7 @@ package js.lib;
 	@:overload(function<TArrayBuffer>(buffer:TArrayBuffer, ?byteOffset:Float, ?length:Float):Uint32Array_<TArrayBuffer> { })
 	@:overload(function(buffer:js.lib.ArrayBuffer, ?byteOffset:Float, ?length:Float):Uint32Array_<js.lib.ArrayBuffer> { })
 	@:overload(function(array:ts.AnyOf2<js.lib.ArrayBuffer, ArrayLike<Float>>):Uint32Array_<js.lib.ArrayBuffer> { })
-	@:overload(function(elements:Iterable<Float>):Uint32Array_<js.lib.ArrayBuffer> { })
+	@:overload(function(elements:js.lib.Iterable<Float, Dynamic, Dynamic>):Uint32Array_<js.lib.ArrayBuffer> { })
 	function new(length:Float);
 	/**
 		The size in bytes of each element in the array.
@@ -159,7 +159,7 @@ package js.lib;
 		Creates an array from an array-like or iterable object.
 	**/
 	@:overload(function<T>(arrayLike:ArrayLike<T>, mapfn:(v:T, k:Float) -> Float, ?thisArg:Dynamic):Uint32Array_<js.lib.ArrayBuffer> { })
-	@:overload(function(elements:Iterable<Float>):Uint32Array_<js.lib.ArrayBuffer> { })
-	@:overload(function<T>(elements:Iterable<T>, ?mapfn:(v:T, k:Float) -> Float, ?thisArg:Dynamic):Uint32Array_<js.lib.ArrayBuffer> { })
+	@:overload(function(elements:js.lib.Iterable<Float, Dynamic, Dynamic>):Uint32Array_<js.lib.ArrayBuffer> { })
+	@:overload(function<T>(elements:js.lib.Iterable<T, Dynamic, Dynamic>, ?mapfn:(v:T, k:Float) -> Float, ?thisArg:Dynamic):Uint32Array_<js.lib.ArrayBuffer> { })
 	static function from(arrayLike:ArrayLike<Float>):Uint32Array_<js.lib.ArrayBuffer>;
 }
