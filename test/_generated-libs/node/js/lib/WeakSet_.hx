@@ -1,7 +1,7 @@
 package js.lib;
 
 @:native("WeakSet") extern class WeakSet_<T> {
-	@:overload(function<T>(iterable:Iterable<T, Dynamic, Dynamic>):WeakSet_<T> { })
+	@:overload(function<T>(iterable:js.lib.Iterable<T, Dynamic, Dynamic>):WeakSet_<T> { })
 	function new<T>(?values:haxe.ds.ReadOnlyArray<T>);
 	/**
 		Appends a new value to the end of the WeakSet.

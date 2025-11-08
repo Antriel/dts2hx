@@ -350,7 +350,9 @@ class ConverterContext {
 
 		// if accessContext symbol has the same package as the target symbol, we can shorten the type path by removing the pack
 		// we don't shorten std lib types because they are not generated
-		var noPack = if (shortenTypePaths && !hxTypePath.isExistingStdLibType) {
+		// we also don't shorten types that would clash with Haxe stdlib types (like Iterable, Iterator, etc.)
+		var wouldClashWithHaxeStdLib = hxTypePath.pack.length > 0 && ["Iterable", "Iterator", "KeyValueIterable", "KeyValueIterator"].indexOf(hxTypePath.moduleName) != -1;
+		var noPack = if (shortenTypePaths && !hxTypePath.isExistingStdLibType && !wouldClashWithHaxeStdLib) {
 			if (moduleSymbol != null) {
 				var contextTypePath = haxeTypePathMap.getTypePath(moduleSymbol, accessContext, false);
 				contextTypePath.pack.join('.') == hxTypePath.pack.join('.'); // same package context
