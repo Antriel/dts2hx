@@ -56,12 +56,12 @@ typedef QuickInput = {
 		Makes the input UI visible in its current configuration. Any other input
 		UI will first fire an [QuickInput.onDidHide](#QuickInput.onDidHide) event.
 	**/
-	function show(unknown:Dynamic):Void;
+	function show():Void;
 	/**
 		Hides this input UI. This will also fire an [QuickInput.onDidHide](#QuickInput.onDidHide)
 		event.
 	**/
-	function hide(unknown:Dynamic):Void;
+	function hide():Void;
 	/**
 		An event signaling when this input UI is hidden.
 		
@@ -70,12 +70,12 @@ typedef QuickInput = {
 		(Examples include: an explicit call to [QuickInput.hide](#QuickInput.hide),
 		the user pressing Esc, some other input UI opening, etc.)
 	**/
-	dynamic function onDidHide(unknown:Dynamic):Disposable;
+	dynamic function onDidHide(listener:(e:ts.Undefined) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		Dispose of this input UI and any associated resources. If it is still
 		visible, it is first hidden. After this call the input UI is no longer
 		functional and no additional methods or properties on it should be
 		accessed. Instead a new input UI should be created.
 	**/
-	function dispose(unknown:Dynamic):Void;
+	function dispose():Void;
 };

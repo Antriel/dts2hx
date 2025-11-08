@@ -26,35 +26,35 @@ typedef DiagnosticCollection = {
 		If a diagnostics item is `undefined` as in `[file1, undefined]`
 		all previous but not subsequent diagnostics are removed.
 	**/
-	@:overload(function(unknown:Dynamic):Void { })
-	function set(unknown:Dynamic):Void;
+	@:overload(function(entries:haxe.ds.ReadOnlyArray<ts.Tuple2<Uri, Null<haxe.ds.ReadOnlyArray<Diagnostic>>>>):Void { })
+	function set(uri:Uri, diagnostics:Null<haxe.ds.ReadOnlyArray<Diagnostic>>):Void;
 	/**
 		Remove all diagnostics from this collection that belong
 		to the provided `uri`. The same as `#set(uri, undefined)`.
 	**/
-	function delete(unknown:Dynamic):Void;
+	function delete(uri:Uri):Void;
 	/**
 		Remove all diagnostics from this collection. The same
 		as calling `#set(undefined)`;
 	**/
-	function clear(unknown:Dynamic):Void;
+	function clear():Void;
 	/**
 		Iterate over each entry in this collection.
 	**/
-	function forEach(unknown:Dynamic):Void;
+	function forEach(callback:(uri:Uri, diagnostics:haxe.ds.ReadOnlyArray<Diagnostic>, collection:DiagnosticCollection) -> Dynamic, ?thisArg:Dynamic):Void;
 	/**
 		Get the diagnostics for a given resource. *Note* that you cannot
 		modify the diagnostics-array returned from this call.
 	**/
-	function get(unknown:Dynamic):Null<haxe.ds.ReadOnlyArray<Diagnostic>>;
+	function get(uri:Uri):Null<haxe.ds.ReadOnlyArray<Diagnostic>>;
 	/**
 		Check if this collection contains diagnostics for a
 		given resource.
 	**/
-	function has(unknown:Dynamic):Bool;
+	function has(uri:Uri):Bool;
 	/**
 		Dispose and free associated resources. Calls
 		[clear](#DiagnosticCollection.clear).
 	**/
-	function dispose(unknown:Dynamic):Void;
+	function dispose():Void;
 };

@@ -13,11 +13,11 @@ typedef Effects = {
 	/**
 		_overridable_ Clears up the `setInterval`
 	**/
-	function stop(unknown:Dynamic):Void;
+	function stop():Void;
 	/**
 		Calls `.run()` on each object in the `jQuery.timers` array, removing it from the array if `.run()` returns a falsy value. Calls `jQuery.fx.stop()` whenever there are no timers remaining.
 	**/
-	function tick(unknown:Dynamic):Void;
+	function tick():Void;
 	/**
 		_overridable_ Creates a `setInterval` if one doesn't already exist, and pushes `tickFunction` to the `jQuery.timers` array. `tickFunction` should also have `anim`, `elem`, and `queue` properties that reference the animation object, animated element, and queue option to facilitate `jQuery.fn.stop()`
 		
@@ -29,5 +29,5 @@ typedef Effects = {
 		}
 		\`
 	**/
-	function timer(unknown:Dynamic):Void;
+	function timer(tickFunction:TickFunction<Dynamic>):Void;
 };

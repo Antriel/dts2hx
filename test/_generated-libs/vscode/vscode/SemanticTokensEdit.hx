@@ -4,7 +4,7 @@ package vscode;
 	Represents an edit to semantic tokens.
 **/
 @:jsRequire("vscode", "SemanticTokensEdit") extern class SemanticTokensEdit {
-	function new(unknown:Dynamic);
+	function new(start:Float, deleteCount:Float, ?data:js.lib.Uint32Array_<js.lib.ArrayBuffer>);
 	/**
 		The start offset of the edit.
 	**/

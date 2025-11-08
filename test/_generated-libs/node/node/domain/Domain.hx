@@ -1,22 +1,22 @@
 package node.domain;
 
 @:jsRequire("domain", "Domain") extern class Domain extends node.events.EventEmitter {
-	function run<T>(unknown:Dynamic):T;
-	function add(unknown:Dynamic):Void;
-	function remove(unknown:Dynamic):Void;
-	function bind<T>(unknown:Dynamic):T;
-	function intercept<T>(unknown:Dynamic):T;
+	function run<T>(fn:(args:haxe.extern.Rest<Dynamic>) -> T, args:haxe.extern.Rest<Dynamic>):T;
+	function add(emitter:ts.AnyOf2<global.nodejs.Timer, node.events.EventEmitter>):Void;
+	function remove(emitter:ts.AnyOf2<global.nodejs.Timer, node.events.EventEmitter>):Void;
+	function bind<T>(cb:T):T;
+	function intercept<T>(cb:T):T;
 	var members : Array<ts.AnyOf2<global.nodejs.Timer, node.events.EventEmitter>>;
-	function enter(unknown:Dynamic):Void;
-	function exit(unknown:Dynamic):Void;
-	function addListener(unknown:Dynamic):Domain;
-	function on(unknown:Dynamic):Domain;
-	function once(unknown:Dynamic):Domain;
-	function prependListener(unknown:Dynamic):Domain;
-	function prependOnceListener(unknown:Dynamic):Domain;
-	function removeListener(unknown:Dynamic):Domain;
-	function off(unknown:Dynamic):Domain;
-	function removeAllListeners(unknown:Dynamic):Domain;
-	function setMaxListeners(unknown:Dynamic):Domain;
+	function enter():Void;
+	function exit():Void;
+	function addListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Domain;
+	function on(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Domain;
+	function once(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Domain;
+	function prependListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Domain;
+	function prependOnceListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Domain;
+	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Domain;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Domain;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):Domain;
+	function setMaxListeners(n:Float):Domain;
 	static var prototype : Domain;
 }

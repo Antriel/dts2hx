@@ -5,7 +5,7 @@ package global.three;
 	Unlike other loaders, this one emits events instead of using predefined callbacks. So if you're interested in getting notified when things happen, you need to add listeners to the object.
 **/
 @:native("THREE.ImageLoader") extern class ImageLoader {
-	function new(unknown:Dynamic);
+	function new(?manager:LoadingManager);
 	var manager : LoadingManager;
 	var crossOrigin : String;
 	var withCredentials : String;
@@ -13,9 +13,9 @@ package global.three;
 	/**
 		Begin loading from url
 	**/
-	function load(unknown:Dynamic):js.html.ImageElement;
-	function setCrossOrigin(unknown:Dynamic):ImageLoader;
-	function setWithCredentials(unknown:Dynamic):ImageLoader;
-	function setPath(unknown:Dynamic):ImageLoader;
+	function load(url:String, ?onLoad:(image:js.html.ImageElement) -> Void, ?onProgress:(event:js.html.ProgressEvent_<js.html.EventTarget>) -> Void, ?onError:(event:js.html.ErrorEvent) -> Void):js.html.ImageElement;
+	function setCrossOrigin(crossOrigin:String):ImageLoader;
+	function setWithCredentials(value:String):ImageLoader;
+	function setPath(value:String):ImageLoader;
 	static var prototype : ImageLoader;
 }

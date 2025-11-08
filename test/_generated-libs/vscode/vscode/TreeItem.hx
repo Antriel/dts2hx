@@ -1,8 +1,8 @@
 package vscode;
 
 @:jsRequire("vscode", "TreeItem") extern class TreeItem {
-	@:overload(function(unknown:Dynamic):TreeItem { })
-	function new(unknown:Dynamic);
+	@:overload(function(resourceUri:Uri, ?collapsibleState:TreeItemCollapsibleState):TreeItem { })
+	function new(label:String, ?collapsibleState:TreeItemCollapsibleState);
 	/**
 		A human-readable string describing this item. When `falsy`, it is derived from [resourceUri](#TreeItem.resourceUri).
 	**/

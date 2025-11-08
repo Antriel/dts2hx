@@ -11,7 +11,7 @@ package vscode;
 	[here](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets).
 **/
 @:jsRequire("vscode", "SnippetString") extern class SnippetString {
-	function new(unknown:Dynamic);
+	function new(?value:String);
 	/**
 		The snippet string.
 	**/
@@ -20,26 +20,26 @@ package vscode;
 		Builder-function that appends the given string to
 		the [`value`](#SnippetString.value) of this snippet string.
 	**/
-	function appendText(unknown:Dynamic):SnippetString;
+	function appendText(string:String):SnippetString;
 	/**
 		Builder-function that appends a tabstop (`$1`, `$2` etc) to
 		the [`value`](#SnippetString.value) of this snippet string.
 	**/
-	function appendTabstop(unknown:Dynamic):SnippetString;
+	function appendTabstop(?number:Float):SnippetString;
 	/**
 		Builder-function that appends a placeholder (`${1:value}`) to
 		the [`value`](#SnippetString.value) of this snippet string.
 	**/
-	function appendPlaceholder(unknown:Dynamic):SnippetString;
+	function appendPlaceholder(value:ts.AnyOf2<String, (snippet:SnippetString) -> Dynamic>, ?number:Float):SnippetString;
 	/**
 		Builder-function that appends a choice (`${1|a,b,c}`) to
 		the [`value`](#SnippetString.value) of this snippet string.
 	**/
-	function appendChoice(unknown:Dynamic):SnippetString;
+	function appendChoice(values:Array<String>, ?number:Float):SnippetString;
 	/**
 		Builder-function that appends a variable (`${VAR}`) to
 		the [`value`](#SnippetString.value) of this snippet string.
 	**/
-	function appendVariable(unknown:Dynamic):SnippetString;
+	function appendVariable(name:String, defaultValue:ts.AnyOf2<String, (snippet:SnippetString) -> Dynamic>):SnippetString;
 	static var prototype : SnippetString;
 }

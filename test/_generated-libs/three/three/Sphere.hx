@@ -1,23 +1,23 @@
 package three;
 
 @:jsRequire("three", "Sphere") extern class Sphere {
-	function new(unknown:Dynamic);
+	function new(?center:Vector3, ?radius:Float);
 	var center : Vector3;
 	var radius : Float;
-	function set(unknown:Dynamic):Sphere;
-	function setFromPoints(unknown:Dynamic):Sphere;
-	function clone(unknown:Dynamic):Sphere;
-	function copy(unknown:Dynamic):Sphere;
-	function empty(unknown:Dynamic):Bool;
-	function containsPoint(unknown:Dynamic):Bool;
-	function distanceToPoint(unknown:Dynamic):Float;
-	function intersectsSphere(unknown:Dynamic):Bool;
-	function intersectsBox(unknown:Dynamic):Bool;
-	function intersectsPlane(unknown:Dynamic):Bool;
-	function clampPoint(unknown:Dynamic):Vector3;
-	function getBoundingBox(unknown:Dynamic):Box3;
-	function applyMatrix4(unknown:Dynamic):Sphere;
-	function translate(unknown:Dynamic):Sphere;
-	function equals(unknown:Dynamic):Bool;
+	function set(center:Vector3, radius:Float):Sphere;
+	function setFromPoints(points:Array<Vector3>, ?optionalCenter:Vector3):Sphere;
+	function clone():Sphere;
+	function copy(sphere:Sphere):Sphere;
+	function empty():Bool;
+	function containsPoint(point:Vector3):Bool;
+	function distanceToPoint(point:Vector3):Float;
+	function intersectsSphere(sphere:Sphere):Bool;
+	function intersectsBox(box:Box3):Bool;
+	function intersectsPlane(plane:Plane):Bool;
+	function clampPoint(point:Vector3, target:Vector3):Vector3;
+	function getBoundingBox(target:Box3):Box3;
+	function applyMatrix4(matrix:Matrix4):Sphere;
+	function translate(offset:Vector3):Sphere;
+	function equals(sphere:Sphere):Bool;
 	static var prototype : Sphere;
 }

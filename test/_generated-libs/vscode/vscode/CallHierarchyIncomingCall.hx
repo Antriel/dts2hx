@@ -7,7 +7,7 @@ package vscode;
 	/**
 		Create a new call object.
 	**/
-	function new(unknown:Dynamic);
+	function new(item:CallHierarchyItem, fromRanges:Array<Range>);
 	/**
 		The item that makes the call.
 	**/

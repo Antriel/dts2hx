@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "PointsMaterial") extern class PointsMaterial extends Material {
-	function new(unknown:Dynamic);
+	function new(?parameters:PointsMaterialParameters);
 	var color : Color;
 	var map : Null<Texture>;
 	var size : Float;
@@ -9,14 +9,14 @@ package three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(unknown:Dynamic):Void;
+	function setValues(parameters:PointsMaterialParameters):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone(unknown:Dynamic):PointsMaterial;
+	function clone():PointsMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(unknown:Dynamic):PointsMaterial;
+	function copy(material:Material):PointsMaterial;
 	static var prototype : PointsMaterial;
 }

@@ -1,3 +1,3 @@
 package lodash;
 
-typedef MergeWithCustomizer = (unknown:Dynamic) -> Dynamic;
+typedef MergeWithCustomizer = (value:Dynamic, srcValue:Dynamic, key:String, object:Dynamic, source:Dynamic, stack:Dynamic) -> Dynamic;

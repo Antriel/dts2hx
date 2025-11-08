@@ -7,5 +7,5 @@ typedef Progress<T> = {
 	/**
 		Report a progress update.
 	**/
-	function report(unknown:Dynamic):Void;
+	function report(value:T):Void;
 };

@@ -89,5 +89,5 @@ typedef ServeStaticOptions<R> = {
 		stat the stat object of the file that is being sent
 	**/
 	@:optional
-	dynamic function setHeaders(unknown:Dynamic):Dynamic;
+	dynamic function setHeaders(res:R, path:String, stat:Dynamic):Dynamic;
 };

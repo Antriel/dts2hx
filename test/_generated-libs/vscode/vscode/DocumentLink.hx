@@ -8,7 +8,7 @@ package vscode;
 	/**
 		Creates a new document link.
 	**/
-	function new(unknown:Dynamic);
+	function new(range:Range, ?target:Uri);
 	/**
 		The range this link applies to.
 	**/

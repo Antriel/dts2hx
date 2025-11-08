@@ -9,7 +9,7 @@ package vscode;
 	/**
 		Creates a new related diagnostic information object.
 	**/
-	function new(unknown:Dynamic);
+	function new(location:Location, message:String);
 	/**
 		The location of this related diagnostic information.
 	**/

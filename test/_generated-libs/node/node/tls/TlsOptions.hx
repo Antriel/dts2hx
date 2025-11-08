@@ -12,7 +12,7 @@ typedef TlsOptions = {
 	@:optional
 	var ALPNProtocols : ts.AnyOf5<Array<String>, js.lib.Uint8Array_<js.lib.ArrayBufferLike>, global.Buffer, Array<js.lib.Uint8Array_<js.lib.ArrayBufferLike>>, Array<global.Buffer>>;
 	@:optional
-	dynamic function SNICallback(unknown:Dynamic):Void;
+	dynamic function SNICallback(servername:String, cb:(err:Null<js.lib.Error>, ctx:SecureContext) -> Void):Void;
 	@:optional
 	var sessionTimeout : Float;
 	@:optional

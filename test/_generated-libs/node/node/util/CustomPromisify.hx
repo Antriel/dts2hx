@@ -4,20 +4,20 @@ typedef CustomPromisify<TCustom> = {
 	/**
 		Calls the function, substituting the specified object for the this value of the function, and the specified array for the arguments of the function.
 	**/
-	function apply(unknown:Dynamic):Dynamic;
+	function apply(thisArg:Dynamic, ?argArray:Dynamic):Dynamic;
 	/**
 		Calls a method of an object, substituting another object for the current object.
 	**/
-	function call(unknown:Dynamic):Dynamic;
+	function call(thisArg:Dynamic, argArray:haxe.extern.Rest<Dynamic>):Dynamic;
 	/**
 		For a given function, creates a bound function that has the same body as the original function.
 		The this object of the bound function is associated with the specified object, and has the specified initial parameters.
 	**/
-	function bind(unknown:Dynamic):Dynamic;
+	function bind(thisArg:Dynamic, argArray:haxe.extern.Rest<Dynamic>):Dynamic;
 	/**
 		Returns a string representation of a function.
 	**/
-	function toString(unknown:Dynamic):String;
+	function toString():String;
 	var prototype : Dynamic;
 	final length : Float;
 	var arguments : Dynamic;

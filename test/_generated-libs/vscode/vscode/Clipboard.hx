@@ -7,9 +7,9 @@ typedef Clipboard = {
 	/**
 		Read the current clipboard contents as text.
 	**/
-	function readText(unknown:Dynamic):global.Thenable<String>;
+	function readText():global.Thenable<String>;
 	/**
 		Writes text into the clipboard.
 	**/
-	function writeText(unknown:Dynamic):global.Thenable<ts.Undefined>;
+	function writeText(value:String):global.Thenable<ts.Undefined>;
 };

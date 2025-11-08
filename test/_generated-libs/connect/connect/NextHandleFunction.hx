@@ -1,3 +1,3 @@
 package connect;
 
-typedef NextHandleFunction = (unknown:Dynamic) -> Void;
+typedef NextHandleFunction = (req:IncomingMessage, res:node.http.ServerResponse, next:NextFunction) -> Void;

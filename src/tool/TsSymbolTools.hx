@@ -31,6 +31,50 @@ class TsSymbolTools {
 	}
 
 	/**
+		Safely get the name of a symbol as a String
+
+		In TypeScript 5.x, transient symbols (created by the checker) may have name = null/undefined.
+		This method provides a safe way to access symbol names with fallbacks.
+
+		Transient symbols are created by `tc.getExpandedParameters()` and other checker operations.
+
+		@param symbol The symbol to get the name from
+		@param fallback Optional fallback name if symbol has no name (default: "unknown")
+		@return The symbol's name as a String
+	**/
+	public static function getSymbolName(symbol: Symbol, ?fallback: String): String {
+		var name: Null<String> = null;
+
+		// Try getName() method if it exists (TypeScript 5.x official API)
+		// Check if the method exists at runtime
+		try {
+			if (js.Syntax.typeof(untyped symbol.getName) == "function") {
+				name = untyped symbol.getName();
+			}
+		} catch (e: Dynamic) {
+			// getName() not available, continue to fallbacks
+		}
+
+		// Fallback to name property if available
+		if ((name == null || name == '') && untyped symbol.name != null) {
+			name = untyped symbol.name;
+		}
+
+		// Fallback to escapedName if still empty
+		// escapedName is of type __String (internal TypeScript type), needs conversion
+		if (name == null || name == '') {
+			name = untyped symbol.escapedName;
+		}
+
+		// Final fallback
+		if (name == null || name == '') {
+			name = fallback != null ? fallback : 'unknown';
+		}
+
+		return name;
+	}
+
+	/**
 		Return `true` if symbol is a normal field: functions and variables, but excluding `Prototype`
 		It also skips ES5Symbol fields like `[Symbol.iterator]`
 	**/
@@ -38,7 +82,7 @@ class TsSymbolTools {
 		var isKnownSymbol = std.StringTools.startsWith(symbol.escapedName, '__@'); // see typescript's utilities.ts
 		final FieldSymbolFlags = SymbolFlags.Variable | SymbolFlags.Function | SymbolFlags.ClassMember;
 
-		if (symbol.name == '__promisify__') {
+		if (symbol.getName() == '__promisify__') {
 			return false;
 		}
 
@@ -51,7 +95,7 @@ class TsSymbolTools {
 	**/
 	public static function isExternalModuleSymbol(symbol: Symbol): Bool {
 		return (symbol.flags & SymbolFlags.Module != 0) &&
-				symbol.name.charCodeAt(0) == '"'.code;
+				symbol.getName().charCodeAt(0) == '"'.code;
 	}
 
 	public static function isSourceFileSymbol(symbol: Symbol): Bool {
@@ -357,9 +401,9 @@ class TsSymbolTools {
 	}
 
 	static public function isInternalSymbol(symbol: Symbol) {
-		return isInternalSymbolName(symbol.name);
+		return isInternalSymbolName(symbol.escapedName);
 	}
-	
+
 	static public function isInternalSymbolName(name: __String) {
 		var internalSymbolName = js.Syntax.code('require("typescript").InternalSymbolName');
 		var internalSymbolNames = js.lib.Object.values(internalSymbolName);

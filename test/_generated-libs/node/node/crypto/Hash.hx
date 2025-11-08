@@ -1,40 +1,40 @@
 package node.crypto;
 
 typedef Hash = {
-	@:overload(function(unknown:Dynamic):Hash { })
-	function update(unknown:Dynamic):Hash;
-	@:overload(function(unknown:Dynamic):String { })
-	function digest(unknown:Dynamic):global.Buffer;
+	@:overload(function(data:String, input_encoding:Utf8AsciiLatin1Encoding):Hash { })
+	function update(data:BinaryLike):Hash;
+	@:overload(function(encoding:HexBase64Latin1Encoding):String { })
+	function digest():global.Buffer;
 	var readable : Bool;
-	function read(unknown:Dynamic):ts.AnyOf2<String, global.Buffer>;
-	function setEncoding(unknown:Dynamic):Hash;
-	function pause(unknown:Dynamic):Hash;
-	function resume(unknown:Dynamic):Hash;
-	function isPaused(unknown:Dynamic):Bool;
-	function pipe<T>(unknown:Dynamic):T;
-	function unpipe(unknown:Dynamic):Hash;
-	@:overload(function(unknown:Dynamic):Void { })
-	function unshift(unknown:Dynamic):Void;
-	function wrap(unknown:Dynamic):Hash;
-	function addListener(unknown:Dynamic):Hash;
-	function on(unknown:Dynamic):Hash;
-	function once(unknown:Dynamic):Hash;
-	function removeListener(unknown:Dynamic):Hash;
-	function off(unknown:Dynamic):Hash;
-	function removeAllListeners(unknown:Dynamic):Hash;
-	function setMaxListeners(unknown:Dynamic):Hash;
-	function getMaxListeners(unknown:Dynamic):Float;
-	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function emit(unknown:Dynamic):Bool;
-	function listenerCount(unknown:Dynamic):Float;
-	function prependListener(unknown:Dynamic):Hash;
-	function prependOnceListener(unknown:Dynamic):Hash;
-	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	function read(?size:Float):ts.AnyOf2<String, global.Buffer>;
+	function setEncoding(encoding:String):Hash;
+	function pause():Hash;
+	function resume():Hash;
+	function isPaused():Bool;
+	function pipe<T>(destination:T, ?options:{ @:optional var end : Bool; }):T;
+	function unpipe(?destination:global.nodejs.WritableStream):Hash;
+	@:overload(function(chunk:global.Buffer):Void { })
+	function unshift(chunk:String):Void;
+	function wrap(oldStream:global.nodejs.ReadableStream):Hash;
+	function addListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Hash;
+	function on(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Hash;
+	function once(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Hash;
+	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Hash;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Hash;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):Hash;
+	function setMaxListeners(n:Float):Hash;
+	function getMaxListeners():Float;
+	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function emit(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool;
+	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
+	function prependListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Hash;
+	function prependOnceListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Hash;
+	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
 	var writable : Bool;
-	@:overload(function(unknown:Dynamic):Bool { })
-	function write(unknown:Dynamic):Bool;
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	function end(unknown:Dynamic):Void;
+	@:overload(function(str:String, ?encoding:String, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool { })
+	function write(buffer:ts.AnyOf3<String, js.lib.Uint8Array_<js.lib.ArrayBufferLike>, global.Buffer>, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool;
+	@:overload(function(data:ts.AnyOf3<String, js.lib.Uint8Array_<js.lib.ArrayBufferLike>, global.Buffer>, ?cb:() -> Void):Void { })
+	@:overload(function(str:String, ?encoding:String, ?cb:() -> Void):Void { })
+	function end(?cb:() -> Void):Void;
 };

@@ -10,15 +10,15 @@ typedef TreeDataProvider<T> = {
 		To signal that root has changed, do not pass any argument or pass `undefined` or `null`.
 	**/
 	@:optional
-	dynamic function onDidChangeTreeData(unknown:Dynamic):Disposable;
+	dynamic function onDidChangeTreeData(listener:(e:Null<T>) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		Get [TreeItem](#TreeItem) representation of the `element`
 	**/
-	function getTreeItem(unknown:Dynamic):ts.AnyOf2<TreeItem, global.Thenable<TreeItem>>;
+	function getTreeItem(element:T):ts.AnyOf2<TreeItem, global.Thenable<TreeItem>>;
 	/**
 		Get the children of `element` or root if no element is passed.
 	**/
-	function getChildren(unknown:Dynamic):ProviderResult<Array<T>>;
+	function getChildren(?element:T):ProviderResult<Array<T>>;
 	/**
 		Optional method to return the parent of `element`.
 		Return `null` or `undefined` if `element` is a child of root.
@@ -26,5 +26,5 @@ typedef TreeDataProvider<T> = {
 		**NOTE:** This method should be implemented in order to access [reveal](#TreeView.reveal) API.
 	**/
 	@:optional
-	function getParent(unknown:Dynamic):ProviderResult<T>;
+	function getParent(element:T):ProviderResult<T>;
 };

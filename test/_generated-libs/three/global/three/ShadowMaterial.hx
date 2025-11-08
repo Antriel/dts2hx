@@ -1,14 +1,14 @@
 package global.three;
 
 @:native("THREE.ShadowMaterial") extern class ShadowMaterial extends ShaderMaterial {
-	function new(unknown:Dynamic);
+	function new(?parameters:ShaderMaterialParameters);
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone(unknown:Dynamic):ShadowMaterial;
+	function clone():ShadowMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(unknown:Dynamic):ShadowMaterial;
+	function copy(material:Material):ShadowMaterial;
 	static var prototype : ShadowMaterial;
 }

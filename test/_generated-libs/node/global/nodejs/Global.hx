@@ -18,28 +18,28 @@ typedef Global = {
 			If provided, the {encoding} parameter identifies the character encoding.
 			If not provided, {encoding} defaults to 'utf8'.
 		**/
-		@:overload(function(unknown:Dynamic):global.Buffer { })
-		@:overload(function(unknown:Dynamic):global.Buffer { })
-		@:overload(function(unknown:Dynamic):global.Buffer { })
-		function from(unknown:Dynamic):global.Buffer;
+		@:overload(function(data:Array<Float>):global.Buffer { })
+		@:overload(function(data:js.lib.Uint8Array_<js.lib.ArrayBufferLike>):global.Buffer { })
+		@:overload(function(str:String, ?encoding:String):global.Buffer { })
+		function from(arrayBuffer:ts.AnyOf2<js.lib.ArrayBuffer, js.lib.SharedArrayBuffer>, ?byteOffset:Float, ?length:Float):global.Buffer;
 		/**
 			Creates a new Buffer using the passed {data}
 		**/
-		function of(unknown:Dynamic):global.Buffer;
+		function of(items:haxe.extern.Rest<Float>):global.Buffer;
 		/**
 			Returns true if {obj} is a Buffer
 		**/
-		function isBuffer(unknown:Dynamic):Bool;
+		function isBuffer(obj:Dynamic):Bool;
 		/**
 			Returns true if {encoding} is a valid encoding argument.
 			Valid string encodings in Node 0.12: 'ascii'|'utf8'|'utf16le'|'ucs2'(alias of 'utf16le')|'base64'|'binary'(deprecated)|'hex'
 		**/
-		function isEncoding(unknown:Dynamic):Null<Bool>;
+		function isEncoding(encoding:String):Null<Bool>;
 		/**
 			Gives the actual byte length of a string. encoding defaults to 'utf8'.
 			This is not the same as String.prototype.length since that returns the number of characters in a string.
 		**/
-		function byteLength(unknown:Dynamic):Float;
+		function byteLength(string:ts.AnyOf13<String, js.lib.ArrayBuffer, js.lib.SharedArrayBuffer, js.lib.DataView_<js.lib.ArrayBufferLike>, js.lib.Uint8Array_<js.lib.ArrayBufferLike>, js.lib.Uint8ClampedArray_<js.lib.ArrayBufferLike>, js.lib.Uint16Array_<js.lib.ArrayBufferLike>, js.lib.Uint32Array_<js.lib.ArrayBufferLike>, js.lib.Int8Array_<js.lib.ArrayBufferLike>, js.lib.Int16Array_<js.lib.ArrayBufferLike>, js.lib.Int32Array_<js.lib.ArrayBufferLike>, js.lib.Float32Array_<js.lib.ArrayBufferLike>, js.lib.Float64Array_<js.lib.ArrayBufferLike>>, ?encoding:String):Float;
 		/**
 			Returns a buffer which is the result of concatenating all the buffers in the list together.
 			
@@ -47,25 +47,25 @@ typedef Global = {
 			If the list has exactly one item, then the first item of the list is returned.
 			If the list has more than one item, then a new Buffer is created.
 		**/
-		function concat(unknown:Dynamic):global.Buffer;
+		function concat(list:Array<js.lib.Uint8Array_<js.lib.ArrayBufferLike>>, ?totalLength:Float):global.Buffer;
 		/**
 			The same as buf1.compare(buf2).
 		**/
-		function compare(unknown:Dynamic):Float;
+		function compare(buf1:js.lib.Uint8Array_<js.lib.ArrayBufferLike>, buf2:js.lib.Uint8Array_<js.lib.ArrayBufferLike>):Float;
 		/**
 			Allocates a new buffer of {size} octets.
 		**/
-		function alloc(unknown:Dynamic):global.Buffer;
+		function alloc(size:Float, ?fill:ts.AnyOf3<String, Float, global.Buffer>, ?encoding:String):global.Buffer;
 		/**
 			Allocates a new buffer of {size} octets, leaving memory not initialized, so the contents
 			of the newly created Buffer are unknown and may contain sensitive data.
 		**/
-		function allocUnsafe(unknown:Dynamic):global.Buffer;
+		function allocUnsafe(size:Float):global.Buffer;
 		/**
 			Allocates a new non-pooled buffer of {size} octets, leaving memory not initialized, so the contents
 			of the newly created Buffer are unknown and may contain sensitive data.
 		**/
-		function allocUnsafeSlow(unknown:Dynamic):global.Buffer;
+		function allocUnsafeSlow(size:Float):global.Buffer;
 		/**
 			This is the number of bytes used to determine the size of pre-allocated, internal Buffer instances used for pooling. This value may be modified.
 		**/
@@ -94,7 +94,7 @@ typedef Global = {
 			
 			[MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/getCanonicalLocales)
 		**/
-		function getCanonicalLocales(unknown:Dynamic):Array<String>;
+		function getCanonicalLocales(?locale:ts.AnyOf2<String, haxe.ds.ReadOnlyArray<String>>):Array<String>;
 		final PluralRules : js.lib.intl.PluralRulesConstructor;
 		/**
 			The [`Intl.RelativeTimeFormat`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RelativeTimeFormat)
@@ -108,7 +108,7 @@ typedef Global = {
 				that are supported in date and time formatting
 				without having to fall back to the runtime's default locale.
 			**/
-			function supportedLocalesOf(unknown:Dynamic):Array<String>;
+			function supportedLocalesOf(?locales:js.lib.intl.LocalesArgument, ?options:js.lib.intl.RelativeTimeFormat.RelativeTimeFormatOptions):Array<String>;
 		};
 		/**
 			Constructor creates [Intl.Locale](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale)
@@ -126,7 +126,7 @@ typedef Global = {
 			/**
 				Returns an array containing those of the provided locales that are supported in display names without having to fall back to the runtime's default locale.
 			**/
-			function supportedLocalesOf(unknown:Dynamic):Array<String>;
+			function supportedLocalesOf(?locales:js.lib.intl.LocalesArgument, ?options:{ @:optional var localeMatcher : js.lib.intl.RelativeTimeFormatLocaleMatcher; }):Array<String>;
 		};
 	};
 	var JSON : js.lib.JSON;
@@ -151,31 +151,31 @@ typedef Global = {
 	var Uint8ClampedArray : haxe.Constraints.Function;
 	var WeakMap : js.lib.WeakMapConstructor;
 	var WeakSet : js.lib.WeakSetConstructor;
-	dynamic function clearImmediate(unknown:Dynamic):Void;
-	dynamic function clearInterval(unknown:Dynamic):Void;
-	dynamic function clearTimeout(unknown:Dynamic):Void;
+	dynamic function clearImmediate(immediateId:Immediate):Void;
+	dynamic function clearInterval(intervalId:Timeout):Void;
+	dynamic function clearTimeout(timeoutId:Timeout):Void;
 	var console : js.html.Console;
-	dynamic function decodeURI(unknown:Dynamic):String;
-	dynamic function decodeURIComponent(unknown:Dynamic):String;
-	dynamic function encodeURI(unknown:Dynamic):String;
-	dynamic function encodeURIComponent(unknown:Dynamic):String;
-	dynamic function escape(unknown:Dynamic):String;
-	dynamic function eval(unknown:Dynamic):Dynamic;
+	dynamic function decodeURI(encodedURI:String):String;
+	dynamic function decodeURIComponent(encodedURIComponent:String):String;
+	dynamic function encodeURI(uri:String):String;
+	dynamic function encodeURIComponent(uriComponent:ts.AnyOf3<String, Float, Bool>):String;
+	dynamic function escape(str:String):String;
+	dynamic function eval(x:String):Dynamic;
 	var global : Global;
-	dynamic function isFinite(unknown:Dynamic):Bool;
-	dynamic function isNaN(unknown:Dynamic):Bool;
-	dynamic function parseFloat(unknown:Dynamic):Float;
-	dynamic function parseInt(unknown:Dynamic):Float;
+	dynamic function isFinite(number:Float):Bool;
+	dynamic function isNaN(number:Float):Bool;
+	dynamic function parseFloat(string:String):Float;
+	dynamic function parseInt(string:String, ?radix:Float):Float;
 	var process : Process;
 	var root : Global;
-	dynamic function setImmediate(unknown:Dynamic):Immediate;
-	dynamic function setInterval(unknown:Dynamic):Timeout;
-	dynamic function setTimeout(unknown:Dynamic):Timeout;
-	@:overload(function(unknown:Dynamic):Void { })
-	dynamic function queueMicrotask(unknown:Dynamic):Void;
+	dynamic function setImmediate(callback:(args:haxe.extern.Rest<Dynamic>) -> Void, args:haxe.extern.Rest<Dynamic>):Immediate;
+	dynamic function setInterval(callback:(args:haxe.extern.Rest<Dynamic>) -> Void, ms:Float, args:haxe.extern.Rest<Dynamic>):Timeout;
+	dynamic function setTimeout(callback:(args:haxe.extern.Rest<Dynamic>) -> Void, ms:Float, args:haxe.extern.Rest<Dynamic>):Timeout;
+	@:overload(function(callback:() -> Void):Void { })
+	dynamic function queueMicrotask(callback:js.html.VoidFunction):Void;
 	var undefined : Null<Any>;
-	dynamic function unescape(unknown:Dynamic):String;
-	dynamic function gc(unknown:Dynamic):Void;
+	dynamic function unescape(str:String):String;
+	dynamic function gc():Void;
 	@:optional
 	var v8debug : Dynamic;
 };

@@ -1,46 +1,46 @@
 package three;
 
 @:jsRequire("three", "PolarGridHelper") extern class PolarGridHelper extends LineSegments {
-	function new(unknown:Dynamic);
-	function computeLineDistances(unknown:Dynamic):PolarGridHelper;
-	function applyQuaternion(unknown:Dynamic):PolarGridHelper;
+	function new(radius:Float, radials:Float, circles:Float, divisions:Float, color1:Null<ts.AnyOf3<String, Float, Color>>, color2:Null<ts.AnyOf3<String, Float, Color>>);
+	function computeLineDistances():PolarGridHelper;
+	function applyQuaternion(quaternion:Quaternion):PolarGridHelper;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(unknown:Dynamic):PolarGridHelper;
+	function rotateOnAxis(axis:Vector3, angle:Float):PolarGridHelper;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(unknown:Dynamic):PolarGridHelper;
-	function rotateX(unknown:Dynamic):PolarGridHelper;
-	function rotateY(unknown:Dynamic):PolarGridHelper;
-	function rotateZ(unknown:Dynamic):PolarGridHelper;
-	function translateOnAxis(unknown:Dynamic):PolarGridHelper;
+	function rotateOnWorldAxis(axis:Vector3, angle:Float):PolarGridHelper;
+	function rotateX(angle:Float):PolarGridHelper;
+	function rotateY(angle:Float):PolarGridHelper;
+	function rotateZ(angle:Float):PolarGridHelper;
+	function translateOnAxis(axis:Vector3, distance:Float):PolarGridHelper;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(unknown:Dynamic):PolarGridHelper;
+	function translateX(distance:Float):PolarGridHelper;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(unknown:Dynamic):PolarGridHelper;
+	function translateY(distance:Float):PolarGridHelper;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(unknown:Dynamic):PolarGridHelper;
+	function translateZ(distance:Float):PolarGridHelper;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(unknown:Dynamic):PolarGridHelper;
+	function add(object:haxe.extern.Rest<Object3D>):PolarGridHelper;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(unknown:Dynamic):PolarGridHelper;
+	function remove(object:haxe.extern.Rest<Object3D>):PolarGridHelper;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(unknown:Dynamic):PolarGridHelper;
-	function clone(unknown:Dynamic):PolarGridHelper;
-	function copy(unknown:Dynamic):PolarGridHelper;
+	function attach(object:Object3D):PolarGridHelper;
+	function clone(?recursive:Bool):PolarGridHelper;
+	function copy(source:PolarGridHelper, ?recursive:Bool):PolarGridHelper;
 	static var prototype : PolarGridHelper;
 }

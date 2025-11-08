@@ -4,7 +4,7 @@ package vscode;
 	Represents semantic tokens, either in a range or in an entire document.
 **/
 @:jsRequire("vscode", "SemanticTokens") extern class SemanticTokens {
-	function new(unknown:Dynamic);
+	function new(data:js.lib.Uint32Array_<js.lib.ArrayBuffer>, ?resultId:String);
 	/**
 		The result id of the tokens.
 		

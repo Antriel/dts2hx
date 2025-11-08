@@ -1,6 +1,6 @@
 package node.buffer;
 
 @:jsRequire("buffer", "SlowBuffer") extern class SlowBuffer {
-	function new(unknown:Dynamic);
+	function new(size:Float);
 	static var prototype : global.Buffer;
 }

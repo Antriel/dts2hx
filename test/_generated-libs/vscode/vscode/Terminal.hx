@@ -42,17 +42,17 @@ typedef Terminal = {
 		Send text to the terminal. The text is written to the stdin of the underlying pty process
 		(shell) of the terminal.
 	**/
-	function sendText(unknown:Dynamic):Void;
+	function sendText(text:String, ?addNewLine:Bool):Void;
 	/**
 		Show the terminal panel and reveal this terminal in the UI.
 	**/
-	function show(unknown:Dynamic):Void;
+	function show(?preserveFocus:Bool):Void;
 	/**
 		Hide the terminal panel if this terminal is currently showing.
 	**/
-	function hide(unknown:Dynamic):Void;
+	function hide():Void;
 	/**
 		Dispose and free associated resources.
 	**/
-	function dispose(unknown:Dynamic):Void;
+	function dispose():Void;
 };

@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "TextGeometry") extern class TextGeometry extends ExtrudeGeometry {
-	function new(unknown:Dynamic);
+	function new(text:String, ?parameters:TextGeometryParameters);
 	var parameters : {
 		var font : Font;
 		var size : Float;
@@ -13,11 +13,11 @@ package three;
 		var bevelOffset : Float;
 		var bevelSegments : Float;
 	};
-	function setFromPoints(unknown:Dynamic):TextGeometry;
+	function setFromPoints(points:ts.AnyOf2<Array<Vector3>, Array<Vector2>>):TextGeometry;
 	/**
 		Creates a new clone of the Geometry.
 	**/
-	function clone(unknown:Dynamic):TextGeometry;
-	function copy(unknown:Dynamic):TextGeometry;
+	function clone():TextGeometry;
+	function copy(source:Geometry):TextGeometry;
 	static var prototype : TextGeometry;
 }

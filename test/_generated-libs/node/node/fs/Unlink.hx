@@ -8,5 +8,5 @@ package node.fs;
 		Asynchronous unlink(2) - delete a name and possibly the file it refers to.
 	**/
 	@:selfCall
-	static function call(unknown:Dynamic):Void;
+	static function call(path:PathLike, callback:(err:global.nodejs.ErrnoException) -> Void):Void;
 }

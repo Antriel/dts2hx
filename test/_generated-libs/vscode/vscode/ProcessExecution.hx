@@ -8,8 +8,8 @@ package vscode;
 	/**
 		Creates a process execution.
 	**/
-	@:overload(function(unknown:Dynamic):ProcessExecution { })
-	function new(unknown:Dynamic);
+	@:overload(function(process:String, args:Array<String>, ?options:ProcessExecutionOptions):ProcessExecution { })
+	function new(process:String, ?options:ProcessExecutionOptions);
 	/**
 		The process to be executed.
 	**/

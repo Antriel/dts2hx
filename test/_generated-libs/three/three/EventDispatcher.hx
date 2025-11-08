@@ -7,22 +7,22 @@ package three;
 	/**
 		Creates eventDispatcher object. It needs to be call with '.call' to add the functionality to an object.
 	**/
-	function new(unknown:Dynamic);
+	function new();
 	/**
 		Adds a listener to an event type.
 	**/
-	function addEventListener(unknown:Dynamic):Void;
+	function addEventListener(type:String, listener:(event:Event) -> Void):Void;
 	/**
 		Checks if listener is added to an event type.
 	**/
-	function hasEventListener(unknown:Dynamic):Bool;
+	function hasEventListener(type:String, listener:(event:Event) -> Void):Bool;
 	/**
 		Removes a listener from an event type.
 	**/
-	function removeEventListener(unknown:Dynamic):Void;
+	function removeEventListener(type:String, listener:(event:Event) -> Void):Void;
 	/**
 		Fire an event type.
 	**/
-	function dispatchEvent(unknown:Dynamic):Void;
+	function dispatchEvent(event:{ var type : String; }):Void;
 	static var prototype : EventDispatcher;
 }

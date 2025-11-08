@@ -9,12 +9,12 @@ typedef Float64ArrayConstructor = {
 	/**
 		Returns a new array from a set of elements.
 	**/
-	function of(unknown:Dynamic):Float64Array_<js.lib.ArrayBuffer>;
+	function of(items:haxe.extern.Rest<Float>):Float64Array_<js.lib.ArrayBuffer>;
 	/**
 		Creates an array from an array-like or iterable object.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Float64Array_<js.lib.ArrayBuffer> { })
-	@:overload(function(unknown:Dynamic):Float64Array_<js.lib.ArrayBuffer> { })
-	@:overload(function<T>(unknown:Dynamic):Float64Array_<js.lib.ArrayBuffer> { })
-	function from(unknown:Dynamic):Float64Array_<js.lib.ArrayBuffer>;
+	@:overload(function<T>(arrayLike:ArrayLike<T>, mapfn:(v:T, k:Float) -> Float, ?thisArg:Dynamic):Float64Array_<js.lib.ArrayBuffer> { })
+	@:overload(function(elements:Iterable<Float, Dynamic, Dynamic>):Float64Array_<js.lib.ArrayBuffer> { })
+	@:overload(function<T>(elements:Iterable<T, Dynamic, Dynamic>, ?mapfn:(v:T, k:Float) -> Float, ?thisArg:Dynamic):Float64Array_<js.lib.ArrayBuffer> { })
+	function from(arrayLike:ArrayLike<Float>):Float64Array_<js.lib.ArrayBuffer>;
 };

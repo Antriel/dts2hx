@@ -7,7 +7,7 @@ typedef BaseAdapter<SchemaT> = {
 	@:optional
 	var defaultValue : SchemaT;
 	@:optional
-	dynamic function serialize(unknown:Dynamic):String;
+	dynamic function serialize(data:SchemaT):String;
 	@:optional
-	dynamic function deserialize(unknown:Dynamic):SchemaT;
+	dynamic function deserialize(serializedData:String):SchemaT;
 };

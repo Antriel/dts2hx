@@ -10,15 +10,15 @@ package node.async_hooks;
 		new AsyncResource() also triggers init. If triggerAsyncId is omitted then
 		async_hook.executionAsyncId() is used.
 	**/
-	function new(unknown:Dynamic);
+	function new(type:String, ?triggerAsyncId:ts.AnyOf2<Float, AsyncResourceOptions>);
 	/**
 		Call AsyncHooks before callbacks.
 	**/
-	function emitBefore(unknown:Dynamic):Void;
+	function emitBefore():Void;
 	/**
 		Call AsyncHooks after callbacks.
 	**/
-	function emitAfter(unknown:Dynamic):Void;
+	function emitAfter():Void;
 	/**
 		Call the provided function with the provided arguments in the
 		execution context of the async resource. This will establish the
@@ -26,12 +26,12 @@ package node.async_hooks;
 		trigger the AsyncHooks after callbacks, and then restore the original
 		execution context.
 	**/
-	function runInAsyncScope<This, Result>(unknown:Dynamic):Result;
+	function runInAsyncScope<This, Result>(fn:(args:haxe.extern.Rest<Dynamic>) -> Result, ?thisArg:This, args:haxe.extern.Rest<Dynamic>):Result;
 	/**
 		Call AsyncHooks destroy callbacks.
 	**/
-	function emitDestroy(unknown:Dynamic):Void;
-	function asyncId(unknown:Dynamic):Float;
-	function triggerAsyncId(unknown:Dynamic):Float;
+	function emitDestroy():Void;
+	function asyncId():Float;
+	function triggerAsyncId():Float;
 	static var prototype : AsyncResource;
 }

@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.MeshBasicMaterial") extern class MeshBasicMaterial extends Material {
-	function new(unknown:Dynamic);
+	function new(?parameters:MeshBasicMaterialParameters);
 	var color : Color;
 	var map : Null<Texture>;
 	var aoMap : Null<Texture>;
@@ -21,14 +21,14 @@ package global.three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(unknown:Dynamic):Void;
+	function setValues(parameters:MeshBasicMaterialParameters):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone(unknown:Dynamic):MeshBasicMaterial;
+	function clone():MeshBasicMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(unknown:Dynamic):MeshBasicMaterial;
+	function copy(material:Material):MeshBasicMaterial;
 	static var prototype : MeshBasicMaterial;
 }

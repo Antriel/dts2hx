@@ -1,14 +1,14 @@
 package lowdb;
 
 typedef AdapterSync<SchemaT> = {
-	function write(unknown:Dynamic):Void;
+	function write(state:Dynamic):Void;
 	@:native("@@reference")
 	final AtReference : SchemaT;
 	var source : String;
 	@:optional
 	var defaultValue : SchemaT;
 	@:optional
-	dynamic function serialize(unknown:Dynamic):String;
+	dynamic function serialize(data:SchemaT):String;
 	@:optional
-	dynamic function deserialize(unknown:Dynamic):SchemaT;
+	dynamic function deserialize(serializedData:String):SchemaT;
 };

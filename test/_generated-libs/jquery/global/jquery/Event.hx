@@ -65,25 +65,25 @@ typedef Event = {
 	/**
 		Returns whether event.preventDefault() was ever called on this event object.
 	**/
-	function isDefaultPrevented(unknown:Dynamic):Bool;
+	function isDefaultPrevented():Bool;
 	/**
 		Returns whether event.stopImmediatePropagation() was ever called on this event object.
 	**/
-	function isImmediatePropagationStopped(unknown:Dynamic):Bool;
+	function isImmediatePropagationStopped():Bool;
 	/**
 		Returns whether event.stopPropagation() was ever called on this event object.
 	**/
-	function isPropagationStopped(unknown:Dynamic):Bool;
+	function isPropagationStopped():Bool;
 	/**
 		If this method is called, the default action of the event will not be triggered.
 	**/
-	function preventDefault(unknown:Dynamic):Void;
+	function preventDefault():Void;
 	/**
 		Keeps the rest of the handlers from being executed and prevents the event from bubbling up the DOM tree.
 	**/
-	function stopImmediatePropagation(unknown:Dynamic):Void;
+	function stopImmediatePropagation():Void;
 	/**
 		Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
 	**/
-	function stopPropagation(unknown:Dynamic):Void;
+	function stopPropagation():Void;
 };

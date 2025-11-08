@@ -1,13 +1,13 @@
 package global.three;
 
 @:native("THREE.Uniform") extern class Uniform {
-	@:overload(function(unknown:Dynamic):Uniform { })
-	function new(unknown:Dynamic);
+	@:overload(function(type:String, value:Dynamic):Uniform { })
+	function new(value:Dynamic);
 	var type : String;
 	var value : Dynamic;
 	@:native("dynamic")
 	var dynamic_ : Bool;
 	var onUpdateCallback : haxe.Constraints.Function;
-	function onUpdate(unknown:Dynamic):Uniform;
+	function onUpdate(callback:haxe.Constraints.Function):Uniform;
 	static var prototype : Uniform;
 }

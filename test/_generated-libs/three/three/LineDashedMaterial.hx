@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "LineDashedMaterial") extern class LineDashedMaterial extends LineBasicMaterial {
-	function new(unknown:Dynamic);
+	function new(?parameters:LineDashedMaterialParameters);
 	var scale : Float;
 	var dashSize : Float;
 	var gapSize : Float;
@@ -9,14 +9,14 @@ package three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(unknown:Dynamic):Void;
+	function setValues(parameters:LineDashedMaterialParameters):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone(unknown:Dynamic):LineDashedMaterial;
+	function clone():LineDashedMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(unknown:Dynamic):LineDashedMaterial;
+	function copy(material:Material):LineDashedMaterial;
 	static var prototype : LineDashedMaterial;
 }

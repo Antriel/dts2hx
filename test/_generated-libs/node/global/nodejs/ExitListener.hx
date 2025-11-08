@@ -1,3 +1,3 @@
 package global.nodejs;
 
-typedef ExitListener = (unknown:Dynamic) -> Void;
+typedef ExitListener = (code:Float) -> Void;

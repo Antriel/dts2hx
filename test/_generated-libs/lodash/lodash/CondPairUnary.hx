@@ -1,3 +1,3 @@
 package lodash;
 
-typedef CondPairUnary<T, R> = ts.Tuple2<(unknown:Dynamic) -> Bool, (unknown:Dynamic) -> R>;
+typedef CondPairUnary<T, R> = ts.Tuple2<(val:T) -> Bool, (val:T) -> R>;

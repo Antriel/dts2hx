@@ -1,9 +1,9 @@
 package three;
 
 @:jsRequire("three", "WebGLProperties") extern class WebGLProperties {
-	function new(unknown:Dynamic);
-	function get(unknown:Dynamic):Dynamic;
-	function delete(unknown:Dynamic):Void;
-	function clear(unknown:Dynamic):Void;
+	function new();
+	function get(object:Dynamic):Dynamic;
+	function delete(object:Dynamic):Void;
+	function clear():Void;
 	static var prototype : WebGLProperties;
 }

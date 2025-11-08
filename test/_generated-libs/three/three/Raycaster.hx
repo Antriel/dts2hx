@@ -4,7 +4,7 @@ package three;
 	/**
 		This creates a new raycaster object.
 	**/
-	function new(unknown:Dynamic);
+	function new(?origin:Vector3, ?direction:Vector3, ?near:Float, ?far:Float);
 	/**
 		The Ray used for the raycasting.
 	**/
@@ -27,18 +27,18 @@ package three;
 	/**
 		Updates the ray with a new origin and direction.
 	**/
-	function set(unknown:Dynamic):Void;
+	function set(origin:Vector3, direction:Vector3):Void;
 	/**
 		Updates the ray with a new origin and direction.
 	**/
-	function setFromCamera(unknown:Dynamic):Void;
+	function setFromCamera(coords:{ var x : Float; var y : Float; }, camera:Camera):Void;
 	/**
 		Checks all intersection between the ray and the object with or without the descendants. Intersections are returned sorted by distance, closest first.
 	**/
-	function intersectObject(unknown:Dynamic):Array<Intersection>;
+	function intersectObject(object:Object3D, ?recursive:Bool, ?optionalTarget:Array<Intersection>):Array<Intersection>;
 	/**
 		Checks all intersection between the ray and the objects with or without the descendants. Intersections are returned sorted by distance, closest first. Intersections are of the same form as those returned by .intersectObject.
 	**/
-	function intersectObjects(unknown:Dynamic):Array<Intersection>;
+	function intersectObjects(objects:Array<Object3D>, ?recursive:Bool, ?optionalTarget:Array<Intersection>):Array<Intersection>;
 	static var prototype : Raycaster;
 }

@@ -1,3 +1,3 @@
 package node.repl;
 
-typedef REPLWriter = (unknown:Dynamic) -> String;
+typedef REPLWriter = (obj:Dynamic) -> String;

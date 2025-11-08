@@ -1,48 +1,48 @@
 package three;
 
 @:jsRequire("three", "PlaneHelper") extern class PlaneHelper extends LineSegments {
-	function new(unknown:Dynamic);
+	function new(plane:Plane, ?size:Float, ?hex:Float);
 	var plane : Plane;
 	var size : Float;
-	function computeLineDistances(unknown:Dynamic):PlaneHelper;
-	function applyQuaternion(unknown:Dynamic):PlaneHelper;
+	function computeLineDistances():PlaneHelper;
+	function applyQuaternion(quaternion:Quaternion):PlaneHelper;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(unknown:Dynamic):PlaneHelper;
+	function rotateOnAxis(axis:Vector3, angle:Float):PlaneHelper;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(unknown:Dynamic):PlaneHelper;
-	function rotateX(unknown:Dynamic):PlaneHelper;
-	function rotateY(unknown:Dynamic):PlaneHelper;
-	function rotateZ(unknown:Dynamic):PlaneHelper;
-	function translateOnAxis(unknown:Dynamic):PlaneHelper;
+	function rotateOnWorldAxis(axis:Vector3, angle:Float):PlaneHelper;
+	function rotateX(angle:Float):PlaneHelper;
+	function rotateY(angle:Float):PlaneHelper;
+	function rotateZ(angle:Float):PlaneHelper;
+	function translateOnAxis(axis:Vector3, distance:Float):PlaneHelper;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(unknown:Dynamic):PlaneHelper;
+	function translateX(distance:Float):PlaneHelper;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(unknown:Dynamic):PlaneHelper;
+	function translateY(distance:Float):PlaneHelper;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(unknown:Dynamic):PlaneHelper;
+	function translateZ(distance:Float):PlaneHelper;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(unknown:Dynamic):PlaneHelper;
+	function add(object:haxe.extern.Rest<Object3D>):PlaneHelper;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(unknown:Dynamic):PlaneHelper;
+	function remove(object:haxe.extern.Rest<Object3D>):PlaneHelper;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(unknown:Dynamic):PlaneHelper;
-	function clone(unknown:Dynamic):PlaneHelper;
-	function copy(unknown:Dynamic):PlaneHelper;
+	function attach(object:Object3D):PlaneHelper;
+	function clone(?recursive:Bool):PlaneHelper;
+	function copy(source:PlaneHelper, ?recursive:Bool):PlaneHelper;
 	static var prototype : PlaneHelper;
 }

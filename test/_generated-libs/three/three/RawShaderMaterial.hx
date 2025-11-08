@@ -1,14 +1,14 @@
 package three;
 
 @:jsRequire("three", "RawShaderMaterial") extern class RawShaderMaterial extends ShaderMaterial {
-	function new(unknown:Dynamic);
+	function new(?parameters:ShaderMaterialParameters);
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone(unknown:Dynamic):RawShaderMaterial;
+	function clone():RawShaderMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(unknown:Dynamic):RawShaderMaterial;
+	function copy(material:Material):RawShaderMaterial;
 	static var prototype : RawShaderMaterial;
 }

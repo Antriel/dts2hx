@@ -1,10 +1,10 @@
 package global.three;
 
 @:native("THREE.InstancedBufferGeometry") extern class InstancedBufferGeometry extends BufferGeometry {
-	function new(unknown:Dynamic);
+	function new();
 	var maxInstancedCount : Float;
-	function addGroup(unknown:Dynamic):Void;
-	function clone(unknown:Dynamic):InstancedBufferGeometry;
-	function copy(unknown:Dynamic):InstancedBufferGeometry;
+	function addGroup(start:Float, count:Float, instances:Float):Void;
+	function clone():InstancedBufferGeometry;
+	function copy(source:BufferGeometry):InstancedBufferGeometry;
 	static var prototype : InstancedBufferGeometry;
 }

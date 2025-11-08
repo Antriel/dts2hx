@@ -8,5 +8,5 @@
 		The req is the Node.js HTTP request and the path is a urlencoded path to send (urlencoded, not the actual file-system path).
 	**/
 	@:selfCall
-	static function call(unknown:Dynamic):send.SendStream;
+	static function call(req:node.stream.Readable, path:String, ?options:send.SendOptions):send.SendStream;
 }

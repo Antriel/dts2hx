@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.TorusGeometry") extern class TorusGeometry extends Geometry {
-	function new(unknown:Dynamic);
+	function new(?radius:Float, ?tube:Float, ?radialSegments:Float, ?tubularSegments:Float, ?arc:Float);
 	var parameters : {
 		var radius : Float;
 		var tube : Float;
@@ -9,11 +9,11 @@ package global.three;
 		var tubularSegments : Float;
 		var arc : Float;
 	};
-	function setFromPoints(unknown:Dynamic):TorusGeometry;
+	function setFromPoints(points:ts.AnyOf2<Array<Vector3>, Array<Vector2>>):TorusGeometry;
 	/**
 		Creates a new clone of the Geometry.
 	**/
-	function clone(unknown:Dynamic):TorusGeometry;
-	function copy(unknown:Dynamic):TorusGeometry;
+	function clone():TorusGeometry;
+	function copy(source:Geometry):TorusGeometry;
 	static var prototype : TorusGeometry;
 }

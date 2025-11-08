@@ -5,6 +5,6 @@ typedef Zlib = {
 	final bytesWritten : Float;
 	@:optional
 	var shell : ts.AnyOf2<String, Bool>;
-	function close(unknown:Dynamic):Void;
-	function flush(unknown:Dynamic):Void;
+	function close(?callback:() -> Void):Void;
+	function flush(?kind:ts.AnyOf2<Float, () -> Void>, ?callback:() -> Void):Void;
 };

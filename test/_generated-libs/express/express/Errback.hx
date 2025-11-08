@@ -1,3 +1,3 @@
 package express;
 
-typedef Errback = (unknown:Dynamic) -> Void;
+typedef Errback = (err:js.lib.Error) -> Void;

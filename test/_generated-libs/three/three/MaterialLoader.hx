@@ -1,12 +1,12 @@
 package three;
 
 @:jsRequire("three", "MaterialLoader") extern class MaterialLoader {
-	function new(unknown:Dynamic);
+	function new(?manager:LoadingManager);
 	var manager : LoadingManager;
 	var textures : haxe.DynamicAccess<Texture>;
-	function load(unknown:Dynamic):Void;
-	function setTextures(unknown:Dynamic):Void;
-	function getTexture(unknown:Dynamic):Texture;
-	function parse(unknown:Dynamic):Material;
+	function load(url:String, onLoad:(material:Material) -> Void, ?onProgress:(event:js.html.ProgressEvent_<js.html.EventTarget>) -> Void, ?onError:(event:ts.AnyOf2<js.lib.Error, js.html.ErrorEvent>) -> Void):Void;
+	function setTextures(textures:haxe.DynamicAccess<Texture>):Void;
+	function getTexture(name:String):Texture;
+	function parse(json:Dynamic):Material;
 	static var prototype : MaterialLoader;
 }

@@ -1,9 +1,9 @@
 package global.three;
 
 @:native("THREE.InstancedBufferAttribute") extern class InstancedBufferAttribute extends BufferAttribute {
-	function new(unknown:Dynamic);
+	function new(array:js.lib.ArrayLike<Float>, itemSize:Float, ?normalized:Bool, ?meshPerAttribute:Float);
 	var meshPerAttribute : Float;
-	function clone(unknown:Dynamic):InstancedBufferAttribute;
-	function copy(unknown:Dynamic):InstancedBufferAttribute;
+	function clone():InstancedBufferAttribute;
+	function copy(source:BufferAttribute):InstancedBufferAttribute;
 	static var prototype : InstancedBufferAttribute;
 }

@@ -247,7 +247,7 @@ class ConverterContext {
 
 				if (isGlobalField(tc, symbol, access)) {
 					var globalModule = this.getGlobalModuleForFieldSymbol(symbol, access);
-					var field = fieldFromSymbol(symbol.name, symbol, symbol, Global([]), null);
+					var field = fieldFromSymbol(symbol.getSymbolName(), symbol, symbol, Global([]), null);
 					field.enableAccess(AStatic);
 					globalModule.fields.push(field);
 				}
@@ -1192,7 +1192,7 @@ class ConverterContext {
 				complexTypeFromTsType(thisTarget, moduleSymbol, accessContext, enclosingDeclaration);
 			} else {
 				TPath({
-					name: typeParameter.symbol.name.toSafeTypeName(),
+					name: typeParameter.symbol.getSymbolName().toSafeTypeName(),
 					pack: [],
 				});
 			}
@@ -1730,7 +1730,23 @@ class ConverterContext {
 			signature.typeParameters.map(t -> typeParamDeclFromTsTypeParameter(t, moduleSymbol, accessContext, enclosingDeclaration));
 		} else [];
 
-		var hxParameters = if (signature.parameters != null ) tc.getExpandedParameters(signature).map(s -> {
+		// TypeScript 5.x changed getExpandedParameters() to return [[Symbol...]] instead of [Symbol...]
+		// We need to unwrap the array
+		var rawExpandedParams = if (signature.parameters != null) tc.getExpandedParameters(signature) else null;
+		var expandedParams: Null<Array<Symbol>> = if (rawExpandedParams != null && rawExpandedParams.length > 0) {
+			// Check if first item is an array (TS 5.x behavior) and unwrap it
+			var isWrapped: Bool = untyped js.Syntax.code('Array.isArray({0}[0])', rawExpandedParams);
+			if (isWrapped) {
+				cast rawExpandedParams[0];
+			} else {
+				// TS 3.x behavior - use as-is
+				rawExpandedParams;
+			}
+		} else {
+			null;
+		}
+
+		var hxParameters = if (expandedParams != null) expandedParams.map(s -> {
 			var parameterDeclaration: Null<ParameterDeclaration> = cast s.valueDeclaration;
 			var isOptional = parameterDeclaration != null && tc.isOptionalParameter(parameterDeclaration);
 			var isRest = parameterDeclaration != null && parameterDeclaration.dotDotDotToken != null;
@@ -1760,8 +1776,26 @@ class ConverterContext {
 			// I don't think d.ts files allow default values for parameters but we'll keep this here anyway
 			var value = parameterDeclaration != null ? HaxeTools.primitiveValueToExpr(tc.getConstantValue(parameterDeclaration)) : null;
 
+			// Get parameter name - for transient symbols from tuple expansion, check declaration name first
+			var paramName: String = if (parameterDeclaration != null && parameterDeclaration.name != null) {
+				// For Identifier nodes, try to get text property directly
+				var nameNode: Dynamic = parameterDeclaration.name;
+				var declName: Null<String> = if (untyped nameNode.text != null) {
+					untyped nameNode.text;
+				} else if (untyped nameNode.getText != null) {
+					untyped nameNode.getText();
+				} else {
+					null;
+				}
+
+				// Use declaration name if available, otherwise fall back to symbol name
+				declName != null ? declName : s.getSymbolName();
+			} else {
+				s.getSymbolName();
+			}
+
 			return ({
-				name: s.name.toSafeIdent(),
+				name: paramName.toSafeIdent(),
 				type: hxType,
 				opt: isOptional,
 				value: value
@@ -1802,7 +1836,7 @@ class ConverterContext {
 			complexTypeFromTypeNode(typeParamNode.constraint, moduleSymbol, accessContext, enclosingDeclaration);
 		} else null;
 		return {
-			name: typeParameter.symbol.name.toSafeTypeName(),
+			name: typeParameter.symbol.getSymbolName().toSafeTypeName(),
 			constraints: hxConstraint != null ? [hxConstraint] : null,
 		}
 	}

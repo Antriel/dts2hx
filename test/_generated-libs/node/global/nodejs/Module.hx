@@ -1,9 +1,9 @@
 package global.nodejs;
 
 @:native("NodeJS.Module") extern class Module {
-	function new(unknown:Dynamic);
+	function new(id:String, ?parent:Module);
 	var exports : Dynamic;
-	dynamic function require(unknown:Dynamic):Dynamic;
+	dynamic function require(id:String):Dynamic;
 	var id : String;
 	var filename : String;
 	var loaded : Bool;
@@ -11,15 +11,15 @@ package global.nodejs;
 	var children : Array<Module>;
 	var paths : Array<String>;
 	static var prototype : Module;
-	static function runMain(unknown:Dynamic):Void;
-	static function wrap(unknown:Dynamic):String;
-	static function createRequireFromPath(unknown:Dynamic):(unknown:Dynamic) -> Dynamic;
+	static function runMain():Void;
+	static function wrap(code:String):String;
+	static function createRequireFromPath(path:String):(path:String) -> Dynamic;
 	static var builtinModules : Array<String>;
 	static var Module : {
 		var prototype : Module;
-		function runMain(unknown:Dynamic):Void;
-		function wrap(unknown:Dynamic):String;
-		function createRequireFromPath(unknown:Dynamic):(unknown:Dynamic) -> Dynamic;
+		function runMain():Void;
+		function wrap(code:String):String;
+		function createRequireFromPath(path:String):(path:String) -> Dynamic;
 		var builtinModules : Array<String>;
 		var Module : Dynamic;
 	};

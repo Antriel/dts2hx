@@ -9,5 +9,5 @@ typedef DocumentHighlightProvider = {
 		Provide a set of document highlights, like all occurrences of a variable or
 		all exit-points of a function.
 	**/
-	function provideDocumentHighlights(unknown:Dynamic):ProviderResult<Array<DocumentHighlight>>;
+	function provideDocumentHighlights(document:TextDocument, position:Position, token:CancellationToken):ProviderResult<Array<DocumentHighlight>>;
 };

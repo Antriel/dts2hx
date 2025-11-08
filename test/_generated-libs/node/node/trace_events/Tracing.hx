@@ -23,12 +23,12 @@ typedef Tracing = {
 		objects and _not_ specified by the `--trace-event-categories` flag
 		will be disabled.
 	**/
-	function disable(unknown:Dynamic):Void;
+	function disable():Void;
 	/**
 		Enables this `Tracing` object for the set of categories covered by
 		the `Tracing` object.
 	**/
-	function enable(unknown:Dynamic):Void;
+	function enable():Void;
 	/**
 		`true` only if the `Tracing` object has been enabled.
 	**/

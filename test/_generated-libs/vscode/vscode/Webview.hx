@@ -41,14 +41,14 @@ typedef Webview = {
 		post `Blob`, `File`, `ImageData` and other DOM specific objects since the extension that receives the
 		message does not run in a browser environment.
 	**/
-	function onDidReceiveMessage(unknown:Dynamic):Disposable;
+	function onDidReceiveMessage(listener:(e:Dynamic) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		Post a message to the webview content.
 		
 		Messages are only delivered if the webview is live (either visible or in the
 		background with `retainContextWhenHidden`).
 	**/
-	function postMessage(unknown:Dynamic):global.Thenable<Bool>;
+	function postMessage(message:Dynamic):global.Thenable<Bool>;
 	/**
 		Convert a uri for the local file system to one that can be used inside webviews.
 		
@@ -60,7 +60,7 @@ typedef Webview = {
 		webview.html = `<img src="${webview.asWebviewUri(vscode.Uri.file('/Users/codey/workspace/cat.gif'))}">`
 		```
 	**/
-	function asWebviewUri(unknown:Dynamic):Uri;
+	function asWebviewUri(localResource:Uri):Uri;
 	/**
 		Content security policy source for webview resources.
 		

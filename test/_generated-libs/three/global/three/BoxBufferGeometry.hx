@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.BoxBufferGeometry") extern class BoxBufferGeometry extends BufferGeometry {
-	function new(unknown:Dynamic);
+	function new(?width:Float, ?height:Float, ?depth:Float, ?widthSegments:Float, ?heightSegments:Float, ?depthSegments:Float);
 	var parameters : {
 		var width : Float;
 		var height : Float;
@@ -10,7 +10,7 @@ package global.three;
 		var heightSegments : Float;
 		var depthSegments : Float;
 	};
-	function clone(unknown:Dynamic):BoxBufferGeometry;
-	function copy(unknown:Dynamic):BoxBufferGeometry;
+	function clone():BoxBufferGeometry;
+	function copy(source:BufferGeometry):BoxBufferGeometry;
 	static var prototype : BoxBufferGeometry;
 }

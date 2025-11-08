@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.MeshDistanceMaterial") extern class MeshDistanceMaterial extends Material {
-	function new(unknown:Dynamic);
+	function new(?parameters:MeshDistanceMaterialParameters);
 	var referencePosition : Vector3;
 	var nearDistance : Float;
 	var farDistance : Float;
@@ -11,14 +11,14 @@ package global.three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(unknown:Dynamic):Void;
+	function setValues(parameters:MeshDistanceMaterialParameters):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone(unknown:Dynamic):MeshDistanceMaterial;
+	function clone():MeshDistanceMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(unknown:Dynamic):MeshDistanceMaterial;
+	function copy(material:Material):MeshDistanceMaterial;
 	static var prototype : MeshDistanceMaterial;
 }

@@ -1,19 +1,19 @@
 package global.nodejs;
 
 typedef Events = {
-	function addListener(unknown:Dynamic):Events;
-	function on(unknown:Dynamic):Events;
-	function once(unknown:Dynamic):Events;
-	function removeListener(unknown:Dynamic):Events;
-	function off(unknown:Dynamic):Events;
-	function removeAllListeners(unknown:Dynamic):Events;
-	function setMaxListeners(unknown:Dynamic):Events;
-	function getMaxListeners(unknown:Dynamic):Float;
-	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function emit(unknown:Dynamic):Bool;
-	function listenerCount(unknown:Dynamic):Float;
-	function prependListener(unknown:Dynamic):Events;
-	function prependOnceListener(unknown:Dynamic):Events;
-	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	function addListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Events;
+	function on(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Events;
+	function once(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Events;
+	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Events;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Events;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):Events;
+	function setMaxListeners(n:Float):Events;
+	function getMaxListeners():Float;
+	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function emit(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool;
+	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
+	function prependListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Events;
+	function prependOnceListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Events;
+	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
 };

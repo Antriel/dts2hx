@@ -1,3 +1,3 @@
 package http_errors;
 
-typedef IsHttpError = (unknown:Dynamic) -> Bool;
+typedef IsHttpError = (error:Any) -> Bool;

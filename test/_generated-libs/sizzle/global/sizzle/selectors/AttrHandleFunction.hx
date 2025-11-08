@@ -1,3 +1,3 @@
 package global.sizzle.selectors;
 
-typedef AttrHandleFunction = (unknown:Dynamic) -> String;
+typedef AttrHandleFunction = (elem:Dynamic, casePreservedName:String, isXML:Bool) -> String;

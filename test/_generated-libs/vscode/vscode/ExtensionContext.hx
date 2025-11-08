@@ -13,7 +13,7 @@ typedef ExtensionContext = {
 		extension is deactivated the disposables will be disposed.
 	**/
 	final subscriptions : Array<{
-		function dispose(unknown:Dynamic):Dynamic;
+		function dispose():Dynamic;
 	}>;
 	/**
 		A memento object that stores state in the context
@@ -37,7 +37,7 @@ typedef ExtensionContext = {
 	/**
 		Get the absolute path of a resource contained in the extension.
 	**/
-	function asAbsolutePath(unknown:Dynamic):String;
+	function asAbsolutePath(relativePath:String):String;
 	/**
 		An absolute file path of a workspace specific directory in which the extension
 		can store private state. The directory might not exist on disk and creation is

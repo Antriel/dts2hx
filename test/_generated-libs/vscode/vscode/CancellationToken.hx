@@ -16,5 +16,5 @@ typedef CancellationToken = {
 	/**
 		An [event](#Event) which fires upon cancellation.
 	**/
-	dynamic function onCancellationRequested(unknown:Dynamic):Disposable;
+	dynamic function onCancellationRequested(listener:(e:Dynamic) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 };

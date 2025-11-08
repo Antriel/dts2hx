@@ -1,19 +1,19 @@
 package global.three;
 
 @:native("THREE.MeshToonMaterial") extern class MeshToonMaterial extends MeshPhongMaterial {
-	function new(unknown:Dynamic);
+	function new(?parameters:MeshToonMaterialParameters);
 	var gradientMap : Null<Texture>;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(unknown:Dynamic):Void;
+	function setValues(parameters:MeshToonMaterialParameters):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone(unknown:Dynamic):MeshToonMaterial;
+	function clone():MeshToonMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(unknown:Dynamic):MeshToonMaterial;
+	function copy(material:Material):MeshToonMaterial;
 	static var prototype : MeshToonMaterial;
 }

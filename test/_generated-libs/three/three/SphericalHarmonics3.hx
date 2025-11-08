@@ -1,21 +1,21 @@
 package three;
 
 @:jsRequire("three", "SphericalHarmonics3") extern class SphericalHarmonics3 {
-	function new(unknown:Dynamic);
+	function new();
 	var coefficients : Array<Vector3>;
 	var isSphericalHarmonics3 : Bool;
-	function set(unknown:Dynamic):SphericalHarmonics3;
-	function zero(unknown:Dynamic):SphericalHarmonics3;
-	function add(unknown:Dynamic):SphericalHarmonics3;
-	function scale(unknown:Dynamic):SphericalHarmonics3;
-	function lerp(unknown:Dynamic):SphericalHarmonics3;
-	function equals(unknown:Dynamic):Bool;
-	function copy(unknown:Dynamic):SphericalHarmonics3;
-	function clone(unknown:Dynamic):SphericalHarmonics3;
-	function fromArray(unknown:Dynamic):SphericalHarmonics3;
-	function toArray(unknown:Dynamic):Array<Float>;
-	function getAt(unknown:Dynamic):Vector3;
-	function getIrradianceAt(unknown:Dynamic):Vector3;
+	function set(coefficients:Array<Vector3>):SphericalHarmonics3;
+	function zero():SphericalHarmonics3;
+	function add(sh:SphericalHarmonics3):SphericalHarmonics3;
+	function scale(s:Float):SphericalHarmonics3;
+	function lerp(sh:SphericalHarmonics3, alpha:Float):SphericalHarmonics3;
+	function equals(sh:SphericalHarmonics3):Bool;
+	function copy(sh:SphericalHarmonics3):SphericalHarmonics3;
+	function clone():SphericalHarmonics3;
+	function fromArray(array:Array<Float>):SphericalHarmonics3;
+	function toArray():Array<Float>;
+	function getAt(normal:Vector3, target:Vector3):Vector3;
+	function getIrradianceAt(normal:Vector3, target:Vector3):Vector3;
 	static var prototype : SphericalHarmonics3;
-	static function getBasisAt(unknown:Dynamic):Void;
+	static function getBasisAt(normal:Vector3, shBasis:Array<Float>):Void;
 }

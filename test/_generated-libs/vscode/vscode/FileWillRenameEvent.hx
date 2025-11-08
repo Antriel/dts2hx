@@ -35,6 +35,6 @@ typedef FileWillRenameEvent = {
 		
 		*Note:* This function can only be called during event dispatch.
 	**/
-	@:overload(function(unknown:Dynamic):Void { })
-	function waitUntil(unknown:Dynamic):Void;
+	@:overload(function(thenable:global.Thenable<Dynamic>):Void { })
+	function waitUntil(thenable:global.Thenable<WorkspaceEdit>):Void;
 };

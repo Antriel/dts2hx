@@ -1,38 +1,38 @@
 package node.zlib;
 
 typedef BrotliDecompress = {
-	function _transform(unknown:Dynamic):Void;
-	function _flush(unknown:Dynamic):Void;
+	function _transform(chunk:Dynamic, encoding:String, callback:node.stream.TransformCallback):Void;
+	function _flush(callback:node.stream.TransformCallback):Void;
 	var writable : Bool;
 	final writableHighWaterMark : Float;
 	final writableLength : Float;
-	function _write(unknown:Dynamic):Void;
+	function _write(chunk:Dynamic, encoding:String, callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
 	@:optional
-	function _writev(unknown:Dynamic):Void;
-	function _destroy(unknown:Dynamic):Void;
-	function _final(unknown:Dynamic):Void;
-	@:overload(function(unknown:Dynamic):Bool { })
-	function write(unknown:Dynamic):Bool;
-	function setDefaultEncoding(unknown:Dynamic):BrotliDecompress;
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	function end(unknown:Dynamic):Void;
-	function cork(unknown:Dynamic):Void;
-	function uncork(unknown:Dynamic):Void;
+	function _writev(chunks:Array<{ var chunk : Dynamic; var encoding : String; }>, callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
+	function _destroy(error:Null<js.lib.Error>, callback:(error:Null<js.lib.Error>) -> Void):Void;
+	function _final(callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
+	@:overload(function(chunk:Dynamic, ?cb:(error:Null<js.lib.Error>) -> Void):Bool { })
+	function write(chunk:Dynamic, ?encoding:String, ?cb:(error:Null<js.lib.Error>) -> Void):Bool;
+	function setDefaultEncoding(encoding:String):BrotliDecompress;
+	@:overload(function(chunk:Dynamic, ?cb:() -> Void):Void { })
+	@:overload(function(chunk:Dynamic, ?encoding:String, ?cb:() -> Void):Void { })
+	function end(?cb:() -> Void):Void;
+	function cork():Void;
+	function uncork():Void;
 	var readable : Bool;
 	final readableHighWaterMark : Float;
 	final readableLength : Float;
-	function _read(unknown:Dynamic):Void;
-	function read(unknown:Dynamic):Dynamic;
-	function setEncoding(unknown:Dynamic):BrotliDecompress;
-	function pause(unknown:Dynamic):BrotliDecompress;
-	function resume(unknown:Dynamic):BrotliDecompress;
-	function isPaused(unknown:Dynamic):Bool;
-	function unpipe(unknown:Dynamic):BrotliDecompress;
-	function unshift(unknown:Dynamic):Void;
-	function wrap(unknown:Dynamic):BrotliDecompress;
-	function push(unknown:Dynamic):Bool;
-	function destroy(unknown:Dynamic):Void;
+	function _read(size:Float):Void;
+	function read(?size:Float):Dynamic;
+	function setEncoding(encoding:String):BrotliDecompress;
+	function pause():BrotliDecompress;
+	function resume():BrotliDecompress;
+	function isPaused():Bool;
+	function unpipe(?destination:global.nodejs.WritableStream):BrotliDecompress;
+	function unshift(chunk:Dynamic):Void;
+	function wrap(oldStream:global.nodejs.ReadableStream):BrotliDecompress;
+	function push(chunk:Dynamic, ?encoding:String):Bool;
+	function destroy(?error:js.lib.Error):Void;
 	/**
 		Event emitter
 		The defined events on documents including:
@@ -42,61 +42,61 @@ typedef BrotliDecompress = {
 		4. readable
 		5. error
 	**/
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	function addListener(unknown:Dynamic):BrotliDecompress;
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	function emit(unknown:Dynamic):Bool;
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	function on(unknown:Dynamic):BrotliDecompress;
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	function once(unknown:Dynamic):BrotliDecompress;
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	function prependListener(unknown:Dynamic):BrotliDecompress;
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	function prependOnceListener(unknown:Dynamic):BrotliDecompress;
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	@:overload(function(unknown:Dynamic):BrotliDecompress { })
-	function removeListener(unknown:Dynamic):BrotliDecompress;
-	function pipe<T>(unknown:Dynamic):T;
-	function off(unknown:Dynamic):BrotliDecompress;
-	function removeAllListeners(unknown:Dynamic):BrotliDecompress;
-	function setMaxListeners(unknown:Dynamic):BrotliDecompress;
-	function getMaxListeners(unknown:Dynamic):Float;
-	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
-	function listenerCount(unknown:Dynamic):Float;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:() -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:() -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):BrotliDecompress { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):BrotliDecompress { })
+	function addListener(event:String, listener:() -> Void):BrotliDecompress;
+	@:overload(function(event:String, chunk:Dynamic):Bool { })
+	@:overload(function(event:String):Bool { })
+	@:overload(function(event:String):Bool { })
+	@:overload(function(event:String, err:js.lib.Error):Bool { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool { })
+	function emit(event:String):Bool;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:() -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:() -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):BrotliDecompress { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):BrotliDecompress { })
+	function on(event:String, listener:() -> Void):BrotliDecompress;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:() -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:() -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):BrotliDecompress { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):BrotliDecompress { })
+	function once(event:String, listener:() -> Void):BrotliDecompress;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:() -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:() -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):BrotliDecompress { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):BrotliDecompress { })
+	function prependListener(event:String, listener:() -> Void):BrotliDecompress;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:() -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:() -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):BrotliDecompress { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):BrotliDecompress { })
+	function prependOnceListener(event:String, listener:() -> Void):BrotliDecompress;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:() -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:() -> Void):BrotliDecompress { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):BrotliDecompress { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):BrotliDecompress { })
+	function removeListener(event:String, listener:() -> Void):BrotliDecompress;
+	function pipe<T>(destination:T, ?options:{ @:optional var end : Bool; }):T;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):BrotliDecompress;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):BrotliDecompress;
+	function setMaxListeners(n:Float):BrotliDecompress;
+	function getMaxListeners():Float;
+	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
 	final bytesRead : Float;
 	final bytesWritten : Float;
 	@:optional
 	var shell : ts.AnyOf2<String, Bool>;
-	function close(unknown:Dynamic):Void;
-	function flush(unknown:Dynamic):Void;
+	function close(?callback:() -> Void):Void;
+	function flush(?kind:ts.AnyOf2<Float, () -> Void>, ?callback:() -> Void):Void;
 };

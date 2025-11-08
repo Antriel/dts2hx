@@ -1,3 +1,3 @@
 package express;
 
-typedef IRouterMatcher<T> = ts.AnyOf5<(unknown:Dynamic) -> T, (unknown:Dynamic) -> T, (unknown:Dynamic) -> T, (unknown:Dynamic) -> T, (unknown:Dynamic) -> T>;
+typedef IRouterMatcher<T> = ts.AnyOf5<(path:Any, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<Any, Any, Any, Any, Any>>) -> T, (path:Any, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<Any, Any, Any, Any, Any>>) -> T, (path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandler<Any, Any, Any, Any, Any>>) -> T, (path:express_serve_static_core.PathParams, handlers:haxe.extern.Rest<express_serve_static_core.RequestHandlerParams<Any, Any, Any, Any, Any>>) -> T, (path:express_serve_static_core.PathParams, subApplication:express_serve_static_core.Application<haxe.DynamicAccess<Dynamic>>) -> T>;

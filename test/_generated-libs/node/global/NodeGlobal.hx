@@ -1,8 +1,8 @@
 package global;
 
 @:native("") extern class NodeGlobal {
-	static function setImmediate(unknown:Dynamic):global.nodejs.Immediate;
-	static function clearImmediate(unknown:Dynamic):Void;
+	static function setImmediate(callback:(args:haxe.extern.Rest<Dynamic>) -> Void, args:haxe.extern.Rest<Dynamic>):global.nodejs.Immediate;
+	static function clearImmediate(immediateId:global.nodejs.Immediate):Void;
 	static var process : global.nodejs.Process;
 	static var global : global.nodejs.Global;
 	static var __filename : String;

@@ -2,8 +2,8 @@ package global.nodejs;
 
 @:native("NodeJS.Timeout") extern class Timeout {
 	function new();
-	function ref(unknown:Dynamic):Void;
-	function refresh(unknown:Dynamic):Void;
-	function unref(unknown:Dynamic):Void;
+	function ref():Void;
+	function refresh():Void;
+	function unref():Void;
 	static var prototype : Timeout;
 }

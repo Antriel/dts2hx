@@ -1,36 +1,36 @@
 package node.worker_threads;
 
 @:jsRequire("worker_threads", "MessagePort") extern class MessagePort extends node.events.EventEmitter {
-	function close(unknown:Dynamic):Void;
-	function postMessage(unknown:Dynamic):Void;
-	function ref(unknown:Dynamic):Void;
-	function unref(unknown:Dynamic):Void;
-	function start(unknown:Dynamic):Void;
-	@:overload(function(unknown:Dynamic):MessagePort { })
-	@:overload(function(unknown:Dynamic):MessagePort { })
-	function addListener(unknown:Dynamic):MessagePort;
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	function emit(unknown:Dynamic):Bool;
-	@:overload(function(unknown:Dynamic):MessagePort { })
-	@:overload(function(unknown:Dynamic):MessagePort { })
-	function on(unknown:Dynamic):MessagePort;
-	@:overload(function(unknown:Dynamic):MessagePort { })
-	@:overload(function(unknown:Dynamic):MessagePort { })
-	function once(unknown:Dynamic):MessagePort;
-	@:overload(function(unknown:Dynamic):MessagePort { })
-	@:overload(function(unknown:Dynamic):MessagePort { })
-	function prependListener(unknown:Dynamic):MessagePort;
-	@:overload(function(unknown:Dynamic):MessagePort { })
-	@:overload(function(unknown:Dynamic):MessagePort { })
-	function prependOnceListener(unknown:Dynamic):MessagePort;
-	@:overload(function(unknown:Dynamic):MessagePort { })
-	@:overload(function(unknown:Dynamic):MessagePort { })
-	function removeListener(unknown:Dynamic):MessagePort;
-	@:overload(function(unknown:Dynamic):MessagePort { })
-	@:overload(function(unknown:Dynamic):MessagePort { })
-	function off(unknown:Dynamic):MessagePort;
-	function removeAllListeners(unknown:Dynamic):MessagePort;
-	function setMaxListeners(unknown:Dynamic):MessagePort;
+	function close():Void;
+	function postMessage(value:Dynamic, ?transferList:Array<ts.AnyOf2<js.lib.ArrayBuffer, MessagePort>>):Void;
+	function ref():Void;
+	function unref():Void;
+	function start():Void;
+	@:overload(function(event:String, listener:(value:Dynamic) -> Void):MessagePort { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):MessagePort { })
+	function addListener(event:String, listener:() -> Void):MessagePort;
+	@:overload(function(event:String, value:Dynamic):Bool { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool { })
+	function emit(event:String):Bool;
+	@:overload(function(event:String, listener:(value:Dynamic) -> Void):MessagePort { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):MessagePort { })
+	function on(event:String, listener:() -> Void):MessagePort;
+	@:overload(function(event:String, listener:(value:Dynamic) -> Void):MessagePort { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):MessagePort { })
+	function once(event:String, listener:() -> Void):MessagePort;
+	@:overload(function(event:String, listener:(value:Dynamic) -> Void):MessagePort { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):MessagePort { })
+	function prependListener(event:String, listener:() -> Void):MessagePort;
+	@:overload(function(event:String, listener:(value:Dynamic) -> Void):MessagePort { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):MessagePort { })
+	function prependOnceListener(event:String, listener:() -> Void):MessagePort;
+	@:overload(function(event:String, listener:(value:Dynamic) -> Void):MessagePort { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):MessagePort { })
+	function removeListener(event:String, listener:() -> Void):MessagePort;
+	@:overload(function(event:String, listener:(value:Dynamic) -> Void):MessagePort { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):MessagePort { })
+	function off(event:String, listener:() -> Void):MessagePort;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):MessagePort;
+	function setMaxListeners(n:Float):MessagePort;
 	static var prototype : MessagePort;
 }

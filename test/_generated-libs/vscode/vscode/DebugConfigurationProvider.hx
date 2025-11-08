@@ -11,7 +11,7 @@ typedef DebugConfigurationProvider = {
 		registered for the same type, debug configurations are concatenated in arbitrary order.
 	**/
 	@:optional
-	function provideDebugConfigurations(unknown:Dynamic):ProviderResult<Array<DebugConfiguration>>;
+	function provideDebugConfigurations(folder:Null<WorkspaceFolder>, ?token:CancellationToken):ProviderResult<Array<DebugConfiguration>>;
 	/**
 		Resolves a [debug configuration](#DebugConfiguration) by filling in missing values or by adding/changing/removing attributes.
 		If more than one debug configuration provider is registered for the same type, the resolveDebugConfiguration calls are chained
@@ -20,7 +20,7 @@ typedef DebugConfigurationProvider = {
 		Returning the value 'null' prevents the debug session from starting and opens the underlying debug configuration instead.
 	**/
 	@:optional
-	function resolveDebugConfiguration(unknown:Dynamic):ProviderResult<DebugConfiguration>;
+	function resolveDebugConfiguration(folder:Null<WorkspaceFolder>, debugConfiguration:DebugConfiguration, ?token:CancellationToken):ProviderResult<DebugConfiguration>;
 	/**
 		This hook is directly called after 'resolveDebugConfiguration' but with all variables substituted.
 		It can be used to resolve or verify a [debug configuration](#DebugConfiguration) by filling in missing values or by adding/changing/removing attributes.
@@ -30,5 +30,5 @@ typedef DebugConfigurationProvider = {
 		Returning the value 'null' prevents the debug session from starting and opens the underlying debug configuration instead.
 	**/
 	@:optional
-	function resolveDebugConfigurationWithSubstitutedVariables(unknown:Dynamic):ProviderResult<DebugConfiguration>;
+	function resolveDebugConfigurationWithSubstitutedVariables(folder:Null<WorkspaceFolder>, debugConfiguration:DebugConfiguration, ?token:CancellationToken):ProviderResult<DebugConfiguration>;
 };

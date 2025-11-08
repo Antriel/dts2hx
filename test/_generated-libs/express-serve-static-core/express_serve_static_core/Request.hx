@@ -20,10 +20,10 @@ typedef Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> = {
 		
 		Aliased as `req.header()`.
 	**/
-	@:overload(function(unknown:Dynamic):Null<String> { })
-	function get(unknown:Dynamic):Null<Array<String>>;
-	@:overload(function(unknown:Dynamic):Null<String> { })
-	function header(unknown:Dynamic):Null<Array<String>>;
+	@:overload(function(name:String):Null<String> { })
+	function get(name:String):Null<Array<String>>;
+	@:overload(function(name:String):Null<String> { })
+	function header(name:String):Null<Array<String>>;
 	/**
 		Check if the given `type(s)` is acceptable, returning
 		the best match when true, otherwise `undefined`, in which
@@ -61,10 +61,10 @@ typedef Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> = {
 		    req.accepts('html, json');
 		    // => "json"
 	**/
-	@:overload(function(unknown:Dynamic):ts.AnyOf2<String, Bool> { })
-	@:overload(function(unknown:Dynamic):ts.AnyOf2<String, Bool> { })
-	@:overload(function(unknown:Dynamic):ts.AnyOf2<String, Bool> { })
-	function accepts(unknown:Dynamic):Array<String>;
+	@:overload(function(type:String):ts.AnyOf2<String, Bool> { })
+	@:overload(function(type:Array<String>):ts.AnyOf2<String, Bool> { })
+	@:overload(function(type:haxe.extern.Rest<String>):ts.AnyOf2<String, Bool> { })
+	function accepts():Array<String>;
 	/**
 		Returns the first accepted charset of the specified character sets,
 		based on the request's Accept-Charset HTTP header field.
@@ -72,10 +72,10 @@ typedef Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> = {
 		
 		For more information, or if you have issues or concerns, see accepts.
 	**/
-	@:overload(function(unknown:Dynamic):ts.AnyOf2<String, Bool> { })
-	@:overload(function(unknown:Dynamic):ts.AnyOf2<String, Bool> { })
-	@:overload(function(unknown:Dynamic):ts.AnyOf2<String, Bool> { })
-	function acceptsCharsets(unknown:Dynamic):Array<String>;
+	@:overload(function(charset:String):ts.AnyOf2<String, Bool> { })
+	@:overload(function(charset:Array<String>):ts.AnyOf2<String, Bool> { })
+	@:overload(function(charset:haxe.extern.Rest<String>):ts.AnyOf2<String, Bool> { })
+	function acceptsCharsets():Array<String>;
 	/**
 		Returns the first accepted encoding of the specified encodings,
 		based on the request's Accept-Encoding HTTP header field.
@@ -83,10 +83,10 @@ typedef Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> = {
 		
 		For more information, or if you have issues or concerns, see accepts.
 	**/
-	@:overload(function(unknown:Dynamic):ts.AnyOf2<String, Bool> { })
-	@:overload(function(unknown:Dynamic):ts.AnyOf2<String, Bool> { })
-	@:overload(function(unknown:Dynamic):ts.AnyOf2<String, Bool> { })
-	function acceptsEncodings(unknown:Dynamic):Array<String>;
+	@:overload(function(encoding:String):ts.AnyOf2<String, Bool> { })
+	@:overload(function(encoding:Array<String>):ts.AnyOf2<String, Bool> { })
+	@:overload(function(encoding:haxe.extern.Rest<String>):ts.AnyOf2<String, Bool> { })
+	function acceptsEncodings():Array<String>;
 	/**
 		Returns the first accepted language of the specified languages,
 		based on the request's Accept-Language HTTP header field.
@@ -94,10 +94,10 @@ typedef Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> = {
 		
 		For more information, or if you have issues or concerns, see accepts.
 	**/
-	@:overload(function(unknown:Dynamic):ts.AnyOf2<String, Bool> { })
-	@:overload(function(unknown:Dynamic):ts.AnyOf2<String, Bool> { })
-	@:overload(function(unknown:Dynamic):ts.AnyOf2<String, Bool> { })
-	function acceptsLanguages(unknown:Dynamic):Array<String>;
+	@:overload(function(lang:String):ts.AnyOf2<String, Bool> { })
+	@:overload(function(lang:Array<String>):ts.AnyOf2<String, Bool> { })
+	@:overload(function(lang:haxe.extern.Rest<String>):ts.AnyOf2<String, Bool> { })
+	function acceptsLanguages():Array<String>;
 	/**
 		Parse Range header field, capping to the given `size`.
 		
@@ -110,7 +110,7 @@ typedef Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> = {
 		NOTE: remember that ranges are inclusive, so for example "Range: users=0-3"
 		should respond with 4 users when available, not 3.
 	**/
-	function range(unknown:Dynamic):Null<ts.AnyOf2<Int, range_parser.Ranges>>;
+	function range(size:Float, ?options:range_parser.Options):Null<ts.AnyOf2<Int, range_parser.Ranges>>;
 	/**
 		Return an array of Accepted media types
 		ordered from highest quality to lowest.
@@ -137,7 +137,7 @@ typedef Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> = {
 		     req.is('html');
 		     // => false
 	**/
-	function is(unknown:Dynamic):Null<ts.AnyOf2<String, Bool>>;
+	function is(type:ts.AnyOf2<String, Array<String>>):Null<ts.AnyOf2<String, Bool>>;
 	/**
 		Return the protocol string "http" or "https"
 		when requested with TLS. When the "trust proxy"
@@ -235,9 +235,9 @@ typedef Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> = {
 	@:optional
 	var res : Response<ResBody, LocalsObj, Float>;
 	@:optional
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	dynamic function next(unknown:Dynamic):Void;
+	@:overload(function(deferToNext:String):Void { })
+	@:overload(function(deferToNext:String):Void { })
+	dynamic function next(?err:Dynamic):Void;
 	var httpVersion : String;
 	var httpVersionMajor : Float;
 	var httpVersionMinor : Float;
@@ -246,7 +246,7 @@ typedef Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> = {
 	var rawHeaders : Array<String>;
 	var trailers : haxe.DynamicAccess<Null<String>>;
 	var rawTrailers : Array<String>;
-	function setTimeout(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
+	function setTimeout(msecs:Float, callback:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
 	/**
 		Only valid for response obtained from http.ClientRequest.
 	**/
@@ -258,21 +258,21 @@ typedef Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> = {
 	@:optional
 	var statusMessage : String;
 	var socket : node.net.Socket;
-	function destroy(unknown:Dynamic):Void;
+	function destroy(?error:js.lib.Error):Void;
 	var readable : Bool;
 	final readableHighWaterMark : Float;
 	final readableLength : Float;
-	function _read(unknown:Dynamic):Void;
-	function read(unknown:Dynamic):Dynamic;
-	function setEncoding(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
-	function pause(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
-	function resume(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
-	function isPaused(unknown:Dynamic):Bool;
-	function unpipe(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
-	function unshift(unknown:Dynamic):Void;
-	function wrap(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
-	function push(unknown:Dynamic):Bool;
-	function _destroy(unknown:Dynamic):Void;
+	function _read(size:Float):Void;
+	function read(?size:Float):Dynamic;
+	function setEncoding(encoding:String):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
+	function pause():Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
+	function resume():Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
+	function isPaused():Bool;
+	function unpipe(?destination:global.nodejs.WritableStream):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
+	function unshift(chunk:Dynamic):Void;
+	function wrap(oldStream:global.nodejs.ReadableStream):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
+	function push(chunk:Dynamic, ?encoding:String):Bool;
+	function _destroy(error:Null<js.lib.Error>, callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
 	/**
 		Event emitter
 		The defined events on documents including:
@@ -282,55 +282,55 @@ typedef Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> = {
 		4. readable
 		5. error
 	**/
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	function addListener(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	function emit(unknown:Dynamic):Bool;
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	function on(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	function once(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	function prependListener(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	function prependOnceListener(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	@:overload(function(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
-	function removeListener(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
-	function pipe<T>(unknown:Dynamic):T;
-	function off(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
-	function removeAllListeners(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
-	function setMaxListeners(unknown:Dynamic):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
-	function getMaxListeners(unknown:Dynamic):Float;
-	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
-	function listenerCount(unknown:Dynamic):Float;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	function addListener(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
+	@:overload(function(event:String, chunk:Dynamic):Bool { })
+	@:overload(function(event:String):Bool { })
+	@:overload(function(event:String):Bool { })
+	@:overload(function(event:String, err:js.lib.Error):Bool { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool { })
+	function emit(event:String):Bool;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	function on(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	function once(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	function prependListener(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	function prependOnceListener(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj> { })
+	function removeListener(event:String, listener:() -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
+	function pipe<T>(destination:T, ?options:{ @:optional var end : Bool; }):T;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
+	function setMaxListeners(n:Float):Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>;
+	function getMaxListeners():Float;
+	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
 };

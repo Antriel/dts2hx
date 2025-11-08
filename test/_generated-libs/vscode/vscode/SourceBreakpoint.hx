@@ -7,7 +7,7 @@ package vscode;
 	/**
 		Create a new breakpoint for a source location.
 	**/
-	function new(unknown:Dynamic);
+	function new(location:Location, ?enabled:Bool, ?condition:String, ?hitCondition:String, ?logMessage:String);
 	/**
 		The source and line position of this breakpoint.
 	**/

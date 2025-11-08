@@ -4,11 +4,11 @@ typedef Response<ResBody> = {
 	/**
 		Set status `code`.
 	**/
-	function status(unknown:Dynamic):Response<ResBody>;
+	function status(code:Float):Response<ResBody>;
 	/**
 		Set the response HTTP status code to `statusCode` and send its string representation as the response body.
 	**/
-	function sendStatus(unknown:Dynamic):Response<ResBody>;
+	function sendStatus(code:Float):Response<ResBody>;
 	/**
 		Set Link header field with the given `links`.
 		
@@ -19,7 +19,7 @@ typedef Response<ResBody> = {
 		     last: 'http://api.example.com/users?page=5'
 		   });
 	**/
-	function links(unknown:Dynamic):Response<ResBody>;
+	function links(links:Dynamic):Response<ResBody>;
 	/**
 		Send a response.
 		
@@ -30,7 +30,7 @@ typedef Response<ResBody> = {
 		    res.send('<p>some html</p>');
 		    res.status(404).send('Sorry, cant find that');
 	**/
-	dynamic function send(unknown:Dynamic):Response<ResBody>;
+	dynamic function send(?body:ResBody):Response<ResBody>;
 	/**
 		Send JSON response.
 		
@@ -41,7 +41,7 @@ typedef Response<ResBody> = {
 		    res.status(500).json('oh noes!');
 		    res.status(404).json('I dont have that');
 	**/
-	dynamic function json(unknown:Dynamic):Response<ResBody>;
+	dynamic function json(?body:ResBody):Response<ResBody>;
 	/**
 		Send JSON response with JSONP callback support.
 		
@@ -52,7 +52,7 @@ typedef Response<ResBody> = {
 		    res.status(500).jsonp('oh noes!');
 		    res.status(404).jsonp('I dont have that');
 	**/
-	dynamic function jsonp(unknown:Dynamic):Response<ResBody>;
+	dynamic function jsonp(?body:ResBody):Response<ResBody>;
 	/**
 		Transfer the file at the given `path`.
 		
@@ -91,8 +91,8 @@ typedef Response<ResBody> = {
 		      });
 		    });
 	**/
-	@:overload(function(unknown:Dynamic):Void { })
-	function sendFile(unknown:Dynamic):Void;
+	@:overload(function(path:String, options:express_serve_static_core.SendFileOptions, ?fn:express_serve_static_core.Errback):Void { })
+	function sendFile(path:String, ?fn:express_serve_static_core.Errback):Void;
 	/**
 		Transfer the file at the given `path` as an attachment.
 		
@@ -106,9 +106,9 @@ typedef Response<ResBody> = {
 		
 		This method uses `res.sendFile()`.
 	**/
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	function download(unknown:Dynamic):Void;
+	@:overload(function(path:String, filename:String, ?fn:express_serve_static_core.Errback):Void { })
+	@:overload(function(path:String, filename:String, options:express_serve_static_core.DownloadOptions, ?fn:express_serve_static_core.Errback):Void { })
+	function download(path:String, ?fn:express_serve_static_core.Errback):Void;
 	/**
 		Set _Content-Type_ response header with `type` through `mime.lookup()`
 		when it does not contain "/", or set the Content-Type to `type` otherwise.
@@ -121,7 +121,7 @@ typedef Response<ResBody> = {
 		    res.type('application/json');
 		    res.type('png');
 	**/
-	function contentType(unknown:Dynamic):Response<ResBody>;
+	function contentType(type:String):Response<ResBody>;
 	/**
 		Set _Content-Type_ response header with `type` through `mime.lookup()`
 		when it does not contain "/", or set the Content-Type to `type` otherwise.
@@ -134,7 +134,7 @@ typedef Response<ResBody> = {
 		    res.type('application/json');
 		    res.type('png');
 	**/
-	function type(unknown:Dynamic):Response<ResBody>;
+	function type(type:String):Response<ResBody>;
 	/**
 		Respond to the Acceptable formats using an `obj`
 		of mime-type callbacks.
@@ -187,11 +187,11 @@ typedef Response<ResBody> = {
 		a `.default` callback it will be invoked
 		instead.
 	**/
-	function format(unknown:Dynamic):Response<ResBody>;
+	function format(obj:Dynamic):Response<ResBody>;
 	/**
 		Set _Content-Disposition_ header to _attachment_ with optional `filename`.
 	**/
-	function attachment(unknown:Dynamic):Response<ResBody>;
+	function attachment(?filename:String):Response<ResBody>;
 	/**
 		Set header `field` to `val`, or pass
 		an object of header fields.
@@ -204,19 +204,19 @@ typedef Response<ResBody> = {
 		
 		Aliased as `res.header()`.
 	**/
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	function set(unknown:Dynamic):Response<ResBody>;
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	function header(unknown:Dynamic):Response<ResBody>;
+	@:overload(function(field:String, ?value:ts.AnyOf2<String, Array<String>>):Response<ResBody> { })
+	function set(field:Dynamic):Response<ResBody>;
+	@:overload(function(field:String, ?value:ts.AnyOf2<String, Array<String>>):Response<ResBody> { })
+	function header(field:Dynamic):Response<ResBody>;
 	var headersSent : Bool;
 	/**
 		Get value for header `field`.
 	**/
-	function get(unknown:Dynamic):Null<String>;
+	function get(field:String):Null<String>;
 	/**
 		Clear cookie `name`.
 	**/
-	function clearCookie(unknown:Dynamic):Response<ResBody>;
+	function clearCookie(name:String, ?options:express_serve_static_core.CookieOptions):Response<ResBody>;
 	/**
 		Set cookie `name` to `val`, with the given `options`.
 		
@@ -234,9 +234,9 @@ typedef Response<ResBody> = {
 		   // save as above
 		   res.cookie('rememberme', '1', { maxAge: 900000, httpOnly: true })
 	**/
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	function cookie(unknown:Dynamic):Response<ResBody>;
+	@:overload(function(name:String, val:Dynamic, options:express_serve_static_core.CookieOptions):Response<ResBody> { })
+	@:overload(function(name:String, val:Dynamic):Response<ResBody> { })
+	function cookie(name:String, val:String, options:express_serve_static_core.CookieOptions):Response<ResBody>;
 	/**
 		Set the location header to `url`.
 		
@@ -259,7 +259,7 @@ typedef Response<ResBody> = {
 		
 		     res.location('/login');
 	**/
-	function location(unknown:Dynamic):Response<ResBody>;
+	function location(url:String):Response<ResBody>;
 	/**
 		Redirect to the given `url` with optional response `status`
 		defaulting to 302.
@@ -274,8 +274,8 @@ typedef Response<ResBody> = {
 		   res.redirect(301, 'http://example.com');
 		   res.redirect('../login'); // /blog/post/1 -> /blog/login
 	**/
-	@:overload(function(unknown:Dynamic):Void { })
-	function redirect(unknown:Dynamic):Void;
+	@:overload(function(status:Float, url:String):Void { })
+	function redirect(url:String):Void;
 	/**
 		Render `view` with the given `options` and optional callback `fn`.
 		When a callback function is given a response will _not_ be made
@@ -286,8 +286,8 @@ typedef Response<ResBody> = {
 		 - `cache`     boolean hinting to the engine it should cache
 		 - `filename`  filename of the view being rendered
 	**/
-	@:overload(function(unknown:Dynamic):Void { })
-	function render(unknown:Dynamic):Void;
+	@:overload(function(view:String, ?callback:(err:js.lib.Error, html:String) -> Void):Void { })
+	function render(view:String, ?options:Dynamic, ?callback:(err:js.lib.Error, html:String) -> Void):Void;
 	var locals : Dynamic;
 	var charset : String;
 	/**
@@ -296,7 +296,7 @@ typedef Response<ResBody> = {
 		
 		    res.vary('User-Agent').render('docs');
 	**/
-	function vary(unknown:Dynamic):Response<ResBody>;
+	function vary(field:String):Response<ResBody>;
 	var app : express_serve_static_core.Application<haxe.DynamicAccess<Dynamic>>;
 	/**
 		Appends the specified value to the HTTP response header field.
@@ -305,7 +305,7 @@ typedef Response<ResBody> = {
 		
 		Note: calling res.set() after res.append() will reset the previously-set header value.
 	**/
-	function append(unknown:Dynamic):Response<ResBody>;
+	function append(field:String, ?value:ts.AnyOf2<String, Array<String>>):Response<ResBody>;
 	/**
 		After middleware.init executed, Response will contain req property
 		See: express/lib/middleware/init.js
@@ -313,11 +313,11 @@ typedef Response<ResBody> = {
 	var req : express_serve_static_core.Request<express_serve_static_core.ParamsDictionary, Dynamic, Dynamic, qs.ParsedQs, haxe.DynamicAccess<Dynamic>>;
 	var statusCode : Float;
 	var statusMessage : String;
-	function assignSocket(unknown:Dynamic):Void;
-	function detachSocket(unknown:Dynamic):Void;
-	function writeContinue(unknown:Dynamic):Void;
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	function writeHead(unknown:Dynamic):Response<ResBody>;
+	function assignSocket(socket:node.net.Socket):Void;
+	function detachSocket(socket:node.net.Socket):Void;
+	function writeContinue(?callback:() -> Void):Void;
+	@:overload(function(statusCode:Float, ?headers:node.http.OutgoingHttpHeaders):Response<ResBody> { })
+	function writeHead(statusCode:Float, ?reasonPhrase:String, ?headers:node.http.OutgoingHttpHeaders):Response<ResBody>;
 	var upgrading : Bool;
 	var chunkedEncoding : Bool;
 	var shouldKeepAlive : Bool;
@@ -325,32 +325,32 @@ typedef Response<ResBody> = {
 	var sendDate : Bool;
 	var finished : Bool;
 	var connection : node.net.Socket;
-	function setTimeout(unknown:Dynamic):Response<ResBody>;
-	function setHeader(unknown:Dynamic):Void;
-	function getHeader(unknown:Dynamic):Null<ts.AnyOf3<String, Float, Array<String>>>;
-	function getHeaders(unknown:Dynamic):node.http.OutgoingHttpHeaders;
-	function getHeaderNames(unknown:Dynamic):Array<String>;
-	function hasHeader(unknown:Dynamic):Bool;
-	function removeHeader(unknown:Dynamic):Void;
-	function addTrailers(unknown:Dynamic):Void;
-	function flushHeaders(unknown:Dynamic):Void;
+	function setTimeout(msecs:Float, ?callback:() -> Void):Response<ResBody>;
+	function setHeader(name:String, value:ts.AnyOf3<String, Float, Array<String>>):Void;
+	function getHeader(name:String):Null<ts.AnyOf3<String, Float, Array<String>>>;
+	function getHeaders():node.http.OutgoingHttpHeaders;
+	function getHeaderNames():Array<String>;
+	function hasHeader(name:String):Bool;
+	function removeHeader(name:String):Void;
+	function addTrailers(headers:ts.AnyOf2<Array<ts.Tuple2<String, String>>, node.http.OutgoingHttpHeaders>):Void;
+	function flushHeaders():Void;
 	var writable : Bool;
 	final writableHighWaterMark : Float;
 	final writableLength : Float;
-	function _write(unknown:Dynamic):Void;
+	function _write(chunk:Dynamic, encoding:String, callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
 	@:optional
-	function _writev(unknown:Dynamic):Void;
-	function _destroy(unknown:Dynamic):Void;
-	function _final(unknown:Dynamic):Void;
-	@:overload(function(unknown:Dynamic):Bool { })
-	function write(unknown:Dynamic):Bool;
-	function setDefaultEncoding(unknown:Dynamic):Response<ResBody>;
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	function end(unknown:Dynamic):Void;
-	function cork(unknown:Dynamic):Void;
-	function uncork(unknown:Dynamic):Void;
-	function destroy(unknown:Dynamic):Void;
+	function _writev(chunks:Array<{ var chunk : Dynamic; var encoding : String; }>, callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
+	function _destroy(error:Null<js.lib.Error>, callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
+	function _final(callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
+	@:overload(function(chunk:Dynamic, ?encoding:String, ?cb:(error:Null<js.lib.Error>) -> Void):Bool { })
+	function write(chunk:Dynamic, ?cb:(error:Null<js.lib.Error>) -> Void):Bool;
+	function setDefaultEncoding(encoding:String):Response<ResBody>;
+	@:overload(function(chunk:Dynamic, ?cb:() -> Void):Void { })
+	@:overload(function(chunk:Dynamic, ?encoding:String, ?cb:() -> Void):Void { })
+	function end(?cb:() -> Void):Void;
+	function cork():Void;
+	function uncork():Void;
+	function destroy(?error:js.lib.Error):Void;
 	/**
 		Event emitter
 		The defined events on documents including:
@@ -361,62 +361,62 @@ typedef Response<ResBody> = {
 		5. pipe
 		6. unpipe
 	**/
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	function addListener(unknown:Dynamic):Response<ResBody>;
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	function emit(unknown:Dynamic):Bool;
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	function on(unknown:Dynamic):Response<ResBody>;
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	function once(unknown:Dynamic):Response<ResBody>;
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	function prependListener(unknown:Dynamic):Response<ResBody>;
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	function prependOnceListener(unknown:Dynamic):Response<ResBody>;
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	@:overload(function(unknown:Dynamic):Response<ResBody> { })
-	function removeListener(unknown:Dynamic):Response<ResBody>;
-	function pipe<T>(unknown:Dynamic):T;
-	function off(unknown:Dynamic):Response<ResBody>;
-	function removeAllListeners(unknown:Dynamic):Response<ResBody>;
-	function setMaxListeners(unknown:Dynamic):Response<ResBody>;
-	function getMaxListeners(unknown:Dynamic):Float;
-	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
-	function listenerCount(unknown:Dynamic):Float;
+	@:overload(function(event:String, listener:() -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:() -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):Response<ResBody> { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Response<ResBody> { })
+	function addListener(event:String, listener:() -> Void):Response<ResBody>;
+	@:overload(function(event:String):Bool { })
+	@:overload(function(event:String, err:js.lib.Error):Bool { })
+	@:overload(function(event:String):Bool { })
+	@:overload(function(event:String, src:node.stream.Readable):Bool { })
+	@:overload(function(event:String, src:node.stream.Readable):Bool { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool { })
+	function emit(event:String):Bool;
+	@:overload(function(event:String, listener:() -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:() -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):Response<ResBody> { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Response<ResBody> { })
+	function on(event:String, listener:() -> Void):Response<ResBody>;
+	@:overload(function(event:String, listener:() -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:() -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):Response<ResBody> { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Response<ResBody> { })
+	function once(event:String, listener:() -> Void):Response<ResBody>;
+	@:overload(function(event:String, listener:() -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:() -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):Response<ResBody> { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Response<ResBody> { })
+	function prependListener(event:String, listener:() -> Void):Response<ResBody>;
+	@:overload(function(event:String, listener:() -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:() -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):Response<ResBody> { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Response<ResBody> { })
+	function prependOnceListener(event:String, listener:() -> Void):Response<ResBody>;
+	@:overload(function(event:String, listener:() -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:() -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):Response<ResBody> { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):Response<ResBody> { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Response<ResBody> { })
+	function removeListener(event:String, listener:() -> Void):Response<ResBody>;
+	function pipe<T>(destination:T, ?options:{ @:optional var end : Bool; }):T;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Response<ResBody>;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):Response<ResBody>;
+	function setMaxListeners(n:Float):Response<ResBody>;
+	function getMaxListeners():Float;
+	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
 };

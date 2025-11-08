@@ -68,12 +68,12 @@ typedef WorkspaceConfiguration = {
 	/**
 		Return a value from this configuration.
 	**/
-	@:overload(function<T>(unknown:Dynamic):T { })
-	function get<T>(unknown:Dynamic):Null<T>;
+	@:overload(function<T>(section:String, defaultValue:T):T { })
+	function get<T>(section:String):Null<T>;
 	/**
 		Check if this configuration has a certain value.
 	**/
-	function has(unknown:Dynamic):Bool;
+	function has(section:String):Bool;
 	/**
 		Retrieve all information about a configuration setting. A configuration value
 		often consists of a *default* value, a global or installation-wide value,
@@ -85,7 +85,7 @@ typedef WorkspaceConfiguration = {
 		*Note:* The configuration name must denote a leaf in the configuration tree
 		(`editor.fontSize` vs `editor`) otherwise no result is returned.
 	**/
-	function inspect<T>(unknown:Dynamic):Null<{
+	function inspect<T>(section:String):Null<{
 		var key : String;
 		@:optional
 		var defaultValue : T;
@@ -118,5 +118,5 @@ typedef WorkspaceConfiguration = {
 		
 		*Note:* To remove a configuration value use `undefined`, like so: `config.update('somekey', undefined)`
 	**/
-	function update(unknown:Dynamic):global.Thenable<ts.Undefined>;
+	function update(section:String, value:Dynamic, ?configurationTarget:ts.AnyOf2<Bool, Int>, ?overrideInLanguage:Bool):global.Thenable<ts.Undefined>;
 };

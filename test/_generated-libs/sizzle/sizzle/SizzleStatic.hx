@@ -1,11 +1,11 @@
 package sizzle;
 
 typedef SizzleStatic = {
-	@:overload(function(unknown:Dynamic):Array<js.html.DOMElement> { })
+	@:overload(function(selector:String, ?context:ts.AnyOf3<js.html.DocumentFragment, js.html.DOMElement, js.html.Document>):Array<js.html.DOMElement> { })
 	@:selfCall
-	function call<TArrayLike>(unknown:Dynamic):TArrayLike;
+	function call<TArrayLike>(selector:String, context:ts.AnyOf3<js.html.DocumentFragment, js.html.DOMElement, js.html.Document>, results:TArrayLike):TArrayLike;
 	var selectors : Selectors;
-	function compile(unknown:Dynamic):haxe.Constraints.Function;
-	function matchesSelector(unknown:Dynamic):Bool;
-	function matches(unknown:Dynamic):Array<js.html.DOMElement>;
+	function compile(selector:String):haxe.Constraints.Function;
+	function matchesSelector(element:js.html.DOMElement, selector:String):Bool;
+	function matches(selector:String, elements:Array<js.html.DOMElement>):Array<js.html.DOMElement>;
 };

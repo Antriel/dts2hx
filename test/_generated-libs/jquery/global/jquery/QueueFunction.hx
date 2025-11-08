@@ -1,3 +1,3 @@
 package global.jquery;
 
-typedef QueueFunction<TElement> = (unknown:Dynamic) -> Void;
+typedef QueueFunction<TElement> = (next:() -> Void) -> Void;

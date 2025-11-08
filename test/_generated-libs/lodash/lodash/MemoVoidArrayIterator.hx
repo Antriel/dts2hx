@@ -1,3 +1,3 @@
 package lodash;
 
-typedef MemoVoidArrayIterator<T, TResult> = (unknown:Dynamic) -> Void;
+typedef MemoVoidArrayIterator<T, TResult> = (acc:TResult, curr:T, index:Float, arr:Array<T>) -> Void;

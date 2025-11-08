@@ -12,5 +12,5 @@ typedef DocumentRangeFormattingEditProvider = {
 		or larger range. Often this is done by adjusting the start and end
 		of the range to full syntax nodes.
 	**/
-	function provideDocumentRangeFormattingEdits(unknown:Dynamic):ProviderResult<Array<TextEdit>>;
+	function provideDocumentRangeFormattingEdits(document:TextDocument, range:Range, options:FormattingOptions, token:CancellationToken):ProviderResult<Array<TextEdit>>;
 };

@@ -1,3 +1,3 @@
 package global.jquery;
 
-typedef CallbacksStatic = (unknown:Dynamic) -> Callbacks<Any>;
+typedef CallbacksStatic = ts.AnyOf2<() -> Callbacks<Any>, (flags:String) -> Callbacks<Any>>;

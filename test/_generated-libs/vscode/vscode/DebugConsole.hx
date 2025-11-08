@@ -7,10 +7,10 @@ typedef DebugConsole = {
 	/**
 		Append the given value to the debug console.
 	**/
-	function append(unknown:Dynamic):Void;
+	function append(value:String):Void;
 	/**
 		Append the given value and a line feed character
 		to the debug console.
 	**/
-	function appendLine(unknown:Dynamic):Void;
+	function appendLine(value:String):Void;
 };

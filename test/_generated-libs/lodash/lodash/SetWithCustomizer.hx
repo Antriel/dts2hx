@@ -1,3 +1,3 @@
 package lodash;
 
-typedef SetWithCustomizer<T> = (unknown:Dynamic) -> Dynamic;
+typedef SetWithCustomizer<T> = (nsValue:Dynamic, key:String, nsObject:T) -> Dynamic;

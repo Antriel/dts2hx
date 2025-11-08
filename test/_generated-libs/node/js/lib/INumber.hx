@@ -7,25 +7,25 @@ typedef INumber = {
 	/**
 		Returns a string representation of an object.
 	**/
-	function toString(unknown:Dynamic):String;
+	function toString(?radix:Float):String;
 	/**
 		Returns a string representing a number in fixed-point notation.
 	**/
-	function toFixed(unknown:Dynamic):String;
+	function toFixed(?fractionDigits:Float):String;
 	/**
 		Returns a string containing a number represented in exponential notation.
 	**/
-	function toExponential(unknown:Dynamic):String;
+	function toExponential(?fractionDigits:Float):String;
 	/**
 		Returns a string containing a number represented either in exponential or fixed-point notation with a specified number of digits.
 	**/
-	function toPrecision(unknown:Dynamic):String;
+	function toPrecision(?precision:Float):String;
 	/**
 		Returns the primitive value of the specified object.
 	**/
-	function valueOf(unknown:Dynamic):Float;
+	function valueOf():Float;
 	/**
 		Converts a number to a string by using the current or specified locale.
 	**/
-	function toLocaleString(unknown:Dynamic):String;
+	function toLocaleString(?locales:ts.AnyOf2<String, Array<String>>, ?options:js.lib.intl.NumberFormat.NumberFormatOptions):String;
 };

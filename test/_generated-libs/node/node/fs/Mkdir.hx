@@ -9,7 +9,7 @@ package node.fs;
 	/**
 		Asynchronous mkdir(2) - create a directory.
 	**/
-	@:overload(function(unknown:Dynamic):Void { })
+	@:overload(function(path:PathLike, callback:(err:global.nodejs.ErrnoException) -> Void):Void { })
 	@:selfCall
-	static function call(unknown:Dynamic):Void;
+	static function call(path:PathLike, options:Null<ts.AnyOf3<String, Float, MakeDirectoryOptions>>, callback:(err:global.nodejs.ErrnoException) -> Void):Void;
 }

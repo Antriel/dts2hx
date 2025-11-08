@@ -1,3 +1,3 @@
 package global._;
 
-typedef CondPairNullary<R> = ts.Tuple2<(unknown:Dynamic) -> Bool, (unknown:Dynamic) -> R>;
+typedef CondPairNullary<R> = ts.Tuple2<() -> Bool, () -> R>;

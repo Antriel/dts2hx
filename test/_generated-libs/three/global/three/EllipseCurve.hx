@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.EllipseCurve") extern class EllipseCurve extends Curve<Vector2> {
-	function new(unknown:Dynamic);
+	function new(aX:Float, aY:Float, xRadius:Float, yRadius:Float, aStartAngle:Float, aEndAngle:Float, aClockwise:Bool, aRotation:Float);
 	var aX : Float;
 	var aY : Float;
 	var xRadius : Float;

@@ -15,7 +15,7 @@ package node.fs;
 		If an error occurs after the destination file has been opened for writing, Node.js will attempt
 		to remove the destination.
 	**/
-	@:overload(function(unknown:Dynamic):Void { })
+	@:overload(function(src:PathLike, dest:PathLike, flags:Float, callback:(err:global.nodejs.ErrnoException) -> Void):Void { })
 	@:selfCall
-	static function call(unknown:Dynamic):Void;
+	static function call(src:PathLike, dest:PathLike, callback:(err:global.nodejs.ErrnoException) -> Void):Void;
 }

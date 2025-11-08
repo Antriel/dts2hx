@@ -1,3 +1,3 @@
 package global._;
 
-typedef ReplaceFunction = (unknown:Dynamic) -> String;
+typedef ReplaceFunction = (match:String, args:haxe.extern.Rest<Dynamic>) -> String;

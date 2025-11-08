@@ -5,7 +5,7 @@ typedef SymbolConstructor = {
 		Returns a new unique Symbol value.
 	**/
 	@:selfCall
-	function call(unknown:Dynamic):js.lib.Symbol;
+	function call(?description:ts.AnyOf2<String, Float>):js.lib.Symbol;
 	/**
 		A method that returns the default iterator for an object. Called by the semantics of the
 		for-of statement.
@@ -20,12 +20,12 @@ typedef SymbolConstructor = {
 		Otherwise, returns a new symbol with this key.
 	**/
 	@:native("for")
-	function for_(unknown:Dynamic):js.lib.Symbol;
+	function for_(key:String):js.lib.Symbol;
 	/**
 		Returns a key from the global symbol registry matching the given Symbol if found.
 		Otherwise, returns a undefined.
 	**/
-	function keyFor(unknown:Dynamic):Null<String>;
+	function keyFor(sym:js.lib.Symbol):Null<String>;
 	/**
 		A method that determines if a constructor object recognizes an object as one of the
 		constructor’s instances. Called by the semantics of the instanceof operator.

@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "WebGLProgram") extern class WebGLProgram {
-	function new(unknown:Dynamic);
+	function new(renderer:WebGLRenderer, extensions:WebGLExtensions, code:String, material:ShaderMaterial, shader:WebGLShader, parameters:WebGLRendererParameters, capabilities:WebGLCapabilities);
 	var id : Float;
 	var code : String;
 	var usedTimes : Float;
@@ -10,8 +10,8 @@ package three;
 	var fragmentShader : WebGLShader;
 	var uniforms : Dynamic;
 	var attributes : Dynamic;
-	function getUniforms(unknown:Dynamic):WebGLUniforms;
-	function getAttributes(unknown:Dynamic):Dynamic;
-	function destroy(unknown:Dynamic):Void;
+	function getUniforms():WebGLUniforms;
+	function getAttributes():Dynamic;
+	function destroy():Void;
 	static var prototype : WebGLProgram;
 }

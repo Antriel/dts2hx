@@ -1,50 +1,50 @@
 package three;
 
 @:jsRequire("three", "HemisphereLightHelper") extern class HemisphereLightHelper extends Object3D {
-	function new(unknown:Dynamic);
+	function new(light:HemisphereLight, size:Float, ?color:ts.AnyOf3<String, Float, Color>);
 	var light : HemisphereLight;
 	var material : MeshBasicMaterial;
 	var color : Null<ts.AnyOf3<String, Float, Color>>;
-	function dispose(unknown:Dynamic):Void;
-	function update(unknown:Dynamic):Void;
-	function applyQuaternion(unknown:Dynamic):HemisphereLightHelper;
+	function dispose():Void;
+	function update():Void;
+	function applyQuaternion(quaternion:Quaternion):HemisphereLightHelper;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(unknown:Dynamic):HemisphereLightHelper;
+	function rotateOnAxis(axis:Vector3, angle:Float):HemisphereLightHelper;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(unknown:Dynamic):HemisphereLightHelper;
-	function rotateX(unknown:Dynamic):HemisphereLightHelper;
-	function rotateY(unknown:Dynamic):HemisphereLightHelper;
-	function rotateZ(unknown:Dynamic):HemisphereLightHelper;
-	function translateOnAxis(unknown:Dynamic):HemisphereLightHelper;
+	function rotateOnWorldAxis(axis:Vector3, angle:Float):HemisphereLightHelper;
+	function rotateX(angle:Float):HemisphereLightHelper;
+	function rotateY(angle:Float):HemisphereLightHelper;
+	function rotateZ(angle:Float):HemisphereLightHelper;
+	function translateOnAxis(axis:Vector3, distance:Float):HemisphereLightHelper;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(unknown:Dynamic):HemisphereLightHelper;
+	function translateX(distance:Float):HemisphereLightHelper;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(unknown:Dynamic):HemisphereLightHelper;
+	function translateY(distance:Float):HemisphereLightHelper;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(unknown:Dynamic):HemisphereLightHelper;
+	function translateZ(distance:Float):HemisphereLightHelper;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(unknown:Dynamic):HemisphereLightHelper;
+	function add(object:haxe.extern.Rest<Object3D>):HemisphereLightHelper;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(unknown:Dynamic):HemisphereLightHelper;
+	function remove(object:haxe.extern.Rest<Object3D>):HemisphereLightHelper;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(unknown:Dynamic):HemisphereLightHelper;
-	function clone(unknown:Dynamic):HemisphereLightHelper;
-	function copy(unknown:Dynamic):HemisphereLightHelper;
+	function attach(object:Object3D):HemisphereLightHelper;
+	function clone(?recursive:Bool):HemisphereLightHelper;
+	function copy(source:HemisphereLightHelper, ?recursive:Bool):HemisphereLightHelper;
 	static var prototype : HemisphereLightHelper;
 }

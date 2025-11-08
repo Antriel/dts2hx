@@ -1,50 +1,50 @@
 package global.three;
 
 @:native("THREE.StereoCamera") extern class StereoCamera extends Camera {
-	function new(unknown:Dynamic);
+	function new();
 	var aspect : Float;
 	var eyeSep : Float;
 	var cameraL : PerspectiveCamera;
 	var cameraR : PerspectiveCamera;
-	function update(unknown:Dynamic):Void;
-	function applyQuaternion(unknown:Dynamic):StereoCamera;
+	function update(camera:PerspectiveCamera):Void;
+	function applyQuaternion(quaternion:Quaternion):StereoCamera;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(unknown:Dynamic):StereoCamera;
+	function rotateOnAxis(axis:Vector3, angle:Float):StereoCamera;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(unknown:Dynamic):StereoCamera;
-	function rotateX(unknown:Dynamic):StereoCamera;
-	function rotateY(unknown:Dynamic):StereoCamera;
-	function rotateZ(unknown:Dynamic):StereoCamera;
-	function translateOnAxis(unknown:Dynamic):StereoCamera;
+	function rotateOnWorldAxis(axis:Vector3, angle:Float):StereoCamera;
+	function rotateX(angle:Float):StereoCamera;
+	function rotateY(angle:Float):StereoCamera;
+	function rotateZ(angle:Float):StereoCamera;
+	function translateOnAxis(axis:Vector3, distance:Float):StereoCamera;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(unknown:Dynamic):StereoCamera;
+	function translateX(distance:Float):StereoCamera;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(unknown:Dynamic):StereoCamera;
+	function translateY(distance:Float):StereoCamera;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(unknown:Dynamic):StereoCamera;
+	function translateZ(distance:Float):StereoCamera;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(unknown:Dynamic):StereoCamera;
+	function add(object:haxe.extern.Rest<Object3D>):StereoCamera;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(unknown:Dynamic):StereoCamera;
+	function remove(object:haxe.extern.Rest<Object3D>):StereoCamera;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(unknown:Dynamic):StereoCamera;
-	function clone(unknown:Dynamic):StereoCamera;
-	function copy(unknown:Dynamic):StereoCamera;
+	function attach(object:Object3D):StereoCamera;
+	function clone(?recursive:Bool):StereoCamera;
+	function copy(source:StereoCamera, ?recursive:Bool):StereoCamera;
 	static var prototype : StereoCamera;
 }

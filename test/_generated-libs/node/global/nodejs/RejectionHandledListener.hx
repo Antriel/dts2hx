@@ -1,3 +1,3 @@
 package global.nodejs;
 
-typedef RejectionHandledListener = (unknown:Dynamic) -> Void;
+typedef RejectionHandledListener = (promise:js.lib.Promise<Dynamic>) -> Void;

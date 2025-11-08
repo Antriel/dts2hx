@@ -2,13 +2,13 @@ package vue;
 
 typedef DirectiveOptions = {
 	@:optional
-	dynamic function bind(unknown:Dynamic):Void;
+	dynamic function bind(el:js.html.Element, binding:vue.types.options.DirectiveBinding, vnode:VNode, oldVnode:VNode):Void;
 	@:optional
-	dynamic function inserted(unknown:Dynamic):Void;
+	dynamic function inserted(el:js.html.Element, binding:vue.types.options.DirectiveBinding, vnode:VNode, oldVnode:VNode):Void;
 	@:optional
-	dynamic function update(unknown:Dynamic):Void;
+	dynamic function update(el:js.html.Element, binding:vue.types.options.DirectiveBinding, vnode:VNode, oldVnode:VNode):Void;
 	@:optional
-	dynamic function componentUpdated(unknown:Dynamic):Void;
+	dynamic function componentUpdated(el:js.html.Element, binding:vue.types.options.DirectiveBinding, vnode:VNode, oldVnode:VNode):Void;
 	@:optional
-	dynamic function unbind(unknown:Dynamic):Void;
+	dynamic function unbind(el:js.html.Element, binding:vue.types.options.DirectiveBinding, vnode:VNode, oldVnode:VNode):Void;
 };

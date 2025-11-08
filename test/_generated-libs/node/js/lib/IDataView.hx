@@ -8,90 +8,90 @@ typedef IDataView<TArrayBuffer> = {
 		Gets the Float32 value at the specified byte offset from the start of the view. There is
 		no alignment constraint; multi-byte values may be fetched from any offset.
 	**/
-	function getFloat32(unknown:Dynamic):Float;
+	function getFloat32(byteOffset:Float, ?littleEndian:Bool):Float;
 	/**
 		Gets the Float64 value at the specified byte offset from the start of the view. There is
 		no alignment constraint; multi-byte values may be fetched from any offset.
 	**/
-	function getFloat64(unknown:Dynamic):Float;
+	function getFloat64(byteOffset:Float, ?littleEndian:Bool):Float;
 	/**
 		Gets the Int8 value at the specified byte offset from the start of the view. There is
 		no alignment constraint; multi-byte values may be fetched from any offset.
 	**/
-	function getInt8(unknown:Dynamic):Float;
+	function getInt8(byteOffset:Float):Float;
 	/**
 		Gets the Int16 value at the specified byte offset from the start of the view. There is
 		no alignment constraint; multi-byte values may be fetched from any offset.
 	**/
-	function getInt16(unknown:Dynamic):Float;
+	function getInt16(byteOffset:Float, ?littleEndian:Bool):Float;
 	/**
 		Gets the Int32 value at the specified byte offset from the start of the view. There is
 		no alignment constraint; multi-byte values may be fetched from any offset.
 	**/
-	function getInt32(unknown:Dynamic):Float;
+	function getInt32(byteOffset:Float, ?littleEndian:Bool):Float;
 	/**
 		Gets the Uint8 value at the specified byte offset from the start of the view. There is
 		no alignment constraint; multi-byte values may be fetched from any offset.
 	**/
-	function getUint8(unknown:Dynamic):Float;
+	function getUint8(byteOffset:Float):Float;
 	/**
 		Gets the Uint16 value at the specified byte offset from the start of the view. There is
 		no alignment constraint; multi-byte values may be fetched from any offset.
 	**/
-	function getUint16(unknown:Dynamic):Float;
+	function getUint16(byteOffset:Float, ?littleEndian:Bool):Float;
 	/**
 		Gets the Uint32 value at the specified byte offset from the start of the view. There is
 		no alignment constraint; multi-byte values may be fetched from any offset.
 	**/
-	function getUint32(unknown:Dynamic):Float;
+	function getUint32(byteOffset:Float, ?littleEndian:Bool):Float;
 	/**
 		Stores an Float32 value at the specified byte offset from the start of the view.
 	**/
-	function setFloat32(unknown:Dynamic):Void;
+	function setFloat32(byteOffset:Float, value:Float, ?littleEndian:Bool):Void;
 	/**
 		Stores an Float64 value at the specified byte offset from the start of the view.
 	**/
-	function setFloat64(unknown:Dynamic):Void;
+	function setFloat64(byteOffset:Float, value:Float, ?littleEndian:Bool):Void;
 	/**
 		Stores an Int8 value at the specified byte offset from the start of the view.
 	**/
-	function setInt8(unknown:Dynamic):Void;
+	function setInt8(byteOffset:Float, value:Float):Void;
 	/**
 		Stores an Int16 value at the specified byte offset from the start of the view.
 	**/
-	function setInt16(unknown:Dynamic):Void;
+	function setInt16(byteOffset:Float, value:Float, ?littleEndian:Bool):Void;
 	/**
 		Stores an Int32 value at the specified byte offset from the start of the view.
 	**/
-	function setInt32(unknown:Dynamic):Void;
+	function setInt32(byteOffset:Float, value:Float, ?littleEndian:Bool):Void;
 	/**
 		Stores an Uint8 value at the specified byte offset from the start of the view.
 	**/
-	function setUint8(unknown:Dynamic):Void;
+	function setUint8(byteOffset:Float, value:Float):Void;
 	/**
 		Stores an Uint16 value at the specified byte offset from the start of the view.
 	**/
-	function setUint16(unknown:Dynamic):Void;
+	function setUint16(byteOffset:Float, value:Float, ?littleEndian:Bool):Void;
 	/**
 		Stores an Uint32 value at the specified byte offset from the start of the view.
 	**/
-	function setUint32(unknown:Dynamic):Void;
+	function setUint32(byteOffset:Float, value:Float, ?littleEndian:Bool):Void;
 	/**
 		Gets the BigInt64 value at the specified byte offset from the start of the view. There is
 		no alignment constraint; multi-byte values may be fetched from any offset.
 	**/
-	function getBigInt64(unknown:Dynamic):BigInt;
+	function getBigInt64(byteOffset:Float, ?littleEndian:Bool):BigInt;
 	/**
 		Gets the BigUint64 value at the specified byte offset from the start of the view. There is
 		no alignment constraint; multi-byte values may be fetched from any offset.
 	**/
-	function getBigUint64(unknown:Dynamic):BigInt;
+	function getBigUint64(byteOffset:Float, ?littleEndian:Bool):BigInt;
 	/**
 		Stores a BigInt64 value at the specified byte offset from the start of the view.
 	**/
-	function setBigInt64(unknown:Dynamic):Void;
+	function setBigInt64(byteOffset:Float, value:BigInt, ?littleEndian:Bool):Void;
 	/**
 		Stores a BigUint64 value at the specified byte offset from the start of the view.
 	**/
-	function setBigUint64(unknown:Dynamic):Void;
+	function setBigUint64(byteOffset:Float, value:BigInt, ?littleEndian:Bool):Void;
 };

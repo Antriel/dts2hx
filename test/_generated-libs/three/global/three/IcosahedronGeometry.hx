@@ -1,12 +1,12 @@
 package global.three;
 
 @:native("THREE.IcosahedronGeometry") extern class IcosahedronGeometry extends PolyhedronGeometry {
-	function new(unknown:Dynamic);
-	function setFromPoints(unknown:Dynamic):IcosahedronGeometry;
+	function new(?radius:Float, ?detail:Float);
+	function setFromPoints(points:ts.AnyOf2<Array<Vector3>, Array<Vector2>>):IcosahedronGeometry;
 	/**
 		Creates a new clone of the Geometry.
 	**/
-	function clone(unknown:Dynamic):IcosahedronGeometry;
-	function copy(unknown:Dynamic):IcosahedronGeometry;
+	function clone():IcosahedronGeometry;
+	function copy(source:Geometry):IcosahedronGeometry;
 	static var prototype : IcosahedronGeometry;
 }

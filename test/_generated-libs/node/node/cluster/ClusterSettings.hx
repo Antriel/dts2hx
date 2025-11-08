@@ -16,5 +16,5 @@ typedef ClusterSettings = {
 	@:optional
 	var gid : Float;
 	@:optional
-	var inspectPort : ts.AnyOf2<Float, (unknown:Dynamic) -> Float>;
+	var inspectPort : ts.AnyOf2<Float, () -> Float>;
 };

@@ -3,7 +3,7 @@ package vue;
 typedef RenderContext<Props> = {
 	var props : Props;
 	var children : Array<VNode>;
-	function slots(unknown:Dynamic):Dynamic;
+	function slots():Dynamic;
 	var data : VNodeData;
 	var parent : Vue;
 	var listeners : haxe.DynamicAccess<ts.AnyOf2<haxe.Constraints.Function, Array<haxe.Constraints.Function>>>;

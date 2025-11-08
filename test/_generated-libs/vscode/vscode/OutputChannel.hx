@@ -14,29 +14,29 @@ typedef OutputChannel = {
 	/**
 		Append the given value to the channel.
 	**/
-	function append(unknown:Dynamic):Void;
+	function append(value:String):Void;
 	/**
 		Append the given value and a line feed character
 		to the channel.
 	**/
-	function appendLine(unknown:Dynamic):Void;
+	function appendLine(value:String):Void;
 	/**
 		Removes all output from the channel.
 	**/
-	function clear(unknown:Dynamic):Void;
+	function clear():Void;
 	/**
 		Reveal this channel in the UI.
 		
 		~~Reveal this channel in the UI.~~
 	**/
-	@:overload(function(unknown:Dynamic):Void { })
-	function show(unknown:Dynamic):Void;
+	@:overload(function(?column:ViewColumn, ?preserveFocus:Bool):Void { })
+	function show(?preserveFocus:Bool):Void;
 	/**
 		Hide this channel from the UI.
 	**/
-	function hide(unknown:Dynamic):Void;
+	function hide():Void;
 	/**
 		Dispose and free associated resources.
 	**/
-	function dispose(unknown:Dynamic):Void;
+	function dispose():Void;
 };

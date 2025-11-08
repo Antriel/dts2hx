@@ -9,5 +9,5 @@ typedef FoldingRangeProvider = {
 		Returns a list of folding ranges or null and undefined if the provider
 		does not want to participate or was cancelled.
 	**/
-	function provideFoldingRanges(unknown:Dynamic):ProviderResult<Array<FoldingRange>>;
+	function provideFoldingRanges(document:TextDocument, context:FoldingContext, token:CancellationToken):ProviderResult<Array<FoldingRange>>;
 };

@@ -1,12 +1,12 @@
 package three;
 
 @:jsRequire("three", "TetrahedronGeometry") extern class TetrahedronGeometry extends PolyhedronGeometry {
-	function new(unknown:Dynamic);
-	function setFromPoints(unknown:Dynamic):TetrahedronGeometry;
+	function new(?radius:Float, ?detail:Float);
+	function setFromPoints(points:ts.AnyOf2<Array<Vector3>, Array<Vector2>>):TetrahedronGeometry;
 	/**
 		Creates a new clone of the Geometry.
 	**/
-	function clone(unknown:Dynamic):TetrahedronGeometry;
-	function copy(unknown:Dynamic):TetrahedronGeometry;
+	function clone():TetrahedronGeometry;
+	function copy(source:Geometry):TetrahedronGeometry;
 	static var prototype : TetrahedronGeometry;
 }

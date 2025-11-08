@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.MeshDepthMaterial") extern class MeshDepthMaterial extends Material {
-	function new(unknown:Dynamic);
+	function new(?parameters:MeshDepthMaterialParameters);
 	var depthPacking : DepthPackingStrategies;
 	var displacementMap : Null<Texture>;
 	var displacementScale : Float;
@@ -11,14 +11,14 @@ package global.three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(unknown:Dynamic):Void;
+	function setValues(parameters:MeshDepthMaterialParameters):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone(unknown:Dynamic):MeshDepthMaterial;
+	function clone():MeshDepthMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(unknown:Dynamic):MeshDepthMaterial;
+	function copy(material:Material):MeshDepthMaterial;
 	static var prototype : MeshDepthMaterial;
 }

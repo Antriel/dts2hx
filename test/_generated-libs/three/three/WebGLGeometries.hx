@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "WebGLGeometries") extern class WebGLGeometries {
-	function new(unknown:Dynamic);
-	function get(unknown:Dynamic):Dynamic;
+	function new(gl:js.html.webgl.RenderingContext, extensions:Dynamic, _infoRender:Dynamic);
+	function get(object:Dynamic):Dynamic;
 	static var prototype : WebGLGeometries;
 }

@@ -1,6 +1,6 @@
 package global.jquery;
 
 typedef Transport = {
-	function send(unknown:Dynamic):Void;
-	function abort(unknown:Dynamic):Void;
+	function send(headers:PlainObject<Dynamic>, completeCallback:global.jquery.transport.SuccessCallback):Void;
+	function abort():Void;
 };

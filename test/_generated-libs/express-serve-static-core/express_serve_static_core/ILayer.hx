@@ -11,5 +11,5 @@ typedef ILayer = {
 	var path : String;
 	var method : String;
 	var regexp : js.lib.RegExp;
-	dynamic function handle(unknown:Dynamic):Dynamic;
+	dynamic function handle(req:Request<ParamsDictionary, Dynamic, Dynamic, qs.ParsedQs, haxe.DynamicAccess<Dynamic>>, res:Response<Dynamic, haxe.DynamicAccess<Dynamic>, Float>, next:NextFunction):Dynamic;
 };

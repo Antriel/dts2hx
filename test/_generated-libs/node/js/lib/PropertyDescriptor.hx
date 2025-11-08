@@ -10,7 +10,7 @@ typedef PropertyDescriptor = {
 	@:optional
 	var writable : Bool;
 	@:optional
-	function get(unknown:Dynamic):Dynamic;
+	function get():Dynamic;
 	@:optional
-	function set(unknown:Dynamic):Void;
+	function set(v:Dynamic):Void;
 };

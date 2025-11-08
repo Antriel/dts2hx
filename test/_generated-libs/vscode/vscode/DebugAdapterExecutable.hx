@@ -7,7 +7,7 @@ package vscode;
 	/**
 		Creates a description for a debug adapter based on an executable program.
 	**/
-	function new(unknown:Dynamic);
+	function new(command:String, ?args:Array<String>, ?options:DebugAdapterExecutableOptions);
 	/**
 		The command or path of the debug adapter executable.
 		A command must be either an absolute path of an executable or the name of an command to be looked up via the PATH environment variable.

@@ -7,7 +7,7 @@ package node.fs;
 	/**
 		Asynchronously tests a user's permissions for the file specified by path.
 	**/
-	@:overload(function(unknown:Dynamic):Void { })
+	@:overload(function(path:PathLike, callback:(err:global.nodejs.ErrnoException) -> Void):Void { })
 	@:selfCall
-	static function call(unknown:Dynamic):Void;
+	static function call(path:PathLike, mode:Null<Float>, callback:(err:global.nodejs.ErrnoException) -> Void):Void;
 }

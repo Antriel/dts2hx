@@ -14,30 +14,30 @@ package three;
 					message — error message
 **/
 @:jsRequire("three", "Loader") extern class Loader {
-	function new(unknown:Dynamic);
+	function new();
 	/**
 		Will be called when load starts.
 		The default is a function with empty body.
 	**/
-	dynamic function onLoadStart(unknown:Dynamic):Void;
+	dynamic function onLoadStart():Void;
 	/**
 		Will be called while load progresses.
 		The default is a function with empty body.
 	**/
-	dynamic function onLoadProgress(unknown:Dynamic):Void;
+	dynamic function onLoadProgress():Void;
 	/**
 		Will be called when load completes.
 		The default is a function with empty body.
 	**/
-	dynamic function onLoadComplete(unknown:Dynamic):Void;
+	dynamic function onLoadComplete():Void;
 	/**
 		default — null.
 		If set, assigns the crossOrigin attribute of the image to the value of crossOrigin, prior to starting the load.
 	**/
 	var crossOrigin : String;
-	function extractUrlBase(unknown:Dynamic):String;
-	function initMaterials(unknown:Dynamic):Array<Material>;
-	function createMaterial(unknown:Dynamic):Bool;
+	function extractUrlBase(url:String):String;
+	function initMaterials(materials:Array<Material>, texturePath:String):Array<Material>;
+	function createMaterial(m:Material, texturePath:String, ?crossOrigin:String):Bool;
 	static var prototype : Loader;
 	static var Handlers : LoaderHandler;
 }

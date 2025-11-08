@@ -39,28 +39,28 @@ typedef TextEditor = {
 		be used to make edits. Note that the edit-builder is only valid while the
 		callback executes.
 	**/
-	function edit(unknown:Dynamic):global.Thenable<Bool>;
+	function edit(callback:(editBuilder:TextEditorEdit) -> Void, ?options:{ var undoStopBefore : Bool; var undoStopAfter : Bool; }):global.Thenable<Bool>;
 	/**
 		Insert a [snippet](#SnippetString) and put the editor into snippet mode. "Snippet mode"
 		means the editor adds placeholders and additional cursors so that the user can complete
 		or accept the snippet.
 	**/
-	function insertSnippet(unknown:Dynamic):global.Thenable<Bool>;
+	function insertSnippet(snippet:SnippetString, ?location:ts.AnyOf4<Range, Position, haxe.ds.ReadOnlyArray<Range>, haxe.ds.ReadOnlyArray<Position>>, ?options:{ var undoStopBefore : Bool; var undoStopAfter : Bool; }):global.Thenable<Bool>;
 	/**
 		Adds a set of decorations to the text editor. If a set of decorations already exists with
 		the given [decoration type](#TextEditorDecorationType), they will be replaced.
 	**/
-	function setDecorations(unknown:Dynamic):Void;
+	function setDecorations(decorationType:TextEditorDecorationType, rangesOrOptions:ts.AnyOf2<Array<Range>, Array<DecorationOptions>>):Void;
 	/**
 		Scroll as indicated by `revealType` in order to reveal the given range.
 	**/
-	function revealRange(unknown:Dynamic):Void;
+	function revealRange(range:Range, ?revealType:TextEditorRevealType):Void;
 	/**
 		~~Show the text editor.~~
 	**/
-	function show(unknown:Dynamic):Void;
+	function show(?column:ViewColumn):Void;
 	/**
 		~~Hide the text editor.~~
 	**/
-	function hide(unknown:Dynamic):Void;
+	function hide():Void;
 };

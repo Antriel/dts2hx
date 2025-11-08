@@ -1,3 +1,3 @@
 package global.jquery;
 
-typedef AnimationHook<TElement> = (unknown:Dynamic) -> Void;
+typedef AnimationHook<TElement> = (fx:Tween<TElement>) -> Void;

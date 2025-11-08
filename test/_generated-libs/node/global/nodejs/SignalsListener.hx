@@ -1,3 +1,3 @@
 package global.nodejs;
 
-typedef SignalsListener = (unknown:Dynamic) -> Void;
+typedef SignalsListener = (signal:Signals) -> Void;

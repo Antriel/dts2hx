@@ -7,7 +7,7 @@ package vscode;
 	/**
 		Creates a new color instance.
 	**/
-	function new(unknown:Dynamic);
+	function new(red:Float, green:Float, blue:Float, alpha:Float);
 	/**
 		The red component of this color in the range [0-1].
 	**/

@@ -1,10 +1,10 @@
 package three;
 
 @:jsRequire("three", "WebGLColorBuffer") extern class WebGLColorBuffer {
-	function new(unknown:Dynamic);
-	function setMask(unknown:Dynamic):Void;
-	function setLocked(unknown:Dynamic):Void;
-	function setClear(unknown:Dynamic):Void;
-	function reset(unknown:Dynamic):Void;
+	function new();
+	function setMask(colorMask:Bool):Void;
+	function setLocked(lock:Bool):Void;
+	function setClear(r:Float, g:Float, b:Float, a:Float, premultipliedAlpha:Bool):Void;
+	function reset():Void;
 	static var prototype : WebGLColorBuffer;
 }

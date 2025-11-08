@@ -4,7 +4,7 @@ package vscode;
 	Represents edits to semantic tokens.
 **/
 @:jsRequire("vscode", "SemanticTokensEdits") extern class SemanticTokensEdits {
-	function new(unknown:Dynamic);
+	function new(edits:Array<SemanticTokensEdit>, ?resultId:String);
 	/**
 		The result id of the tokens.
 		

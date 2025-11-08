@@ -1,3 +1,3 @@
 package express_serve_static_core;
 
-typedef Errback = (unknown:Dynamic) -> Void;
+typedef Errback = (err:js.lib.Error) -> Void;

@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.MeshLambertMaterial") extern class MeshLambertMaterial extends Material {
-	function new(unknown:Dynamic);
+	function new(?parameters:MeshLambertMaterialParameters);
 	var color : Color;
 	var emissive : Color;
 	var emissiveIntensity : Float;
@@ -27,14 +27,14 @@ package global.three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(unknown:Dynamic):Void;
+	function setValues(parameters:MeshLambertMaterialParameters):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone(unknown:Dynamic):MeshLambertMaterial;
+	function clone():MeshLambertMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(unknown:Dynamic):MeshLambertMaterial;
+	function copy(material:Material):MeshLambertMaterial;
 	static var prototype : MeshLambertMaterial;
 }

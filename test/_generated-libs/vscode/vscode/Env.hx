@@ -14,7 +14,7 @@ package vscode;
 		*Note* that [`showTextDocument`](#window.showTextDocument) is the right
 		way to open a text document inside the editor, not this function.
 	**/
-	static function openExternal(unknown:Dynamic):global.Thenable<Bool>;
+	static function openExternal(target:Uri):global.Thenable<Bool>;
 	/**
 		Resolves a uri to form that is accessible externally. Currently only supports `https:`, `http:` and
 		`vscode.env.uriScheme` uris.
@@ -62,7 +62,7 @@ package vscode;
 		a system or user action — for example, in remote cases, a user may close a port forwarding tunnel that was opened by
 		`asExternalUri`.
 	**/
-	static function asExternalUri(unknown:Dynamic):global.Thenable<Uri>;
+	static function asExternalUri(target:Uri):global.Thenable<Uri>;
 	/**
 		The application name of the editor, like 'VS Code'.
 	**/

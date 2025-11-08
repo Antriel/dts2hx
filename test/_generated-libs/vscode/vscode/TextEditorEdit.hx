@@ -10,19 +10,19 @@ typedef TextEditorEdit = {
 		Replace a certain text region with a new value.
 		You can use \r\n or \n in `value` and they will be normalized to the current [document](#TextDocument).
 	**/
-	function replace(unknown:Dynamic):Void;
+	function replace(location:ts.AnyOf3<Range, Position, Selection>, value:String):Void;
 	/**
 		Insert text at a location.
 		You can use \r\n or \n in `value` and they will be normalized to the current [document](#TextDocument).
 		Although the equivalent text edit can be made with [replace](#TextEditorEdit.replace), `insert` will produce a different resulting selection (it will get moved).
 	**/
-	function insert(unknown:Dynamic):Void;
+	function insert(location:Position, value:String):Void;
 	/**
 		Delete a certain text region.
 	**/
-	function delete(unknown:Dynamic):Void;
+	function delete(location:ts.AnyOf2<Range, Selection>):Void;
 	/**
 		Set the end of line sequence.
 	**/
-	function setEndOfLine(unknown:Dynamic):Void;
+	function setEndOfLine(endOfLine:EndOfLine):Void;
 };

@@ -8,7 +8,7 @@ package vscode;
 	/**
 		Creates a new parameter information object.
 	**/
-	function new(unknown:Dynamic);
+	function new(label:ts.AnyOf2<String, ts.Tuple2<Float, Float>>, ?documentation:ts.AnyOf2<String, MarkdownString>);
 	/**
 		The label of this signature.
 		
