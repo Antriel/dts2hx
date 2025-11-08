@@ -1,15 +1,20 @@
 package three;
 
 /**
-	Abstract base class for cameras. This class should always be inherited when you build a new camera.
+	Abstract base class for cameras
 **/
-@:jsRequire("three", "Camera") extern class Camera extends Object3D {
-	/**
-		This constructor sets following properties to the correct type: matrixWorldInverse, projectionMatrix and projectionMatrixInverse.
-	**/
+@:jsRequire("three", "Camera") extern class Camera extends Object3D<Object3DEventMap> {
 	function new();
 	/**
-		This is the inverse of matrixWorld. MatrixWorld contains the Matrix which has the world transform of the Camera.
+		Read-only flag to check if a given object is of type
+		{@link
+		Camera
+		}
+		.
+	**/
+	final isCamera : Bool;
+	/**
+		This is the inverse of matrixWorld.
 	**/
 	var matrixWorldInverse : Matrix4;
 	/**
@@ -20,45 +25,124 @@ package three;
 		This is the inverse of projectionMatrix.
 	**/
 	var projectionMatrixInverse : Matrix4;
-	var isCamera : Bool;
+	var coordinateSystem : CoordinateSystem;
+	@:optional
+	var viewport : Vector4;
+	/**
+		The flag that indicates whether the camera uses a reversed depth buffer.
+	**/
+	final reversedDepth : Bool;
+	/**
+		Applies the rotation represented by the quaternion to the object.
+	**/
 	function applyQuaternion(quaternion:Quaternion):Camera;
 	/**
-		Rotate an object along an axis in object space. The axis is assumed to be normalized.
+		Rotate an object along an axis in object space.
 	**/
 	function rotateOnAxis(axis:Vector3, angle:Float):Camera;
 	/**
-		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
+		Rotate an object along an axis in world space.
 	**/
 	function rotateOnWorldAxis(axis:Vector3, angle:Float):Camera;
+	/**
+		Rotates the object around _x_ axis in local space.
+	**/
 	function rotateX(angle:Float):Camera;
+	/**
+		Rotates the object around _y_ axis in local space.
+	**/
 	function rotateY(angle:Float):Camera;
+	/**
+		Rotates the object around _z_ axis in local space.
+	**/
 	function rotateZ(angle:Float):Camera;
+	/**
+		Translate an object by distance along an axis in object space
+	**/
 	function translateOnAxis(axis:Vector3, distance:Float):Camera;
 	/**
-		Translates object along x axis by distance.
+		Translates object along x axis in object space by
+		{@link
+		distance
+		}
+		units.
 	**/
 	function translateX(distance:Float):Camera;
 	/**
-		Translates object along y axis by distance.
+		Translates object along _y_ axis in object space by
+		{@link
+		distance
+		}
+		units.
 	**/
 	function translateY(distance:Float):Camera;
 	/**
-		Translates object along z axis by distance.
+		Translates object along _z_ axis in object space by
+		{@link
+		distance
+		}
+		units.
 	**/
 	function translateZ(distance:Float):Camera;
 	/**
-		Adds object as child of this object.
+		Adds another
+		{@link
+		Object3D
+		}
+		as child of this
+		{@link
+		Object3D
+		}
+		.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):Camera;
+	function add(object:haxe.extern.Rest<Object3D<Object3DEventMap>>):Camera;
 	/**
-		Removes object as child of this object.
+		Removes a
+		{@link
+		Object3D
+		}
+		as child of this
+		{@link
+		Object3D
+		}
+		.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):Camera;
+	function remove(object:haxe.extern.Rest<Object3D<Object3DEventMap>>):Camera;
 	/**
-		Adds object as a child of this, while maintaining the object's world transform.
+		Removes this object from its current parent.
 	**/
-	function attach(object:Object3D):Camera;
+	function removeFromParent():Camera;
+	/**
+		Removes all child objects.
+	**/
+	function clear():Camera;
+	/**
+		Adds a
+		{@link
+		Object3D
+		}
+		as a child of this, while maintaining the object's world transform.
+	**/
+	function attach(object:Object3D<Object3DEventMap>):Camera;
+	/**
+		Returns a clone of `this` object and optionally all descendants.
+	**/
 	function clone(?recursive:Bool):Camera;
-	function copy(source:Camera, ?recursive:Bool):Camera;
+	/**
+		Copies the given object into this object.
+	**/
+	function copy(object:Object3D<Object3DEventMap>, ?recursive:Bool):Camera;
+	/**
+		Adds a listener to an event type.
+	**/
+	function addEventListener<T>(type:T, listener:EventListener<Dynamic, T, Camera>):Void;
+	/**
+		Checks if listener is added to an event type.
+	**/
+	function hasEventListener<T>(type:T, listener:EventListener<Dynamic, T, Camera>):Bool;
+	/**
+		Removes a listener from an event type.
+	**/
+	function removeEventListener<T>(type:T, listener:EventListener<Dynamic, T, Camera>):Void;
 	static var prototype : Camera;
 }

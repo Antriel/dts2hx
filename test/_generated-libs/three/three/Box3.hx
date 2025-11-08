@@ -2,13 +2,15 @@ package three;
 
 @:jsRequire("three", "Box3") extern class Box3 {
 	function new(?min:Vector3, ?max:Vector3);
-	var max : Vector3;
 	var min : Vector3;
+	var max : Vector3;
+	final isBox3 : Bool;
 	function set(min:Vector3, max:Vector3):Box3;
 	function setFromArray(array:js.lib.ArrayLike<Float>):Box3;
+	function setFromBufferAttribute(bufferAttribute:BufferAttribute):Box3;
 	function setFromPoints(points:Array<Vector3>):Box3;
 	function setFromCenterAndSize(center:Vector3, size:Vector3):Box3;
-	function setFromObject(object:Object3D):Box3;
+	function setFromObject(object:Object3D<Object3DEventMap>, ?precise:Bool):Box3;
 	function clone():Box3;
 	function copy(box:Box3):Box3;
 	function makeEmpty():Box3;
@@ -18,10 +20,10 @@ package three;
 	function expandByPoint(point:Vector3):Box3;
 	function expandByVector(vector:Vector3):Box3;
 	function expandByScalar(scalar:Float):Box3;
-	function expandByObject(object:Object3D):Box3;
+	function expandByObject(object:Object3D<Object3DEventMap>, ?precise:Bool):Box3;
 	function containsPoint(point:Vector3):Bool;
 	function containsBox(box:Box3):Bool;
-	function getParameter(point:Vector3):Vector3;
+	function getParameter(point:Vector3, target:Vector3):Vector3;
 	function intersectsBox(box:Box3):Bool;
 	function intersectsSphere(sphere:Sphere):Bool;
 	function intersectsPlane(plane:Plane):Bool;
@@ -37,5 +39,7 @@ package three;
 	function empty():Dynamic;
 	function isIntersectionBox(b:Dynamic):Dynamic;
 	function isIntersectionSphere(s:Dynamic):Dynamic;
+	function toJSON():Box3JSON;
+	function fromJSON(json:Box3JSON):Box3;
 	static var prototype : Box3;
 }

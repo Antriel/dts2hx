@@ -3,26 +3,30 @@ package three;
 /**
 	JavaScript events for custom objects
 **/
-@:jsRequire("three", "EventDispatcher") extern class EventDispatcher {
+@:jsRequire("three", "EventDispatcher") extern class EventDispatcher<TEventMap> {
 	/**
-		Creates eventDispatcher object. It needs to be call with '.call' to add the functionality to an object.
+		Creates 
+		{@link 
+		THREE.EventDispatcher EventDispatcher
+		}
+		 object.
 	**/
 	function new();
 	/**
 		Adds a listener to an event type.
 	**/
-	function addEventListener(type:String, listener:(event:Event) -> Void):Void;
+	function addEventListener<T>(type:T, listener:EventListener<Dynamic, T, EventDispatcher<TEventMap>>):Void;
 	/**
 		Checks if listener is added to an event type.
 	**/
-	function hasEventListener(type:String, listener:(event:Event) -> Void):Bool;
+	function hasEventListener<T>(type:T, listener:EventListener<Dynamic, T, EventDispatcher<TEventMap>>):Bool;
 	/**
 		Removes a listener from an event type.
 	**/
-	function removeEventListener(type:String, listener:(event:Event) -> Void):Void;
+	function removeEventListener<T>(type:T, listener:EventListener<Dynamic, T, EventDispatcher<TEventMap>>):Void;
 	/**
 		Fire an event type.
 	**/
-	function dispatchEvent(event:{ var type : String; }):Void;
-	static var prototype : EventDispatcher;
+	function dispatchEvent<T>(event:Dynamic):Void;
+	static var prototype : EventDispatcher<Dynamic>;
 }

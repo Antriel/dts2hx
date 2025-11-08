@@ -2,8 +2,6 @@ package three;
 
 /**
 	2D vector.
-	
-	( class Vector2 implements Vector<Vector2> )
 **/
 @:jsRequire("three", "Vector2") extern class Vector2 {
 	function new(?x:Float, ?y:Float);
@@ -11,7 +9,7 @@ package three;
 	var y : Float;
 	var width : Float;
 	var height : Float;
-	var isVector2 : Bool;
+	final isVector2 : Bool;
 	/**
 		Sets value of this vector.
 	**/
@@ -43,11 +41,11 @@ package three;
 	/**
 		Copies value of v to this vector.
 	**/
-	function copy(v:Vector2):Vector2;
+	function copy(v:Vector2Like):Vector2;
 	/**
 		Adds v to this vector.
 	**/
-	function add(v:Vector2, ?w:Vector2):Vector2;
+	function add(v:Vector2Like):Vector2;
 	/**
 		Adds the scalar value s to this vector's x and y values.
 	**/
@@ -55,15 +53,15 @@ package three;
 	/**
 		Sets this vector to a + b.
 	**/
-	function addVectors(a:Vector2, b:Vector2):Vector2;
+	function addVectors(a:Vector2Like, b:Vector2Like):Vector2;
 	/**
 		Adds the multiple of v and s to this vector.
 	**/
-	function addScaledVector(v:Vector2, s:Float):Vector2;
+	function addScaledVector(v:Vector2Like, s:Float):Vector2;
 	/**
 		Subtracts v from this vector.
 	**/
-	function sub(v:Vector2):Vector2;
+	function sub(v:Vector2Like):Vector2;
 	/**
 		Subtracts s from this vector's x and y components.
 	**/
@@ -71,11 +69,11 @@ package three;
 	/**
 		Sets this vector to a - b.
 	**/
-	function subVectors(a:Vector2, b:Vector2):Vector2;
+	function subVectors(a:Vector2Like, b:Vector2Like):Vector2;
 	/**
 		Multiplies this vector by v.
 	**/
-	function multiply(v:Vector2):Vector2;
+	function multiply(v:Vector2Like):Vector2;
 	/**
 		Multiplies this vector by scalar s.
 	**/
@@ -83,7 +81,7 @@ package three;
 	/**
 		Divides this vector by v.
 	**/
-	function divide(v:Vector2):Vector2;
+	function divide(v:Vector2Like):Vector2;
 	/**
 		Divides this vector by scalar s.
 		Set vector to ( 0, 0 ) if s == 0.
@@ -96,16 +94,16 @@ package three;
 	/**
 		If this vector's x or y value is greater than v's x or y value, replace that value with the corresponding min value.
 	**/
-	function min(v:Vector2):Vector2;
+	function min(v:Vector2Like):Vector2;
 	/**
 		If this vector's x or y value is less than v's x or y value, replace that value with the corresponding max value.
 	**/
-	function max(v:Vector2):Vector2;
+	function max(v:Vector2Like):Vector2;
 	/**
 		If this vector's x or y value is greater than the max vector's x or y value, it is replaced by the corresponding value.
 		If this vector's x or y value is less than the min vector's x or y value, it is replaced by the corresponding value.
 	**/
-	function clamp(min:Vector2, max:Vector2):Vector2;
+	function clamp(min:Vector2Like, max:Vector2Like):Vector2;
 	/**
 		If this vector's x or y values are greater than the max value, they are replaced by the max value.
 		If this vector's x or y values are less than the min value, they are replaced by the min value.
@@ -139,11 +137,11 @@ package three;
 	/**
 		Computes dot product of this vector and v.
 	**/
-	function dot(v:Vector2):Float;
+	function dot(v:Vector2Like):Float;
 	/**
 		Computes cross product of this vector and v.
 	**/
-	function cross(v:Vector2):Float;
+	function cross(v:Vector2Like):Float;
 	/**
 		Computes squared length of this vector.
 	**/
@@ -152,11 +150,14 @@ package three;
 		Computes length of this vector.
 	**/
 	function length():Float;
-	function lengthManhattan():Float;
 	/**
 		Computes the Manhattan length of this vector.
+		
+		see
+		{@link
+		http://en.wikipedia.org/wiki/Taxicab_geometry Wikipedia: Taxicab Geometry
+		}
 	**/
-	@:overload(function():Float { })
 	function manhattanLength():Float;
 	/**
 		Normalizes this vector.
@@ -167,19 +168,31 @@ package three;
 	**/
 	function angle():Float;
 	/**
+		Returns the angle between this vector and vector
+		{@link
+		Vector2
+		v
+		}
+		in radians.
+	**/
+	function angleTo(v:Vector2):Float;
+	/**
 		Computes distance of this vector to v.
 	**/
-	function distanceTo(v:Vector2):Float;
+	function distanceTo(v:Vector2Like):Float;
 	/**
 		Computes squared distance of this vector to v.
 	**/
-	function distanceToSquared(v:Vector2):Float;
-	function distanceToManhattan(v:Vector2):Float;
+	function distanceToSquared(v:Vector2Like):Float;
 	/**
 		Computes the Manhattan length (distance) from this vector to the given vector v
+		
+		see
+		{@link
+		http://en.wikipedia.org/wiki/Taxicab_geometry Wikipedia: Taxicab Geometry
+		}
 	**/
-	@:overload(function(v:Vector2):Float { })
-	function manhattanDistanceTo(v:Vector2):Float;
+	function manhattanDistanceTo(v:Vector2Like):Float;
 	/**
 		Normalizes this vector and multiplies it by l.
 	**/
@@ -187,24 +200,25 @@ package three;
 	/**
 		Linearly interpolates between this vector and v, where alpha is the distance along the line - alpha = 0 will be this vector, and alpha = 1 will be v.
 	**/
-	function lerp(v:Vector2, alpha:Float):Vector2;
+	function lerp(v:Vector2Like, alpha:Float):Vector2;
 	/**
 		Sets this vector to be the vector linearly interpolated between v1 and v2 where alpha is the distance along the line connecting the two vectors - alpha = 0 will be v1, and alpha = 1 will be v2.
 	**/
-	function lerpVectors(v1:Vector2, v2:Vector2, alpha:Float):Vector2;
+	function lerpVectors(v1:Vector2Like, v2:Vector2Like, alpha:Float):Vector2;
 	/**
 		Checks for strict equality of this vector and v.
 	**/
-	function equals(v:Vector2):Bool;
+	function equals(v:Vector2Like):Bool;
 	/**
-		Sets this vector's x value to be array[offset] and y value to be array[offset + 1].
+		Sets this vector's x and y value from the provided array or array-like.
 	**/
-	function fromArray(array:Array<Float>, ?offset:Float):Vector2;
+	function fromArray(array:ts.AnyOf2<Array<Float>, js.lib.ArrayLike<Float>>, ?offset:Float):Vector2;
 	/**
 		Returns an array [x, y], or copies x and y into the provided array.
 		
 		Copies x and y into the provided array-like.
 	**/
+	@:overload(function(?array:Vector2Tuple, ?offset:Int):Vector2Tuple { })
 	@:overload(function(array:js.lib.ArrayLike<Float>, ?offset:Float):js.lib.ArrayLike<Float> { })
 	function toArray(?array:Array<Float>, ?offset:Float):Array<Float>;
 	/**
@@ -214,6 +228,10 @@ package three;
 	/**
 		Rotates the vector around center by angle radians.
 	**/
-	function rotateAround(center:Vector2, angle:Float):Vector2;
+	function rotateAround(center:Vector2Like, angle:Float):Vector2;
+	/**
+		Sets this vector's x and y from Math.random
+	**/
+	function random():Vector2;
 	static var prototype : Vector2;
 }

@@ -2,8 +2,8 @@ package three;
 
 @:jsRequire("three", "Box2") extern class Box2 {
 	function new(?min:Vector2, ?max:Vector2);
-	var max : Vector2;
 	var min : Vector2;
+	var max : Vector2;
 	function set(min:Vector2, max:Vector2):Box2;
 	function setFromPoints(points:Array<Vector2>):Box2;
 	function setFromCenterAndSize(center:Vector2, size:Vector2):Box2;
@@ -18,7 +18,7 @@ package three;
 	function expandByScalar(scalar:Float):Box2;
 	function containsPoint(point:Vector2):Bool;
 	function containsBox(box:Box2):Bool;
-	function getParameter(point:Vector2):Vector2;
+	function getParameter(point:Vector2, target:Vector2):Vector2;
 	function intersectsBox(box:Box2):Bool;
 	function clampPoint(point:Vector2, target:Vector2):Vector2;
 	function distanceToPoint(point:Vector2):Float;

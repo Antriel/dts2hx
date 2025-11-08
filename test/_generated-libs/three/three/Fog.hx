@@ -4,22 +4,53 @@ package three;
 	This class contains the parameters that define linear fog, i.e., that grows linearly denser with the distance.
 **/
 @:jsRequire("three", "Fog") extern class Fog {
-	function new(hex:Float, ?near:Float, ?far:Float);
+	/**
+		The color parameter is passed to the 
+		{@link 
+		THREE.Color Color
+		}
+		 constructor to set the color property
+	**/
+	function new(color:ColorRepresentation, ?near:Float, ?far:Float);
+	/**
+		Read-only flag to check if a given object is of type
+		{@link
+		Fog
+		}
+		.
+	**/
+	final isFog : Bool;
+	/**
+		Optional name of the object
+	**/
 	var name : String;
 	/**
 		Fog color.
 	**/
 	var color : Color;
 	/**
-		The minimum distance to start applying fog. Objects that are less than 'near' units from the active camera won't be affected by fog.
+		The minimum distance to start applying fog.
 	**/
 	var near : Float;
 	/**
-		The maximum distance at which fog stops being calculated and applied. Objects that are more than 'far' units away from the active camera won't be affected by fog.
-		Default is 1000.
+		The maximum distance at which fog stops being calculated and applied.
 	**/
 	var far : Float;
+	/**
+		Returns a new
+		{@link
+		Fog
+		}
+		instance with the same parameters as this one.
+	**/
 	function clone():Fog;
-	function toJSON():Dynamic;
+	/**
+		Return
+		{@link
+		Fog
+		}
+		data in JSON format.
+	**/
+	function toJSON():FogJSON;
 	static var prototype : Fog;
 }

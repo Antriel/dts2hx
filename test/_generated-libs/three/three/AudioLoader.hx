@@ -1,7 +1,12 @@
 package three;
 
-@:jsRequire("three", "AudioLoader") extern class AudioLoader {
+@:jsRequire("three", "AudioLoader") extern class AudioLoader extends Loader<js.html.audio.AudioBuffer, String> {
 	function new(?manager:LoadingManager);
-	function load(url:String, onLoad:haxe.Constraints.Function, onPrgress:haxe.Constraints.Function, onError:haxe.Constraints.Function):Void;
+	function setCrossOrigin(crossOrigin:String):AudioLoader;
+	function setWithCredentials(value:Bool):AudioLoader;
+	function setPath(path:String):AudioLoader;
+	function setResourcePath(resourcePath:String):AudioLoader;
+	function setRequestHeader(requestHeader:haxe.DynamicAccess<String>):AudioLoader;
+	function abort():AudioLoader;
 	static var prototype : AudioLoader;
 }

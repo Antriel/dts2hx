@@ -3,60 +3,167 @@ package three;
 /**
 	Abstract base class for lights.
 **/
-@:jsRequire("three", "Light") extern class Light extends Object3D {
-	function new(?hex:ts.AnyOf2<String, Float>, ?intensity:Float);
+@:jsRequire("three", "Light") extern class Light<TShadowSupport> extends Object3D<Object3DEventMap> {
+	/**
+		Creates a new 
+		{@link 
+		Light
+		}
+	**/
+	function new(?color:ColorRepresentation, ?intensity:Float);
+	/**
+		Read-only flag to check if a given object is of type
+		{@link
+		HemisphereLight
+		}
+		.
+	**/
+	final isLight : Bool;
+	/**
+		Color of the light. \
+	**/
 	var color : Color;
+	/**
+		The light's intensity, or strength.
+		The units of intensity depend on the type of light.
+	**/
 	var intensity : Float;
-	var isLight : Bool;
-	var shadow : LightShadow;
-	var shadowCameraFov : Dynamic;
-	var shadowCameraLeft : Dynamic;
-	var shadowCameraRight : Dynamic;
-	var shadowCameraTop : Dynamic;
-	var shadowCameraBottom : Dynamic;
-	var shadowCameraNear : Dynamic;
-	var shadowCameraFar : Dynamic;
-	var shadowBias : Dynamic;
-	var shadowMapWidth : Dynamic;
-	var shadowMapHeight : Dynamic;
-	function applyQuaternion(quaternion:Quaternion):Light;
 	/**
-		Rotate an object along an axis in object space. The axis is assumed to be normalized.
+		A
+		{@link
+		THREE.LightShadow LightShadow
+		}
+		used to calculate shadows for this light.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):Light;
+	var shadow : TShadowSupport;
 	/**
-		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
+		Copies value of all the properties from the
+		{@link
+		Light
+		source
+		}
+		to this instance.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):Light;
-	function rotateX(angle:Float):Light;
-	function rotateY(angle:Float):Light;
-	function rotateZ(angle:Float):Light;
-	function translateOnAxis(axis:Vector3, distance:Float):Light;
+	function copy(source:Light<TShadowSupport>, ?recursive:Bool):Light<TShadowSupport>;
 	/**
-		Translates object along x axis by distance.
+		Frees the GPU-related resources allocated by this instance
 	**/
-	function translateX(distance:Float):Light;
+	function dispose():Void;
 	/**
-		Translates object along y axis by distance.
+		Convert the object to three.js
+		{@link
+		https://github.com/mrdoob/three.js/wiki/JSON-Object-Scene-format-4 JSON Object/Scene format
+		}
+		.
 	**/
-	function translateY(distance:Float):Light;
+	function toJSON(?meta:JSONMeta):LightJSON;
 	/**
-		Translates object along z axis by distance.
+		Applies the rotation represented by the quaternion to the object.
 	**/
-	function translateZ(distance:Float):Light;
+	function applyQuaternion(quaternion:Quaternion):Light<TShadowSupport>;
 	/**
-		Adds object as child of this object.
+		Rotate an object along an axis in object space.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):Light;
+	function rotateOnAxis(axis:Vector3, angle:Float):Light<TShadowSupport>;
 	/**
-		Removes object as child of this object.
+		Rotate an object along an axis in world space.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):Light;
+	function rotateOnWorldAxis(axis:Vector3, angle:Float):Light<TShadowSupport>;
 	/**
-		Adds object as a child of this, while maintaining the object's world transform.
+		Rotates the object around _x_ axis in local space.
 	**/
-	function attach(object:Object3D):Light;
-	function clone(?recursive:Bool):Light;
-	function copy(source:Light, ?recursive:Bool):Light;
-	static var prototype : Light;
+	function rotateX(angle:Float):Light<TShadowSupport>;
+	/**
+		Rotates the object around _y_ axis in local space.
+	**/
+	function rotateY(angle:Float):Light<TShadowSupport>;
+	/**
+		Rotates the object around _z_ axis in local space.
+	**/
+	function rotateZ(angle:Float):Light<TShadowSupport>;
+	/**
+		Translate an object by distance along an axis in object space
+	**/
+	function translateOnAxis(axis:Vector3, distance:Float):Light<TShadowSupport>;
+	/**
+		Translates object along x axis in object space by
+		{@link
+		distance
+		}
+		units.
+	**/
+	function translateX(distance:Float):Light<TShadowSupport>;
+	/**
+		Translates object along _y_ axis in object space by
+		{@link
+		distance
+		}
+		units.
+	**/
+	function translateY(distance:Float):Light<TShadowSupport>;
+	/**
+		Translates object along _z_ axis in object space by
+		{@link
+		distance
+		}
+		units.
+	**/
+	function translateZ(distance:Float):Light<TShadowSupport>;
+	/**
+		Adds another
+		{@link
+		Object3D
+		}
+		as child of this
+		{@link
+		Object3D
+		}
+		.
+	**/
+	function add(object:haxe.extern.Rest<Object3D<Object3DEventMap>>):Light<TShadowSupport>;
+	/**
+		Removes a
+		{@link
+		Object3D
+		}
+		as child of this
+		{@link
+		Object3D
+		}
+		.
+	**/
+	function remove(object:haxe.extern.Rest<Object3D<Object3DEventMap>>):Light<TShadowSupport>;
+	/**
+		Removes this object from its current parent.
+	**/
+	function removeFromParent():Light<TShadowSupport>;
+	/**
+		Removes all child objects.
+	**/
+	function clear():Light<TShadowSupport>;
+	/**
+		Adds a
+		{@link
+		Object3D
+		}
+		as a child of this, while maintaining the object's world transform.
+	**/
+	function attach(object:Object3D<Object3DEventMap>):Light<TShadowSupport>;
+	/**
+		Returns a clone of `this` object and optionally all descendants.
+	**/
+	function clone(?recursive:Bool):Light<TShadowSupport>;
+	/**
+		Adds a listener to an event type.
+	**/
+	function addEventListener<T>(type:T, listener:EventListener<Dynamic, T, Light<TShadowSupport>>):Void;
+	/**
+		Checks if listener is added to an event type.
+	**/
+	function hasEventListener<T>(type:T, listener:EventListener<Dynamic, T, Light<TShadowSupport>>):Bool;
+	/**
+		Removes a listener from an event type.
+	**/
+	function removeEventListener<T>(type:T, listener:EventListener<Dynamic, T, Light<TShadowSupport>>):Void;
+	static var prototype : Light<Dynamic>;
 }

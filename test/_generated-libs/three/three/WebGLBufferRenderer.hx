@@ -1,9 +1,11 @@
 package three;
 
 @:jsRequire("three", "WebGLBufferRenderer") extern class WebGLBufferRenderer {
-	function new(_gl:js.html.webgl.RenderingContext, extensions:Dynamic, _infoRender:Dynamic);
-	function setMode(value:Dynamic):Void;
-	function render(start:Dynamic, count:Float):Void;
-	function renderInstances(geometry:Dynamic):Void;
+	function new(gl:js.html.webgl.RenderingContext, extensions:WebGLExtensions, info:WebGLInfo);
+	dynamic function setMode(value:Dynamic):Void;
+	dynamic function render(start:Dynamic, count:Float):Void;
+	dynamic function renderInstances(start:Dynamic, count:Float, primcount:Float):Void;
+	dynamic function renderMultiDraw(starts:js.lib.Int32Array_<js.lib.ArrayBuffer>, counts:js.lib.Int32Array_<js.lib.ArrayBuffer>, drawCount:Float):Void;
+	dynamic function renderMultiDrawInstances(starts:js.lib.Int32Array_<js.lib.ArrayBuffer>, counts:js.lib.Int32Array_<js.lib.ArrayBuffer>, drawCount:Float, primcount:js.lib.Int32Array_<js.lib.ArrayBuffer>):Void;
 	static var prototype : WebGLBufferRenderer;
 }

@@ -1,128 +1,564 @@
 package three;
 
 typedef MeshLambertMaterialParameters = {
+	/**
+		Color of the material.
+	**/
 	@:optional
-	var color : ts.AnyOf3<String, Float, Color>;
+	var color : Dynamic;
+	/**
+		The color map. May optionally include an alpha channel, typically combined
+		with
+		{@link
+		Material#transparent
+		}
+		or
+		{@link
+		Material#alphaTest
+		}
+		. The texture map
+		color is modulated by the diffuse `color`.
+	**/
 	@:optional
-	var emissive : ts.AnyOf3<String, Float, Color>;
+	var map : Dynamic;
+	/**
+		The light map. Requires a second set of UVs.
+	**/
 	@:optional
-	var emissiveIntensity : Float;
+	var lightMap : Dynamic;
+	/**
+		Intensity of the baked light.
+	**/
 	@:optional
-	var emissiveMap : Texture;
+	var lightMapIntensity : Dynamic;
+	/**
+		The red channel of this texture is used as the ambient occlusion map.
+		Requires a second set of UVs.
+	**/
 	@:optional
-	var map : Texture;
+	var aoMap : Dynamic;
+	/**
+		Intensity of the ambient occlusion effect. Range is `[0,1]`, where `0`
+		disables ambient occlusion. Where intensity is `1` and the AO map's
+		red channel is also `1`, ambient light is fully occluded on a surface.
+	**/
 	@:optional
-	var lightMap : Texture;
+	var aoMapIntensity : Dynamic;
+	/**
+		Emissive (light) color of the material, essentially a solid color
+		unaffected by other lighting.
+	**/
 	@:optional
-	var lightMapIntensity : Float;
+	var emissive : Dynamic;
+	/**
+		Intensity of the emissive light. Modulates the emissive color.
+	**/
 	@:optional
-	var aoMap : Texture;
+	var emissiveIntensity : Dynamic;
+	/**
+		Set emissive (glow) map. The emissive map color is modulated by the
+		emissive color and the emissive intensity. If you have an emissive map,
+		be sure to set the emissive color to something other than black.
+	**/
 	@:optional
-	var aoMapIntensity : Float;
+	var emissiveMap : Dynamic;
+	/**
+		The texture to create a bump map. The black and white values map to the
+		perceived depth in relation to the lights. Bump doesn't actually affect
+		the geometry of the object, only the lighting. If a normal map is defined
+		this will be ignored.
+	**/
 	@:optional
-	var specularMap : Texture;
+	var bumpMap : Dynamic;
+	/**
+		How much the bump map affects the material. Typical range is `[0,1]`.
+	**/
 	@:optional
-	var alphaMap : Texture;
+	var bumpScale : Dynamic;
+	/**
+		The texture to create a normal map. The RGB values affect the surface
+		normal for each pixel fragment and change the way the color is lit. Normal
+		maps do not change the actual shape of the surface, only the lighting. In
+		case the material has a normal map authored using the left handed
+		convention, the `y` component of `normalScale` should be negated to compensate
+		for the different handedness.
+	**/
 	@:optional
-	var envMap : Texture;
+	var normalMap : Dynamic;
+	/**
+		The type of normal map.
+	**/
 	@:optional
-	var combine : Combine;
+	var normalMapType : Dynamic;
+	/**
+		How much the normal map affects the material. Typical value range is `[0,1]`.
+	**/
 	@:optional
-	var reflectivity : Float;
+	var normalScale : Dynamic;
+	/**
+		The displacement map affects the position of the mesh's vertices. Unlike
+		other maps which only affect the light and shade of the material the
+		displaced vertices can cast shadows, block other objects, and otherwise
+		act as real geometry. The displacement texture is an image where the value
+		of each pixel (white being the highest) is mapped against, and
+		repositions, the vertices of the mesh.
+	**/
 	@:optional
-	var refractionRatio : Float;
+	var displacementMap : Dynamic;
+	/**
+		How much the displacement map affects the mesh (where black is no
+		displacement, and white is maximum displacement). Without a displacement
+		map set, this value is not applied.
+	**/
 	@:optional
-	var wireframe : Bool;
+	var displacementScale : Dynamic;
+	/**
+		The offset of the displacement map's values on the mesh's vertices.
+		The bias is added to the scaled sample of the displacement map.
+		Without a displacement map set, this value is not applied.
+	**/
 	@:optional
-	var wireframeLinewidth : Float;
+	var displacementBias : Dynamic;
+	/**
+		Specular map used by the material.
+	**/
 	@:optional
-	var wireframeLinecap : String;
+	var specularMap : Dynamic;
+	/**
+		The alpha map is a grayscale texture that controls the opacity across the
+		surface (black: fully transparent; white: fully opaque).
+		
+		Only the color of the texture is used, ignoring the alpha channel if one
+		exists. For RGB and RGBA textures, the renderer will use the green channel
+		when sampling this texture due to the extra bit of precision provided for
+		green in DXT-compressed and uncompressed RGB 565 formats. Luminance-only and
+		luminance/alpha textures will also still work as expected.
+	**/
 	@:optional
-	var wireframeLinejoin : String;
+	var alphaMap : Dynamic;
+	/**
+		The environment map.
+	**/
 	@:optional
-	var skinning : Bool;
+	var envMap : Dynamic;
+	/**
+		The rotation of the environment map in radians.
+	**/
 	@:optional
-	var morphTargets : Bool;
+	var envMapRotation : Dynamic;
+	/**
+		How to combine the result of the surface's color with the environment map, if any.
+		
+		When set to `MixOperation`, the
+		{@link
+		MeshBasicMaterial#reflectivity
+		}
+		is used to
+		blend between the two colors.
+	**/
 	@:optional
-	var morphNormals : Bool;
+	var combine : Dynamic;
+	/**
+		How much the environment map affects the surface.
+		The valid range is between `0` (no reflections) and `1` (full reflections).
+	**/
 	@:optional
-	var alphaTest : Float;
+	var reflectivity : Dynamic;
+	/**
+		The index of refraction (IOR) of air (approximately 1) divided by the
+		index of refraction of the material. It is used with environment mapping
+		modes
+		{@link
+		CubeRefractionMapping
+		}
+		and
+		{@link
+		EquirectangularRefractionMapping
+		}
+		.
+		The refraction ratio should not exceed `1`.
+	**/
 	@:optional
-	var blendDst : BlendingDstFactor;
+	var refractionRatio : Dynamic;
+	/**
+		Renders the geometry as a wireframe.
+	**/
 	@:optional
-	var blendDstAlpha : Float;
+	var wireframe : Dynamic;
+	/**
+		Controls the thickness of the wireframe.
+		
+		Can only be used with
+		{@link
+		SVGRenderer
+		}
+		.
+	**/
 	@:optional
-	var blendEquation : BlendingEquation;
+	var wireframeLinewidth : Dynamic;
+	/**
+		Defines appearance of wireframe ends.
+		
+		Can only be used with
+		{@link
+		SVGRenderer
+		}
+		.
+	**/
 	@:optional
-	var blendEquationAlpha : Float;
+	var wireframeLinecap : Dynamic;
+	/**
+		Defines appearance of wireframe joints.
+		
+		Can only be used with
+		{@link
+		SVGRenderer
+		}
+		.
+	**/
 	@:optional
-	var blending : Blending;
+	var wireframeLinejoin : Dynamic;
+	/**
+		Whether the material is rendered with flat shading or not.
+	**/
 	@:optional
-	var blendSrc : ts.AnyOf2<BlendingDstFactor, BlendingSrcFactor>;
+	var flatShading : Dynamic;
+	/**
+		Whether the material is affected by fog or not.
+	**/
 	@:optional
-	var blendSrcAlpha : Float;
+	var fog : Dynamic;
+	/**
+		The name of the material.
+	**/
 	@:optional
-	var clipIntersection : Bool;
+	var name : Dynamic;
+	/**
+		Defines the blending type of the material.
+		
+		It must be set to `CustomBlending` if custom blending properties like
+		{@link
+		Material#blendSrc
+		}
+		,
+		{@link
+		Material#blendDst
+		}
+		or
+		{@link
+		Material#blendEquation
+		}
+		should have any effect.
+	**/
 	@:optional
-	var clippingPlanes : Array<Plane>;
+	var blending : Dynamic;
+	/**
+		Defines which side of faces will be rendered - front, back or both.
+	**/
 	@:optional
-	var clipShadows : Bool;
+	var side : Dynamic;
+	/**
+		If set to `true`, vertex colors should be used.
+		
+		The engine supports RGB and RGBA vertex colors depending on whether a three (RGB) or
+		four (RGBA) component color buffer attribute is used.
+	**/
 	@:optional
-	var colorWrite : Bool;
+	var vertexColors : Dynamic;
+	/**
+		Defines how transparent the material is.
+		A value of `0.0` indicates fully transparent, `1.0` is fully opaque.
+		
+		If the
+		{@link
+		Material#transparent
+		}
+		is not set to `true`,
+		the material will remain fully opaque and this value will only affect its color.
+	**/
 	@:optional
-	var depthFunc : DepthModes;
+	var opacity : Dynamic;
+	/**
+		Defines whether this material is transparent. This has an effect on
+		rendering as transparent objects need special treatment and are rendered
+		after non-transparent objects.
+		
+		When set to true, the extent to which the material is transparent is
+		controlled by
+		{@link
+		Material#opacity
+		}
+		.
+	**/
 	@:optional
-	var depthTest : Bool;
+	var transparent : Dynamic;
+	/**
+		Enables alpha hashed transparency, an alternative to
+		{@link
+		Material#transparent
+		}
+		or
+		{@link
+		Material#alphaTest
+		}
+		. The material will not be rendered if opacity is lower than
+		a random threshold. Randomization introduces some grain or noise, but approximates alpha
+		blending without the associated problems of sorting. Using TAA can reduce the resulting noise.
+	**/
 	@:optional
-	var depthWrite : Bool;
+	var alphaHash : Dynamic;
+	/**
+		Defines the blending source factor.
+	**/
 	@:optional
-	var fog : Bool;
+	var blendSrc : Dynamic;
+	/**
+		Defines the blending destination factor.
+	**/
 	@:optional
-	var lights : Bool;
+	var blendDst : Dynamic;
+	/**
+		Defines the blending equation.
+	**/
 	@:optional
-	var name : String;
+	var blendEquation : Dynamic;
+	/**
+		Defines the blending source alpha factor.
+	**/
 	@:optional
-	var opacity : Float;
+	var blendSrcAlpha : Dynamic;
+	/**
+		Defines the blending destination alpha factor.
+	**/
 	@:optional
-	var overdraw : Float;
+	var blendDstAlpha : Dynamic;
+	/**
+		Defines the blending equation of the alpha channel.
+	**/
 	@:optional
-	var polygonOffset : Bool;
+	var blendEquationAlpha : Dynamic;
+	/**
+		Represents the RGB values of the constant blend color.
+		
+		This property has only an effect when using custom blending with `ConstantColor` or `OneMinusConstantColor`.
+	**/
 	@:optional
-	var polygonOffsetFactor : Float;
+	var blendColor : Dynamic;
+	/**
+		Represents the alpha value of the constant blend color.
+		
+		This property has only an effect when using custom blending with `ConstantAlpha` or `OneMinusConstantAlpha`.
+	**/
 	@:optional
-	var polygonOffsetUnits : Float;
+	var blendAlpha : Dynamic;
+	/**
+		Defines the depth function.
+	**/
 	@:optional
-	var precision : String;
+	var depthFunc : Dynamic;
+	/**
+		Whether to have depth test enabled when rendering this material.
+		When the depth test is disabled, the depth write will also be implicitly disabled.
+	**/
 	@:optional
-	var premultipliedAlpha : Bool;
+	var depthTest : Dynamic;
+	/**
+		Whether rendering this material has any effect on the depth buffer.
+		
+		When drawing 2D overlays it can be useful to disable the depth writing in
+		order to layer several things together without creating z-index artifacts.
+	**/
 	@:optional
-	var dithering : Bool;
+	var depthWrite : Dynamic;
+	/**
+		The bit mask to use when writing to the stencil buffer.
+	**/
 	@:optional
-	var flatShading : Bool;
+	var stencilWriteMask : Dynamic;
+	/**
+		The stencil comparison function to use.
+	**/
 	@:optional
-	var side : Side;
+	var stencilFunc : Dynamic;
+	/**
+		The value to use when performing stencil comparisons or stencil operations.
+	**/
 	@:optional
-	var shadowSide : Side;
+	var stencilRef : Dynamic;
+	/**
+		The bit mask to use when comparing against the stencil buffer.
+	**/
 	@:optional
-	var transparent : Bool;
+	var stencilFuncMask : Dynamic;
+	/**
+		Which stencil operation to perform when the comparison function returns `false`.
+	**/
 	@:optional
-	var vertexColors : Colors;
+	var stencilFail : Dynamic;
+	/**
+		Which stencil operation to perform when the comparison function returns
+		`true` but the depth test fails.
+	**/
 	@:optional
-	var vertexTangents : Bool;
+	var stencilZFail : Dynamic;
+	/**
+		Which stencil operation to perform when the comparison function returns
+		`true` and the depth test passes.
+	**/
 	@:optional
-	var visible : Bool;
+	var stencilZPass : Dynamic;
+	/**
+		Whether stencil operations are performed against the stencil buffer. In
+		order to perform writes or comparisons against the stencil buffer this
+		value must be `true`.
+	**/
 	@:optional
-	var stencilWrite : Bool;
+	var stencilWrite : Dynamic;
+	/**
+		User-defined clipping planes specified as THREE.Plane objects in world
+		space. These planes apply to the objects this material is attached to.
+		Points in space whose signed distance to the plane is negative are clipped
+		(not rendered). This requires
+		{@link
+		WebGLRenderer#localClippingEnabled
+		}
+		to
+		be `true`.
+	**/
 	@:optional
-	var stencilFunc : StencilFunc;
+	var clippingPlanes : Dynamic;
+	/**
+		Changes the behavior of clipping planes so that only their intersection is
+		clipped, rather than their union.
+	**/
 	@:optional
-	var stencilRef : Float;
+	var clipIntersection : Dynamic;
+	/**
+		Defines whether to clip shadows according to the clipping planes specified
+		on this material.
+	**/
 	@:optional
-	var stencilMask : Float;
+	var clipShadows : Dynamic;
+	/**
+		Defines which side of faces cast shadows. If `null`, the side casting shadows
+		is determined as follows:
+		
+		- When
+		{@link
+		Material#side
+		}
+		is set to `FrontSide`, the back side cast shadows.
+		- When
+		{@link
+		Material#side
+		}
+		is set to `BackSide`, the front side cast shadows.
+		- When
+		{@link
+		Material#side
+		}
+		is set to `DoubleSide`, both sides cast shadows.
+	**/
 	@:optional
-	var stencilFail : StencilOp;
+	var shadowSide : Dynamic;
+	/**
+		Whether to render the material's color.
+		
+		This can be used in conjunction with
+		{@link
+		Object3D#renderOder
+		}
+		to create invisible
+		objects that occlude other objects.
+	**/
 	@:optional
-	var stencilZFail : StencilOp;
+	var colorWrite : Dynamic;
+	/**
+		Override the renderer's default precision for this material.
+	**/
 	@:optional
-	var stencilZPass : StencilOp;
+	var precision : Dynamic;
+	/**
+		Whether to use polygon offset or not. When enabled, each fragment's depth value will
+		be offset after it is interpolated from the depth values of the appropriate vertices.
+		The offset is added before the depth test is performed and before the value is written
+		into the depth buffer.
+		
+		Can be useful for rendering hidden-line images, for applying decals to surfaces, and for
+		rendering solids with highlighted edges.
+	**/
+	@:optional
+	var polygonOffset : Dynamic;
+	/**
+		Specifies a scale factor that is used to create a variable depth offset for each polygon.
+	**/
+	@:optional
+	var polygonOffsetFactor : Dynamic;
+	/**
+		Is multiplied by an implementation-specific value to create a constant depth offset.
+	**/
+	@:optional
+	var polygonOffsetUnits : Dynamic;
+	/**
+		Whether to apply dithering to the color to remove the appearance of banding.
+	**/
+	@:optional
+	var dithering : Dynamic;
+	/**
+		Whether alpha to coverage should be enabled or not. Can only be used with MSAA-enabled contexts
+		(meaning when the renderer was created with *antialias* parameter set to `true`). Enabling this
+		will smooth aliasing on clip plane edges and alphaTest-clipped edges.
+	**/
+	@:optional
+	var alphaToCoverage : Dynamic;
+	/**
+		Whether to premultiply the alpha (transparency) value.
+	**/
+	@:optional
+	var premultipliedAlpha : Dynamic;
+	/**
+		Whether double-sided, transparent objects should be rendered with a single pass or not.
+		
+		The engine renders double-sided, transparent objects with two draw calls (back faces first,
+		then front faces) to mitigate transparency artifacts. There are scenarios however where this
+		approach produces no quality gains but still doubles draw calls e.g. when rendering flat
+		vegetation like grass sprites. In these cases, set the `forceSinglePass` flag to `true` to
+		disable the two pass rendering to avoid performance issues.
+	**/
+	@:optional
+	var forceSinglePass : Dynamic;
+	/**
+		Whether it's possible to override the material with
+		{@link
+		Scene#overrideMaterial
+		}
+		or not.
+	**/
+	@:optional
+	var allowOverride : Dynamic;
+	/**
+		Defines whether 3D objects using this material are visible.
+	**/
+	@:optional
+	var visible : Dynamic;
+	/**
+		Defines whether this material is tone mapped according to the renderer's tone mapping setting.
+		
+		It is ignored when rendering to a render target or using post processing or when using
+		`WebGPURenderer`. In all these cases, all materials are honored by tone mapping.
+	**/
+	@:optional
+	var toneMapped : Dynamic;
+	/**
+		An object that can be used to store custom data about the Material. It
+		should not hold references to functions as these will not be cloned.
+	**/
+	@:optional
+	var userData : Dynamic;
+	/**
+		Sets the alpha value to be used when running an alpha test. The material
+		will not be rendered if the opacity is lower than this value.
+	**/
+	@:optional
+	var alphaTest : Dynamic;
 };

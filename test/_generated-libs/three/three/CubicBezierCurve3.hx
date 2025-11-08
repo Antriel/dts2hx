@@ -1,15 +1,61 @@
 package three;
 
+/**
+	Create a smooth **3D**
+	{@link
+	http://en.wikipedia.org/wiki/B%C3%A9zier_curve#mediaviewer/File:Bezier_curve.svg cubic bezier curve
+	}
+	,
+	defined by a start point, endpoint and two control points.
+**/
 @:jsRequire("three", "CubicBezierCurve3") extern class CubicBezierCurve3 extends Curve<Vector3> {
-	function new(v0:Vector3, v1:Vector3, v2:Vector3, v3:Vector3);
+	/**
+		This constructor creates a new 
+		{@link 
+		CubicBezierCurve3
+		}
+		.
+	**/
+	function new(?v0:Vector3, ?v1:Vector3, ?v2:Vector3, ?v3:Vector3);
+	/**
+		Read-only flag to check if a given object is of type
+		{@link
+		CubicBezierCurve3
+		}
+		.
+	**/
+	final isCubicBezierCurve3 : Bool;
+	/**
+		The starting point.
+	**/
 	var v0 : Vector3;
+	/**
+		The first control point.
+	**/
 	var v1 : Vector3;
+	/**
+		The second control point.
+	**/
 	var v2 : Vector3;
+	/**
+		The ending point.
+	**/
 	var v3 : Vector3;
 	/**
-		Returns a vector for point t of the curve where t is between 0 and 1
-		getPoint(t: number): T;
+		Creates a clone of this instance.
 	**/
-	function getPoint(t:Float):Vector3;
+	function clone():CubicBezierCurve3;
+	/**
+		Copies another
+		{@link
+		Curve
+		}
+		object to this instance.
+	**/
+	function copy(source:Curve<Vector3>):CubicBezierCurve3;
+	/**
+		Copies the data from the given JSON object to this instance.
+	**/
+	function fromJSON(json:CurveJSON):CubicBezierCurve3;
 	static var prototype : CubicBezierCurve3;
 }

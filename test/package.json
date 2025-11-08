@@ -23,6 +23,7 @@
     "@types/node": "11.11.3",
     "@types/pixi.js": "4.8.6",
     "@types/react": "16.9.34",
+    "@types/three": "0.181.0",
     "@types/vscode": "1.45.1",
     "@types/ws": "^8.5.4",
     "babylonjs": "4.0.3",
@@ -38,7 +39,7 @@
     "playcanvas": "1.26.0",
     "react": "16.13.1",
     "sqlite": "4.0.7",
-    "three": "0.107.0",
+    "three": "0.181.0",
     "typescript": "5.9.3",
     "vue": "2.6.11",
     "wonka": "4.0.13"

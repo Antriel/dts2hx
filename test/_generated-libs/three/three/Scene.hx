@@ -1,60 +1,215 @@
 package three;
 
 /**
-	Scenes allow you to set up what and where is to be rendered by three.js. This is where you place objects, lights and cameras.
+	Scenes allow you to set up what and where is to be rendered by three.js
 **/
-@:jsRequire("three", "Scene") extern class Scene extends Object3D {
+@:jsRequire("three", "Scene") extern class Scene<TEventMap> extends Object3D<TEventMap> {
+	/**
+		Create a new 
+		{@link 
+		Scene
+		}
+		 object.
+	**/
 	function new();
 	/**
-		A fog instance defining the type of fog that affects everything rendered in the scene. Default is null.
+		Read-only flag to check if a given object is of type
+		{@link
+		Scene
+		}
+		.
 	**/
-	var fog : Null<IFog>;
+	final isScene : Bool;
 	/**
-		If not null, it will force everything in the scene to be rendered with that material. Default is null.
+		A
+		{@link
+		Fog
+		fog
+		}
+		instance defining the type of fog that affects everything rendered in the scene.
+	**/
+	var fog : Null<ts.AnyOf2<Fog, FogExp2>>;
+	/**
+		Sets the blurriness of the background. Only influences environment maps assigned to
+		{@link
+		THREE.Scene.background Scene.background
+		}
+		.
+	**/
+	var backgroundBlurriness : Float;
+	/**
+		Attenuates the color of the background. Only applies to background textures.
+	**/
+	var backgroundIntensity : Float;
+	/**
+		Forces everything in the
+		{@link
+		Scene
+		}
+		to be rendered with the defined material.
 	**/
 	var overrideMaterial : Null<Material>;
-	var autoUpdate : Bool;
-	var background : Null<ts.AnyOf2<Color, Texture>>;
-	function toJSON(?meta:Dynamic):Dynamic;
-	function dispose():Void;
-	function applyQuaternion(quaternion:Quaternion):Scene;
 	/**
-		Rotate an object along an axis in object space. The axis is assumed to be normalized.
+		Defines the background of the scene.
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):Scene;
+	var background : Null<ts.AnyOf3<Color, Texture<Any>, CubeTexture>>;
 	/**
-		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
+		The rotation of the background in radians. Only influences environment maps assigned to
+		{@link
+		.background
+		}
+		.
+		Default is `(0,0,0)`.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):Scene;
-	function rotateX(angle:Float):Scene;
-	function rotateY(angle:Float):Scene;
-	function rotateZ(angle:Float):Scene;
-	function translateOnAxis(axis:Vector3, distance:Float):Scene;
+	var backgroundRotation : Euler;
 	/**
-		Translates object along x axis by distance.
+		Sets the environment map for all physical materials in the scene.
+		However, it's not possible to overwrite an existing texture assigned to
+		{@link
+		THREE.MeshStandardMaterial.envMap MeshStandardMaterial.envMap
+		}
+		.
 	**/
-	function translateX(distance:Float):Scene;
+	var environment : Null<Texture<Any>>;
 	/**
-		Translates object along y axis by distance.
+		Attenuates the color of the environment. Only influences environment maps assigned to
+		{@link
+		Scene.environment
+		}
+		.
 	**/
-	function translateY(distance:Float):Scene;
+	var environmentIntensity : Float;
 	/**
-		Translates object along z axis by distance.
+		The rotation of the environment map in radians. Only influences physical materials in the scene when
+		{@link
+		.environment
+		}
+		is used. Default is `(0,0,0)`.
 	**/
-	function translateZ(distance:Float):Scene;
+	var environmentRotation : Euler;
 	/**
-		Adds object as child of this object.
+		Convert the
+		{@link
+		Scene
+		}
+		to three.js
+		{@link
+		https://github.com/mrdoob/three.js/wiki/JSON-Object-Scene-format-4 JSON Object/Scene format
+		}
+		.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):Scene;
+	function toJSON(?meta:JSONMeta):SceneJSON;
 	/**
-		Removes object as child of this object.
+		Applies the rotation represented by the quaternion to the object.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):Scene;
+	function applyQuaternion(quaternion:Quaternion):Scene<TEventMap>;
 	/**
-		Adds object as a child of this, while maintaining the object's world transform.
+		Rotate an object along an axis in object space.
 	**/
-	function attach(object:Object3D):Scene;
-	function clone(?recursive:Bool):Scene;
-	function copy(source:Scene, ?recursive:Bool):Scene;
-	static var prototype : Scene;
+	function rotateOnAxis(axis:Vector3, angle:Float):Scene<TEventMap>;
+	/**
+		Rotate an object along an axis in world space.
+	**/
+	function rotateOnWorldAxis(axis:Vector3, angle:Float):Scene<TEventMap>;
+	/**
+		Rotates the object around _x_ axis in local space.
+	**/
+	function rotateX(angle:Float):Scene<TEventMap>;
+	/**
+		Rotates the object around _y_ axis in local space.
+	**/
+	function rotateY(angle:Float):Scene<TEventMap>;
+	/**
+		Rotates the object around _z_ axis in local space.
+	**/
+	function rotateZ(angle:Float):Scene<TEventMap>;
+	/**
+		Translate an object by distance along an axis in object space
+	**/
+	function translateOnAxis(axis:Vector3, distance:Float):Scene<TEventMap>;
+	/**
+		Translates object along x axis in object space by
+		{@link
+		distance
+		}
+		units.
+	**/
+	function translateX(distance:Float):Scene<TEventMap>;
+	/**
+		Translates object along _y_ axis in object space by
+		{@link
+		distance
+		}
+		units.
+	**/
+	function translateY(distance:Float):Scene<TEventMap>;
+	/**
+		Translates object along _z_ axis in object space by
+		{@link
+		distance
+		}
+		units.
+	**/
+	function translateZ(distance:Float):Scene<TEventMap>;
+	/**
+		Adds another
+		{@link
+		Object3D
+		}
+		as child of this
+		{@link
+		Object3D
+		}
+		.
+	**/
+	function add(object:haxe.extern.Rest<Object3D<Object3DEventMap>>):Scene<TEventMap>;
+	/**
+		Removes a
+		{@link
+		Object3D
+		}
+		as child of this
+		{@link
+		Object3D
+		}
+		.
+	**/
+	function remove(object:haxe.extern.Rest<Object3D<Object3DEventMap>>):Scene<TEventMap>;
+	/**
+		Removes this object from its current parent.
+	**/
+	function removeFromParent():Scene<TEventMap>;
+	/**
+		Removes all child objects.
+	**/
+	function clear():Scene<TEventMap>;
+	/**
+		Adds a
+		{@link
+		Object3D
+		}
+		as a child of this, while maintaining the object's world transform.
+	**/
+	function attach(object:Object3D<Object3DEventMap>):Scene<TEventMap>;
+	/**
+		Returns a clone of `this` object and optionally all descendants.
+	**/
+	function clone(?recursive:Bool):Scene<TEventMap>;
+	/**
+		Copies the given object into this object.
+	**/
+	function copy(object:Object3D<Object3DEventMap>, ?recursive:Bool):Scene<TEventMap>;
+	/**
+		Adds a listener to an event type.
+	**/
+	function addEventListener<T>(type:T, listener:EventListener<Dynamic, T, Scene<TEventMap>>):Void;
+	/**
+		Checks if listener is added to an event type.
+	**/
+	function hasEventListener<T>(type:T, listener:EventListener<Dynamic, T, Scene<TEventMap>>):Bool;
+	/**
+		Removes a listener from an event type.
+	**/
+	function removeEventListener<T>(type:T, listener:EventListener<Dynamic, T, Scene<TEventMap>>):Void;
+	static var prototype : Scene<Dynamic>;
 }

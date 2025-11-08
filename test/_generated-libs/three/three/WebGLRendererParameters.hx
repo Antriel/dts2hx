@@ -5,7 +5,7 @@ typedef WebGLRendererParameters = {
 		A Canvas where the renderer draws its output.
 	**/
 	@:optional
-	var canvas : js.html.CanvasElement;
+	var canvas : ts.AnyOf2<js.html.CanvasElement, OffscreenCanvas>;
 	/**
 		A WebGL Rendering Context.
 		(https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext)
@@ -14,12 +14,7 @@ typedef WebGLRendererParameters = {
 	@:optional
 	var context : js.html.webgl.RenderingContext;
 	/**
-		shader precision. Can be "highp", "mediump" or "lowp".
-	**/
-	@:optional
-	var precision : String;
-	/**
-		default is true.
+		default is false.
 	**/
 	@:optional
 	var alpha : Bool;
@@ -34,7 +29,7 @@ typedef WebGLRendererParameters = {
 	@:optional
 	var antialias : Bool;
 	/**
-		default is true.
+		default is false.
 	**/
 	@:optional
 	var stencil : Bool;
@@ -47,7 +42,7 @@ typedef WebGLRendererParameters = {
 		Can be "high-performance", "low-power" or "default"
 	**/
 	@:optional
-	var powerPreference : String;
+	var powerPreference : js.html.WebGLPowerPreference;
 	/**
 		default is true.
 	**/
@@ -57,5 +52,20 @@ typedef WebGLRendererParameters = {
 		default is false.
 	**/
 	@:optional
+	var failIfMajorPerformanceCaveat : Bool;
+	/**
+		shader precision. Can be "highp", "mediump" or "lowp".
+	**/
+	@:optional
+	var precision : String;
+	/**
+		default is false.
+	**/
+	@:optional
 	var logarithmicDepthBuffer : Bool;
+	/**
+		default is false.
+	**/
+	@:optional
+	var reversedDepthBuffer : Bool;
 };

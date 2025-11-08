@@ -1,49 +1,168 @@
 package three;
 
-@:jsRequire("three", "Line") extern class Line extends Object3D {
-	function new(?geometry:ts.AnyOf2<Geometry, BufferGeometry>, ?material:ts.AnyOf2<Material, Array<Material>>, ?mode:Float);
-	var geometry : ts.AnyOf2<Geometry, BufferGeometry>;
-	var material : ts.AnyOf2<Material, Array<Material>>;
-	var isLine : Bool;
-	function computeLineDistances():Line;
-	function applyQuaternion(quaternion:Quaternion):Line;
+/**
+	A continuous line.
+**/
+@:jsRequire("three", "Line") extern class Line<TGeometry, TMaterial, TEventMap> extends Object3D<TEventMap> {
 	/**
-		Rotate an object along an axis in object space. The axis is assumed to be normalized.
+		Create a new instance of 
+		{@link 
+		Line
+		}
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):Line;
+	function new(?geometry:TGeometry, ?material:TMaterial);
 	/**
-		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
+		Read-only flag to check if a given object is of type
+		{@link
+		Line
+		}
+		.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):Line;
-	function rotateX(angle:Float):Line;
-	function rotateY(angle:Float):Line;
-	function rotateZ(angle:Float):Line;
-	function translateOnAxis(axis:Vector3, distance:Float):Line;
+	final isLine : Bool;
 	/**
-		Translates object along x axis by distance.
+		Vertices representing the
+		{@link
+		Line
+		}
+		segment(s).
 	**/
-	function translateX(distance:Float):Line;
+	var geometry : TGeometry;
 	/**
-		Translates object along y axis by distance.
+		Material for the line.
 	**/
-	function translateY(distance:Float):Line;
+	var material : TMaterial;
 	/**
-		Translates object along z axis by distance.
+		An array of weights typically from `0-1` that specify how much of the morph is applied.
 	**/
-	function translateZ(distance:Float):Line;
+	@:optional
+	var morphTargetInfluences : Array<Float>;
 	/**
-		Adds object as child of this object.
+		A dictionary of morphTargets based on the `morphTarget.name` property.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):Line;
+	@:optional
+	var morphTargetDictionary : haxe.DynamicAccess<Float>;
 	/**
-		Removes object as child of this object.
+		Computes an array of distance values which are necessary for
+		{@link
+		THREE.LineDashedMaterial LineDashedMaterial
+		}
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):Line;
+	function computeLineDistances():Line<TGeometry, TMaterial, TEventMap>;
 	/**
-		Adds object as a child of this, while maintaining the object's world transform.
+		Updates the morphTargets to have no influence on the object
 	**/
-	function attach(object:Object3D):Line;
-	function clone(?recursive:Bool):Line;
-	function copy(source:Line, ?recursive:Bool):Line;
-	static var prototype : Line;
+	function updateMorphTargets():Void;
+	/**
+		Applies the rotation represented by the quaternion to the object.
+	**/
+	function applyQuaternion(quaternion:Quaternion):Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Rotate an object along an axis in object space.
+	**/
+	function rotateOnAxis(axis:Vector3, angle:Float):Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Rotate an object along an axis in world space.
+	**/
+	function rotateOnWorldAxis(axis:Vector3, angle:Float):Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Rotates the object around _x_ axis in local space.
+	**/
+	function rotateX(angle:Float):Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Rotates the object around _y_ axis in local space.
+	**/
+	function rotateY(angle:Float):Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Rotates the object around _z_ axis in local space.
+	**/
+	function rotateZ(angle:Float):Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Translate an object by distance along an axis in object space
+	**/
+	function translateOnAxis(axis:Vector3, distance:Float):Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Translates object along x axis in object space by
+		{@link
+		distance
+		}
+		units.
+	**/
+	function translateX(distance:Float):Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Translates object along _y_ axis in object space by
+		{@link
+		distance
+		}
+		units.
+	**/
+	function translateY(distance:Float):Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Translates object along _z_ axis in object space by
+		{@link
+		distance
+		}
+		units.
+	**/
+	function translateZ(distance:Float):Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Adds another
+		{@link
+		Object3D
+		}
+		as child of this
+		{@link
+		Object3D
+		}
+		.
+	**/
+	function add(object:haxe.extern.Rest<Object3D<Object3DEventMap>>):Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Removes a
+		{@link
+		Object3D
+		}
+		as child of this
+		{@link
+		Object3D
+		}
+		.
+	**/
+	function remove(object:haxe.extern.Rest<Object3D<Object3DEventMap>>):Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Removes this object from its current parent.
+	**/
+	function removeFromParent():Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Removes all child objects.
+	**/
+	function clear():Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Adds a
+		{@link
+		Object3D
+		}
+		as a child of this, while maintaining the object's world transform.
+	**/
+	function attach(object:Object3D<Object3DEventMap>):Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Returns a clone of `this` object and optionally all descendants.
+	**/
+	function clone(?recursive:Bool):Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Copies the given object into this object.
+	**/
+	function copy(object:Object3D<Object3DEventMap>, ?recursive:Bool):Line<TGeometry, TMaterial, TEventMap>;
+	/**
+		Adds a listener to an event type.
+	**/
+	function addEventListener<T>(type:T, listener:EventListener<Dynamic, T, Line<TGeometry, TMaterial, TEventMap>>):Void;
+	/**
+		Checks if listener is added to an event type.
+	**/
+	function hasEventListener<T>(type:T, listener:EventListener<Dynamic, T, Line<TGeometry, TMaterial, TEventMap>>):Bool;
+	/**
+		Removes a listener from an event type.
+	**/
+	function removeEventListener<T>(type:T, listener:EventListener<Dynamic, T, Line<TGeometry, TMaterial, TEventMap>>):Void;
+	static var prototype : Line<Dynamic, Dynamic, Dynamic>;
 }

@@ -2,6 +2,8 @@ package three;
 
 @:jsRequire("three", "WebGLDepthBuffer") extern class WebGLDepthBuffer {
 	function new();
+	function setReversed(value:Bool):Void;
+	function getReversed():Bool;
 	function setTest(depthTest:Bool):Void;
 	function setMask(depthMask:Bool):Void;
 	function setFunc(depthFunc:DepthModes):Void;

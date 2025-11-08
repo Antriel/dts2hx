@@ -1,47 +1,142 @@
 package three;
 
-@:jsRequire("three", "LineLoop") extern class LineLoop extends Line {
-	function new(?geometry:ts.AnyOf2<Geometry, BufferGeometry>, ?material:ts.AnyOf2<Material, Array<Material>>);
-	var isLineLoop : Bool;
-	function computeLineDistances():LineLoop;
-	function applyQuaternion(quaternion:Quaternion):LineLoop;
+/**
+	A continuous line that connects back to the start.
+**/
+@:jsRequire("three", "LineLoop") extern class LineLoop<TGeometry, TMaterial, TEventMap> extends Line<TGeometry, TMaterial, TEventMap> {
 	/**
-		Rotate an object along an axis in object space. The axis is assumed to be normalized.
+		Create a new instance of 
+		{@link 
+		LineLoop
+		}
 	**/
-	function rotateOnAxis(axis:Vector3, angle:Float):LineLoop;
+	function new(?geometry:TGeometry, ?material:TMaterial);
 	/**
-		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
+		Read-only flag to check if a given object is of type
+		{@link
+		LineLoop
+		}
+		.
 	**/
-	function rotateOnWorldAxis(axis:Vector3, angle:Float):LineLoop;
-	function rotateX(angle:Float):LineLoop;
-	function rotateY(angle:Float):LineLoop;
-	function rotateZ(angle:Float):LineLoop;
-	function translateOnAxis(axis:Vector3, distance:Float):LineLoop;
+	final isLineLoop : Bool;
 	/**
-		Translates object along x axis by distance.
+		Computes an array of distance values which are necessary for
+		{@link
+		THREE.LineDashedMaterial LineDashedMaterial
+		}
 	**/
-	function translateX(distance:Float):LineLoop;
+	function computeLineDistances():LineLoop<TGeometry, TMaterial, TEventMap>;
 	/**
-		Translates object along y axis by distance.
+		Applies the rotation represented by the quaternion to the object.
 	**/
-	function translateY(distance:Float):LineLoop;
+	function applyQuaternion(quaternion:Quaternion):LineLoop<TGeometry, TMaterial, TEventMap>;
 	/**
-		Translates object along z axis by distance.
+		Rotate an object along an axis in object space.
 	**/
-	function translateZ(distance:Float):LineLoop;
+	function rotateOnAxis(axis:Vector3, angle:Float):LineLoop<TGeometry, TMaterial, TEventMap>;
 	/**
-		Adds object as child of this object.
+		Rotate an object along an axis in world space.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):LineLoop;
+	function rotateOnWorldAxis(axis:Vector3, angle:Float):LineLoop<TGeometry, TMaterial, TEventMap>;
 	/**
-		Removes object as child of this object.
+		Rotates the object around _x_ axis in local space.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):LineLoop;
+	function rotateX(angle:Float):LineLoop<TGeometry, TMaterial, TEventMap>;
 	/**
-		Adds object as a child of this, while maintaining the object's world transform.
+		Rotates the object around _y_ axis in local space.
 	**/
-	function attach(object:Object3D):LineLoop;
-	function clone(?recursive:Bool):LineLoop;
-	function copy(source:LineLoop, ?recursive:Bool):LineLoop;
-	static var prototype : LineLoop;
+	function rotateY(angle:Float):LineLoop<TGeometry, TMaterial, TEventMap>;
+	/**
+		Rotates the object around _z_ axis in local space.
+	**/
+	function rotateZ(angle:Float):LineLoop<TGeometry, TMaterial, TEventMap>;
+	/**
+		Translate an object by distance along an axis in object space
+	**/
+	function translateOnAxis(axis:Vector3, distance:Float):LineLoop<TGeometry, TMaterial, TEventMap>;
+	/**
+		Translates object along x axis in object space by
+		{@link
+		distance
+		}
+		units.
+	**/
+	function translateX(distance:Float):LineLoop<TGeometry, TMaterial, TEventMap>;
+	/**
+		Translates object along _y_ axis in object space by
+		{@link
+		distance
+		}
+		units.
+	**/
+	function translateY(distance:Float):LineLoop<TGeometry, TMaterial, TEventMap>;
+	/**
+		Translates object along _z_ axis in object space by
+		{@link
+		distance
+		}
+		units.
+	**/
+	function translateZ(distance:Float):LineLoop<TGeometry, TMaterial, TEventMap>;
+	/**
+		Adds another
+		{@link
+		Object3D
+		}
+		as child of this
+		{@link
+		Object3D
+		}
+		.
+	**/
+	function add(object:haxe.extern.Rest<Object3D<Object3DEventMap>>):LineLoop<TGeometry, TMaterial, TEventMap>;
+	/**
+		Removes a
+		{@link
+		Object3D
+		}
+		as child of this
+		{@link
+		Object3D
+		}
+		.
+	**/
+	function remove(object:haxe.extern.Rest<Object3D<Object3DEventMap>>):LineLoop<TGeometry, TMaterial, TEventMap>;
+	/**
+		Removes this object from its current parent.
+	**/
+	function removeFromParent():LineLoop<TGeometry, TMaterial, TEventMap>;
+	/**
+		Removes all child objects.
+	**/
+	function clear():LineLoop<TGeometry, TMaterial, TEventMap>;
+	/**
+		Adds a
+		{@link
+		Object3D
+		}
+		as a child of this, while maintaining the object's world transform.
+	**/
+	function attach(object:Object3D<Object3DEventMap>):LineLoop<TGeometry, TMaterial, TEventMap>;
+	/**
+		Returns a clone of `this` object and optionally all descendants.
+	**/
+	function clone(?recursive:Bool):LineLoop<TGeometry, TMaterial, TEventMap>;
+	/**
+		Copies the given object into this object.
+	**/
+	function copy(object:Object3D<Object3DEventMap>, ?recursive:Bool):LineLoop<TGeometry, TMaterial, TEventMap>;
+	/**
+		Adds a listener to an event type.
+	**/
+	function addEventListener<T>(type:T, listener:EventListener<Dynamic, T, LineLoop<TGeometry, TMaterial, TEventMap>>):Void;
+	/**
+		Checks if listener is added to an event type.
+	**/
+	function hasEventListener<T>(type:T, listener:EventListener<Dynamic, T, LineLoop<TGeometry, TMaterial, TEventMap>>):Bool;
+	/**
+		Removes a listener from an event type.
+	**/
+	function removeEventListener<T>(type:T, listener:EventListener<Dynamic, T, LineLoop<TGeometry, TMaterial, TEventMap>>):Void;
+	static var prototype : LineLoop<Dynamic, Dynamic, Dynamic>;
 }
