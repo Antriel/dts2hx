@@ -238,7 +238,7 @@ class TsProgramTools {
 				} else {
 					// it's valid for this source file to not be included in the compilation
 				}
-			} else throw 'Failed to resolve module';
+			} else throw 'Failed to resolve module "$packageName"';
 		}
 	}
 

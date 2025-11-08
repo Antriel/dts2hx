@@ -129,6 +129,12 @@ class Main {
 				cliOptions.tsCompilerOptions.push(kind);
 			},
 
+			@doc('Set ts compiler option `--module`')
+			'--module' => (kind: String) -> {
+				cliOptions.tsCompilerOptions.push('--module');
+				cliOptions.tsCompilerOptions.push(kind);
+			},
+
 			@doc('Path to use when searching for modules')
 			['--moduleSearchPath', '-p'] => (path: String) -> {
 				cliOptions.moduleSearchPath = path;
