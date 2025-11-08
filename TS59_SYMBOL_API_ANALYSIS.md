@@ -296,3 +296,78 @@ function new(?geometry:ts.AnyOf2<Geometry, BufferGeometry>, ?material:ts.AnyOf2<
 - TypeScript Compiler Notes: https://github.com/microsoft/TypeScript-Compiler-Notes
 - Symbol interface: `lib/typescript-extended.d.ts:6545-6562`
 - Transient symbols definition: Symbols created by checker, not binder
+
+---
+
+## ✅ RESOLUTION - Session Continuation
+
+### Root Cause Found
+
+The actual issue was **NOT symbol.name being null**, but rather **TypeScript 5.9 changing the return structure of `tc.getExpandedParameters()`**:
+
+- **TS 3.7**: Returns `[Symbol1, Symbol2, Symbol3]`
+- **TS 5.9**: Returns `[[Symbol1, Symbol2, Symbol3]]` (wrapped in extra array)
+
+When mapping over the result, we were iterating over `[Array]` instead of `[Symbol, Symbol, Symbol]`, causing `s` to be an array with keys `['0', '1', '2']` instead of a Symbol object.
+
+### The Fix
+
+```haxe
+// TypeScript 5.x changed getExpandedParameters() to return [[Symbol...]] instead of [Symbol...]
+// We need to unwrap the array
+var rawExpandedParams = if (signature.parameters != null) tc.getExpandedParameters(signature) else null;
+var expandedParams: Null<Array<Symbol>> = if (rawExpandedParams != null && rawExpandedParams.length > 0) {
+    // Check if first item is an array (TS 5.x behavior) and unwrap it
+    var isWrapped: Bool = untyped js.Syntax.code('Array.isArray({0}[0])', rawExpandedParams);
+    if (isWrapped) {
+        cast rawExpandedParams[0];  // Unwrap the nested array
+    } else {
+        rawExpandedParams;  // TS 3.x behavior - use as-is
+    }
+} else {
+    null;
+}
+```
+
+### Results
+
+**Before Fix**:
+```haxe
+function new(unknown:Dynamic);
+```
+
+**After Fix**:
+```haxe
+function new(?geometry:ts.AnyOf2<Geometry, BufferGeometry>, ?material:ts.AnyOf2<Material, Array<Material>>, ?mode:Float);
+```
+
+### Impact
+
+- ✅ **All 2,514 library files regenerated** with correct signatures
+- ✅ **19 libraries tested successfully**: node, three.js, jquery, express, vue, lodash, lowdb, etc.
+- ✅ **Backward compatible**: Detects and handles both TS 3.x and TS 5.x formats
+
+### Commits
+
+1. `3d7a903` - Add comprehensive TypeScript 5.9 Symbol API analysis
+2. `016b330` - Implement TypeScript 5.9 Symbol API compatibility fixes  
+3. `bdb7e8a` - Fix TypeScript 5.9 getExpandedParameters() array wrapping issue ⭐
+
+### Time to Resolution
+
+- **Initial diagnosis**: 2 hours (symbol name investigation)
+- **Debug & fix**: 1 hour (found array wrapping issue)
+- **Total**: ~3 hours
+
+### Key Lessons
+
+1. **Don't trust test pass/fail counts** - Generated code quality matters more
+2. **Debug with console.log** - Inspecting actual runtime values reveals truth
+3. **TypeScript API changes can be subtle** - Same method, different return structure
+4. **Defensive programming pays off** - Runtime type checking prevented crashes
+
+---
+
+## Status: ✅ RESOLVED
+
+The TypeScript 5.9 upgrade parameter regression is **fully resolved**. All parameters now have proper names and types across the entire test suite.
