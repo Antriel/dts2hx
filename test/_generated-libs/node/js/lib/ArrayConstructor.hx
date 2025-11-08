@@ -20,4 +20,9 @@ typedef ArrayConstructor = {
 		Returns a new array from a set of elements.
 	**/
 	function of<T>(items:haxe.extern.Rest<T>):Array<T>;
+	/**
+		Creates an array from an async iterator or iterable object.
+	**/
+	@:overload(function<T, U>(iterableOrArrayLike:ts.AnyOf3<AsyncIterable<T, Dynamic, Dynamic>, js.lib.Iterable<T, Dynamic, Dynamic>, ArrayLike<T>>, mapFn:(value:Awaited<T>, index:Float) -> U, ?thisArg:Dynamic):js.lib.Promise<Array<Awaited<U>>> { })
+	function fromAsync<T>(iterableOrArrayLike:ts.AnyOf3<AsyncIterable<T, Dynamic, Dynamic>, js.lib.Iterable<ts.AnyOf2<PromiseLike<T>, T>, Dynamic, Dynamic>, ArrayLike<ts.AnyOf2<PromiseLike<T>, T>>>):js.lib.Promise<Array<T>>;
 };

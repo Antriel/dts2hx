@@ -1,3 +1,3 @@
 package vue.types.umd;
 
-typedef WatchOptions = vue.WatchOptions;
+typedef WatchOptions = vue.types.index.WatchOptions;

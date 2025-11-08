@@ -1,3 +1,3 @@
 package vue.types.umd;
 
-typedef VNodeChildrenArrayContents = vue.VNodeChildrenArrayContents;
+typedef VNodeChildrenArrayContents = vue.types.vnode.VNodeChildrenArrayContents;

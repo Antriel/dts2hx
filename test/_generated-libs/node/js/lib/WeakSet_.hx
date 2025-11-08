@@ -12,5 +12,5 @@ package js.lib;
 	**/
 	function delete(value:T):Bool;
 	function has(value:T):Bool;
-	static final prototype : WeakSet_<Dynamic>;
+	static final prototype : WeakSet_<WeakKey>;
 }

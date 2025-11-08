@@ -27,7 +27,7 @@ typedef ScopedSlotReturnArray = {
 		Combines two or more arrays.
 		This method returns a new array without modifying any existing arrays.
 	**/
-	@:overload(function(items:haxe.extern.Rest<Null<ts.AnyOf5<String, Bool, vue.VNode, ScopedSlotReturnArray, js.lib.ConcatArray<ScopedSlotReturnValue>>>>):Array<ScopedSlotReturnValue> { })
+	@:overload(function(items:haxe.extern.Rest<Null<ts.AnyOf5<String, Bool, VNode, ScopedSlotReturnArray, js.lib.ConcatArray<ScopedSlotReturnValue>>>>):Array<ScopedSlotReturnValue> { })
 	function concat(items:haxe.extern.Rest<js.lib.ConcatArray<ScopedSlotReturnValue>>):Array<ScopedSlotReturnValue>;
 	/**
 		Adds all the elements of an array into a string, separated by the specified separator string.

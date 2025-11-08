@@ -1,3 +1,3 @@
 package vue.types.umd;
 
-typedef RenderContext<Props> = vue.RenderContext<Props>;
+typedef RenderContext<Props> = vue.types.index.RenderContext<Props>;

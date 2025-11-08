@@ -1,10 +1,16 @@
 package js.lib;
 
 typedef SyntaxErrorConstructor = {
+	@:overload(function(?message:String, ?options:ErrorOptions):js.lib.Error.SyntaxError { })
 	@:overload(function(?message:String):js.lib.Error { })
+	@:overload(function(?message:String, ?options:ErrorOptions):js.lib.Error { })
 	@:selfCall
 	function call(?message:String):js.lib.Error.SyntaxError;
 	final prototype : js.lib.Error.SyntaxError;
+	/**
+		Indicates whether the argument provided is a built-in Error instance or not.
+	**/
+	function isError(error:Any):Bool;
 	/**
 		Create .stack property on a target object
 	**/

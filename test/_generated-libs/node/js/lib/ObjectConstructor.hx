@@ -102,4 +102,17 @@ typedef ObjectConstructor = {
 		Returns an object containing all own property descriptors of an object
 	**/
 	function getOwnPropertyDescriptors<T>(o:T):Dynamic;
+	/**
+		Returns an object created by key-value entries for properties and methods
+	**/
+	@:overload(function(entries:js.lib.Iterable<haxe.ds.ReadOnlyArray<Dynamic>, Dynamic, Dynamic>):Dynamic { })
+	function fromEntries<T>(entries:js.lib.Iterable<ts.Tuple2<PropertyKey, T>, Dynamic, Dynamic>):haxe.DynamicAccess<T>;
+	/**
+		Determines whether an object has a property with the specified name.
+	**/
+	function hasOwn(o:Dynamic, v:PropertyKey):Bool;
+	/**
+		Groups members of an iterable according to the return value of the passed callback.
+	**/
+	function groupBy<K, T>(items:js.lib.Iterable<T, Dynamic, Dynamic>, keySelector:(item:T, index:Float) -> K):{ };
 };

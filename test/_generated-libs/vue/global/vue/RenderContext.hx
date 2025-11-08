@@ -1,3 +1,3 @@
 package global.vue;
 
-typedef RenderContext<Props> = vue.RenderContext<Props>;
+typedef RenderContext<Props> = vue.types.index.RenderContext<Props>;

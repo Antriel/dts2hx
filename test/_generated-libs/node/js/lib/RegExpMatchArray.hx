@@ -18,6 +18,8 @@ typedef RegExpMatchArray = {
 	var Zero : String;
 	@:optional
 	var groups : haxe.DynamicAccess<String>;
+	@:optional
+	var indices : RegExpIndicesArray;
 	/**
 		Gets or sets the length of the array. This is a number one higher than the highest index in the array.
 	**/
@@ -158,4 +160,51 @@ typedef RegExpMatchArray = {
 		Determines whether an array includes a certain element, returning true or false as appropriate.
 	**/
 	function includes(searchElement:String, ?fromIndex:Float):Bool;
+	/**
+		Calls a defined callback function on each element of an array. Then, flattens the result into
+		a new array.
+		This is identical to a map followed by flat with depth 1.
+	**/
+	function flatMap<U, This>(callback:(value:String, index:Float, array:Array<String>) -> ts.AnyOf2<haxe.ds.ReadOnlyArray<U>, U>, ?thisArg:This):Array<U>;
+	/**
+		Returns a new array with all sub-array elements concatenated into it recursively up to the
+		specified depth.
+	**/
+	function flat<A, D>(?depth:D):Array<FlatArray<A, D>>;
+	/**
+		Returns the item located at the specified index.
+	**/
+	function at(index:Float):Null<String>;
+	/**
+		Returns the value of the last element in the array where predicate is true, and undefined
+		otherwise.
+	**/
+	@:overload(function(predicate:(value:String, index:Float, array:Array<String>) -> Any, ?thisArg:Dynamic):Null<String> { })
+	function findLast<S>(predicate:(value:String, index:Float, array:Array<String>) -> Bool, ?thisArg:Dynamic):Null<S>;
+	/**
+		Returns the index of the last element in the array where predicate is true, and -1
+		otherwise.
+	**/
+	function findLastIndex(predicate:(value:String, index:Float, array:Array<String>) -> Any, ?thisArg:Dynamic):Float;
+	/**
+		Returns a copy of an array with its elements reversed.
+	**/
+	function toReversed():Array<String>;
+	/**
+		Returns a copy of an array with its elements sorted.
+	**/
+	function toSorted(?compareFn:(a:String, b:String) -> Float):Array<String>;
+	/**
+		Copies an array and removes elements and, if necessary, inserts new elements in their place. Returns the copied array.
+		
+		Copies an array and removes elements while returning the remaining elements.
+	**/
+	@:overload(function(start:Float, ?deleteCount:Float):Array<String> { })
+	function toSpliced(start:Float, deleteCount:Float, items:haxe.extern.Rest<String>):Array<String>;
+	/**
+		Copies an array, then overwrites the value at the provided index with the
+		given value. If the index is negative, then it replaces from the end
+		of the array.
+	**/
+	function with(index:Float, value:String):Array<String>;
 };

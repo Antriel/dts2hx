@@ -1,3 +1,3 @@
 package vue.types.umd;
 
-typedef VNode = vue.VNode;
+typedef VNode = vue.types.vnode.VNode;

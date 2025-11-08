@@ -2,7 +2,7 @@
 
 Generated from **@types/node v11.11.3** by **[dts2hx](https://github.com/haxiomic/dts2hx) x.x.x** using **TypeScript 5.9.3** with arguments:
 
-	dts2hx express --output _generated-libs --noDts2hxVersion
+	dts2hx discord.js --output _generated-libs --noDts2hxVersion --target ESNext --module NodeNext --moduleResolution NodeNext -p .
 
 ## Contributors to @types/node
 - [Microsoft TypeScript](https://github.com/Microsoft)

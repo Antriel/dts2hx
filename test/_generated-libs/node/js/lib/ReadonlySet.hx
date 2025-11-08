@@ -16,4 +16,11 @@ typedef ReadonlySet<T> = {
 		Returns an iterable of values in the set.
 	**/
 	function values():SetIterator<T>;
+	function union<U>(other:ReadonlySetLike<U>):js.lib.Set<ts.AnyOf2<T, U>>;
+	function intersection<U>(other:ReadonlySetLike<U>):js.lib.Set<Dynamic>;
+	function difference<U>(other:ReadonlySetLike<U>):js.lib.Set<T>;
+	function symmetricDifference<U>(other:ReadonlySetLike<U>):js.lib.Set<ts.AnyOf2<T, U>>;
+	function isSubsetOf(other:ReadonlySetLike<Any>):Bool;
+	function isSupersetOf(other:ReadonlySetLike<Any>):Bool;
+	function isDisjointFrom(other:ReadonlySetLike<Any>):Bool;
 };

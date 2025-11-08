@@ -1,11 +1,11 @@
 package vue.types;
 
-@:jsRequire("vue/types/umd") extern class Umd extends vue.Vue {
+@:jsRequire("vue/types/umd") extern class Umd extends vue.types.vue.Vue {
 	@:native("$mount")
 	function DollarMount(?elementOrSelector:ts.AnyOf2<String, js.html.DOMElement>, ?hydrating:Bool):Umd;
 	@:native("$watch")
-	@:overload(function<T>(expOrFn:() -> T, callback:(n:T, o:T) -> Void, ?options:vue.WatchOptions):() -> Void { })
-	function DollarWatch(expOrFn:String, callback:(n:Dynamic, o:Dynamic) -> Void, ?options:vue.WatchOptions):() -> Void;
+	@:overload(function<T>(expOrFn:() -> T, callback:(n:T, o:T) -> Void, ?options:vue.types.index.WatchOptions):() -> Void { })
+	function DollarWatch(expOrFn:String, callback:(n:Dynamic, o:Dynamic) -> Void, ?options:vue.types.index.WatchOptions):() -> Void;
 	@:native("$on")
 	function DollarOn(event:ts.AnyOf2<String, Array<String>>, callback:haxe.Constraints.Function):Umd;
 	@:native("$once")

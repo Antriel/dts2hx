@@ -13,4 +13,6 @@ typedef ExecException = {
 	var message : String;
 	@:optional
 	var stack : String;
+	@:optional
+	var cause : Any;
 };

@@ -34,6 +34,7 @@ typedef IString = {
 		Determines whether two strings are equivalent in the current or specified locale.
 	**/
 	@:overload(function(that:String, ?locales:ts.AnyOf2<String, Array<String>>, ?options:js.lib.intl.Collator.CollatorOptions):Float { })
+	@:overload(function(that:String, ?locales:js.lib.intl.LocalesArgument, ?options:js.lib.intl.Collator.CollatorOptions):Float { })
 	function localeCompare(that:String):Float;
 	/**
 		Matches a string with a regular expression, and returns an array containing the results of that search.
@@ -87,6 +88,7 @@ typedef IString = {
 	/**
 		Converts all alphabetic characters to lowercase, taking into account the host environment's current locale.
 	**/
+	@:overload(function(?locales:js.lib.intl.LocalesArgument):String { })
 	function toLocaleLowerCase(?locales:ts.AnyOf2<String, Array<String>>):String;
 	/**
 		Converts all the alphabetic characters in a string to uppercase.
@@ -95,6 +97,7 @@ typedef IString = {
 	/**
 		Returns a string where all alphabetic characters have been converted to uppercase, taking into account the host environment's current locale.
 	**/
+	@:overload(function(?locales:js.lib.intl.LocalesArgument):String { })
 	function toLocaleUpperCase(?locales:ts.AnyOf2<String, Array<String>>):String;
 	/**
 		Removes the leading and trailing white space and line terminator characters from a string.
@@ -213,11 +216,47 @@ typedef IString = {
 	**/
 	function padEnd(maxLength:Float, ?fillString:String):String;
 	/**
+		Removes the trailing white space and line terminator characters from a string.
+	**/
+	function trimEnd():String;
+	/**
+		Removes the leading white space and line terminator characters from a string.
+	**/
+	function trimStart():String;
+	/**
+		Removes the leading white space and line terminator characters from a string.
+		
 		Removes whitespace from the left end of a string.
 	**/
+	@:overload(function():String { })
 	function trimLeft():String;
 	/**
+		Removes the trailing white space and line terminator characters from a string.
+		
 		Removes whitespace from the right end of a string.
 	**/
+	@:overload(function():String { })
 	function trimRight():String;
+	/**
+		Matches a string with a regular expression, and returns an iterable of matches
+		containing the results of that search.
+	**/
+	function matchAll(regexp:js.lib.RegExp):js.lib.RegExpStringIterator<js.lib.RegExpExecArray>;
+	/**
+		Replace all instances of a substring in a string, using a regular expression or search string.
+	**/
+	@:overload(function(searchValue:ts.AnyOf2<String, js.lib.RegExp>, replacer:(substring:String, args:haxe.extern.Rest<Dynamic>) -> String):String { })
+	function replaceAll(searchValue:ts.AnyOf2<String, js.lib.RegExp>, replaceValue:String):String;
+	/**
+		Returns a new String consisting of the single UTF-16 code unit located at the specified index.
+	**/
+	function at(index:Float):Null<String>;
+	/**
+		Returns true if all leading surrogates and trailing surrogates appear paired and in order.
+	**/
+	function isWellFormed():Bool;
+	/**
+		Returns a string where all lone or out-of-order surrogates have been replaced by the Unicode replacement character (U+FFFD).
+	**/
+	function toWellFormed():String;
 };

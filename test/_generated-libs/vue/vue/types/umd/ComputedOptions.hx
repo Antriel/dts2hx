@@ -1,3 +1,3 @@
 package vue.types.umd;
 
-typedef ComputedOptions<T> = vue.ComputedOptions<T>;
+typedef ComputedOptions<T> = vue.types.index.ComputedOptions<T>;

@@ -1,3 +1,3 @@
 package vue.types.vnode;
 
-typedef ScopedSlotChildren = Null<Array<vue.VNode>>;
+typedef ScopedSlotChildren = Null<Array<VNode>>;

@@ -95,5 +95,14 @@ package js.lib;
 		Stores a BigUint64 value at the specified byte offset from the start of the view.
 	**/
 	function setBigUint64(byteOffset:Float, value:BigInt, ?littleEndian:Bool):Void;
+	/**
+		Gets the Float16 value at the specified byte offset from the start of the view. There is
+		no alignment constraint; multi-byte values may be fetched from any offset.
+	**/
+	function getFloat16(byteOffset:Float, ?littleEndian:Bool):Float;
+	/**
+		Stores an Float16 value at the specified byte offset from the start of the view.
+	**/
+	function setFloat16(byteOffset:Float, value:Float, ?littleEndian:Bool):Void;
 	static final prototype : DataView_<ArrayBufferLike>;
 }

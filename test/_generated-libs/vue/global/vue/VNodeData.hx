@@ -1,3 +1,3 @@
 package global.vue;
 
-typedef VNodeData = vue.VNodeData;
+typedef VNodeData = vue.types.vnode.VNodeData;

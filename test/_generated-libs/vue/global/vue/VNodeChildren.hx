@@ -1,3 +1,3 @@
 package global.vue;
 
-typedef VNodeChildren = vue.VNodeChildren;
+typedef VNodeChildren = vue.types.vnode.VNodeChildren;

@@ -1,3 +1,3 @@
 package vue.types.umd;
 
-typedef VNodeComponentOptions = vue.VNodeComponentOptions;
+typedef VNodeComponentOptions = vue.types.vnode.VNodeComponentOptions;

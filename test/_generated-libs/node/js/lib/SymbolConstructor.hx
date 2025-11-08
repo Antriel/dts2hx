@@ -81,5 +81,19 @@ typedef SymbolConstructor = {
 		the for-await-of statement.
 	**/
 	final asyncIterator : js.lib.Symbol;
+	/**
+		A regular expression method that matches the regular expression against a string. Called
+		by the String.prototype.matchAll method.
+	**/
+	final matchAll : js.lib.Symbol;
+	/**
+		A method that is used to release resources held by an object. Called by the semantics of the `using` statement.
+	**/
+	final dispose : js.lib.Symbol;
+	/**
+		A method that is used to asynchronously release resources held by an object. Called by the semantics of the `await using` statement.
+	**/
+	final asyncDispose : js.lib.Symbol;
+	final metadata : js.lib.Symbol;
 	final observable : js.lib.Symbol;
 };

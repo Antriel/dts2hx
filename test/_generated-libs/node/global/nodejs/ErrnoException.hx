@@ -13,4 +13,6 @@ typedef ErrnoException = {
 	var stack : String;
 	var name : String;
 	var message : String;
+	@:optional
+	var cause : Any;
 };

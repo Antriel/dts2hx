@@ -1,11 +1,11 @@
 package global;
 
-@:native("Vue") extern class Vue extends vue.Vue {
+@:native("Vue") extern class Vue extends vue.types.vue.Vue {
 	@:native("$mount")
 	function DollarMount(?elementOrSelector:ts.AnyOf2<String, js.html.DOMElement>, ?hydrating:Bool):Vue;
 	@:native("$watch")
-	@:overload(function<T>(expOrFn:() -> T, callback:(n:T, o:T) -> Void, ?options:vue.WatchOptions):() -> Void { })
-	function DollarWatch(expOrFn:String, callback:(n:Dynamic, o:Dynamic) -> Void, ?options:vue.WatchOptions):() -> Void;
+	@:overload(function<T>(expOrFn:() -> T, callback:(n:T, o:T) -> Void, ?options:vue.types.index.WatchOptions):() -> Void { })
+	function DollarWatch(expOrFn:String, callback:(n:Dynamic, o:Dynamic) -> Void, ?options:vue.types.index.WatchOptions):() -> Void;
 	@:native("$on")
 	function DollarOn(event:ts.AnyOf2<String, Array<String>>, callback:haxe.Constraints.Function):Vue;
 	@:native("$once")

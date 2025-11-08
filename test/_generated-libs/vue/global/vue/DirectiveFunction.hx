@@ -1,3 +1,3 @@
 package global.vue;
 
-typedef DirectiveFunction = vue.DirectiveFunction;
+typedef DirectiveFunction = vue.types.index.DirectiveFunction;

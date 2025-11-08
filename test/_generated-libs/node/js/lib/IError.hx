@@ -5,4 +5,6 @@ typedef IError = {
 	var message : String;
 	@:optional
 	var stack : String;
+	@:optional
+	var cause : Any;
 };

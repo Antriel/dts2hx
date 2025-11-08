@@ -1,3 +1,3 @@
 package global.vue;
 
-typedef PluginObject<T> = vue.PluginObject<T>;
+typedef PluginObject<T> = vue.types.index.PluginObject<T>;

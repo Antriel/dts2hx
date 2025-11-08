@@ -13,5 +13,5 @@ package js.lib;
 		Adds a new element with a specified key and value.
 	**/
 	function set(key:K, value:V):WeakMap_<K, V>;
-	static final prototype : WeakMap_<Dynamic, Dynamic>;
+	static final prototype : WeakMap_<WeakKey, Dynamic>;
 }

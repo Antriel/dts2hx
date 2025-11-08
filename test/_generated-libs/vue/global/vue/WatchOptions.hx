@@ -1,3 +1,3 @@
 package global.vue;
 
-typedef WatchOptions = vue.WatchOptions;
+typedef WatchOptions = vue.types.index.WatchOptions;

@@ -128,6 +128,31 @@ typedef Global = {
 			**/
 			function supportedLocalesOf(?locales:js.lib.intl.LocalesArgument, ?options:{ @:optional var localeMatcher : js.lib.intl.RelativeTimeFormatLocaleMatcher; }):Array<String>;
 		};
+		final ListFormat : {
+			var prototype : js.lib.intl.ListFormat;
+			/**
+				Returns an array containing those of the provided locales that are
+				supported in list formatting without having to fall back to the runtime's default locale.
+			**/
+			function supportedLocalesOf(locales:js.lib.intl.LocalesArgument, ?options:{ /** The locale matching algorithm to use. For information about this option, see [Intl page](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_negotiation). **/ @:optional var localeMatcher : Dynamic; }):Array<String>;
+		};
+		/**
+			Returns a sorted array of the supported collation, calendar, currency, numbering system, timezones, and units by the implementation.
+			[MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf)
+		**/
+		function supportedValuesOf(key:String):Array<String>;
+		/**
+			The `Intl.Segmenter` object enables locale-sensitive text segmentation, enabling you to get meaningful items (graphemes, words or sentences) from a string.
+			
+			[MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter)
+		**/
+		final Segmenter : {
+			var prototype : js.lib.intl.Segmenter;
+			/**
+				Returns an array containing those of the provided locales that are supported without having to fall back to the runtime's default locale.
+			**/
+			function supportedLocalesOf(locales:js.lib.intl.LocalesArgument, ?options:{ /** The locale matching algorithm to use. For information about this option, see [Intl page](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_negotiation). **/ @:optional var localeMatcher : Dynamic; }):Array<String>;
+		};
 	};
 	var JSON : js.lib.JSON;
 	var Map : js.lib.MapConstructor;

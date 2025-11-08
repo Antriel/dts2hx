@@ -1,3 +1,3 @@
 package vue.types.umd;
 
-typedef VNodeDirective = vue.VNodeDirective;
+typedef VNodeDirective = vue.types.vnode.VNodeDirective;

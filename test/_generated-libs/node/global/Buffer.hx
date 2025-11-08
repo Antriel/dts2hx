@@ -272,6 +272,33 @@ package global;
 		Returns the primitive value of the specified object.
 	**/
 	function valueOf():Buffer;
+	/**
+		Returns the item located at the specified index.
+	**/
+	function at(index:Float):Null<Float>;
+	/**
+		Returns the value of the last element in the array where predicate is true, and undefined
+		otherwise.
+	**/
+	@:overload(function(predicate:(value:Float, index:Float, array:Buffer) -> Any, ?thisArg:Dynamic):Null<Float> { })
+	function findLast<S>(predicate:(value:Float, index:Float, array:Buffer) -> Bool, ?thisArg:Dynamic):Null<S>;
+	/**
+		Returns the index of the last element in the array where predicate is true, and -1
+		otherwise.
+	**/
+	function findLastIndex(predicate:(value:Float, index:Float, array:Buffer) -> Any, ?thisArg:Dynamic):Float;
+	/**
+		Copies the array and returns the copy with the elements in reverse order.
+	**/
+	function toReversed():js.lib.Uint8Array_<js.lib.ArrayBuffer>;
+	/**
+		Copies and sorts the array.
+	**/
+	function toSorted(?compareFn:(a:Float, b:Float) -> Float):js.lib.Uint8Array_<js.lib.ArrayBuffer>;
+	/**
+		Copies the array and inserts the given number at the provided index.
+	**/
+	function with(index:Float, value:Float):js.lib.Uint8Array_<js.lib.ArrayBuffer>;
 	static var prototype : Buffer;
 	/**
 		When passed a reference to the .buffer property of a TypedArray instance,

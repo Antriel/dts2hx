@@ -1,3 +1,3 @@
 package vue.types.umd;
 
-typedef DirectiveOptions = vue.DirectiveOptions;
+typedef DirectiveOptions = vue.types.index.DirectiveOptions;

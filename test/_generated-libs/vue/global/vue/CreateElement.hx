@@ -1,3 +1,3 @@
 package global.vue;
 
-typedef CreateElement = vue.CreateElement;
+typedef CreateElement = vue.types.vue.CreateElement;

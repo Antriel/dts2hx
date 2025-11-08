@@ -1,3 +1,3 @@
 package global.vue;
 
-typedef VNodeDirective = vue.VNodeDirective;
+typedef VNodeDirective = vue.types.vnode.VNodeDirective;

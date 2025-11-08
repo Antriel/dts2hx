@@ -1,10 +1,16 @@
 package js.lib;
 
 typedef ReferenceErrorConstructor = {
+	@:overload(function(?message:String, ?options:ErrorOptions):js.lib.Error.ReferenceError { })
 	@:overload(function(?message:String):js.lib.Error { })
+	@:overload(function(?message:String, ?options:ErrorOptions):js.lib.Error { })
 	@:selfCall
 	function call(?message:String):js.lib.Error.ReferenceError;
 	final prototype : js.lib.Error.ReferenceError;
+	/**
+		Indicates whether the argument provided is a built-in Error instance or not.
+	**/
+	function isError(error:Any):Bool;
 	/**
 		Create .stack property on a target object
 	**/

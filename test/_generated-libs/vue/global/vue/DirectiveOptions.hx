@@ -1,3 +1,3 @@
 package global.vue;
 
-typedef DirectiveOptions = vue.DirectiveOptions;
+typedef DirectiveOptions = vue.types.index.DirectiveOptions;
