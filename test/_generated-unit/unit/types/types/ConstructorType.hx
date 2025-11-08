@@ -1,5 +1,5 @@
 package unit.types.types;
 
 @:jsRequire("./unit/types", "Types.constructorType") extern class ConstructorType {
-	function new(unknown:Dynamic);
+	function new(a:String);
 }

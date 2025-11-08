@@ -1,18 +1,18 @@
 package unit.symbols;
 
 @:jsRequire("./unit/symbols", "MergedInterfaceClass") extern class MergedInterfaceClass extends BaseClass {
-	function new(unknown:Dynamic);
+	function new();
 	var interfaceField1 : Float;
 	var interfaceField2 : Float;
 	var classField : String;
 	/**
 		Redefine a base interface field
 	**/
-	function baseInterfaceMethod(unknown:Dynamic):Float;
+	function baseInterfaceMethod():Float;
 	/**
 		Redefine a base class field
 	**/
-	function baseClassMethod(unknown:Dynamic):Float;
+	function baseClassMethod():Float;
 	var baseInterfaceField : Float;
 	static var prototype : MergedInterfaceClass;
 }

@@ -1,8 +1,8 @@
 package unit.class_;
 
 @:jsRequire("./unit/class", "ClassBase") extern class ClassBase<T, DefaultBool> {
-	@:overload(function(unknown:Dynamic):ClassBase<T, DefaultBool> { })
-	function new(unknown:Dynamic);
+	@:overload(function(a:Float):ClassBase<T, DefaultBool> { })
+	function new(overloadParam:T);
 	var intField : Float;
 	var arrayField : Array<String>;
 	var thisClassType : ClassBase<T, DefaultBool>;
@@ -10,7 +10,7 @@ package unit.class_;
 	var defaultBoolField : DefaultBool;
 	var typeofSelf : {
 		var prototype : ClassBase<Dynamic, Dynamic>;
-		function staticMethod<T>(unknown:Dynamic):T;
+		function staticMethod<T>(a:Float):T;
 		var staticField : Float;
 		final namespaceField : String;
 	};
@@ -18,15 +18,15 @@ package unit.class_;
 	/**
 		This field has a special name in typescript; we want to make sure it's not mistaken for the constructor
 	**/
-	function __constructor(unknown:Dynamic):Void;
-	function method(unknown:Dynamic):Dynamic;
+	function __constructor(example:String):Void;
+	function method(a:Float, b:String):Dynamic;
 	/**
 		single parameter signature
 		
 		multi-parameter signature
 	**/
-	@:overload(function(unknown:Dynamic):Dynamic { })
-	function methodOverloaded(unknown:Dynamic):Dynamic;
+	@:overload(function(a:String, b:Array<{ }>):Dynamic { })
+	function methodOverloaded(a:Float):Dynamic;
 	var accessor : Bool;
 	/**
 		should be readonly
@@ -34,7 +34,7 @@ package unit.class_;
 	final getOnlyAccessor : Float;
 	var setOnlyAccessor : Float;
 	static var prototype : ClassBase<Dynamic, Dynamic>;
-	static function staticMethod<T>(unknown:Dynamic):T;
+	static function staticMethod<T>(a:Float):T;
 	static var staticField : Float;
 	static final namespaceField : String;
 }

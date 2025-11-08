@@ -2,9 +2,9 @@ package unit.symbols;
 
 typedef ICallableInterface = {
 	@:selfCall
-	function call_(unknown:Dynamic):Float;
-	@:overload(function(unknown:Dynamic):Float { })
+	function call_(anotherSignature:Dynamic):Float;
+	@:overload(function():Float { })
 	@:selfCall
-	function call(unknown:Dynamic):Float;
+	function call(overloadParam:Float):Float;
 	var field : String;
 };

@@ -20,18 +20,18 @@ package unit.types;
 	 - type parameters
 **/
 @:jsRequire("./unit/types", "Types") @valueModuleOnly extern class Types {
-	static function functionWithOptional(unknown:Dynamic):Float;
-	static function partialTypeParam<T>(unknown:Dynamic):Void;
-	static function functionImplicit(unknown:Dynamic):Dynamic;
-	static function functionNumberStringVoidAlt(unknown:Dynamic):Void;
-	static function functionNumberTVoidTypeParamAlt<T>(unknown:Dynamic):Void;
-	@:overload(function(unknown:Dynamic):Dynamic { })
-	@:overload(function(unknown:Dynamic):Dynamic { })
-	@:overload(function<T, U>(unknown:Dynamic):T { })
-	static function overloadedFunction(unknown:Dynamic):Dynamic;
-	static function typeParameterWithConstraint<T>(unknown:Dynamic):Dynamic;
-	static function intersectionBetweenTypeParams<A, B>(unknown:Dynamic):Void;
-	static function firstTypeFunction(unknown:Dynamic):Bool;
+	static function functionWithOptional(a:String, ?b:Bool):Float;
+	static function partialTypeParam<T>(x:T):Void;
+	static function functionImplicit(x:Dynamic, y:Dynamic):Dynamic;
+	static function functionNumberStringVoidAlt(a:Float, b:String):Void;
+	static function functionNumberTVoidTypeParamAlt<T>(a:Float, tparam:T):Void;
+	@:overload(function(a:String):Dynamic { })
+	@:overload(function(a:Array<js.lib.Symbol>):Dynamic { })
+	@:overload(function<T, U>(a:Array<js.lib.Symbol>, u:U):T { })
+	static function overloadedFunction(a:Float):Dynamic;
+	static function typeParameterWithConstraint<T>(x:T):Dynamic;
+	static function intersectionBetweenTypeParams<A, B>(p:Dynamic):Void;
+	static function firstTypeFunction(node:{ }):Bool;
 	static final implicitInt : Int;
 	static final implicitFloat : Float;
 	static final implicitBool : Bool;
@@ -54,7 +54,7 @@ package unit.types;
 	static final voidObjField : {
 		var x : ts.Undefined;
 	};
-	static function voidArg(unknown:Dynamic):Void;
+	static function voidArg(a:ts.Undefined):Void;
 	static final intLiteral : Int;
 	static final intLiteralAlt : Int;
 	static final floatLiteral : Float;
@@ -76,12 +76,12 @@ package unit.types;
 			var a : Float;
 			var b : Float;
 		};
-		function methodSignatureComplex<T>(unknown:Dynamic):T;
-		@:overload(function(unknown:Dynamic):Void { })
-		function methodSignatureWithOverload<T>(unknown:Dynamic):Void;
-		dynamic function methodProperty<T>(unknown:Dynamic):Void;
+		function methodSignatureComplex<T>(a:Float, ?opt:String):T;
+		@:overload(function(a:Float):Void { })
+		function methodSignatureWithOverload<T>(a:T):Void;
+		dynamic function methodProperty<T>(a:T):Void;
 		@:optional
-		function methodSignatureOptional(unknown:Dynamic):String;
+		function methodSignatureOptional():String;
 		final readonlyField : String;
 	};
 	static final typeReferenceAliasWithTypeParam : unit.types.types.AliasWithTypeParam<String, Float>;
@@ -99,12 +99,12 @@ package unit.types;
 			var a : Float;
 			var b : Float;
 		};
-		function methodSignatureComplex<T>(unknown:Dynamic):T;
-		@:overload(function(unknown:Dynamic):Void { })
-		function methodSignatureWithOverload<T>(unknown:Dynamic):Void;
-		dynamic function methodProperty<T>(unknown:Dynamic):Void;
+		function methodSignatureComplex<T>(a:Float, ?opt:String):T;
+		@:overload(function(a:Float):Void { })
+		function methodSignatureWithOverload<T>(a:T):Void;
+		dynamic function methodProperty<T>(a:T):Void;
 		@:optional
-		function methodSignatureOptional(unknown:Dynamic):String;
+		function methodSignatureOptional():String;
 		final readonlyField : String;
 	};
 	static final objectSingleField : {
@@ -139,14 +139,14 @@ package unit.types;
 		var a : Dynamic;
 		var r : Dynamic;
 	};
-	static function arrowNumberStringVoid(unknown:Dynamic):Void;
-	static function arrowNumberTVoidTypeParam<T>(unknown:Dynamic):Void;
-	static function arrowParamWithRest(unknown:Dynamic):Void;
-	static function arrowParamWithRestOr(unknown:Dynamic, unknown:Dynamic):Void;
-	static function arrowParamWithRestUnion(unknown:Dynamic):Void;
-	static function arrowParamWithRestTuple(unknown:Dynamic):Void;
-	static function arrowParamWithRestTupleUnion(unknown:Dynamic, unknown:Dynamic):Void;
-	static function arrowParamObjectBindingPattern(unknown:Dynamic):Void;
+	static function arrowNumberStringVoid(a:Float, noType:Dynamic):Void;
+	static function arrowNumberTVoidTypeParam<T>(a:Float, tParam:T, arrayTParam:Array<T>):Void;
+	static function arrowParamWithRest(a:Float, b:Float, rest:haxe.extern.Rest<Float>):Void;
+	static function arrowParamWithRestOr(a:Float, b:Float):Void;
+	static function arrowParamWithRestUnion(a:Float, b:Float, rest:haxe.extern.Rest<Any>):Void;
+	static function arrowParamWithRestTuple(a:Float, b:Float, rest_0:Dynamic):Void;
+	static function arrowParamWithRestTupleUnion(a:Float, b:Float, rest_0:Dynamic):Void;
+	static function arrowParamObjectBindingPattern(LeftBrace_XColon_Number_Comma_YColon_String_RightBrace:{ var x : Dynamic; var y : Dynamic; }):Void;
 	static final nullableNumber : Null<Float>;
 	static final undefineableNumber : Null<Float>;
 	static final undefineableNullableNumber : Null<Float>;
@@ -174,12 +174,12 @@ package unit.types;
 			var a : Float;
 			var b : Float;
 		};
-		function methodSignatureComplex<T>(unknown:Dynamic):T;
-		@:overload(function(unknown:Dynamic):Void { })
-		function methodSignatureWithOverload<T>(unknown:Dynamic):Void;
-		dynamic function methodProperty<T>(unknown:Dynamic):Void;
+		function methodSignatureComplex<T>(a:Float, ?opt:String):T;
+		@:overload(function(a:Float):Void { })
+		function methodSignatureWithOverload<T>(a:T):Void;
+		dynamic function methodProperty<T>(a:T):Void;
 		@:optional
-		function methodSignatureOptional(unknown:Dynamic):String;
+		function methodSignatureOptional():String;
 		final readonlyField : String;
 	} & {
 		var extendedField : Float;
@@ -223,20 +223,20 @@ package unit.types;
 			var a : Float;
 			var b : Float;
 		};
-		function methodSignatureComplex<T>(unknown:Dynamic):T;
-		@:overload(function(unknown:Dynamic):Void { })
-		function methodSignatureWithOverload<T>(unknown:Dynamic):Void;
-		dynamic function methodProperty<T>(unknown:Dynamic):Void;
+		function methodSignatureComplex<T>(a:Float, ?opt:String):T;
+		@:overload(function(a:Float):Void { })
+		function methodSignatureWithOverload<T>(a:T):Void;
+		dynamic function methodProperty<T>(a:T):Void;
 		@:optional
-		function methodSignatureOptional(unknown:Dynamic):String;
+		function methodSignatureOptional():String;
 		final readonlyField : String;
 	};
 	static final typeQueryNoType : Dynamic;
-	static function typeQueryFunction(unknown:Dynamic):Dynamic;
-	@:overload(function(unknown:Dynamic):Dynamic { })
-	@:overload(function(unknown:Dynamic):Dynamic { })
-	@:overload(function<T, U>(unknown:Dynamic):T { })
-	static function typeQueryFunctionWithOverloads(unknown:Dynamic):Dynamic;
+	static function typeQueryFunction(x:Dynamic, y:Dynamic):Dynamic;
+	@:overload(function(a:String):Dynamic { })
+	@:overload(function(a:Array<js.lib.Symbol>):Dynamic { })
+	@:overload(function<T, U>(a:Array<js.lib.Symbol>, u:U):T { })
+	static function typeQueryFunctionWithOverloads(a:Float):Dynamic;
 	static final typeQueryClassLikeOrNull : Null<{
 		var field : String;
 	}>;

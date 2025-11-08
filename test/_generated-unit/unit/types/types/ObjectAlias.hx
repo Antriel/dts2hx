@@ -14,11 +14,11 @@ typedef ObjectAlias = {
 		var a : Float;
 		var b : Float;
 	};
-	function methodSignatureComplex<T>(unknown:Dynamic):T;
-	@:overload(function(unknown:Dynamic):Void { })
-	function methodSignatureWithOverload<T>(unknown:Dynamic):Void;
-	dynamic function methodProperty<T>(unknown:Dynamic):Void;
+	function methodSignatureComplex<T>(a:Float, ?opt:String):T;
+	@:overload(function(a:Float):Void { })
+	function methodSignatureWithOverload<T>(a:T):Void;
+	dynamic function methodProperty<T>(a:T):Void;
 	@:optional
-	function methodSignatureOptional(unknown:Dynamic):String;
+	function methodSignatureOptional():String;
 	final readonlyField : String;
 };

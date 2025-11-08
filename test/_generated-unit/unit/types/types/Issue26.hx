@@ -14,7 +14,7 @@ package unit.types.types;
 	var nullOrEnumField2 : Null<StringEnum>;
 	var undefinedOrEnumField2 : Null<StringEnum>;
 	var undefinedNullEnumField2 : Null<StringEnum>;
-	function method(unknown:Dynamic):Null<ExampleEnum>;
-	function method2(unknown:Dynamic):Null<StringEnum>;
+	function method(?optionalEnum:ExampleEnum):Null<ExampleEnum>;
+	function method2(?optionalEnum:StringEnum):Null<StringEnum>;
 	static var prototype : Issue26;
 }

@@ -1,10 +1,10 @@
 package unit;
 
 @:jsRequire("./unit/symbols") @valueModuleOnly extern class Symbols {
-	static function ClassValueModule(unknown:Dynamic):Dynamic;
-	@:overload(function(unknown:Dynamic):Float { })
-	static function CallableInterface(unknown:Dynamic):Float;
-	static function FunctionValueModule(unknown:Dynamic):Float;
+	static function ClassValueModule(arg:Float):Dynamic;
+	@:overload(function():Float { })
+	static function CallableInterface(overloadParam:Float):Float;
+	static function FunctionValueModule():Float;
 	/**
 		See https://github.com/microsoft/TypeScript/blob/master/doc/spec.md#23-declarations
 		

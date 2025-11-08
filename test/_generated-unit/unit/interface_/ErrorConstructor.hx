@@ -6,6 +6,6 @@ package unit.interface_;
 **/
 typedef ErrorConstructor = {
 	@:selfCall
-	function call(unknown:Dynamic):Error;
+	function call(?message:String):Error;
 	final prototype : Error;
 };

@@ -4,33 +4,33 @@ package js.lib;
 	An object that represents a number of any kind. All JavaScript numbers are 64-bit floating-point numbers.
 **/
 @:native("Number") extern class Number {
-	function new(unknown:Dynamic);
+	function new(?value:Dynamic);
 	/**
 		Returns a string representation of an object.
 	**/
-	function toString(unknown:Dynamic):String;
+	function toString(?radix:Float):String;
 	/**
 		Returns a string representing a number in fixed-point notation.
 	**/
-	function toFixed(unknown:Dynamic):String;
+	function toFixed(?fractionDigits:Float):String;
 	/**
 		Returns a string containing a number represented in exponential notation.
 	**/
-	function toExponential(unknown:Dynamic):String;
+	function toExponential(?fractionDigits:Float):String;
 	/**
 		Returns a string containing a number represented either in exponential or fixed-point notation with a specified number of digits.
 	**/
-	function toPrecision(unknown:Dynamic):String;
+	function toPrecision(?precision:Float):String;
 	/**
 		Returns the primitive value of the specified object.
 	**/
-	function valueOf(unknown:Dynamic):Float;
+	function valueOf():Float;
 	/**
 		Converts a number to a string by using the current or specified locale.
 	**/
-	function toLocaleString(unknown:Dynamic):String;
+	function toLocaleString(?locales:ts.AnyOf2<String, Array<String>>, ?options:js.lib.intl.NumberFormat.NumberFormatOptions):String;
 	@:selfCall
-	static function call(unknown:Dynamic):Float;
+	static function call(?value:Dynamic):Float;
 	static final prototype : Number;
 	/**
 		The largest number that can be represented in JavaScript. Equal to approximately 1.79E+308.
@@ -66,21 +66,21 @@ package js.lib;
 		Unlike the global isFinite, Number.isFinite doesn't forcibly convert the parameter to a
 		number. Only finite values of the type number, result in true.
 	**/
-	static function isFinite(unknown:Dynamic):Bool;
+	static function isFinite(number:Any):Bool;
 	/**
 		Returns true if the value passed is an integer, false otherwise.
 	**/
-	static function isInteger(unknown:Dynamic):Bool;
+	static function isInteger(number:Any):Bool;
 	/**
 		Returns a Boolean value that indicates whether a value is the reserved value NaN (not a
 		number). Unlike the global isNaN(), Number.isNaN() doesn't forcefully convert the parameter
 		to a number. Only values of the type number, that are also NaN, result in true.
 	**/
-	static function isNaN(unknown:Dynamic):Bool;
+	static function isNaN(number:Any):Bool;
 	/**
 		Returns true if the value passed is a safe integer.
 	**/
-	static function isSafeInteger(unknown:Dynamic):Bool;
+	static function isSafeInteger(number:Any):Bool;
 	/**
 		The value of the largest integer n such that n and n + 1 are both exactly representable as
 		a Number value.
@@ -96,9 +96,9 @@ package js.lib;
 	/**
 		Converts a string to a floating-point number.
 	**/
-	static function parseFloat(unknown:Dynamic):Float;
+	static function parseFloat(string:String):Float;
 	/**
 		Converts A string to an integer.
 	**/
-	static function parseInt(unknown:Dynamic):Float;
+	static function parseInt(string:String, ?radix:Float):Float;
 }
