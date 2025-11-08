@@ -1,25 +1,24 @@
 package three;
 
 @:jsRequire("three", "Euler") extern class Euler {
-	function new(?x:Float, ?y:Float, ?z:Float, ?order:String);
+	function new(?x:Float, ?y:Float, ?z:Float, ?order:EulerOrder);
 	var x : Float;
 	var y : Float;
 	var z : Float;
-	var order : String;
-	var _onChangeCallback : haxe.Constraints.Function;
-	function set(x:Float, y:Float, z:Float, ?order:String):Euler;
+	var order : EulerOrder;
+	final isEuler : Bool;
+	dynamic function _onChangeCallback():Void;
+	function set(x:Float, y:Float, z:Float, ?order:EulerOrder):Euler;
 	function clone():Euler;
 	function copy(euler:Euler):Euler;
-	function setFromRotationMatrix(m:Matrix4, ?order:String):Euler;
-	function setFromQuaternion(q:Quaternion, ?order:String):Euler;
-	function setFromVector3(v:Vector3, ?order:String):Euler;
-	function reorder(newOrder:String):Euler;
+	function setFromRotationMatrix(m:Matrix4, ?order:EulerOrder, ?update:Bool):Euler;
+	function setFromQuaternion(q:Quaternion, ?order:EulerOrder, ?update:Bool):Euler;
+	function setFromVector3(v:Vector3, ?order:EulerOrder):Euler;
+	function reorder(newOrder:EulerOrder):Euler;
 	function equals(euler:Euler):Bool;
-	function fromArray(xyzo:Array<Dynamic>):Euler;
-	function toArray(?array:Array<Float>, ?offset:Float):Array<Float>;
-	function toVector3(?optionalResult:Vector3):Vector3;
-	function _onChange(callback:haxe.Constraints.Function):Euler;
+	function fromArray(array:EulerTuple):Euler;
+	function toArray(?array:ts.Tuple4<Null<Float>, Null<Float>, Null<Float>, Null<EulerOrder>>, ?offset:Float):EulerTuple;
+	function _onChange(callback:() -> Void):Euler;
 	static var prototype : Euler;
-	static var RotationOrders : Array<String>;
-	static var DefaultOrder : String;
+	static var DEFAULT_ORDER : String;
 }

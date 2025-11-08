@@ -3,10 +3,17 @@ package three;
 /**
 	The WebGL renderer displays your beautifully crafted scenes using WebGL, if your device supports it.
 	This renderer has way better performance than CanvasRenderer.
+	
+	see
+	{@link
+	https://github.com/mrdoob/three.js/blob/master/src/renderers/WebGLRenderer.js src/renderers/WebGLRenderer.js
+	}
 **/
 @:jsRequire("three", "WebGLRenderer") extern class WebGLRenderer {
 	/**
-		parameters is an optional object with properties defining the renderer's behaviour. The constructor also accepts no parameters at all. In all cases, it will assume sane defaults when parameters are missing.
+		parameters is an optional object with properties defining the renderer's behavior.
+		The constructor also accepts no parameters at all.
+		In all cases, it will assume sane defaults when parameters are missing.
 	**/
 	function new(?parameters:WebGLRendererParameters);
 	/**
@@ -14,10 +21,6 @@ package three;
 		This is automatically created by the renderer in the constructor (if not provided already); you just need to add it to your page.
 	**/
 	var domElement : js.html.CanvasElement;
-	/**
-		The HTML5 Canvas's 'webgl' context obtained from the canvas where the renderer will draw.
-	**/
-	var context : js.html.webgl.RenderingContext;
 	/**
 		Defines whether the renderer should automatically clear its output before rendering.
 	**/
@@ -42,47 +45,47 @@ package three;
 		Defines whether the renderer should sort objects. Default is true.
 	**/
 	var sortObjects : Bool;
-	var clippingPlanes : Array<Dynamic>;
+	var clippingPlanes : Array<Plane>;
 	var localClippingEnabled : Bool;
 	var extensions : WebGLExtensions;
 	/**
-		Default is false.
+		Color space used for output to HTMLCanvasElement. Supported values are
+		{@link
+		SRGBColorSpace
+		}
+		and
+		{@link
+		LinearSRGBColorSpace
+		}
+		.
 	**/
-	var gammaInput : Bool;
-	/**
-		Default is false.
-	**/
-	var gammaOutput : Bool;
-	var physicallyCorrectLights : Bool;
+	var outputColorSpace : String;
+	final coordinateSystem : Int;
 	var toneMapping : ToneMapping;
 	var toneMappingExposure : Float;
-	var toneMappingWhitePoint : Float;
 	/**
-		Default is false.
+		The normalized resolution scale for the transmission render target, measured in percentage of viewport
+		dimensions. Lowering this value can result in significant improvements to
+		{@link
+		MeshPhysicalMaterial
+		}
+		transmission performance. Default is `1`.
 	**/
-	var shadowMapDebug : Bool;
-	/**
-		Default is 8.
-	**/
-	var maxMorphTargets : Float;
-	/**
-		Default is 4.
-	**/
-	var maxMorphNormals : Float;
+	var transmissionResolutionScale : Float;
 	var info : WebGLInfo;
 	var shadowMap : WebGLShadowMap;
-	var pixelRation : Float;
 	var capabilities : WebGLCapabilities;
 	var properties : WebGLProperties;
 	var renderLists : WebGLRenderLists;
 	var state : WebGLState;
-	var vr : WebVRManager;
+	var xr : WebXRManager;
 	/**
 		Return the WebGL context.
 	**/
-	function getContext():js.html.webgl.RenderingContext;
+	function getContext():ts.AnyOf2<js.html.webgl.RenderingContext, js.html.webgl.WebGL2RenderingContext>;
 	function getContextAttributes():Dynamic;
 	function forceContextLoss():Void;
+	function forceContextRestore():Void;
 	function getMaxAnisotropy():Float;
 	function getPrecision():String;
 	function getPixelRatio():Float;
@@ -121,15 +124,21 @@ package three;
 	**/
 	function setScissorTest(enable:Bool):Void;
 	/**
+		Sets the custom opaque sort function for the WebGLRenderLists. Pass null to use the default painterSortStable function.
+	**/
+	function setOpaqueSort(method:Null<(a:Dynamic, b:Dynamic) -> Float>):Void;
+	/**
+		Sets the custom transparent sort function for the WebGLRenderLists. Pass null to use the default reversePainterSortStable function.
+	**/
+	function setTransparentSort(method:Null<(a:Dynamic, b:Dynamic) -> Float>):Void;
+	/**
 		Returns a THREE.Color instance with the current clear color.
 	**/
-	function getClearColor():Color;
+	function getClearColor(target:Color):Color;
 	/**
 		Sets the clear color, using color for the color and alpha for the opacity.
 	**/
-	@:overload(function(color:String, ?alpha:Float):Void { })
-	@:overload(function(color:Float, ?alpha:Float):Void { })
-	function setClearColor(color:Color, ?alpha:Float):Void;
+	function setClearColor(color:ColorRepresentation, ?alpha:Float):Void;
 	/**
 		Returns a float with the current clear alpha. Ranges from 0 to 1.
 	**/
@@ -143,25 +152,34 @@ package three;
 	function clearColor():Void;
 	function clearDepth():Void;
 	function clearStencil():Void;
-	function clearTarget(renderTarget:WebGLRenderTarget, color:Bool, depth:Bool, stencil:Bool):Void;
+	function clearTarget(renderTarget:WebGLRenderTarget<Texture<Any>>, color:Bool, depth:Bool, stencil:Bool):Void;
 	function resetGLState():Void;
 	function dispose():Void;
+	function renderBufferDirect(camera:Camera, scene:Scene<Object3DEventMap>, geometry:BufferGeometry<haxe.DynamicAccess<ts.AnyOf2<BufferAttribute, InterleavedBufferAttribute>>, BufferGeometryEventMap>, material:Material, object:Object3D<Object3DEventMap>, geometryGroup:Dynamic):Void;
 	/**
-		Tells the shadow map plugin to update using the passed scene and camera parameters.
+		A build in function that can be used instead of requestAnimationFrame. For WebXR projects this function must be used.
 	**/
-	function renderBufferImmediate(object:Object3D, program:Dynamic, material:Material):Void;
-	function renderBufferDirect(camera:Camera, fog:Fog, geometry:ts.AnyOf2<Geometry, BufferGeometry>, material:Material, object:Object3D, geometryGroup:Dynamic):Void;
+	function setAnimationLoop(callback:Null<global.XRFrameRequestCallback>):Void;
+	function animate(callback:() -> Void):Void;
 	/**
-		A build in function that can be used instead of requestAnimationFrame. For WebVR projects this function must be used.
+		Compiles all materials in the scene with the camera. This is useful to precompile shaders before the first
+		rendering. If you want to add a 3D object to an existing scene, use the third optional parameter for applying the
+		target scene.
+		Note that the (target) scene's lighting should be configured before calling this method.
 	**/
-	function setAnimationLoop(callback:haxe.Constraints.Function):Void;
-	function animate(callback:haxe.Constraints.Function):Void;
+	dynamic function compile(scene:Object3D<Object3DEventMap>, camera:Camera, ?targetScene:Scene<Object3DEventMap>):js.lib.Set<Material>;
 	/**
-		Compiles all materials in the scene with the camera. This is useful to precompile shaders before the first rendering.
+		Asynchronous version of
+		{@link
+		compile
+		}
+		(). The method returns a Promise that resolves when the given scene can be
+		rendered without unnecessary stalling due to shader compilation.
+		This method makes use of the KHR_parallel_shader_compile WebGL extension.
 	**/
-	function compile(scene:Scene, camera:Camera):Void;
+	dynamic function compileAsync(scene:Object3D<Object3DEventMap>, camera:Camera, ?targetScene:Scene<Object3DEventMap>):js.lib.Promise<Object3D<Object3DEventMap>>;
 	/**
-		Render a scene using a camera.
+		Render a scene or an object using a camera.
 		The render is done to a previously specified
 		{@link
 		WebGLRenderTarget#renderTarget .renderTarget
@@ -195,7 +213,7 @@ package three;
 		}
 		.
 	**/
-	function render(scene:Scene, camera:Camera):Void;
+	function render(scene:Object3D<Object3DEventMap>, camera:Camera):Void;
 	/**
 		Returns the current active cube face.
 	**/
@@ -207,14 +225,56 @@ package three;
 	/**
 		Returns the current render target. If no render target is set, null is returned.
 	**/
-	function getRenderTarget():Null<RenderTarget>;
-	function getCurrentRenderTarget():Null<RenderTarget>;
+	function getRenderTarget():Null<WebGLRenderTarget<Texture<Any>>>;
+	function getCurrentRenderTarget():Null<WebGLRenderTarget<Texture<Any>>>;
 	/**
 		Sets the active render target.
 	**/
-	function setRenderTarget(renderTarget:Null<RenderTarget>, ?activeCubeFace:Float, ?activeMipmapLevel:Float):Void;
-	function readRenderTargetPixels(renderTarget:RenderTarget, x:Float, y:Float, width:Float, height:Float, buffer:Dynamic, ?activeCubeFaceIndex:Float):Void;
-	var gammaFactor : Float;
+	function setRenderTarget(renderTarget:Null<ts.AnyOf2<WebGLRenderTarget<Texture<Any>>, WebGLRenderTarget<Array<Texture<Any>>>>>, ?activeCubeFace:Float, ?activeMipmapLevel:Float):Void;
+	function readRenderTargetPixels(renderTarget:ts.AnyOf2<WebGLRenderTarget<Texture<Any>>, WebGLRenderTarget<Array<Texture<Any>>>>, x:Float, y:Float, width:Float, height:Float, buffer:TypedArray, ?activeCubeFaceIndex:Float, ?textureIndex:Float):Void;
+	function readRenderTargetPixelsAsync(renderTarget:ts.AnyOf2<WebGLRenderTarget<Texture<Any>>, WebGLRenderTarget<Array<Texture<Any>>>>, x:Float, y:Float, width:Float, height:Float, buffer:TypedArray, ?activeCubeFaceIndex:Float, ?textureIndex:Float):js.lib.Promise<TypedArray>;
+	/**
+		Copies a region of the currently bound framebuffer into the selected mipmap level of the selected texture.
+		This region is defined by the size of the destination texture's mip level, offset by the input position.
+	**/
+	function copyFramebufferToTexture(texture:Texture<Any>, ?position:Vector2, ?level:Float):Void;
+	/**
+		Copies the pixels of a texture in the bounds [srcRegion]
+		{@link
+		Box3
+		}
+		in the destination texture starting from the
+		given position. 2D Texture, 3D Textures, or a mix of the two can be used as source and destination texture
+		arguments for copying between layers of 3d textures
+		
+		The `depthTexture` and `texture` property of render targets are supported as well.
+		
+		When using render target textures as `srcTexture` and `dstTexture`, you must make sure both render targets are
+		initialized e.g. via
+		{@link
+		.initRenderTarget
+		}
+		().
+	**/
+	function copyTextureToTexture(srcTexture:Texture<Any>, dstTexture:Texture<Any>, ?srcRegion:ts.AnyOf2<Box3, Box2>, ?dstPosition:ts.AnyOf2<Vector2, Vector3>, ?srcLevel:Float, ?dstLevel:Float):Void;
+	/**
+		Initializes the given WebGLRenderTarget memory. Useful for initializing a render target so data can be copied
+		into it using
+		{@link
+		WebGLRenderer.copyTextureToTexture
+		}
+		before it has been rendered to.
+	**/
+	function initRenderTarget(target:WebGLRenderTarget<Texture<Any>>):Void;
+	/**
+		Initializes the given texture. Can be used to preload a texture rather than waiting until first render (which can cause noticeable lags due to decode and GPU upload overhead).
+	**/
+	function initTexture(texture:Texture<Any>):Void;
+	/**
+		Can be used to reset the internal WebGL state.
+	**/
+	function resetState():Void;
+	var vr : Bool;
 	var shadowMapEnabled : Bool;
 	var shadowMapType : ShadowMapType;
 	var shadowMapCullFace : CullFace;

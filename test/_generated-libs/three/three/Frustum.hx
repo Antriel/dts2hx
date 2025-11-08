@@ -9,12 +9,12 @@ package three;
 		Array of 6 vectors.
 	**/
 	var planes : Array<Plane>;
-	function set(?p0:Float, ?p1:Float, ?p2:Float, ?p3:Float, ?p4:Float, ?p5:Float):Frustum;
+	function set(p0:Plane, p1:Plane, p2:Plane, p3:Plane, p4:Plane, p5:Plane):Frustum;
 	function clone():Frustum;
 	function copy(frustum:Frustum):Frustum;
-	function setFromMatrix(m:Matrix4):Frustum;
-	function intersectsObject(object:Object3D):Bool;
-	function intersectsSprite(sprite:Sprite):Bool;
+	function setFromProjectionMatrix(m:Matrix4, ?coordinateSystem:CoordinateSystem, ?reversedDepth:Bool):Frustum;
+	function intersectsObject(object:Object3D<Object3DEventMap>):Bool;
+	function intersectsSprite(sprite:Sprite<Object3DEventMap>):Bool;
 	function intersectsSphere(sphere:Sphere):Bool;
 	function intersectsBox(box:Box3):Bool;
 	function containsPoint(point:Vector3):Bool;

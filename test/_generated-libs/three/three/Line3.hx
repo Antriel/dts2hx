@@ -14,6 +14,7 @@ package three;
 	function at(t:Float, target:Vector3):Vector3;
 	function closestPointToPointParameter(point:Vector3, ?clampToLine:Bool):Float;
 	function closestPointToPoint(point:Vector3, clampToLine:Bool, target:Vector3):Vector3;
+	function distanceSqToLine3(line:Line3, ?c1:Vector3, ?c2:Vector3):Float;
 	function applyMatrix4(matrix:Matrix4):Line3;
 	function equals(line:Line3):Bool;
 	static var prototype : Line3;

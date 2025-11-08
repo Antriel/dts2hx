@@ -1,10 +1,13 @@
 package three;
 
-@:jsRequire("three", "AnimationLoader") extern class AnimationLoader {
+@:jsRequire("three", "AnimationLoader") extern class AnimationLoader extends Loader<Array<AnimationClip>, String> {
 	function new(?manager:LoadingManager);
-	var manager : LoadingManager;
-	function load(url:String, ?onLoad:(response:ts.AnyOf2<String, js.lib.ArrayBuffer>) -> Void, ?onProgress:(request:js.html.ProgressEvent_<js.html.EventTarget>) -> Void, ?onError:(event:js.html.ErrorEvent) -> Void):Dynamic;
-	function parse(json:Dynamic):Array<AnimationClip>;
+	function parse(json:haxe.ds.ReadOnlyArray<Any>):Array<AnimationClip>;
+	function setCrossOrigin(crossOrigin:String):AnimationLoader;
+	function setWithCredentials(value:Bool):AnimationLoader;
 	function setPath(path:String):AnimationLoader;
+	function setResourcePath(resourcePath:String):AnimationLoader;
+	function setRequestHeader(requestHeader:haxe.DynamicAccess<String>):AnimationLoader;
+	function abort():AnimationLoader;
 	static var prototype : AnimationLoader;
 }

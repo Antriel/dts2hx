@@ -1,29 +1,27 @@
 package three;
 
 @:jsRequire("three", "WebGLState") extern class WebGLState {
-	function new(gl:js.html.webgl.RenderingContext, extensions:WebGLExtensions, utils:Dynamic, capabilities:WebGLCapabilities);
+	function new(gl:js.html.webgl.RenderingContext, extensions:WebGLExtensions);
 	var buffers : {
 		var color : WebGLColorBuffer;
 		var depth : WebGLDepthBuffer;
 		var stencil : WebGLStencilBuffer;
 	};
-	function initAttributes():Void;
-	function enableAttribute(attribute:Float):Void;
-	function enableAttributeAndDivisor(attribute:Float, meshPerAttribute:Float):Void;
-	function disableUnusedAttributes():Void;
 	function enable(id:Float):Void;
 	function disable(id:Float):Void;
-	function getCompressedTextureFormats():Array<Float>;
+	function bindFramebuffer(target:Float, framebuffer:Null<js.html.webgl.Framebuffer>):Void;
+	function drawBuffers(renderTarget:Null<WebGLRenderTarget<Texture<Any>>>, framebuffer:Null<js.html.webgl.Framebuffer>):Void;
 	function useProgram(program:Dynamic):Bool;
 	function setBlending(blending:Blending, ?blendEquation:BlendingEquation, ?blendSrc:BlendingSrcFactor, ?blendDst:BlendingDstFactor, ?blendEquationAlpha:BlendingEquation, ?blendSrcAlpha:BlendingSrcFactor, ?blendDstAlpha:BlendingDstFactor, ?premultiplyAlpha:Bool):Void;
-	function setMaterial(material:Material, frontFaceCW:Bool):Void;
+	function setMaterial(material:Material, frontFaceCW:Bool, hardwareClippingPlanes:Float):Void;
 	function setFlipSided(flipSided:Bool):Void;
 	function setCullFace(cullFace:CullFace):Void;
 	function setLineWidth(width:Float):Void;
-	function setPolygonOffset(polygonoffset:Bool, factor:Float, units:Float):Void;
+	function setPolygonOffset(polygonoffset:Bool, ?factor:Float, ?units:Float):Void;
 	function setScissorTest(scissorTest:Bool):Void;
 	function activeTexture(webglSlot:Float):Void;
 	function bindTexture(webglType:Float, webglTexture:Dynamic):Void;
+	function unbindTexture():Void;
 	function compressedTexImage2D(target:Float, level:Float, internalformat:Float, width:Float, height:Float, border:Float, data:js.lib.ArrayBufferView_<js.lib.ArrayBuffer>):Void;
 	@:overload(function(target:Float, level:Float, internalformat:Float, format:Float, type:Float, source:Dynamic):Void { })
 	function texImage2D(target:Float, level:Float, internalformat:Float, width:Float, height:Float, border:Float, format:Float, type:Float, pixels:Null<js.lib.ArrayBufferView_<js.lib.ArrayBuffer>>):Void;

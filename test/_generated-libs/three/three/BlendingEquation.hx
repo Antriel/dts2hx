@@ -1,9 +1,3 @@
 package three;
 
-@:jsRequire("three") extern enum abstract BlendingEquation(Int) from Int to Int {
-	final AddEquation : BlendingEquation;
-	final SubtractEquation : BlendingEquation;
-	final ReverseSubtractEquation : BlendingEquation;
-	final MinEquation : BlendingEquation;
-	final MaxEquation : BlendingEquation;
-}
+typedef BlendingEquation = Int;

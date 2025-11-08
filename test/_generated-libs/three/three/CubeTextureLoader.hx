@@ -1,13 +1,13 @@
 package three;
 
-@:jsRequire("three", "CubeTextureLoader") extern class CubeTextureLoader {
+@:jsRequire("three", "CubeTextureLoader") extern class CubeTextureLoader extends Loader<CubeTexture, haxe.ds.ReadOnlyArray<String>> {
 	function new(?manager:LoadingManager);
-	var manager : LoadingManager;
-	var crossOrigin : String;
-	@:optional
-	var path : String;
-	function load(urls:Array<String>, ?onLoad:(texture:CubeTexture) -> Void, ?onProgress:(event:js.html.ProgressEvent_<js.html.EventTarget>) -> Void, ?onError:(event:js.html.ErrorEvent) -> Void):CubeTexture;
+	function load(url:haxe.ds.ReadOnlyArray<String>, ?onLoad:(data:CubeTexture) -> Void, ?onProgress:(event:js.html.ProgressEvent_<js.html.EventTarget>) -> Void, ?onError:(err:Any) -> Void):CubeTexture;
 	function setCrossOrigin(crossOrigin:String):CubeTextureLoader;
+	function setWithCredentials(value:Bool):CubeTextureLoader;
 	function setPath(path:String):CubeTextureLoader;
+	function setResourcePath(resourcePath:String):CubeTextureLoader;
+	function setRequestHeader(requestHeader:haxe.DynamicAccess<String>):CubeTextureLoader;
+	function abort():CubeTextureLoader;
 	static var prototype : CubeTextureLoader;
 }

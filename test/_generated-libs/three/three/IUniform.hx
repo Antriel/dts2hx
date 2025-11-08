@@ -1,5 +1,5 @@
 package three;
 
-typedef IUniform = {
-	var value : Dynamic;
+typedef IUniform<TValue> = {
+	var value : TValue;
 };

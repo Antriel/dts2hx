@@ -1,7 +1,22 @@
 package three;
 
-@:jsRequire("three", "ImageUtils") @valueModuleOnly extern class ImageUtils {
-	static function loadTexture(url:String, ?mapping:Mapping, ?onLoad:(texture:Texture) -> Void, ?onError:(message:String) -> Void):Texture;
-	static function loadTextureCube(array:Array<String>, ?mapping:Mapping, ?onLoad:(texture:Texture) -> Void, ?onError:(message:String) -> Void):Texture;
-	static var crossOrigin : String;
+/**
+	A class containing utility functions for images.
+**/
+@:jsRequire("three", "ImageUtils") extern class ImageUtils {
+	function new();
+	static var prototype : ImageUtils;
+	/**
+		Returns a data URI containing a representation of the given image.
+	**/
+	static function getDataURL(image:ts.AnyOf8<js.html.VideoFrame, js.html.OffscreenCanvas, js.html.ImageBitmap, js.html.CanvasElement, js.html.ImageElement, js.html.svg.ImageElement, js.html.VideoElement, js.html.ImageData>, ?type:String):String;
+	/**
+		Converts the given sRGB image data to linear color space.
+	**/
+	@:overload(function(image:js.html.ImageData):{
+		var data : js.html.ImageDataArray;
+		var width : Float;
+		var height : Float;
+	} { })
+	static function sRGBToLinear(image:ts.AnyOf3<js.html.ImageBitmap, js.html.CanvasElement, js.html.ImageElement>):js.html.CanvasElement;
 }

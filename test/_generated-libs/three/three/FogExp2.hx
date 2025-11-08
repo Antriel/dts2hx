@@ -1,18 +1,52 @@
 package three;
 
 /**
-	This class contains the parameters that define linear fog, i.e., that grows exponentially denser with the distance.
+	This class contains the parameters that define exponential squared fog, which gives a clear view near the camera and a faster than exponentially densening fog farther from the camera.
 **/
 @:jsRequire("three", "FogExp2") extern class FogExp2 {
-	function new(hex:ts.AnyOf2<String, Float>, ?density:Float);
+	/**
+		The color parameter is passed to the 
+		{@link 
+		THREE.Color Color
+		}
+		 constructor to set the color property
+	**/
+	function new(color:ColorRepresentation, ?density:Float);
+	/**
+		Read-only flag to check if a given object is of type
+		{@link
+		FogExp2
+		}
+		.
+	**/
+	final isFogExp2 : Bool;
+	/**
+		Optional name of the object
+	**/
 	var name : String;
+	/**
+		Fog color.
+	**/
 	var color : Color;
 	/**
 		Defines how fast the fog will grow dense.
-		Default is 0.00025.
 	**/
 	var density : Float;
+	/**
+		Returns a new
+		{@link
+		FogExp2
+		}
+		instance with the same parameters as this one.
+	**/
 	function clone():FogExp2;
-	function toJSON():Dynamic;
+	/**
+		Return
+		{@link
+		FogExp2
+		}
+		data in JSON format.
+	**/
+	function toJSON():FogExp2JSON;
 	static var prototype : FogExp2;
 }

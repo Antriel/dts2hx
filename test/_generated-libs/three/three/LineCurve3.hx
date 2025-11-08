@@ -1,13 +1,48 @@
 package three;
 
+/**
+	A curve representing a **3D** line segment.
+**/
 @:jsRequire("three", "LineCurve3") extern class LineCurve3 extends Curve<Vector3> {
-	function new(v1:Vector3, v2:Vector3);
+	/**
+		This constructor creates a new 
+		{@link 
+		LineCurve3
+		}
+		.
+	**/
+	function new(?v1:Vector3, ?v2:Vector3);
+	/**
+		Read-only flag to check if a given object is of type
+		{@link
+		LineCurve3
+		}
+		.
+	**/
+	final isLineCurve3 : Bool;
+	/**
+		The start point.
+	**/
 	var v1 : Vector3;
+	/**
+		The end point.
+	**/
 	var v2 : Vector3;
 	/**
-		Returns a vector for point t of the curve where t is between 0 and 1
-		getPoint(t: number): T;
+		Creates a clone of this instance.
 	**/
-	function getPoint(t:Float):Vector3;
+	function clone():LineCurve3;
+	/**
+		Copies another
+		{@link
+		Curve
+		}
+		object to this instance.
+	**/
+	function copy(source:Curve<Vector3>):LineCurve3;
+	/**
+		Copies the data from the given JSON object to this instance.
+	**/
+	function fromJSON(json:CurveJSON):LineCurve3;
 	static var prototype : LineCurve3;
 }

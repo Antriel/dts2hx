@@ -1,8 +1,29 @@
 package three;
 
-@:jsRequire("three", "ShapeUtils") @valueModuleOnly extern class ShapeUtils {
-	static function area(contour:Array<Vec2>):Float;
-	static function triangulate(contour:Array<Vec2>, indices:Bool):Array<Float>;
-	static function triangulateShape(contour:Array<Vec2>, holes:Array<Vec2>):Array<Array<Float>>;
-	static function isClockWise(pts:Array<Vec2>):Bool;
+/**
+	A class containing utility functions for shapes.
+**/
+@:jsRequire("three", "ShapeUtils") extern class ShapeUtils {
+	function new();
+	static var prototype : ShapeUtils;
+	/**
+		Calculate area of a ( 2D ) contour polygon.
+	**/
+	static function area(contour:haxe.ds.ReadOnlyArray<Vector2Like>):Float;
+	/**
+		Note that this is a linear function so it is necessary to calculate separately for x, y components of a polygon.
+	**/
+	static function isClockWise(pts:haxe.ds.ReadOnlyArray<Vector2Like>):Bool;
+	/**
+		Used internally by
+		{@link
+		THREE.ExtrudeGeometry ExtrudeGeometry
+		}
+		and
+		{@link
+		THREE.ShapeGeometry ShapeGeometry
+		}
+		to calculate faces in shapes with holes.
+	**/
+	static function triangulateShape(contour:Array<Vector2Like>, holes:Array<Array<Vector2Like>>):Array<Array<Float>>;
 }

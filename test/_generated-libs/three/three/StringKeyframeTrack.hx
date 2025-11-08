@@ -1,6 +1,24 @@
 package three;
 
+/**
+	A track for string keyframe values.
+**/
 @:jsRequire("three", "StringKeyframeTrack") extern class StringKeyframeTrack extends KeyframeTrack {
-	function new(name:String, times:Array<Dynamic>, values:Array<Dynamic>, ?interpolation:InterpolationModes);
+	/**
+		Constructs a new string keyframe track.
+		
+		This keyframe track type has no `interpolation` parameter because the
+		interpolation is always discrete.
+	**/
+	function new(name:String, times:js.lib.ArrayLike<Float>, values:js.lib.ArrayLike<String>);
+	/**
+		Optimizes this keyframe track by removing equivalent sequential keys (which are
+		common in morph target sequences).
+	**/
+	function optimize():StringKeyframeTrack;
+	/**
+		Returns a new keyframe track with copied values from this instance.
+	**/
+	function clone():StringKeyframeTrack;
 	static var prototype : StringKeyframeTrack;
 }

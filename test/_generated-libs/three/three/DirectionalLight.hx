@@ -1,52 +1,154 @@
 package three;
 
 /**
-	Affects objects using MeshLambertMaterial or MeshPhongMaterial.
+	A light that gets emitted in a specific direction
 **/
-@:jsRequire("three", "DirectionalLight") extern class DirectionalLight extends Light {
-	function new(?color:ts.AnyOf3<String, Float, Color>, ?intensity:Float);
+@:jsRequire("three", "DirectionalLight") extern class DirectionalLight extends Light<DirectionalLightShadow> {
 	/**
-		Target used for shadow camera orientation.
+		Creates a new 
+		{@link 
+		DirectionalLight
+		}
+		.
 	**/
-	var target : Object3D;
+	function new(?color:ColorRepresentation, ?intensity:Float);
+	/**
+		Read-only flag to check if a given object is of type
+		{@link
+		DirectionalLight
+		}
+		.
+	**/
+	final isDirectionalLight : Bool;
+	/**
+		The
+		{@link
+		DirectionalLight
+		}
+		points from its
+		{@link
+		DirectionalLight.position
+		position
+		}
+		to target.position.
+	**/
+	var target : Object3D<Object3DEventMap>;
+	/**
+		Copies value of all the properties from the
+		{@link
+		Light
+		source
+		}
+		to this instance.
+	**/
+	function copy(source:DirectionalLight, ?recursive:Bool):DirectionalLight;
+	/**
+		Applies the rotation represented by the quaternion to the object.
+	**/
 	function applyQuaternion(quaternion:Quaternion):DirectionalLight;
 	/**
-		Rotate an object along an axis in object space. The axis is assumed to be normalized.
+		Rotate an object along an axis in object space.
 	**/
 	function rotateOnAxis(axis:Vector3, angle:Float):DirectionalLight;
 	/**
-		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
+		Rotate an object along an axis in world space.
 	**/
 	function rotateOnWorldAxis(axis:Vector3, angle:Float):DirectionalLight;
+	/**
+		Rotates the object around _x_ axis in local space.
+	**/
 	function rotateX(angle:Float):DirectionalLight;
+	/**
+		Rotates the object around _y_ axis in local space.
+	**/
 	function rotateY(angle:Float):DirectionalLight;
+	/**
+		Rotates the object around _z_ axis in local space.
+	**/
 	function rotateZ(angle:Float):DirectionalLight;
+	/**
+		Translate an object by distance along an axis in object space
+	**/
 	function translateOnAxis(axis:Vector3, distance:Float):DirectionalLight;
 	/**
-		Translates object along x axis by distance.
+		Translates object along x axis in object space by
+		{@link
+		distance
+		}
+		units.
 	**/
 	function translateX(distance:Float):DirectionalLight;
 	/**
-		Translates object along y axis by distance.
+		Translates object along _y_ axis in object space by
+		{@link
+		distance
+		}
+		units.
 	**/
 	function translateY(distance:Float):DirectionalLight;
 	/**
-		Translates object along z axis by distance.
+		Translates object along _z_ axis in object space by
+		{@link
+		distance
+		}
+		units.
 	**/
 	function translateZ(distance:Float):DirectionalLight;
 	/**
-		Adds object as child of this object.
+		Adds another
+		{@link
+		Object3D
+		}
+		as child of this
+		{@link
+		Object3D
+		}
+		.
 	**/
-	function add(object:haxe.extern.Rest<Object3D>):DirectionalLight;
+	function add(object:haxe.extern.Rest<Object3D<Object3DEventMap>>):DirectionalLight;
 	/**
-		Removes object as child of this object.
+		Removes a
+		{@link
+		Object3D
+		}
+		as child of this
+		{@link
+		Object3D
+		}
+		.
 	**/
-	function remove(object:haxe.extern.Rest<Object3D>):DirectionalLight;
+	function remove(object:haxe.extern.Rest<Object3D<Object3DEventMap>>):DirectionalLight;
 	/**
-		Adds object as a child of this, while maintaining the object's world transform.
+		Removes this object from its current parent.
 	**/
-	function attach(object:Object3D):DirectionalLight;
+	function removeFromParent():DirectionalLight;
+	/**
+		Removes all child objects.
+	**/
+	function clear():DirectionalLight;
+	/**
+		Adds a
+		{@link
+		Object3D
+		}
+		as a child of this, while maintaining the object's world transform.
+	**/
+	function attach(object:Object3D<Object3DEventMap>):DirectionalLight;
+	/**
+		Returns a clone of `this` object and optionally all descendants.
+	**/
 	function clone(?recursive:Bool):DirectionalLight;
-	function copy(source:DirectionalLight, ?recursive:Bool):DirectionalLight;
+	/**
+		Adds a listener to an event type.
+	**/
+	function addEventListener<T>(type:T, listener:EventListener<Dynamic, T, DirectionalLight>):Void;
+	/**
+		Checks if listener is added to an event type.
+	**/
+	function hasEventListener<T>(type:T, listener:EventListener<Dynamic, T, DirectionalLight>):Bool;
+	/**
+		Removes a listener from an event type.
+	**/
+	function removeEventListener<T>(type:T, listener:EventListener<Dynamic, T, DirectionalLight>):Void;
 	static var prototype : DirectionalLight;
 }

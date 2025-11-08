@@ -2,42 +2,23 @@ package three;
 
 /**
 	Base class for implementing loaders.
-	
-	Events:
-		 load
-				 Dispatched when the image has completed loading
-				 content — loaded image
-	
-		 error
-	
-					Dispatched when the image can't be loaded
-					message — error message
 **/
-@:jsRequire("three", "Loader") extern class Loader {
-	function new();
-	/**
-		Will be called when load starts.
-		The default is a function with empty body.
-	**/
-	dynamic function onLoadStart():Void;
-	/**
-		Will be called while load progresses.
-		The default is a function with empty body.
-	**/
-	dynamic function onLoadProgress():Void;
-	/**
-		Will be called when load completes.
-		The default is a function with empty body.
-	**/
-	dynamic function onLoadComplete():Void;
-	/**
-		default — null.
-		If set, assigns the crossOrigin attribute of the image to the value of crossOrigin, prior to starting the load.
-	**/
+@:jsRequire("three", "Loader") extern class Loader<TData, TUrl> {
+	function new(?manager:LoadingManager);
 	var crossOrigin : String;
-	function extractUrlBase(url:String):String;
-	function initMaterials(materials:Array<Material>, texturePath:String):Array<Material>;
-	function createMaterial(m:Material, texturePath:String, ?crossOrigin:String):Bool;
-	static var prototype : Loader;
-	static var Handlers : LoaderHandler;
+	var withCredentials : Bool;
+	var path : String;
+	var resourcePath : String;
+	var manager : LoadingManager;
+	var requestHeader : haxe.DynamicAccess<String>;
+	function load(url:TUrl, onLoad:(data:TData) -> Void, ?onProgress:(event:js.html.ProgressEvent_<js.html.EventTarget>) -> Void, ?onError:(err:Any) -> Void):Void;
+	function loadAsync(url:TUrl, ?onProgress:(event:js.html.ProgressEvent_<js.html.EventTarget>) -> Void):js.lib.Promise<TData>;
+	function setCrossOrigin(crossOrigin:String):Loader<TData, TUrl>;
+	function setWithCredentials(value:Bool):Loader<TData, TUrl>;
+	function setPath(path:String):Loader<TData, TUrl>;
+	function setResourcePath(resourcePath:String):Loader<TData, TUrl>;
+	function setRequestHeader(requestHeader:haxe.DynamicAccess<String>):Loader<TData, TUrl>;
+	function abort():Loader<TData, TUrl>;
+	static var prototype : Loader<Dynamic, Dynamic>;
+	static var DEFAULT_MATERIAL_NAME : String;
 }

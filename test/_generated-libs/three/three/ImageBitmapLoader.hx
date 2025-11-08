@@ -1,11 +1,16 @@
 package three;
 
-@:jsRequire("three", "ImageBitmapLoader") extern class ImageBitmapLoader {
+@:jsRequire("three", "ImageBitmapLoader") extern class ImageBitmapLoader extends Loader<js.html.ImageBitmap, String> {
 	function new(?manager:LoadingManager);
-	var manager : LoadingManager;
-	function setOptions(options:Dynamic):ImageBitmapLoader;
-	function load(url:String, ?onLoad:(response:ts.AnyOf2<String, js.lib.ArrayBuffer>) -> Void, ?onProgress:(request:js.html.ProgressEvent_<js.html.EventTarget>) -> Void, ?onError:(event:js.html.ErrorEvent) -> Void):Dynamic;
-	function setCrossOrigin():ImageBitmapLoader;
+	final isImageBitmapLoader : Bool;
+	var options : js.html.ImageBitmapOptions;
+	function setOptions(options:js.html.ImageBitmapOptions):ImageBitmapLoader;
+	function load(url:String, ?onLoad:(data:js.html.ImageBitmap) -> Void, ?onProgress:(event:js.html.ProgressEvent_<js.html.EventTarget>) -> Void, ?onError:(err:Any) -> Void):Void;
+	function setCrossOrigin(crossOrigin:String):ImageBitmapLoader;
+	function setWithCredentials(value:Bool):ImageBitmapLoader;
 	function setPath(path:String):ImageBitmapLoader;
+	function setResourcePath(resourcePath:String):ImageBitmapLoader;
+	function setRequestHeader(requestHeader:haxe.DynamicAccess<String>):ImageBitmapLoader;
+	function abort():ImageBitmapLoader;
 	static var prototype : ImageBitmapLoader;
 }
