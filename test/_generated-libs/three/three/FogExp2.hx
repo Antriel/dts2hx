@@ -4,7 +4,7 @@ package three;
 	This class contains the parameters that define linear fog, i.e., that grows exponentially denser with the distance.
 **/
 @:jsRequire("three", "FogExp2") extern class FogExp2 {
-	function new(unknown:Dynamic);
+	function new(hex:ts.AnyOf2<String, Float>, ?density:Float);
 	var name : String;
 	var color : Color;
 	/**
@@ -12,7 +12,7 @@ package three;
 		Default is 0.00025.
 	**/
 	var density : Float;
-	function clone(unknown:Dynamic):FogExp2;
-	function toJSON(unknown:Dynamic):Dynamic;
+	function clone():FogExp2;
+	function toJSON():Dynamic;
 	static var prototype : FogExp2;
 }

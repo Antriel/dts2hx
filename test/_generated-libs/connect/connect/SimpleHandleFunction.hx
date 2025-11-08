@@ -1,3 +1,3 @@
 package connect;
 
-typedef SimpleHandleFunction = (unknown:Dynamic) -> Void;
+typedef SimpleHandleFunction = (req:IncomingMessage, res:node.http.ServerResponse) -> Void;

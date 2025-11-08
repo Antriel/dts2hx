@@ -1,12 +1,12 @@
 package three;
 
 @:jsRequire("three", "ConeGeometry") extern class ConeGeometry extends CylinderGeometry {
-	function new(unknown:Dynamic);
-	function setFromPoints(unknown:Dynamic):ConeGeometry;
+	function new(?radius:Float, ?height:Float, ?radialSegment:Float, ?heightSegment:Float, ?openEnded:Bool, ?thetaStart:Float, ?thetaLength:Float);
+	function setFromPoints(points:ts.AnyOf2<Array<Vector3>, Array<Vector2>>):ConeGeometry;
 	/**
 		Creates a new clone of the Geometry.
 	**/
-	function clone(unknown:Dynamic):ConeGeometry;
-	function copy(unknown:Dynamic):ConeGeometry;
+	function clone():ConeGeometry;
+	function copy(source:Geometry):ConeGeometry;
 	static var prototype : ConeGeometry;
 }

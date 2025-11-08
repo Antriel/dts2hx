@@ -1,3 +1,3 @@
 package global._;
 
-typedef MemoListIterator<T, TResult, TList> = (unknown:Dynamic) -> TResult;
+typedef MemoListIterator<T, TResult, TList> = (prev:TResult, curr:T, index:Float, list:TList) -> TResult;

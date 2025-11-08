@@ -1,3 +1,3 @@
 package global._;
 
-typedef DictionaryIterator<T, TResult> = (unknown:Dynamic) -> TResult;
+typedef DictionaryIterator<T, TResult> = (value:T, key:String, collection:Dictionary<T>) -> TResult;

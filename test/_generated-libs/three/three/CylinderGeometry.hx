@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "CylinderGeometry") extern class CylinderGeometry extends Geometry {
-	function new(unknown:Dynamic);
+	function new(?radiusTop:Float, ?radiusBottom:Float, ?height:Float, ?radiusSegments:Float, ?heightSegments:Float, ?openEnded:Bool, ?thetaStart:Float, ?thetaLength:Float);
 	var parameters : {
 		var radiusTop : Float;
 		var radiusBottom : Float;
@@ -12,11 +12,11 @@ package three;
 		var thetaStart : Float;
 		var thetaLength : Float;
 	};
-	function setFromPoints(unknown:Dynamic):CylinderGeometry;
+	function setFromPoints(points:ts.AnyOf2<Array<Vector3>, Array<Vector2>>):CylinderGeometry;
 	/**
 		Creates a new clone of the Geometry.
 	**/
-	function clone(unknown:Dynamic):CylinderGeometry;
-	function copy(unknown:Dynamic):CylinderGeometry;
+	function clone():CylinderGeometry;
+	function copy(source:Geometry):CylinderGeometry;
 	static var prototype : CylinderGeometry;
 }

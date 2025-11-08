@@ -1,9 +1,9 @@
 package js.lib.intl;
 
 typedef CollatorConstructor = {
-	@:overload(function(unknown:Dynamic):js.lib.intl.Collator { })
+	@:overload(function(?locales:LocalesArgument, ?options:js.lib.intl.Collator.CollatorOptions):js.lib.intl.Collator { })
 	@:selfCall
-	function call(unknown:Dynamic):js.lib.intl.Collator;
-	@:overload(function(unknown:Dynamic):Array<String> { })
-	function supportedLocalesOf(unknown:Dynamic):Array<String>;
+	function call(?locales:ts.AnyOf2<String, Array<String>>, ?options:js.lib.intl.Collator.CollatorOptions):js.lib.intl.Collator;
+	@:overload(function(locales:LocalesArgument, ?options:js.lib.intl.Collator.CollatorOptions):Array<String> { })
+	function supportedLocalesOf(locales:ts.AnyOf2<String, Array<String>>, ?options:js.lib.intl.Collator.CollatorOptions):Array<String>;
 };

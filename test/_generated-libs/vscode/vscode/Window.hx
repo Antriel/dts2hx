@@ -15,61 +15,61 @@ package vscode;
 		
 		A short-hand for `openTextDocument(uri).then(document => showTextDocument(document, options))`.
 	**/
-	@:overload(function(unknown:Dynamic):global.Thenable<TextEditor> { })
-	@:overload(function(unknown:Dynamic):global.Thenable<TextEditor> { })
-	static function showTextDocument(unknown:Dynamic):global.Thenable<TextEditor>;
+	@:overload(function(document:TextDocument, ?options:TextDocumentShowOptions):global.Thenable<TextEditor> { })
+	@:overload(function(uri:Uri, ?options:TextDocumentShowOptions):global.Thenable<TextEditor> { })
+	static function showTextDocument(document:TextDocument, ?column:ViewColumn, ?preserveFocus:Bool):global.Thenable<TextEditor>;
 	/**
 		Create a TextEditorDecorationType that can be used to add decorations to text editors.
 	**/
-	static function createTextEditorDecorationType(unknown:Dynamic):TextEditorDecorationType;
+	static function createTextEditorDecorationType(options:DecorationRenderOptions):TextEditorDecorationType;
 	/**
 		Show an information message to users. Optionally provide an array of items which will be presented as
 		clickable buttons.
 		
 		Show an information message.
 	**/
-	@:overload(function(unknown:Dynamic):global.Thenable<Null<String>> { })
-	@:overload(function<T>(unknown:Dynamic):global.Thenable<Null<T>> { })
-	@:overload(function<T>(unknown:Dynamic):global.Thenable<Null<T>> { })
-	static function showInformationMessage(unknown:Dynamic):global.Thenable<Null<String>>;
+	@:overload(function(message:String, options:MessageOptions, items:haxe.extern.Rest<String>):global.Thenable<Null<String>> { })
+	@:overload(function<T>(message:String, items:haxe.extern.Rest<T>):global.Thenable<Null<T>> { })
+	@:overload(function<T>(message:String, options:MessageOptions, items:haxe.extern.Rest<T>):global.Thenable<Null<T>> { })
+	static function showInformationMessage(message:String, items:haxe.extern.Rest<String>):global.Thenable<Null<String>>;
 	/**
 		Show a warning message.
 	**/
-	@:overload(function(unknown:Dynamic):global.Thenable<Null<String>> { })
-	@:overload(function<T>(unknown:Dynamic):global.Thenable<Null<T>> { })
-	@:overload(function<T>(unknown:Dynamic):global.Thenable<Null<T>> { })
-	static function showWarningMessage(unknown:Dynamic):global.Thenable<Null<String>>;
+	@:overload(function(message:String, options:MessageOptions, items:haxe.extern.Rest<String>):global.Thenable<Null<String>> { })
+	@:overload(function<T>(message:String, items:haxe.extern.Rest<T>):global.Thenable<Null<T>> { })
+	@:overload(function<T>(message:String, options:MessageOptions, items:haxe.extern.Rest<T>):global.Thenable<Null<T>> { })
+	static function showWarningMessage(message:String, items:haxe.extern.Rest<String>):global.Thenable<Null<String>>;
 	/**
 		Show an error message.
 	**/
-	@:overload(function(unknown:Dynamic):global.Thenable<Null<String>> { })
-	@:overload(function<T>(unknown:Dynamic):global.Thenable<Null<T>> { })
-	@:overload(function<T>(unknown:Dynamic):global.Thenable<Null<T>> { })
-	static function showErrorMessage(unknown:Dynamic):global.Thenable<Null<String>>;
+	@:overload(function(message:String, options:MessageOptions, items:haxe.extern.Rest<String>):global.Thenable<Null<String>> { })
+	@:overload(function<T>(message:String, items:haxe.extern.Rest<T>):global.Thenable<Null<T>> { })
+	@:overload(function<T>(message:String, options:MessageOptions, items:haxe.extern.Rest<T>):global.Thenable<Null<T>> { })
+	static function showErrorMessage(message:String, items:haxe.extern.Rest<String>):global.Thenable<Null<String>>;
 	/**
 		Shows a selection list allowing multiple selections.
 		
 		Shows a selection list.
 	**/
-	@:overload(function(unknown:Dynamic):global.Thenable<Null<String>> { })
-	@:overload(function<T>(unknown:Dynamic):global.Thenable<Null<Array<T>>> { })
-	@:overload(function<T>(unknown:Dynamic):global.Thenable<Null<T>> { })
-	static function showQuickPick(unknown:Dynamic):global.Thenable<Null<Array<String>>>;
+	@:overload(function(items:ts.AnyOf2<Array<String>, global.Thenable<Array<String>>>, ?options:QuickPickOptions, ?token:CancellationToken):global.Thenable<Null<String>> { })
+	@:overload(function<T>(items:ts.AnyOf2<Array<T>, global.Thenable<Array<T>>>, options:Dynamic, ?token:CancellationToken):global.Thenable<Null<Array<T>>> { })
+	@:overload(function<T>(items:ts.AnyOf2<Array<T>, global.Thenable<Array<T>>>, ?options:QuickPickOptions, ?token:CancellationToken):global.Thenable<Null<T>> { })
+	static function showQuickPick(items:ts.AnyOf2<Array<String>, global.Thenable<Array<String>>>, options:Dynamic, ?token:CancellationToken):global.Thenable<Null<Array<String>>>;
 	/**
 		Shows a selection list of [workspace folders](#workspace.workspaceFolders) to pick from.
 		Returns `undefined` if no folder is open.
 	**/
-	static function showWorkspaceFolderPick(unknown:Dynamic):global.Thenable<Null<WorkspaceFolder>>;
+	static function showWorkspaceFolderPick(?options:WorkspaceFolderPickOptions):global.Thenable<Null<WorkspaceFolder>>;
 	/**
 		Shows a file open dialog to the user which allows to select a file
 		for opening-purposes.
 	**/
-	static function showOpenDialog(unknown:Dynamic):global.Thenable<Null<Array<Uri>>>;
+	static function showOpenDialog(options:OpenDialogOptions):global.Thenable<Null<Array<Uri>>>;
 	/**
 		Shows a file save dialog to the user which allows to select a file
 		for saving-purposes.
 	**/
-	static function showSaveDialog(unknown:Dynamic):global.Thenable<Null<Uri>>;
+	static function showSaveDialog(options:SaveDialogOptions):global.Thenable<Null<Uri>>;
 	/**
 		Opens an input box to ask the user for input.
 		
@@ -77,7 +77,7 @@ package vscode;
 		returned value will be the string typed by the user or an empty string if the user did not type
 		anything but dismissed the input box with OK.
 	**/
-	static function showInputBox(unknown:Dynamic):global.Thenable<Null<String>>;
+	static function showInputBox(?options:InputBoxOptions, ?token:CancellationToken):global.Thenable<Null<String>>;
 	/**
 		Creates a [QuickPick](#QuickPick) to let the user pick an item from a list
 		of items of type T.
@@ -86,7 +86,7 @@ package vscode;
 		is easier to use. [window.createQuickPick](#window.createQuickPick) should be used
 		when [window.showQuickPick](#window.showQuickPick) does not offer the required flexibility.
 	**/
-	static function createQuickPick<T>(unknown:Dynamic):QuickPick<T>;
+	static function createQuickPick<T>():QuickPick<T>;
 	/**
 		Creates a [InputBox](#InputBox) to let the user enter some text input.
 		
@@ -94,15 +94,15 @@ package vscode;
 		is easier to use. [window.createInputBox](#window.createInputBox) should be used
 		when [window.showInputBox](#window.showInputBox) does not offer the required flexibility.
 	**/
-	static function createInputBox(unknown:Dynamic):InputBox;
+	static function createInputBox():InputBox;
 	/**
 		Creates a new [output channel](#OutputChannel) with the given name.
 	**/
-	static function createOutputChannel(unknown:Dynamic):OutputChannel;
+	static function createOutputChannel(name:String):OutputChannel;
 	/**
 		Create and show a new webview panel.
 	**/
-	static function createWebviewPanel(unknown:Dynamic):WebviewPanel;
+	static function createWebviewPanel(viewType:String, title:String, showOptions:ts.AnyOf2<Int, { var viewColumn : ViewColumn; @:optional var preserveFocus : Bool; }>, ?options:WebviewPanelOptions & WebviewOptions):WebviewPanel;
 	/**
 		Set a message to the status bar. This is a short hand for the more powerful
 		status bar [items](#window.createStatusBarItem).
@@ -113,24 +113,24 @@ package vscode;
 		*Note* that status bar messages stack and that they must be disposed when no
 		longer used.
 	**/
-	@:overload(function(unknown:Dynamic):Disposable { })
-	@:overload(function(unknown:Dynamic):Disposable { })
-	static function setStatusBarMessage(unknown:Dynamic):Disposable;
+	@:overload(function(text:String, hideWhenDone:global.Thenable<Dynamic>):Disposable { })
+	@:overload(function(text:String):Disposable { })
+	static function setStatusBarMessage(text:String, hideAfterTimeout:Float):Disposable;
 	/**
 		~~Show progress in the Source Control viewlet while running the given callback and while
 		its returned promise isn't resolve or rejected.~~
 	**/
-	static function withScmProgress<R>(unknown:Dynamic):global.Thenable<R>;
+	static function withScmProgress<R>(task:(progress:Progress<Float>) -> global.Thenable<R>):global.Thenable<R>;
 	/**
 		Show progress in the editor. Progress is shown while running the given callback
 		and while the promise it returned isn't resolved nor rejected. The location at which
 		progress should show (and other details) is defined via the passed [`ProgressOptions`](#ProgressOptions).
 	**/
-	static function withProgress<R>(unknown:Dynamic):global.Thenable<R>;
+	static function withProgress<R>(options:ProgressOptions, task:(progress:Progress<{ @:optional var message : String; @:optional var increment : Float; }>, token:CancellationToken) -> global.Thenable<R>):global.Thenable<R>;
 	/**
 		Creates a status bar [item](#StatusBarItem).
 	**/
-	static function createStatusBarItem(unknown:Dynamic):StatusBarItem;
+	static function createStatusBarItem(?alignment:StatusBarAlignment, ?priority:Float):StatusBarItem;
 	/**
 		Creates a [Terminal](#Terminal) with a backing shell process. The cwd of the terminal will be the workspace
 		directory if it exists.
@@ -139,20 +139,20 @@ package vscode;
 		
 		Creates a [Terminal](#Terminal) where an extension controls its input and output.
 	**/
-	@:overload(function(unknown:Dynamic):Terminal { })
-	@:overload(function(unknown:Dynamic):Terminal { })
-	static function createTerminal(unknown:Dynamic):Terminal;
+	@:overload(function(options:TerminalOptions):Terminal { })
+	@:overload(function(options:ExtensionTerminalOptions):Terminal { })
+	static function createTerminal(?name:String, ?shellPath:String, ?shellArgs:ts.AnyOf2<String, Array<String>>):Terminal;
 	/**
 		Register a [TreeDataProvider](#TreeDataProvider) for the view contributed using the extension point `views`.
 		This will allow you to contribute data to the [TreeView](#TreeView) and update if the data changes.
 		
 		**Note:** To get access to the [TreeView](#TreeView) and perform operations on it, use [createTreeView](#window.createTreeView).
 	**/
-	static function registerTreeDataProvider<T>(unknown:Dynamic):Disposable;
+	static function registerTreeDataProvider<T>(viewId:String, treeDataProvider:TreeDataProvider<T>):Disposable;
 	/**
 		Create a [TreeView](#TreeView) for the view contributed using the extension point `views`.
 	**/
-	static function createTreeView<T>(unknown:Dynamic):TreeView<T>;
+	static function createTreeView<T>(viewId:String, options:TreeViewOptions<T>):TreeView<T>;
 	/**
 		Registers a [uri handler](#UriHandler) capable of handling system-wide [uris](#Uri).
 		In case there are multiple windows open, the topmost window will handle the uri.
@@ -172,7 +172,7 @@ package vscode;
 		* *Note:* There is an activation event `onUri` that fires when a uri directed for
 		the current extension is about to be handled.
 	**/
-	static function registerUriHandler(unknown:Dynamic):Disposable;
+	static function registerUriHandler(handler:UriHandler):Disposable;
 	/**
 		Registers a webview panel serializer.
 		
@@ -181,14 +181,14 @@ package vscode;
 		
 		Only a single serializer may be registered at a time for a given `viewType`.
 	**/
-	static function registerWebviewPanelSerializer(unknown:Dynamic):Disposable;
+	static function registerWebviewPanelSerializer(viewType:String, serializer:WebviewPanelSerializer):Disposable;
 	/**
 		Register a provider for custom editors for the `viewType` contributed by the `customEditors` extension point.
 		
 		When a custom editor is opened, VS Code fires an `onCustomEditor:viewType` activation event. Your extension
 		must register a [`CustomTextEditorProvider`](#CustomTextEditorProvider) for `viewType` as part of activation.
 	**/
-	static function registerCustomEditorProvider(unknown:Dynamic):Disposable;
+	static function registerCustomEditorProvider(viewType:String, provider:CustomTextEditorProvider, ?options:{ @:optional final webviewOptions : WebviewPanelOptions; }):Disposable;
 	/**
 		The currently active editor or `undefined`. The active editor is the one
 		that currently has focus or, when none has focus, the one that has changed
@@ -204,28 +204,28 @@ package vscode;
 		has changed. *Note* that the event also fires when the active editor changes
 		to `undefined`.
 	**/
-	static function onDidChangeActiveTextEditor(unknown:Dynamic):Disposable;
+	static function onDidChangeActiveTextEditor(listener:(e:Null<TextEditor>) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		An [event](#Event) which fires when the array of [visible editors](#window.visibleTextEditors)
 		has changed.
 	**/
-	static function onDidChangeVisibleTextEditors(unknown:Dynamic):Disposable;
+	static function onDidChangeVisibleTextEditors(listener:(e:Array<TextEditor>) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		An [event](#Event) which fires when the selection in an editor has changed.
 	**/
-	static function onDidChangeTextEditorSelection(unknown:Dynamic):Disposable;
+	static function onDidChangeTextEditorSelection(listener:(e:TextEditorSelectionChangeEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		An [event](#Event) which fires when the visible ranges of an editor has changed.
 	**/
-	static function onDidChangeTextEditorVisibleRanges(unknown:Dynamic):Disposable;
+	static function onDidChangeTextEditorVisibleRanges(listener:(e:TextEditorVisibleRangesChangeEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		An [event](#Event) which fires when the options of an editor have changed.
 	**/
-	static function onDidChangeTextEditorOptions(unknown:Dynamic):Disposable;
+	static function onDidChangeTextEditorOptions(listener:(e:TextEditorOptionsChangeEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		An [event](#Event) which fires when the view column of an editor has changed.
 	**/
-	static function onDidChangeTextEditorViewColumn(unknown:Dynamic):Disposable;
+	static function onDidChangeTextEditorViewColumn(listener:(e:TextEditorViewColumnChangeEvent) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		The currently opened terminals or an empty array.
 	**/
@@ -240,16 +240,16 @@ package vscode;
 		has changed. *Note* that the event also fires when the active terminal changes
 		to `undefined`.
 	**/
-	static function onDidChangeActiveTerminal(unknown:Dynamic):Disposable;
+	static function onDidChangeActiveTerminal(listener:(e:Null<Terminal>) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		An [event](#Event) which fires when a terminal has been created, either through the
 		[createTerminal](#window.createTerminal) API or commands.
 	**/
-	static function onDidOpenTerminal(unknown:Dynamic):Disposable;
+	static function onDidOpenTerminal(listener:(e:Terminal) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		An [event](#Event) which fires when a terminal is disposed.
 	**/
-	static function onDidCloseTerminal(unknown:Dynamic):Disposable;
+	static function onDidCloseTerminal(listener:(e:Terminal) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		Represents the current window's state.
 	**/
@@ -258,7 +258,7 @@ package vscode;
 		An [event](#Event) which fires when the focus state of the current window
 		changes. The value of the event represents whether the window is focused.
 	**/
-	static function onDidChangeWindowState(unknown:Dynamic):Disposable;
+	static function onDidChangeWindowState(listener:(e:WindowState) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		The currently active color theme as configured in the settings. The active
 		theme can be changed via the `workbench.colorTheme` setting.
@@ -267,5 +267,5 @@ package vscode;
 	/**
 		An [event](#Event) which fires when the active color theme is changed or has changes.
 	**/
-	static function onDidChangeActiveColorTheme(unknown:Dynamic):Disposable;
+	static function onDidChangeActiveColorTheme(listener:(e:ColorTheme) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 }

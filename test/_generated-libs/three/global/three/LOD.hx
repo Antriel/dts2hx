@@ -1,54 +1,54 @@
 package global.three;
 
 @:native("THREE.LOD") extern class LOD extends Object3D {
-	function new(unknown:Dynamic);
+	function new();
 	var levels : Array<{
 		var distance : Float;
 		var object : Object3D;
 	}>;
-	function addLevel(unknown:Dynamic):LOD;
-	function getObjectForDistance(unknown:Dynamic):Object3D;
-	function update(unknown:Dynamic):Void;
-	function toJSON(unknown:Dynamic):Dynamic;
+	function addLevel(object:Object3D, ?distance:Float):LOD;
+	function getObjectForDistance(distance:Float):Object3D;
+	function update(camera:Camera):Void;
+	function toJSON(meta:Dynamic):Dynamic;
 	var objects : Array<Dynamic>;
-	function applyQuaternion(unknown:Dynamic):LOD;
+	function applyQuaternion(quaternion:Quaternion):LOD;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(unknown:Dynamic):LOD;
+	function rotateOnAxis(axis:Vector3, angle:Float):LOD;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(unknown:Dynamic):LOD;
-	function rotateX(unknown:Dynamic):LOD;
-	function rotateY(unknown:Dynamic):LOD;
-	function rotateZ(unknown:Dynamic):LOD;
-	function translateOnAxis(unknown:Dynamic):LOD;
+	function rotateOnWorldAxis(axis:Vector3, angle:Float):LOD;
+	function rotateX(angle:Float):LOD;
+	function rotateY(angle:Float):LOD;
+	function rotateZ(angle:Float):LOD;
+	function translateOnAxis(axis:Vector3, distance:Float):LOD;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(unknown:Dynamic):LOD;
+	function translateX(distance:Float):LOD;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(unknown:Dynamic):LOD;
+	function translateY(distance:Float):LOD;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(unknown:Dynamic):LOD;
+	function translateZ(distance:Float):LOD;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(unknown:Dynamic):LOD;
+	function add(object:haxe.extern.Rest<Object3D>):LOD;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(unknown:Dynamic):LOD;
+	function remove(object:haxe.extern.Rest<Object3D>):LOD;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(unknown:Dynamic):LOD;
-	function clone(unknown:Dynamic):LOD;
-	function copy(unknown:Dynamic):LOD;
+	function attach(object:Object3D):LOD;
+	function clone(?recursive:Bool):LOD;
+	function copy(source:LOD, ?recursive:Bool):LOD;
 	static var prototype : LOD;
 }

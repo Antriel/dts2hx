@@ -4,7 +4,7 @@ package global.three;
 	A point light that can cast shadow in one direction.
 **/
 @:native("THREE.SpotLight") extern class SpotLight extends Light {
-	function new(unknown:Dynamic);
+	function new(?color:ts.AnyOf3<String, Float, Color>, ?intensity:Float, ?distance:Float, ?angle:Float, ?exponent:Float, ?decay:Float);
 	/**
 		Spotlight focus points at target.position.
 		Default position — (0,0,0).
@@ -24,44 +24,44 @@ package global.three;
 	var decay : Float;
 	var power : Float;
 	var penumbra : Float;
-	function applyQuaternion(unknown:Dynamic):SpotLight;
+	function applyQuaternion(quaternion:Quaternion):SpotLight;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(unknown:Dynamic):SpotLight;
+	function rotateOnAxis(axis:Vector3, angle:Float):SpotLight;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(unknown:Dynamic):SpotLight;
-	function rotateX(unknown:Dynamic):SpotLight;
-	function rotateY(unknown:Dynamic):SpotLight;
-	function rotateZ(unknown:Dynamic):SpotLight;
-	function translateOnAxis(unknown:Dynamic):SpotLight;
+	function rotateOnWorldAxis(axis:Vector3, angle:Float):SpotLight;
+	function rotateX(angle:Float):SpotLight;
+	function rotateY(angle:Float):SpotLight;
+	function rotateZ(angle:Float):SpotLight;
+	function translateOnAxis(axis:Vector3, distance:Float):SpotLight;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(unknown:Dynamic):SpotLight;
+	function translateX(distance:Float):SpotLight;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(unknown:Dynamic):SpotLight;
+	function translateY(distance:Float):SpotLight;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(unknown:Dynamic):SpotLight;
+	function translateZ(distance:Float):SpotLight;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(unknown:Dynamic):SpotLight;
+	function add(object:haxe.extern.Rest<Object3D>):SpotLight;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(unknown:Dynamic):SpotLight;
+	function remove(object:haxe.extern.Rest<Object3D>):SpotLight;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(unknown:Dynamic):SpotLight;
-	function clone(unknown:Dynamic):SpotLight;
-	function copy(unknown:Dynamic):SpotLight;
+	function attach(object:Object3D):SpotLight;
+	function clone(?recursive:Bool):SpotLight;
+	function copy(source:SpotLight, ?recursive:Bool):SpotLight;
 	static var prototype : SpotLight;
 }

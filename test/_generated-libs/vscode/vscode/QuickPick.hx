@@ -22,11 +22,11 @@ typedef QuickPick<T> = {
 	/**
 		An event signaling when the value of the filter text has changed.
 	**/
-	function onDidChangeValue(unknown:Dynamic):Disposable;
+	function onDidChangeValue(listener:(e:String) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		An event signaling when the user indicated acceptance of the selected item(s).
 	**/
-	function onDidAccept(unknown:Dynamic):Disposable;
+	function onDidAccept(listener:(e:ts.Undefined) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		Buttons for actions in the UI.
 	**/
@@ -34,7 +34,7 @@ typedef QuickPick<T> = {
 	/**
 		An event signaling when a button was triggered.
 	**/
-	function onDidTriggerButton(unknown:Dynamic):Disposable;
+	function onDidTriggerButton(listener:(e:QuickInputButton) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		Items to pick from.
 	**/
@@ -58,7 +58,7 @@ typedef QuickPick<T> = {
 	/**
 		An event signaling when the active items have changed.
 	**/
-	function onDidChangeActive(unknown:Dynamic):Disposable;
+	function onDidChangeActive(listener:(e:Array<T>) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		Selected items. This can be read and updated by the extension.
 	**/
@@ -66,7 +66,7 @@ typedef QuickPick<T> = {
 	/**
 		An event signaling when the selected items have changed.
 	**/
-	function onDidChangeSelection(unknown:Dynamic):Disposable;
+	function onDidChangeSelection(listener:(e:Array<T>) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		An optional title.
 	**/
@@ -101,12 +101,12 @@ typedef QuickPick<T> = {
 		Makes the input UI visible in its current configuration. Any other input
 		UI will first fire an [QuickInput.onDidHide](#QuickInput.onDidHide) event.
 	**/
-	function show(unknown:Dynamic):Void;
+	function show():Void;
 	/**
 		Hides this input UI. This will also fire an [QuickInput.onDidHide](#QuickInput.onDidHide)
 		event.
 	**/
-	function hide(unknown:Dynamic):Void;
+	function hide():Void;
 	/**
 		An event signaling when this input UI is hidden.
 		
@@ -115,12 +115,12 @@ typedef QuickPick<T> = {
 		(Examples include: an explicit call to [QuickInput.hide](#QuickInput.hide),
 		the user pressing Esc, some other input UI opening, etc.)
 	**/
-	dynamic function onDidHide(unknown:Dynamic):Disposable;
+	dynamic function onDidHide(listener:(e:ts.Undefined) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		Dispose of this input UI and any associated resources. If it is still
 		visible, it is first hidden. After this call the input UI is no longer
 		functional and no additional methods or properties on it should be
 		accessed. Instead a new input UI should be created.
 	**/
-	function dispose(unknown:Dynamic):Void;
+	function dispose():Void;
 };

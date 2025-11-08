@@ -1,3 +1,3 @@
 package global.sizzle.selectors;
 
-typedef PseudoFunction = (unknown:Dynamic) -> Bool;
+typedef PseudoFunction = (elem:js.html.DOMElement) -> Bool;

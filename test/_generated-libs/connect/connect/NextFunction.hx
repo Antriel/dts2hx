@@ -1,3 +1,3 @@
 package connect;
 
-typedef NextFunction = (unknown:Dynamic) -> Void;
+typedef NextFunction = ts.AnyOf2<() -> Void, (err:Dynamic) -> Void>;

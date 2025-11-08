@@ -1,3 +1,3 @@
 package global._;
 
-typedef Comparator<T> = (unknown:Dynamic) -> Bool;
+typedef Comparator<T> = (a:T, b:T) -> Bool;

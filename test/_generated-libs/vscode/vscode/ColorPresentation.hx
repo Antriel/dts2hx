@@ -12,7 +12,7 @@ package vscode;
 	/**
 		Creates a new color presentation.
 	**/
-	function new(unknown:Dynamic);
+	function new(label:String);
 	/**
 		The label of this color presentation. It will be shown on the color
 		picker header. By default this is also the text that is inserted when selecting

@@ -7,7 +7,7 @@ package vscode;
 	/**
 		Creates a new color range.
 	**/
-	function new(unknown:Dynamic);
+	function new(range:Range, color:Color);
 	/**
 		The range in the document where this color appears.
 	**/

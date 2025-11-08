@@ -1,17 +1,17 @@
 package three;
 
 @:jsRequire("three", "MeshPhysicalMaterial") extern class MeshPhysicalMaterial extends MeshStandardMaterial {
-	function new(unknown:Dynamic);
+	function new(parameters:MeshPhysicalMaterialParameters);
 	var reflectivity : Float;
 	var clearCoat : Float;
 	var clearCoatRoughness : Float;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone(unknown:Dynamic):MeshPhysicalMaterial;
+	function clone():MeshPhysicalMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(unknown:Dynamic):MeshPhysicalMaterial;
+	function copy(material:Material):MeshPhysicalMaterial;
 	static var prototype : MeshPhysicalMaterial;
 }

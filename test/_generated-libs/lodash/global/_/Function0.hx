@@ -1,3 +1,3 @@
 package global._;
 
-typedef Function0<R> = (unknown:Dynamic) -> R;
+typedef Function0<R> = () -> R;

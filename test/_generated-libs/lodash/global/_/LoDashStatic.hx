@@ -69,15 +69,15 @@ typedef LoDashStatic = {
 		toString, toUpper, trim, trimEnd, trimStart, truncate, unescape, uniqueId, upperCase,
 		upperFirst, value, and words.
 	**/
-	@:overload(function<T>(unknown:Dynamic):String_<T> { })
-	@:overload(function<T>(unknown:Dynamic):Primitive<T> { })
-	@:overload(function(unknown:Dynamic):String_<String> { })
-	@:overload(function<T>(unknown:Dynamic):Function<T> { })
-	@:overload(function<T>(unknown:Dynamic):Collection<T> { })
-	@:overload(function<T>(unknown:Dynamic):Object<T> { })
-	@:overload(function<T>(unknown:Dynamic):Primitive<T> { })
+	@:overload(function<T>(value:T):String_<T> { })
+	@:overload(function<T>(value:T):Primitive<T> { })
+	@:overload(function(value:Null<String>):String_<String> { })
+	@:overload(function<T>(value:T):Function<T> { })
+	@:overload(function<T>(value:Null<List_<T>>):Collection<T> { })
+	@:overload(function<T>(value:Null<T>):Object<T> { })
+	@:overload(function<T>(value:T):Primitive<T> { })
 	@:selfCall
-	function call<TrapAny>(unknown:Dynamic):Dynamic;
+	function call<TrapAny>(value:TrapAny):Dynamic;
 	/**
 		The semantic version number.
 	**/
@@ -91,169 +91,169 @@ typedef LoDashStatic = {
 		Creates an array of elements split into groups the length of size. If collection can’t be split evenly, the
 		final chunk will be the remaining elements.
 	**/
-	function chunk<T>(unknown:Dynamic):Array<Array<T>>;
+	function chunk<T>(array:Null<List_<T>>, ?size:Float):Array<Array<T>>;
 	/**
 		Creates an array with all falsey values removed. The values false, null, 0, 0n, "", undefined, and NaN are
 		falsey.
 	**/
-	function compact<T>(unknown:Dynamic):Array<T>;
+	function compact<T>(array:Null<List_<Null<ts.AnyOf5<Bool, String, Int, Dynamic, T>>>>):Array<T>;
 	/**
 		Creates a new array concatenating `array` with any additional arrays
 		and/or values.
 	**/
-	function concat<T>(unknown:Dynamic):Array<T>;
+	function concat<T>(values:haxe.extern.Rest<Many<T>>):Array<T>;
 	/**
 		Creates an array of `array` values not included in the other provided arrays using SameValueZero for
 		equality comparisons. The order and references of result values are determined by the first array.
 	**/
-	function difference<T>(unknown:Dynamic):Array<T>;
+	function difference<T>(array:Null<List_<T>>, values:haxe.extern.Rest<List_<T>>):Array<T>;
 	/**
 		This method is like _.difference except that it accepts iteratee which is invoked for each element
 		of array and values to generate the criterion by which they're compared. The order and references
 		of result values are determined by the first array. The iteratee is invoked with one argument: (value).
 	**/
-	@:overload(function<T1, T2, T3>(unknown:Dynamic):Array<T1> { })
-	@:overload(function<T1, T2, T3, T4>(unknown:Dynamic):Array<T1> { })
-	@:overload(function<T1, T2, T3, T4, T5>(unknown:Dynamic):Array<T1> { })
-	@:overload(function<T1, T2, T3, T4, T5, T6>(unknown:Dynamic):Array<T1> { })
-	@:overload(function<T1, T2, T3, T4, T5, T6, T7>(unknown:Dynamic):Array<T1> { })
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	function differenceBy<T1, T2>(unknown:Dynamic):Array<T1>;
+	@:overload(function<T1, T2, T3>(array:Null<List_<T1>>, values1:List_<T2>, values2:List_<T3>, iteratee:ValueIteratee<ts.AnyOf3<T1, T2, T3>>):Array<T1> { })
+	@:overload(function<T1, T2, T3, T4>(array:Null<List_<T1>>, values1:List_<T2>, values2:List_<T3>, values3:List_<T4>, iteratee:ValueIteratee<ts.AnyOf4<T1, T2, T3, T4>>):Array<T1> { })
+	@:overload(function<T1, T2, T3, T4, T5>(array:Null<List_<T1>>, values1:List_<T2>, values2:List_<T3>, values3:List_<T4>, values4:List_<T5>, iteratee:ValueIteratee<ts.AnyOf5<T1, T2, T3, T4, T5>>):Array<T1> { })
+	@:overload(function<T1, T2, T3, T4, T5, T6>(array:Null<List_<T1>>, values1:List_<T2>, values2:List_<T3>, values3:List_<T4>, values4:List_<T5>, values5:List_<T6>, iteratee:ValueIteratee<ts.AnyOf6<T1, T2, T3, T4, T5, T6>>):Array<T1> { })
+	@:overload(function<T1, T2, T3, T4, T5, T6, T7>(array:Null<List_<T1>>, values1:List_<T2>, values2:List_<T3>, values3:List_<T4>, values4:List_<T5>, values5:List_<T6>, values:haxe.extern.Rest<ts.AnyOf7<String, Float, js.lib.Symbol, ts.Tuple2<PropertyName, Dynamic>, List_<T7>, (value:ts.AnyOf7<T1, T2, T3, T4, T5, T6, T7>) -> Any, { }>>):Array<T1> { })
+	@:overload(function<T>(array:Null<List_<T>>, values:haxe.extern.Rest<List_<T>>):Array<T> { })
+	function differenceBy<T1, T2>(array:Null<List_<T1>>, values:List_<T2>, iteratee:ValueIteratee<ts.AnyOf2<T1, T2>>):Array<T1>;
 	/**
 		This method is like _.difference except that it accepts comparator which is invoked to compare elements
 		of array to values. The order and references of result values are determined by the first array. The
 		comparator is invoked with two arguments: (arrVal, othVal).
 	**/
-	@:overload(function<T1, T2, T3>(unknown:Dynamic):Array<T1> { })
-	@:overload(function<T1, T2, T3, T4>(unknown:Dynamic):Array<T1> { })
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	function differenceWith<T1, T2>(unknown:Dynamic):Array<T1>;
+	@:overload(function<T1, T2, T3>(array:Null<List_<T1>>, values1:List_<T2>, values2:List_<T3>, comparator:Comparator2<T1, ts.AnyOf2<T2, T3>>):Array<T1> { })
+	@:overload(function<T1, T2, T3, T4>(array:Null<List_<T1>>, values1:List_<T2>, values2:List_<T3>, values:haxe.extern.Rest<ts.AnyOf2<List_<T4>, Comparator2<T1, ts.AnyOf3<T2, T3, T4>>>>):Array<T1> { })
+	@:overload(function<T>(array:Null<List_<T>>, values:haxe.extern.Rest<List_<T>>):Array<T> { })
+	function differenceWith<T1, T2>(array:Null<List_<T1>>, values:List_<T2>, comparator:Comparator2<T1, T2>):Array<T1>;
 	/**
 		Creates a slice of array with n elements dropped from the beginning.
 	**/
-	function drop<T>(unknown:Dynamic):Array<T>;
+	function drop<T>(array:Null<List_<T>>, ?n:Float):Array<T>;
 	/**
 		Creates a slice of array with n elements dropped from the end.
 	**/
-	function dropRight<T>(unknown:Dynamic):Array<T>;
+	function dropRight<T>(array:Null<List_<T>>, ?n:Float):Array<T>;
 	/**
 		Creates a slice of array excluding elements dropped from the end. Elements are dropped until predicate
 		returns falsey. The predicate is invoked with three arguments: (value, index, array).
 	**/
-	function dropRightWhile<T>(unknown:Dynamic):Array<T>;
+	function dropRightWhile<T>(array:Null<List_<T>>, ?predicate:ListIteratee<T>):Array<T>;
 	/**
 		Creates a slice of array excluding elements dropped from the beginning. Elements are dropped until predicate
 		returns falsey. The predicate is invoked with three arguments: (value, index, array).
 	**/
-	function dropWhile<T>(unknown:Dynamic):Array<T>;
+	function dropWhile<T>(array:Null<List_<T>>, ?predicate:ListIteratee<T>):Array<T>;
 	/**
 		Fills elements of array with value from start up to, but not including, end.
 		
 		Note: This method mutates array.
 	**/
-	@:overload(function<T, AnyList>(unknown:Dynamic):List_<T> { })
-	@:overload(function<T, U>(unknown:Dynamic):Array<ts.AnyOf2<T, U>> { })
-	@:overload(function<T, UList>(unknown:Dynamic):List_<ts.AnyOf2<T, Dynamic>> { })
-	function fill<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<T, AnyList>(array:Null<lodash.RejectReadonly<AnyList>>, value:T):List_<T> { })
+	@:overload(function<T, U>(array:Null<Array<U>>, value:T, ?start:Float, ?end:Float):Array<ts.AnyOf2<T, U>> { })
+	@:overload(function<T, UList>(array:Null<lodash.RejectReadonly<UList>>, value:T, ?start:Float, ?end:Float):List_<ts.AnyOf2<T, Dynamic>> { })
+	function fill<T>(array:Null<Array<Dynamic>>, value:T):Array<T>;
 	/**
 		This method is like _.find except that it returns the index of the first element predicate returns truthy
 		for instead of the element itself.
 	**/
-	function findIndex<T>(unknown:Dynamic):Float;
+	function findIndex<T>(array:Null<List_<T>>, ?predicate:ListIterateeCustom<T, Bool>, ?fromIndex:Float):Float;
 	/**
 		This method is like _.findIndex except that it iterates over elements of collection from right to left.
 	**/
-	function findLastIndex<T>(unknown:Dynamic):Float;
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	dynamic function first<T>(unknown:Dynamic):T;
+	function findLastIndex<T>(array:Null<List_<T>>, ?predicate:ListIterateeCustom<T, Bool>, ?fromIndex:Float):Float;
+	@:overload(function<T>(array:Null<List_<T>>):Null<T> { })
+	dynamic function first<T>(array:ts.Tuple2<T, Any>):T;
 	/**
 		Flattens `array` a single level deep.
 	**/
-	function flatten<T>(unknown:Dynamic):Array<T>;
+	function flatten<T>(array:Null<List_<Many<T>>>):Array<T>;
 	/**
 		Recursively flattens a nested array.
 	**/
-	function flattenDeep<T>(unknown:Dynamic):Array<Flat<T>>;
+	function flattenDeep<T>(array:Null<ListOfRecursiveArraysOrValues<T>>):Array<Flat<T>>;
 	/**
 		Recursively flatten array up to depth times.
 	**/
-	function flattenDepth<T>(unknown:Dynamic):Array<T>;
+	function flattenDepth<T>(array:Null<ListOfRecursiveArraysOrValues<T>>, ?depth:Float):Array<T>;
 	/**
 		The inverse of `_.toPairs`; this method returns an object composed
 		from key-value `pairs`.
 	**/
-	@:overload(function(unknown:Dynamic):Dictionary<Dynamic> { })
-	function fromPairs<T>(unknown:Dynamic):Dictionary<T>;
+	@:overload(function(pairs:Null<List_<Array<Dynamic>>>):Dictionary<Dynamic> { })
+	function fromPairs<T>(pairs:Null<List_<ts.Tuple2<PropertyName, T>>>):Dictionary<T>;
 	/**
 		Gets the first element of array.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	function head<T>(unknown:Dynamic):T;
+	@:overload(function<T>(array:Null<List_<T>>):Null<T> { })
+	function head<T>(array:ts.Tuple2<T, Any>):T;
 	/**
 		Gets the index at which the first occurrence of `value` is found in `array`
 		using [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
 		for equality comparisons. If `fromIndex` is negative, it's used as the offset
 		from the end of `array`.
 	**/
-	function indexOf<T>(unknown:Dynamic):Float;
+	function indexOf<T>(array:Null<List_<T>>, value:T, ?fromIndex:Float):Float;
 	/**
 		Gets all but the last element of array.
 	**/
-	function initial<T>(unknown:Dynamic):Array<T>;
+	function initial<T>(array:Null<List_<T>>):Array<T>;
 	/**
 		Creates an array of unique values that are included in all of the provided arrays using SameValueZero for
 		equality comparisons.
 	**/
-	function intersection<T>(unknown:Dynamic):Array<T>;
+	function intersection<T>(arrays:haxe.extern.Rest<Null<List_<T>>>):Array<T>;
 	/**
 		This method is like `_.intersection` except that it accepts `iteratee`
 		which is invoked for each element of each `arrays` to generate the criterion
 		by which uniqueness is computed. The iteratee is invoked with one argument: (value).
 	**/
-	@:overload(function<T1, T2, T3>(unknown:Dynamic):Array<T1> { })
-	@:overload(function<T1, T2, T3, T4>(unknown:Dynamic):Array<T1> { })
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	function intersectionBy<T1, T2>(unknown:Dynamic):Array<T1>;
+	@:overload(function<T1, T2, T3>(array:Null<List_<T1>>, values1:List_<T2>, values2:List_<T3>, iteratee:ValueIteratee<ts.AnyOf3<T1, T2, T3>>):Array<T1> { })
+	@:overload(function<T1, T2, T3, T4>(array:Null<List_<T1>>, values1:List_<T2>, values2:List_<T3>, values:haxe.extern.Rest<ts.AnyOf7<String, Float, js.lib.Symbol, ts.Tuple2<PropertyName, Dynamic>, List_<T4>, (value:ts.AnyOf4<T1, T2, T3, T4>) -> Any, { }>>):Array<T1> { })
+	@:overload(function<T>(?array:List_<T>, values:haxe.extern.Rest<List_<T>>):Array<T> { })
+	@:overload(function<T>(values:haxe.extern.Rest<ts.AnyOf7<String, Float, js.lib.Symbol, ts.Tuple2<PropertyName, Dynamic>, List_<T>, (value:T) -> Any, { }>>):Array<T> { })
+	function intersectionBy<T1, T2>(array:Null<List_<T1>>, values:List_<T2>, iteratee:ValueIteratee<ts.AnyOf2<T1, T2>>):Array<T1>;
 	/**
 		Creates an array of unique `array` values not included in the other
 		provided arrays using [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
 		for equality comparisons.
 	**/
-	@:overload(function<T1, T2, T3>(unknown:Dynamic):Array<T1> { })
-	@:overload(function<T1, T2, T3, T4>(unknown:Dynamic):Array<T1> { })
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	function intersectionWith<T1, T2>(unknown:Dynamic):Array<T1>;
+	@:overload(function<T1, T2, T3>(array:Null<List_<T1>>, values1:List_<T2>, values2:List_<T3>, comparator:Comparator2<T1, ts.AnyOf3<T1, T2, T3>>):Array<T1> { })
+	@:overload(function<T1, T2, T3, T4>(array:Null<List_<T1>>, values1:List_<T2>, values2:List_<T3>, values:haxe.extern.Rest<ts.AnyOf2<List_<T4>, Comparator2<T1, ts.AnyOf4<T1, T2, T3, T4>>>>):Array<T1> { })
+	@:overload(function<T>(?array:List_<T>, values:haxe.extern.Rest<ts.AnyOf2<List_<T>, Comparator2<T, Any>>>):Array<T> { })
+	function intersectionWith<T1, T2>(array:Null<List_<T1>>, values:List_<T2>, comparator:Comparator2<T1, ts.AnyOf2<T1, T2>>):Array<T1>;
 	/**
 		Converts all elements in `array` into a string separated by `separator`.
 	**/
-	function join(unknown:Dynamic):String;
+	function join(array:Null<List_<Dynamic>>, ?separator:String):String;
 	/**
 		Gets the last element of array.
 	**/
-	function last<T>(unknown:Dynamic):Null<T>;
+	function last<T>(array:Null<List_<T>>):Null<T>;
 	/**
 		This method is like _.indexOf except that it iterates over elements of array from right to left.
 	**/
-	function lastIndexOf<T>(unknown:Dynamic):Float;
+	function lastIndexOf<T>(array:Null<List_<T>>, value:T, ?fromIndex:ts.AnyOf2<Float, Bool>):Float;
 	/**
 		Gets the element at index `n` of `array`. If `n` is negative, the nth element from the end is returned.
 	**/
-	function nth<T>(unknown:Dynamic):Null<T>;
+	function nth<T>(array:Null<List_<T>>, ?n:Float):Null<T>;
 	/**
 		Removes all provided values from array using SameValueZero for equality comparisons.
 		
 		Note: Unlike _.without, this method mutates array.
 	**/
-	@:overload(function<TList>(unknown:Dynamic):TList { })
-	function pull<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<TList>(array:lodash.RejectReadonly<TList>, values:haxe.extern.Rest<Dynamic>):TList { })
+	function pull<T>(array:Array<T>, values:haxe.extern.Rest<T>):Array<T>;
 	/**
 		This method is like `_.pull` except that it accepts an array of values to remove.
 		
 		**Note:** Unlike `_.difference`, this method mutates `array`.
 	**/
-	@:overload(function<TList>(unknown:Dynamic):TList { })
-	function pullAll<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<TList>(array:lodash.RejectReadonly<TList>, ?values:List_<Dynamic>):TList { })
+	function pullAll<T>(array:Array<T>, ?values:List_<T>):Array<T>;
 	/**
 		This method is like `_.pullAll` except that it accepts `iteratee` which is
 		invoked for each element of `array` and `values` to to generate the criterion
@@ -261,10 +261,10 @@ typedef LoDashStatic = {
 		
 		**Note:** Unlike `_.differenceBy`, this method mutates `array`.
 	**/
-	@:overload(function<TList>(unknown:Dynamic):TList { })
-	@:overload(function<T1, T2>(unknown:Dynamic):Array<T1> { })
-	@:overload(function<T1List, T2>(unknown:Dynamic):T1List { })
-	function pullAllBy<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<TList>(array:lodash.RejectReadonly<TList>, ?values:List_<Dynamic>, ?iteratee:ValueIteratee<Dynamic>):TList { })
+	@:overload(function<T1, T2>(array:Array<T1>, values:List_<T2>, iteratee:ValueIteratee<ts.AnyOf2<T1, T2>>):Array<T1> { })
+	@:overload(function<T1List, T2>(array:lodash.RejectReadonly<T1List>, values:List_<T2>, iteratee:ValueIteratee<ts.AnyOf2<T2, Dynamic>>):T1List { })
+	function pullAllBy<T>(array:Array<T>, ?values:List_<T>, ?iteratee:ValueIteratee<T>):Array<T>;
 	/**
 		This method is like `_.pullAll` except that it accepts `comparator` which is
 		invoked to compare elements of array to values. The comparator is invoked with
@@ -272,25 +272,25 @@ typedef LoDashStatic = {
 		
 		**Note:** Unlike `_.differenceWith`, this method mutates `array`.
 	**/
-	@:overload(function<TList>(unknown:Dynamic):TList { })
-	@:overload(function<T1, T2>(unknown:Dynamic):Array<T1> { })
-	@:overload(function<T1List, T2>(unknown:Dynamic):T1List { })
-	function pullAllWith<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<TList>(array:lodash.RejectReadonly<TList>, ?values:List_<Dynamic>, ?comparator:Comparator<Dynamic>):TList { })
+	@:overload(function<T1, T2>(array:Array<T1>, values:List_<T2>, comparator:Comparator2<T1, T2>):Array<T1> { })
+	@:overload(function<T1List, T2>(array:lodash.RejectReadonly<T1List>, values:List_<T2>, comparator:Comparator2<Dynamic, T2>):T1List { })
+	function pullAllWith<T>(array:Array<T>, ?values:List_<T>, ?comparator:Comparator<T>):Array<T>;
 	/**
 		Removes elements from array corresponding to the given indexes and returns an array of the removed elements.
 		Indexes may be specified as an array of indexes or as individual arguments.
 		
 		Note: Unlike _.at, this method mutates array.
 	**/
-	@:overload(function<TList>(unknown:Dynamic):TList { })
-	function pullAt<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<TList>(array:lodash.RejectReadonly<TList>, indexes:haxe.extern.Rest<Many<Float>>):TList { })
+	function pullAt<T>(array:Array<T>, indexes:haxe.extern.Rest<Many<Float>>):Array<T>;
 	/**
 		Removes all elements from array that predicate returns truthy for and returns an array of the removed
 		elements. The predicate is invoked with three arguments: (value, index, array).
 		
 		Note: Unlike _.filter, this method mutates array.
 	**/
-	function remove<TList>(unknown:Dynamic):Array<Dynamic>;
+	function remove<TList>(array:lodash.RejectReadonly<TList>, ?predicate:ListIteratee<Dynamic>):Array<Dynamic>;
 	/**
 		Reverses `array` so that the first element becomes the last, the second
 		element becomes the second to last, and so on.
@@ -298,268 +298,268 @@ typedef LoDashStatic = {
 		**Note:** This method mutates `array` and is based on
 		[`Array#reverse`](https://mdn.io/Array/reverse).
 	**/
-	function reverse<TList>(unknown:Dynamic):TList;
+	function reverse<TList>(array:lodash.RejectReadonly<TList>):TList;
 	/**
 		Creates a slice of array from start up to, but not including, end.
 	**/
-	function slice<T>(unknown:Dynamic):Array<T>;
+	function slice<T>(array:Null<List_<T>>, ?start:Float, ?end:Float):Array<T>;
 	/**
 		Uses a binary search to determine the lowest index at which `value` should
 		be inserted into `array` in order to maintain its sort order.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Float { })
-	function sortedIndex<T>(unknown:Dynamic):Float;
+	@:overload(function<T>(array:Null<List_<T>>, value:T):Float { })
+	function sortedIndex<T>(array:Null<List_<T>>, value:T):Float;
 	/**
 		This method is like `_.sortedIndex` except that it accepts `iteratee`
 		which is invoked for `value` and each element of `array` to compute their
 		sort ranking. The iteratee is invoked with one argument: (value).
 	**/
-	function sortedIndexBy<T>(unknown:Dynamic):Float;
+	function sortedIndexBy<T>(array:Null<List_<T>>, value:T, ?iteratee:ValueIteratee<T>):Float;
 	/**
 		This method is like `_.indexOf` except that it performs a binary
 		search on a sorted `array`.
 	**/
-	function sortedIndexOf<T>(unknown:Dynamic):Float;
+	function sortedIndexOf<T>(array:Null<List_<T>>, value:T):Float;
 	/**
 		This method is like `_.sortedIndex` except that it returns the highest
 		index at which `value` should be inserted into `array` in order to
 		maintain its sort order.
 	**/
-	function sortedLastIndex<T>(unknown:Dynamic):Float;
+	function sortedLastIndex<T>(array:Null<List_<T>>, value:T):Float;
 	/**
 		This method is like `_.sortedLastIndex` except that it accepts `iteratee`
 		which is invoked for `value` and each element of `array` to compute their
 		sort ranking. The iteratee is invoked with one argument: (value).
 	**/
-	function sortedLastIndexBy<T>(unknown:Dynamic):Float;
+	function sortedLastIndexBy<T>(array:Null<List_<T>>, value:T, iteratee:ValueIteratee<T>):Float;
 	/**
 		This method is like `_.lastIndexOf` except that it performs a binary
 		search on a sorted `array`.
 	**/
-	function sortedLastIndexOf<T>(unknown:Dynamic):Float;
+	function sortedLastIndexOf<T>(array:Null<List_<T>>, value:T):Float;
 	/**
 		This method is like `_.uniq` except that it's designed and optimized
 		for sorted arrays.
 	**/
-	function sortedUniq<T>(unknown:Dynamic):Array<T>;
+	function sortedUniq<T>(array:Null<List_<T>>):Array<T>;
 	/**
 		This method is like `_.uniqBy` except that it's designed and optimized
 		for sorted arrays.
 	**/
-	function sortedUniqBy<T>(unknown:Dynamic):Array<T>;
+	function sortedUniqBy<T>(array:Null<List_<T>>, iteratee:ValueIteratee<T>):Array<T>;
 	/**
 		Gets all but the first element of array.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	function tail<T>(unknown:Dynamic):T;
+	@:overload(function<T>(array:Null<List_<T>>):Array<T> { })
+	function tail<T>(array:ts.Tuple2<Any, T>):T;
 	/**
 		Creates a slice of array with n elements taken from the beginning.
 	**/
-	function take<T>(unknown:Dynamic):Array<T>;
+	function take<T>(array:Null<List_<T>>, ?n:Float):Array<T>;
 	/**
 		Creates a slice of array with n elements taken from the end.
 	**/
-	function takeRight<T>(unknown:Dynamic):Array<T>;
+	function takeRight<T>(array:Null<List_<T>>, ?n:Float):Array<T>;
 	/**
 		Creates a slice of array with elements taken from the end. Elements are taken until predicate returns
 		falsey. The predicate is invoked with three arguments: (value, index, array).
 	**/
-	function takeRightWhile<T>(unknown:Dynamic):Array<T>;
+	function takeRightWhile<T>(array:Null<List_<T>>, ?predicate:ListIteratee<T>):Array<T>;
 	/**
 		Creates a slice of array with elements taken from the beginning. Elements are taken until predicate returns
 		falsey. The predicate is invoked with three arguments: (value, index, array).
 	**/
-	function takeWhile<T>(unknown:Dynamic):Array<T>;
+	function takeWhile<T>(array:Null<List_<T>>, ?predicate:ListIteratee<T>):Array<T>;
 	/**
 		Creates an array of unique values, in order, from all of the provided arrays using SameValueZero for
 		equality comparisons.
 	**/
-	function union<T>(unknown:Dynamic):Array<T>;
+	function union<T>(arrays:haxe.extern.Rest<Null<List_<T>>>):Array<T>;
 	/**
 		This method is like `_.union` except that it accepts `iteratee` which is
 		invoked for each element of each `arrays` to generate the criterion by which
 		uniqueness is computed. The iteratee is invoked with one argument: (value).
 	**/
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	function unionBy<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<T>(arrays1:Null<List_<T>>, arrays2:Null<List_<T>>, ?iteratee:ValueIteratee<T>):Array<T> { })
+	@:overload(function<T>(arrays1:Null<List_<T>>, arrays2:Null<List_<T>>, arrays3:Null<List_<T>>, ?iteratee:ValueIteratee<T>):Array<T> { })
+	@:overload(function<T>(arrays1:Null<List_<T>>, arrays2:Null<List_<T>>, arrays3:Null<List_<T>>, arrays4:Null<List_<T>>, ?iteratee:ValueIteratee<T>):Array<T> { })
+	@:overload(function<T>(arrays1:Null<List_<T>>, arrays2:Null<List_<T>>, arrays3:Null<List_<T>>, arrays4:Null<List_<T>>, arrays5:Null<List_<T>>, iteratee:haxe.extern.Rest<Null<ts.AnyOf7<String, Float, js.lib.Symbol, ts.Tuple2<PropertyName, Dynamic>, List_<T>, (value:T) -> Any, { }>>>):Array<T> { })
+	function unionBy<T>(arrays:Null<List_<T>>, ?iteratee:ValueIteratee<T>):Array<T>;
 	/**
 		This method is like `_.union` except that it accepts `comparator` which
 		is invoked to compare elements of `arrays`. The comparator is invoked
 		with two arguments: (arrVal, othVal).
 	**/
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	function unionWith<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<T>(arrays:Null<List_<T>>, arrays2:Null<List_<T>>, ?comparator:Comparator<T>):Array<T> { })
+	@:overload(function<T>(arrays:Null<List_<T>>, arrays2:Null<List_<T>>, arrays3:Null<List_<T>>, comparator:haxe.extern.Rest<Null<ts.AnyOf2<List_<T>, Comparator<T>>>>):Array<T> { })
+	function unionWith<T>(arrays:Null<List_<T>>, ?comparator:Comparator<T>):Array<T>;
 	/**
 		Creates a duplicate-free version of an array, using
 		[`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
 		for equality comparisons, in which only the first occurrence of each element
 		is kept.
 	**/
-	function uniq<T>(unknown:Dynamic):Array<T>;
+	function uniq<T>(array:Null<List_<T>>):Array<T>;
 	/**
 		This method is like `_.uniq` except that it accepts `iteratee` which is
 		invoked for each element in `array` to generate the criterion by which
 		uniqueness is computed. The iteratee is invoked with one argument: (value).
 	**/
-	function uniqBy<T>(unknown:Dynamic):Array<T>;
+	function uniqBy<T>(array:Null<List_<T>>, iteratee:ValueIteratee<T>):Array<T>;
 	/**
 		This method is like `_.uniq` except that it accepts `comparator` which
 		is invoked to compare elements of `array`. The comparator is invoked with
 		two arguments: (arrVal, othVal).
 	**/
-	function uniqWith<T>(unknown:Dynamic):Array<T>;
+	function uniqWith<T>(array:Null<List_<T>>, ?comparator:Comparator<T>):Array<T>;
 	/**
 		This method is like _.zip except that it accepts an array of grouped elements and creates an array
 		regrouping the elements to their pre-zip configuration.
 	**/
-	function unzip<T>(unknown:Dynamic):Array<Array<T>>;
+	function unzip<T>(array:Null<ts.AnyOf2<List_<List_<T>>, Array<Array<T>>>>):Array<Array<T>>;
 	/**
 		This method is like _.unzip except that it accepts an iteratee to specify how regrouped values should be
 		combined. The iteratee is invoked with four arguments: (accumulator, value, index, group).
 	**/
-	@:overload(function<T>(unknown:Dynamic):Array<Array<T>> { })
-	function unzipWith<T, TResult>(unknown:Dynamic):Array<TResult>;
+	@:overload(function<T>(array:Null<List_<List_<T>>>):Array<Array<T>> { })
+	function unzipWith<T, TResult>(array:Null<List_<List_<T>>>, iteratee:(values:haxe.extern.Rest<T>) -> TResult):Array<TResult>;
 	/**
 		Creates an array excluding all provided values using SameValueZero for equality comparisons.
 	**/
-	function without<T>(unknown:Dynamic):Array<T>;
+	function without<T>(array:Null<List_<T>>, values:haxe.extern.Rest<T>):Array<T>;
 	/**
 		Creates an array of unique values that is the symmetric difference of the provided arrays.
 	**/
-	function xor<T>(unknown:Dynamic):Array<T>;
+	function xor<T>(arrays:haxe.extern.Rest<Null<List_<T>>>):Array<T>;
 	/**
 		This method is like `_.xor` except that it accepts `iteratee` which is
 		invoked for each element of each `arrays` to generate the criterion by which
 		uniqueness is computed. The iteratee is invoked with one argument: (value).
 	**/
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	function xorBy<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<T>(arrays:Null<List_<T>>, arrays2:Null<List_<T>>, ?iteratee:ValueIteratee<T>):Array<T> { })
+	@:overload(function<T>(arrays:Null<List_<T>>, arrays2:Null<List_<T>>, arrays3:Null<List_<T>>, iteratee:haxe.extern.Rest<Null<ts.AnyOf7<String, Float, js.lib.Symbol, ts.Tuple2<PropertyName, Dynamic>, List_<T>, (value:T) -> Any, { }>>>):Array<T> { })
+	function xorBy<T>(arrays:Null<List_<T>>, ?iteratee:ValueIteratee<T>):Array<T>;
 	/**
 		This method is like `_.xor` except that it accepts `comparator` which is
 		invoked to compare elements of `arrays`. The comparator is invoked with
 		two arguments: (arrVal, othVal).
 	**/
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	function xorWith<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<T>(arrays:Null<List_<T>>, arrays2:Null<List_<T>>, ?comparator:Comparator<T>):Array<T> { })
+	@:overload(function<T>(arrays:Null<List_<T>>, arrays2:Null<List_<T>>, arrays3:Null<List_<T>>, comparator:haxe.extern.Rest<Null<ts.AnyOf2<List_<T>, Comparator<T>>>>):Array<T> { })
+	function xorWith<T>(arrays:Null<List_<T>>, ?comparator:Comparator<T>):Array<T>;
 	/**
 		Creates an array of grouped elements, the first of which contains the first elements of the given arrays,
 		the second of which contains the second elements of the given arrays, and so on.
 	**/
-	@:overload(function<T1, T2, T3>(unknown:Dynamic):Array<ts.Tuple3<Null<T1>, Null<T2>, Null<T3>>> { })
-	@:overload(function<T1, T2, T3, T4>(unknown:Dynamic):Array<ts.Tuple4<Null<T1>, Null<T2>, Null<T3>, Null<T4>>> { })
-	@:overload(function<T1, T2, T3, T4, T5>(unknown:Dynamic):Array<ts.Tuple5<Null<T1>, Null<T2>, Null<T3>, Null<T4>, Null<T5>>> { })
-	@:overload(function<T>(unknown:Dynamic):Array<Array<Null<T>>> { })
-	function zip<T1, T2>(unknown:Dynamic):Array<ts.Tuple2<Null<T1>, Null<T2>>>;
+	@:overload(function<T1, T2, T3>(arrays1:List_<T1>, arrays2:List_<T2>, arrays3:List_<T3>):Array<ts.Tuple3<Null<T1>, Null<T2>, Null<T3>>> { })
+	@:overload(function<T1, T2, T3, T4>(arrays1:List_<T1>, arrays2:List_<T2>, arrays3:List_<T3>, arrays4:List_<T4>):Array<ts.Tuple4<Null<T1>, Null<T2>, Null<T3>, Null<T4>>> { })
+	@:overload(function<T1, T2, T3, T4, T5>(arrays1:List_<T1>, arrays2:List_<T2>, arrays3:List_<T3>, arrays4:List_<T4>, arrays5:List_<T5>):Array<ts.Tuple5<Null<T1>, Null<T2>, Null<T3>, Null<T4>, Null<T5>>> { })
+	@:overload(function<T>(arrays:haxe.extern.Rest<Null<List_<T>>>):Array<Array<Null<T>>> { })
+	function zip<T1, T2>(arrays1:List_<T1>, arrays2:List_<T2>):Array<ts.Tuple2<Null<T1>, Null<T2>>>;
 	/**
 		This method is like _.fromPairs except that it accepts two arrays, one of property
 		identifiers and one of corresponding values.
 	**/
-	@:overload(function(unknown:Dynamic):Dictionary<Null<Any>> { })
-	function zipObject<T>(unknown:Dynamic):Dictionary<T>;
+	@:overload(function(?props:List_<PropertyName>):Dictionary<Null<Any>> { })
+	function zipObject<T>(props:List_<PropertyName>, values:List_<T>):Dictionary<T>;
 	/**
 		This method is like _.zipObject except that it supports property paths.
 	**/
-	function zipObjectDeep(unknown:Dynamic):Dynamic;
+	function zipObjectDeep(?paths:List_<PropertyPath>, ?values:List_<Dynamic>):Dynamic;
 	/**
 		This method is like _.zip except that it accepts an iteratee to specify how grouped values should be
 		combined. The iteratee is invoked with four arguments: (accumulator, value, index,
 		group).
 	**/
-	@:overload(function<T1, T2, TResult>(unknown:Dynamic):Array<TResult> { })
-	@:overload(function<T1, T2, T3, TResult>(unknown:Dynamic):Array<TResult> { })
-	@:overload(function<T1, T2, T3, T4, TResult>(unknown:Dynamic):Array<TResult> { })
-	@:overload(function<T1, T2, T3, T4, T5, TResult>(unknown:Dynamic):Array<TResult> { })
-	@:overload(function<T, TResult>(unknown:Dynamic):Array<TResult> { })
-	function zipWith<T, TResult>(unknown:Dynamic):Array<TResult>;
+	@:overload(function<T1, T2, TResult>(arrays1:List_<T1>, arrays2:List_<T2>, iteratee:(value1:T1, value2:T2) -> TResult):Array<TResult> { })
+	@:overload(function<T1, T2, T3, TResult>(arrays1:List_<T1>, arrays2:List_<T2>, arrays3:List_<T3>, iteratee:(value1:T1, value2:T2, value3:T3) -> TResult):Array<TResult> { })
+	@:overload(function<T1, T2, T3, T4, TResult>(arrays1:List_<T1>, arrays2:List_<T2>, arrays3:List_<T3>, arrays4:List_<T4>, iteratee:(value1:T1, value2:T2, value3:T3, value4:T4) -> TResult):Array<TResult> { })
+	@:overload(function<T1, T2, T3, T4, T5, TResult>(arrays1:List_<T1>, arrays2:List_<T2>, arrays3:List_<T3>, arrays4:List_<T4>, arrays5:List_<T5>, iteratee:(value1:T1, value2:T2, value3:T3, value4:T4, value5:T5) -> TResult):Array<TResult> { })
+	@:overload(function<T, TResult>(iteratee:haxe.extern.Rest<Null<ts.AnyOf2<List_<T>, (group:haxe.extern.Rest<T>) -> TResult>>>):Array<TResult> { })
+	function zipWith<T, TResult>(arrays:List_<T>, iteratee:(value1:T) -> TResult):Array<TResult>;
 	/**
 		Creates an object composed of keys generated from the results of running each element of collection through
 		iteratee. The corresponding value of each key is the number of times the key was returned by iteratee. The
 		iteratee is invoked with one argument: (value).
 	**/
-	@:overload(function<T>(unknown:Dynamic):Dictionary<Float> { })
-	function countBy<T>(unknown:Dynamic):Dictionary<Float>;
-	@:overload(function(unknown:Dynamic):String { })
-	@:overload(function<T>(unknown:Dynamic):List_<T> { })
-	@:overload(function<T>(unknown:Dynamic):T { })
-	@:overload(function<T, TArray>(unknown:Dynamic):TArray { })
-	@:overload(function<TString>(unknown:Dynamic):TString { })
-	@:overload(function<T, TList>(unknown:Dynamic):TList { })
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	dynamic function each<T>(unknown:Dynamic):Array<T>;
-	@:overload(function(unknown:Dynamic):String { })
-	@:overload(function<T>(unknown:Dynamic):List_<T> { })
-	@:overload(function<T>(unknown:Dynamic):T { })
-	@:overload(function<T, TArray>(unknown:Dynamic):TArray { })
-	@:overload(function<TString>(unknown:Dynamic):TString { })
-	@:overload(function<T, TList>(unknown:Dynamic):TList { })
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	dynamic function eachRight<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<T>(collection:Null<T>, ?iteratee:ValueIteratee<Dynamic>):Dictionary<Float> { })
+	function countBy<T>(collection:Null<List_<T>>, ?iteratee:ValueIteratee<T>):Dictionary<Float>;
+	@:overload(function(collection:String, ?iteratee:StringIterator<Dynamic>):String { })
+	@:overload(function<T>(collection:List_<T>, ?iteratee:ListIterator<T, Dynamic>):List_<T> { })
+	@:overload(function<T>(collection:T, ?iteratee:ObjectIterator<T, Dynamic>):T { })
+	@:overload(function<T, TArray>(collection:Dynamic, ?iteratee:ArrayIterator<T, Dynamic>):TArray { })
+	@:overload(function<TString>(collection:TString, ?iteratee:StringIterator<Dynamic>):TString { })
+	@:overload(function<T, TList>(collection:Dynamic, ?iteratee:ListIterator<T, Dynamic>):TList { })
+	@:overload(function<T>(collection:Null<T>, ?iteratee:ObjectIterator<T, Dynamic>):Null<T> { })
+	dynamic function each<T>(collection:Array<T>, ?iteratee:ArrayIterator<T, Dynamic>):Array<T>;
+	@:overload(function(collection:String, ?iteratee:StringIterator<Dynamic>):String { })
+	@:overload(function<T>(collection:List_<T>, ?iteratee:ListIterator<T, Dynamic>):List_<T> { })
+	@:overload(function<T>(collection:T, ?iteratee:ObjectIterator<T, Dynamic>):T { })
+	@:overload(function<T, TArray>(collection:Dynamic, ?iteratee:ArrayIterator<T, Dynamic>):TArray { })
+	@:overload(function<TString>(collection:TString, ?iteratee:StringIterator<Dynamic>):TString { })
+	@:overload(function<T, TList>(collection:Dynamic, ?iteratee:ListIterator<T, Dynamic>):TList { })
+	@:overload(function<T>(collection:Null<T>, ?iteratee:ObjectIterator<T, Dynamic>):Null<T> { })
+	dynamic function eachRight<T>(collection:Array<T>, ?iteratee:ArrayIterator<T, Dynamic>):Array<T>;
 	/**
 		Checks if predicate returns truthy for all elements of collection. Iteration is stopped once predicate
 		returns falsey. The predicate is invoked with three arguments: (value, index|key, collection).
 	**/
-	@:overload(function<T>(unknown:Dynamic):Bool { })
-	function every<T>(unknown:Dynamic):Bool;
+	@:overload(function<T>(collection:Null<T>, ?predicate:ObjectIterateeCustom<T, Bool>):Bool { })
+	function every<T>(collection:Null<List_<T>>, ?predicate:ListIterateeCustom<T, Bool>):Bool;
 	/**
 		Iterates over elements of collection, returning an array of all elements predicate returns truthy for. The
 		predicate is invoked with three arguments: (value, index|key, collection).
 	**/
-	@:overload(function<T, S>(unknown:Dynamic):Array<S> { })
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	@:overload(function<T, S>(unknown:Dynamic):Array<S> { })
-	@:overload(function<T>(unknown:Dynamic):Array<Dynamic> { })
-	function filter(unknown:Dynamic):Array<String>;
+	@:overload(function<T, S>(collection:Null<List_<T>>, predicate:ListIteratorTypeGuard<T, S>):Array<S> { })
+	@:overload(function<T>(collection:Null<List_<T>>, ?predicate:ListIterateeCustom<T, Bool>):Array<T> { })
+	@:overload(function<T, S>(collection:Null<T>, predicate:ObjectIteratorTypeGuard<T, S>):Array<S> { })
+	@:overload(function<T>(collection:Null<T>, ?predicate:ObjectIterateeCustom<T, Bool>):Array<Dynamic> { })
+	function filter(collection:Null<String>, ?predicate:StringIterator<Bool>):Array<String>;
 	/**
 		Iterates over elements of collection, returning the first element predicate returns truthy for.
 		The predicate is invoked with three arguments: (value, index|key, collection).
 	**/
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	@:overload(function<T, S>(unknown:Dynamic):Null<S> { })
-	@:overload(function<T>(unknown:Dynamic):Null<Dynamic> { })
-	function find<T, S>(unknown:Dynamic):Null<S>;
+	@:overload(function<T>(collection:Null<List_<T>>, ?predicate:ListIterateeCustom<T, Bool>, ?fromIndex:Float):Null<T> { })
+	@:overload(function<T, S>(collection:Null<T>, predicate:ObjectIteratorTypeGuard<T, S>, ?fromIndex:Float):Null<S> { })
+	@:overload(function<T>(collection:Null<T>, ?predicate:ObjectIterateeCustom<T, Bool>, ?fromIndex:Float):Null<Dynamic> { })
+	function find<T, S>(collection:Null<List_<T>>, predicate:ListIteratorTypeGuard<T, S>, ?fromIndex:Float):Null<S>;
 	/**
 		This method is like _.find except that it iterates over elements of a collection from
 		right to left.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	@:overload(function<T, S>(unknown:Dynamic):Null<S> { })
-	@:overload(function<T>(unknown:Dynamic):Null<Dynamic> { })
-	function findLast<T, S>(unknown:Dynamic):Null<S>;
+	@:overload(function<T>(collection:Null<List_<T>>, ?predicate:ListIterateeCustom<T, Bool>, ?fromIndex:Float):Null<T> { })
+	@:overload(function<T, S>(collection:Null<T>, predicate:ObjectIteratorTypeGuard<T, S>, ?fromIndex:Float):Null<S> { })
+	@:overload(function<T>(collection:Null<T>, ?predicate:ObjectIterateeCustom<T, Bool>, ?fromIndex:Float):Null<Dynamic> { })
+	function findLast<T, S>(collection:Null<List_<T>>, predicate:ListIteratorTypeGuard<T, S>, ?fromIndex:Float):Null<S>;
 	/**
 		Creates an array of flattened values by running each element in collection through iteratee
 		and concating its result to the other mapped values. The iteratee is invoked with three arguments:
 		(value, index|key, collection).
 	**/
-	@:overload(function(unknown:Dynamic):Array<Dynamic> { })
-	@:overload(function<T, TResult>(unknown:Dynamic):Array<TResult> { })
-	@:overload(function<T, TResult>(unknown:Dynamic):Array<TResult> { })
-	@:overload(function(unknown:Dynamic):Array<Dynamic> { })
-	@:overload(function(unknown:Dynamic):Array<Bool> { })
-	function flatMap<T>(unknown:Dynamic):Array<T>;
+	@:overload(function(collection:Null<Dynamic>):Array<Dynamic> { })
+	@:overload(function<T, TResult>(collection:Null<List_<T>>, iteratee:ListIterator<T, Many<TResult>>):Array<TResult> { })
+	@:overload(function<T, TResult>(collection:Null<T>, iteratee:ObjectIterator<T, Many<TResult>>):Array<TResult> { })
+	@:overload(function(collection:Null<Dynamic>, iteratee:String):Array<Dynamic> { })
+	@:overload(function(collection:Null<Dynamic>, iteratee:Dynamic):Array<Bool> { })
+	function flatMap<T>(collection:Null<ts.AnyOf2<Dictionary<Many<T>>, NumericDictionary<Many<T>>>>):Array<T>;
 	/**
 		This method is like `_.flatMap` except that it recursively flattens the
 		mapped results.
 	**/
-	@:overload(function<T, TResult>(unknown:Dynamic):Array<TResult> { })
-	@:overload(function<T, TResult>(unknown:Dynamic):Array<TResult> { })
-	@:overload(function(unknown:Dynamic):Array<Dynamic> { })
-	@:overload(function(unknown:Dynamic):Array<Bool> { })
-	function flatMapDeep<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<T, TResult>(collection:Null<List_<T>>, iteratee:ListIterator<T, ts.AnyOf2<ListOfRecursiveArraysOrValues<TResult>, TResult>>):Array<TResult> { })
+	@:overload(function<T, TResult>(collection:Null<T>, iteratee:ObjectIterator<T, ts.AnyOf2<ListOfRecursiveArraysOrValues<TResult>, TResult>>):Array<TResult> { })
+	@:overload(function(collection:Null<Dynamic>, iteratee:String):Array<Dynamic> { })
+	@:overload(function(collection:Null<Dynamic>, iteratee:Dynamic):Array<Bool> { })
+	function flatMapDeep<T>(collection:Null<ts.AnyOf2<Dictionary<ts.AnyOf2<ListOfRecursiveArraysOrValues<T>, T>>, NumericDictionary<ts.AnyOf2<ListOfRecursiveArraysOrValues<T>, T>>>>):Array<T>;
 	/**
 		This method is like `_.flatMap` except that it recursively flattens the
 		mapped results up to `depth` times.
 	**/
-	@:overload(function<T, TResult>(unknown:Dynamic):Array<TResult> { })
-	@:overload(function<T, TResult>(unknown:Dynamic):Array<TResult> { })
-	@:overload(function(unknown:Dynamic):Array<Dynamic> { })
-	@:overload(function(unknown:Dynamic):Array<Bool> { })
-	function flatMapDepth<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<T, TResult>(collection:Null<List_<T>>, iteratee:ListIterator<T, ts.AnyOf2<ListOfRecursiveArraysOrValues<TResult>, TResult>>, ?depth:Float):Array<TResult> { })
+	@:overload(function<T, TResult>(collection:Null<T>, iteratee:ObjectIterator<T, ts.AnyOf2<ListOfRecursiveArraysOrValues<TResult>, TResult>>, ?depth:Float):Array<TResult> { })
+	@:overload(function(collection:Null<Dynamic>, iteratee:String, ?depth:Float):Array<Dynamic> { })
+	@:overload(function(collection:Null<Dynamic>, iteratee:Dynamic, ?depth:Float):Array<Bool> { })
+	function flatMapDepth<T>(collection:Null<ts.AnyOf2<Dictionary<ts.AnyOf2<ListOfRecursiveArraysOrValues<T>, T>>, NumericDictionary<ts.AnyOf2<ListOfRecursiveArraysOrValues<T>, T>>>>):Array<T>;
 	/**
 		Iterates over elements of collection invoking iteratee for each element. The iteratee is invoked with three arguments:
 		(value, index|key, collection). Iteratee functions may exit iteration early by explicitly returning false.
@@ -567,52 +567,52 @@ typedef LoDashStatic = {
 		Note: As with other "Collections" methods, objects with a "length" property are iterated like arrays. To
 		avoid this behavior _.forIn or _.forOwn may be used for object iteration.
 	**/
-	@:overload(function(unknown:Dynamic):String { })
-	@:overload(function<T>(unknown:Dynamic):List_<T> { })
-	@:overload(function<T>(unknown:Dynamic):T { })
-	@:overload(function<T, TArray>(unknown:Dynamic):TArray { })
-	@:overload(function<TString>(unknown:Dynamic):TString { })
-	@:overload(function<T, TList>(unknown:Dynamic):TList { })
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	function forEach<T>(unknown:Dynamic):Array<T>;
+	@:overload(function(collection:String, ?iteratee:StringIterator<Dynamic>):String { })
+	@:overload(function<T>(collection:List_<T>, ?iteratee:ListIterator<T, Dynamic>):List_<T> { })
+	@:overload(function<T>(collection:T, ?iteratee:ObjectIterator<T, Dynamic>):T { })
+	@:overload(function<T, TArray>(collection:Dynamic, ?iteratee:ArrayIterator<T, Dynamic>):TArray { })
+	@:overload(function<TString>(collection:TString, ?iteratee:StringIterator<Dynamic>):TString { })
+	@:overload(function<T, TList>(collection:Dynamic, ?iteratee:ListIterator<T, Dynamic>):TList { })
+	@:overload(function<T>(collection:Null<T>, ?iteratee:ObjectIterator<T, Dynamic>):Null<T> { })
+	function forEach<T>(collection:Array<T>, ?iteratee:ArrayIterator<T, Dynamic>):Array<T>;
 	/**
 		This method is like _.forEach except that it iterates over elements of collection from right to left.
 	**/
-	@:overload(function(unknown:Dynamic):String { })
-	@:overload(function<T>(unknown:Dynamic):List_<T> { })
-	@:overload(function<T>(unknown:Dynamic):T { })
-	@:overload(function<T, TArray>(unknown:Dynamic):TArray { })
-	@:overload(function<TString>(unknown:Dynamic):TString { })
-	@:overload(function<T, TList>(unknown:Dynamic):TList { })
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	function forEachRight<T>(unknown:Dynamic):Array<T>;
+	@:overload(function(collection:String, ?iteratee:StringIterator<Dynamic>):String { })
+	@:overload(function<T>(collection:List_<T>, ?iteratee:ListIterator<T, Dynamic>):List_<T> { })
+	@:overload(function<T>(collection:T, ?iteratee:ObjectIterator<T, Dynamic>):T { })
+	@:overload(function<T, TArray>(collection:Dynamic, ?iteratee:ArrayIterator<T, Dynamic>):TArray { })
+	@:overload(function<TString>(collection:TString, ?iteratee:StringIterator<Dynamic>):TString { })
+	@:overload(function<T, TList>(collection:Dynamic, ?iteratee:ListIterator<T, Dynamic>):TList { })
+	@:overload(function<T>(collection:Null<T>, ?iteratee:ObjectIterator<T, Dynamic>):Null<T> { })
+	function forEachRight<T>(collection:Array<T>, ?iteratee:ArrayIterator<T, Dynamic>):Array<T>;
 	/**
 		Creates an object composed of keys generated from the results of running each element of collection through
 		iteratee. The corresponding value of each key is an array of the elements responsible for generating the
 		key. The iteratee is invoked with one argument: (value).
 	**/
-	@:overload(function<T>(unknown:Dynamic):Dictionary<Array<Dynamic>> { })
-	function groupBy<T>(unknown:Dynamic):Dictionary<Array<T>>;
+	@:overload(function<T>(collection:Null<T>, ?iteratee:ValueIteratee<Dynamic>):Dictionary<Array<Dynamic>> { })
+	function groupBy<T>(collection:Null<List_<T>>, ?iteratee:ValueIteratee<T>):Dictionary<Array<T>>;
 	/**
 		Checks if target is in collection using SameValueZero for equality comparisons. If fromIndex is negative,
 		it’s used as the offset from the end of collection.
 	**/
-	function includes<T>(unknown:Dynamic):Bool;
+	function includes<T>(collection:Null<ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>>, target:T, ?fromIndex:Float):Bool;
 	/**
 		Invokes the method named by methodName on each element in the collection returning
 		an array of the results of each invoked method. Additional arguments will be provided
 		to each invoked method. If methodName is a function it will be invoked for, and this
 		bound to, each element in the collection.
 	**/
-	@:overload(function<TResult>(unknown:Dynamic):Array<TResult> { })
-	function invokeMap(unknown:Dynamic):Array<Dynamic>;
+	@:overload(function<TResult>(collection:Null<Dynamic>, method:(args:haxe.extern.Rest<Dynamic>) -> TResult, args:haxe.extern.Rest<Dynamic>):Array<TResult> { })
+	function invokeMap(collection:Null<Dynamic>, methodName:String, args:haxe.extern.Rest<Dynamic>):Array<Dynamic>;
 	/**
 		Creates an object composed of keys generated from the results of running each element of collection through
 		iteratee. The corresponding value of each key is the last element responsible for generating the key. The
 		iteratee function is invoked with one argument: (value).
 	**/
-	@:overload(function<T>(unknown:Dynamic):Dictionary<Dynamic> { })
-	function keyBy<T>(unknown:Dynamic):Dictionary<T>;
+	@:overload(function<T>(collection:Null<T>, ?iteratee:ValueIterateeCustom<Dynamic, PropertyName>):Dictionary<Dynamic> { })
+	function keyBy<T>(collection:Null<List_<T>>, ?iteratee:ValueIterateeCustom<T, PropertyName>):Dictionary<T>;
 	/**
 		Creates an array of values by running each element in collection through iteratee. The iteratee is
 		invoked with three arguments: (value, index|key, collection).
@@ -625,32 +625,32 @@ typedef LoDashStatic = {
 		min, parseInt, slice, sortBy, take, takeRight, template, trim, trimLeft, trimRight, trunc, random, range,
 		sample, some, sum, uniq, and words
 	**/
-	@:overload(function<T, TResult>(unknown:Dynamic):Array<TResult> { })
-	@:overload(function<T, TResult>(unknown:Dynamic):Array<TResult> { })
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	@:overload(function<T, TResult>(unknown:Dynamic):Array<TResult> { })
-	@:overload(function<T, K>(unknown:Dynamic):Array<Dynamic> { })
-	@:overload(function<T>(unknown:Dynamic):Array<Dynamic> { })
-	@:overload(function<T>(unknown:Dynamic):Array<Bool> { })
-	function map<T, TResult>(unknown:Dynamic):Dynamic;
+	@:overload(function<T, TResult>(collection:Null<Array<T>>, iteratee:ArrayIterator<T, TResult>):Array<TResult> { })
+	@:overload(function<T, TResult>(collection:Null<List_<T>>, iteratee:ListIterator<T, TResult>):Array<TResult> { })
+	@:overload(function<T>(collection:Null<ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>>):Array<T> { })
+	@:overload(function<T, TResult>(collection:Null<T>, iteratee:ObjectIterator<T, TResult>):Array<TResult> { })
+	@:overload(function<T, K>(collection:Null<ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>>, iteratee:K):Array<Dynamic> { })
+	@:overload(function<T>(collection:Null<ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>>, ?iteratee:String):Array<Dynamic> { })
+	@:overload(function<T>(collection:Null<ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>>, ?iteratee:Dynamic):Array<Bool> { })
+	function map<T, TResult>(collection:T, iteratee:TupleIterator<T, TResult>):Dynamic;
 	/**
 		This method is like `_.sortBy` except that it allows specifying the sort
 		orders of the iteratees to sort by. If `orders` is unspecified, all values
 		are sorted in ascending order. Otherwise, specify an order of "desc" for
 		descending or "asc" for ascending sort order of corresponding values.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	@:overload(function<T>(unknown:Dynamic):Array<Dynamic> { })
-	@:overload(function<T>(unknown:Dynamic):Array<Dynamic> { })
-	function orderBy<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<T>(collection:Null<List_<T>>, ?iteratees:Many<ListIteratee<T>>, ?orders:Many<ts.AnyOf2<Bool, String>>):Array<T> { })
+	@:overload(function<T>(collection:Null<T>, ?iteratees:Many<ObjectIterator<T, Any>>, ?orders:Many<ts.AnyOf2<Bool, String>>):Array<Dynamic> { })
+	@:overload(function<T>(collection:Null<T>, ?iteratees:Many<ObjectIteratee<T>>, ?orders:Many<ts.AnyOf2<Bool, String>>):Array<Dynamic> { })
+	function orderBy<T>(collection:Null<List_<T>>, ?iteratees:Many<ListIterator<T, Any>>, ?orders:Many<ts.AnyOf2<Bool, String>>):Array<T>;
 	/**
 		Creates an array of elements split into two groups, the first of which contains elements predicate returns truthy for,
 		while the second of which contains elements predicate returns falsey for.
 		The predicate is invoked with three arguments: (value, index|key, collection).
 	**/
-	@:overload(function<T>(unknown:Dynamic):ts.Tuple2<Array<T>, Array<T>> { })
-	@:overload(function<T>(unknown:Dynamic):ts.Tuple2<Array<Dynamic>, Array<Dynamic>> { })
-	function partition<T, U>(unknown:Dynamic):ts.Tuple2<Array<U>, Array<{ }>>;
+	@:overload(function<T>(collection:Null<List_<T>>, callback:ValueIteratee<T>):ts.Tuple2<Array<T>, Array<T>> { })
+	@:overload(function<T>(collection:Null<T>, callback:ValueIteratee<Dynamic>):ts.Tuple2<Array<Dynamic>, Array<Dynamic>> { })
+	function partition<T, U>(collection:Null<List_<T>>, callback:ValueIteratorTypeGuard<T, U>):ts.Tuple2<Array<U>, Array<{ }>>;
 	/**
 		Reduces a collection to a value which is the accumulated result of running each
 		element in the collection through the callback, where each successive callback execution
@@ -658,79 +658,79 @@ typedef LoDashStatic = {
 		first element of the collection will be used as the initial accumulator value. The callback
 		is invoked with four arguments: (accumulator, value, index|key, collection).
 	**/
-	@:overload(function<T, TResult>(unknown:Dynamic):TResult { })
-	@:overload(function<T, TResult>(unknown:Dynamic):TResult { })
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	@:overload(function<T>(unknown:Dynamic):Null<Dynamic> { })
-	function reduce<T, TResult>(unknown:Dynamic):TResult;
+	@:overload(function<T, TResult>(collection:Null<List_<T>>, callback:MemoListIterator<T, TResult, List_<T>>, accumulator:TResult):TResult { })
+	@:overload(function<T, TResult>(collection:Null<T>, callback:MemoObjectIterator<Dynamic, TResult, T>, accumulator:TResult):TResult { })
+	@:overload(function<T>(collection:Null<Array<T>>, callback:MemoListIterator<T, T, Array<T>>):Null<T> { })
+	@:overload(function<T>(collection:Null<List_<T>>, callback:MemoListIterator<T, T, List_<T>>):Null<T> { })
+	@:overload(function<T>(collection:Null<T>, callback:MemoObjectIterator<Dynamic, Dynamic, T>):Null<Dynamic> { })
+	function reduce<T, TResult>(collection:Null<Array<T>>, callback:MemoListIterator<T, TResult, Array<T>>, accumulator:TResult):TResult;
 	/**
 		This method is like _.reduce except that it iterates over elements of a collection from
 		right to left.
 	**/
-	@:overload(function<T, TResult>(unknown:Dynamic):TResult { })
-	@:overload(function<T, TResult>(unknown:Dynamic):TResult { })
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	@:overload(function<T>(unknown:Dynamic):Null<Dynamic> { })
-	function reduceRight<T, TResult>(unknown:Dynamic):TResult;
+	@:overload(function<T, TResult>(collection:Null<List_<T>>, callback:MemoListIterator<T, TResult, List_<T>>, accumulator:TResult):TResult { })
+	@:overload(function<T, TResult>(collection:Null<T>, callback:MemoObjectIterator<Dynamic, TResult, T>, accumulator:TResult):TResult { })
+	@:overload(function<T>(collection:Null<Array<T>>, callback:MemoListIterator<T, T, Array<T>>):Null<T> { })
+	@:overload(function<T>(collection:Null<List_<T>>, callback:MemoListIterator<T, T, List_<T>>):Null<T> { })
+	@:overload(function<T>(collection:Null<T>, callback:MemoObjectIterator<Dynamic, Dynamic, T>):Null<Dynamic> { })
+	function reduceRight<T, TResult>(collection:Null<Array<T>>, callback:MemoListIterator<T, TResult, Array<T>>, accumulator:TResult):TResult;
 	/**
 		The opposite of _.filter; this method returns the elements of collection that predicate does not return
 		truthy for.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Array<T> { })
-	@:overload(function<T>(unknown:Dynamic):Array<Dynamic> { })
-	function reject(unknown:Dynamic):Array<String>;
+	@:overload(function<T>(collection:Null<List_<T>>, ?predicate:ListIterateeCustom<T, Bool>):Array<T> { })
+	@:overload(function<T>(collection:Null<T>, ?predicate:ObjectIterateeCustom<T, Bool>):Array<Dynamic> { })
+	function reject(collection:Null<String>, ?predicate:StringIterator<Bool>):Array<String>;
 	/**
 		Gets a random element from collection.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	@:overload(function<T>(unknown:Dynamic):Null<Dynamic> { })
-	function sample<T>(unknown:Dynamic):T;
+	@:overload(function<T>(collection:Null<ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>>):Null<T> { })
+	@:overload(function<T>(collection:Null<T>):Null<Dynamic> { })
+	function sample<T>(collection:ts.Tuple2<T, T>):T;
 	/**
 		Gets n random elements at unique keys from collection up to the size of collection.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Array<Dynamic> { })
-	function sampleSize<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<T>(collection:Null<T>, ?n:Float):Array<Dynamic> { })
+	function sampleSize<T>(collection:Null<ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>>, ?n:Float):Array<T>;
 	/**
 		Creates an array of shuffled values, using a version of the Fisher-Yates shuffle.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Array<Dynamic> { })
-	function shuffle<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<T>(collection:Null<T>):Array<Dynamic> { })
+	function shuffle<T>(collection:Null<List_<T>>):Array<T>;
 	/**
 		Gets the size of collection by returning its length for array-like values or the number of own enumerable
 		properties for objects.
 	**/
-	function size(unknown:Dynamic):Float;
+	function size(collection:Null<ts.AnyOf2<String, Dynamic>>):Float;
 	/**
 		Checks if predicate returns truthy for any element of collection. Iteration is stopped once predicate
 		returns truthy. The predicate is invoked with three arguments: (value, index|key, collection).
 	**/
-	@:overload(function<T>(unknown:Dynamic):Bool { })
-	function some<T>(unknown:Dynamic):Bool;
+	@:overload(function<T>(collection:Null<T>, ?predicate:ObjectIterateeCustom<T, Bool>):Bool { })
+	function some<T>(collection:Null<List_<T>>, ?predicate:ListIterateeCustom<T, Bool>):Bool;
 	/**
 		Creates an array of elements, sorted in ascending order by the results of
 		running each element in a collection through each iteratee. This method
 		performs a stable sort, that is, it preserves the original sort order of
 		equal elements. The iteratees are invoked with one argument: (value).
 	**/
-	@:overload(function<T>(unknown:Dynamic):Array<Dynamic> { })
-	function sortBy<T>(unknown:Dynamic):Array<T>;
-	function now(unknown:Dynamic):Float;
+	@:overload(function<T>(collection:Null<T>, iteratees:haxe.extern.Rest<Many<ObjectIteratee<T>>>):Array<Dynamic> { })
+	function sortBy<T>(collection:Null<List_<T>>, iteratees:haxe.extern.Rest<Many<ListIteratee<T>>>):Array<T>;
+	function now():Float;
 	/**
 		The opposite of _.before; this method creates a function that invokes func once it’s called n or more times.
 	**/
-	function after<TFunc>(unknown:Dynamic):TFunc;
+	function after<TFunc>(n:Float, func:TFunc):TFunc;
 	/**
 		Creates a function that accepts up to n arguments ignoring any additional arguments.
 	**/
-	function ary(unknown:Dynamic):(unknown:Dynamic) -> Dynamic;
+	function ary(func:(args:haxe.extern.Rest<Dynamic>) -> Dynamic, ?n:Float):(args:haxe.extern.Rest<Dynamic>) -> Dynamic;
 	/**
 		Creates a function that invokes func, with the this binding and arguments of the created function, while
 		it’s called less than n times. Subsequent calls to the created function return the result of the last func
 		invocation.
 	**/
-	function before<TFunc>(unknown:Dynamic):TFunc;
+	function before<TFunc>(n:Float, func:TFunc):TFunc;
 	/**
 		Creates a function that invokes func with the this binding of thisArg and prepends any additional _.bind
 		arguments to those provided to the bound function.
@@ -766,21 +766,21 @@ typedef LoDashStatic = {
 		
 		See David Corbacho’s article for details over the differences between _.debounce and _.throttle.
 	**/
-	@:overload(function<T>(unknown:Dynamic):DebouncedFunc<T> { })
-	function debounce<T>(unknown:Dynamic):DebouncedFuncLeading<T>;
+	@:overload(function<T>(func:T, ?wait:Float, ?options:DebounceSettings):DebouncedFunc<T> { })
+	function debounce<T>(func:T, wait:Null<Float>, options:DebounceSettingsLeading):DebouncedFuncLeading<T>;
 	/**
 		Defers invoking the func until the current call stack has cleared. Any additional arguments are provided to
 		func when it’s invoked.
 	**/
-	function defer(unknown:Dynamic):Float;
+	function defer(func:(args:haxe.extern.Rest<Dynamic>) -> Dynamic, args:haxe.extern.Rest<Dynamic>):Float;
 	/**
 		Invokes func after wait milliseconds. Any additional arguments are provided to func when it’s invoked.
 	**/
-	function delay(unknown:Dynamic):Float;
+	function delay(func:(args:haxe.extern.Rest<Dynamic>) -> Dynamic, wait:Float, args:haxe.extern.Rest<Dynamic>):Float;
 	/**
 		Creates a function that invokes `func` with arguments reversed.
 	**/
-	function flip<T>(unknown:Dynamic):T;
+	function flip<T>(func:T):T;
 	/**
 		Creates a function that memoizes the result of func. If resolver is provided it determines the cache key for
 		storing the result based on the arguments provided to the memoized function. By default, the first argument
@@ -789,23 +789,23 @@ typedef LoDashStatic = {
 	**/
 	var memoize : {
 		@:selfCall
-		function call<T>(unknown:Dynamic):Dynamic;
+		function call<T>(func:T, ?resolver:(args:haxe.extern.Rest<Any>) -> Dynamic):Dynamic;
 		var Cache : MapCacheConstructor;
 	};
 	/**
 		Creates a function that negates the result of the predicate func. The func predicate is invoked with
 		the this binding and arguments of the created function.
 	**/
-	function negate<T>(unknown:Dynamic):(unknown:Dynamic) -> Bool;
+	function negate<T>(predicate:(args:haxe.extern.Rest<Any>) -> Bool):(args:haxe.extern.Rest<Any>) -> Bool;
 	/**
 		Creates a function that is restricted to invoking func once. Repeat calls to the function return the value
 		of the first call. The func is invoked with the this binding and arguments of the created function.
 	**/
-	function once<T>(unknown:Dynamic):T;
+	function once<T>(func:T):T;
 	/**
 		Creates a function that runs each argument through a corresponding transform function.
 	**/
-	function overArgs(unknown:Dynamic):(unknown:Dynamic) -> Dynamic;
+	function overArgs(func:(args:haxe.extern.Rest<Dynamic>) -> Dynamic, transforms:haxe.extern.Rest<Many<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>>):(args:haxe.extern.Rest<Dynamic>) -> Dynamic;
 	/**
 		Creates a function that, when called, invokes func with any additional partial arguments
 		prepended to those provided to the new function. This method is similar to _.bind except
@@ -822,21 +822,21 @@ typedef LoDashStatic = {
 		argument value at the first index is provided as the first argument, the argument value at the second index
 		is provided as the second argument, and so on.
 	**/
-	function rearg(unknown:Dynamic):(unknown:Dynamic) -> Dynamic;
+	function rearg(func:(args:haxe.extern.Rest<Dynamic>) -> Dynamic, indexes:haxe.extern.Rest<Many<Float>>):(args:haxe.extern.Rest<Dynamic>) -> Dynamic;
 	/**
 		Creates a function that invokes func with the this binding of the created function and arguments from start
 		and beyond provided as an array.
 		
 		Note: This method is based on the rest parameter.
 	**/
-	function rest(unknown:Dynamic):(unknown:Dynamic) -> Dynamic;
+	function rest(func:(args:haxe.extern.Rest<Dynamic>) -> Dynamic, ?start:Float):(args:haxe.extern.Rest<Dynamic>) -> Dynamic;
 	/**
 		Creates a function that invokes func with the this binding of the created function and an array of arguments
 		much like Function#apply.
 		
 		Note: This method is based on the spread operator.
 	**/
-	function spread<TResult>(unknown:Dynamic):(unknown:Dynamic) -> TResult;
+	function spread<TResult>(func:(args:haxe.extern.Rest<Dynamic>) -> TResult, ?start:Float):(args:haxe.extern.Rest<Dynamic>) -> TResult;
 	/**
 		Creates a throttled function that only invokes func at most once per every wait milliseconds. The throttled
 		function comes with a cancel method to cancel delayed invocations and a flush method to immediately invoke
@@ -846,23 +846,23 @@ typedef LoDashStatic = {
 		Note: If leading and trailing options are true, func is invoked on the trailing edge of the timeout only if
 		the the throttled function is invoked more than once during the wait timeout.
 	**/
-	@:overload(function<T>(unknown:Dynamic):DebouncedFunc<T> { })
-	function throttle<T>(unknown:Dynamic):DebouncedFuncLeading<T>;
+	@:overload(function<T>(func:T, ?wait:Float, ?options:ThrottleSettings):DebouncedFunc<T> { })
+	function throttle<T>(func:T, ?wait:Float, ?options:ThrottleSettingsLeading):DebouncedFuncLeading<T>;
 	/**
 		Creates a function that accepts up to one argument, ignoring any
 		additional arguments.
 	**/
-	function unary<T, TResult>(unknown:Dynamic):(unknown:Dynamic) -> TResult;
+	function unary<T, TResult>(func:(arg1:T, args:haxe.extern.Rest<Dynamic>) -> TResult):(arg1:T) -> TResult;
 	/**
 		Creates a function that provides value to the wrapper function as its first argument. Any additional
 		arguments provided to the function are appended to those provided to the wrapper function. The wrapper is
 		invoked with the this binding of the created function.
 	**/
-	function wrap<T, TArgs, TResult>(unknown:Dynamic):(unknown:Dynamic) -> TResult;
+	function wrap<T, TArgs, TResult>(value:T, wrapper:(value:T, args:haxe.extern.Rest<TArgs>) -> TResult):(args:haxe.extern.Rest<TArgs>) -> TResult;
 	/**
 		Casts value as an array if it’s not one.
 	**/
-	function castArray<T>(unknown:Dynamic):Array<T>;
+	function castArray<T>(?value:ts.AnyOf2<haxe.ds.ReadOnlyArray<T>, T>):Array<T>;
 	/**
 		Creates a shallow clone of value.
 		
@@ -871,97 +871,97 @@ typedef LoDashStatic = {
 		and typed arrays. The own enumerable properties of arguments objects are cloned as plain objects. An empty
 		object is returned for uncloneable values such as error objects, functions, DOM nodes, and WeakMaps.
 	**/
-	function clone<T>(unknown:Dynamic):T;
+	function clone<T>(value:T):T;
 	/**
 		This method is like _.clone except that it recursively clones value.
 	**/
-	function cloneDeep<T>(unknown:Dynamic):T;
+	function cloneDeep<T>(value:T):T;
 	/**
 		This method is like _.cloneWith except that it recursively clones value.
 	**/
-	@:overload(function<T>(unknown:Dynamic):T { })
-	function cloneDeepWith<T>(unknown:Dynamic):Dynamic;
+	@:overload(function<T>(value:T):T { })
+	function cloneDeepWith<T>(value:T, customizer:CloneDeepWithCustomizer<T>):Dynamic;
 	/**
 		This method is like _.clone except that it accepts customizer which is invoked to produce the cloned value.
 		If customizer returns undefined cloning is handled by the method instead.
 	**/
-	@:overload(function<T, TResult>(unknown:Dynamic):ts.AnyOf2<T, TResult> { })
-	@:overload(function<T>(unknown:Dynamic):T { })
-	function cloneWith<T, TResult>(unknown:Dynamic):TResult;
+	@:overload(function<T, TResult>(value:T, customizer:CloneWithCustomizer<T, Null<TResult>>):ts.AnyOf2<TResult, T> { })
+	@:overload(function<T>(value:T):T { })
+	function cloneWith<T, TResult>(value:T, customizer:CloneWithCustomizer<T, TResult>):TResult;
 	/**
 		Checks if object conforms to source by invoking the predicate properties of source with the
 		corresponding property values of object.
 		
 		Note: This method is equivalent to _.conforms when source is partially applied.
 	**/
-	function conformsTo<T>(unknown:Dynamic):Bool;
+	function conformsTo<T>(object:T, source:{ }):Bool;
 	/**
 		Performs a [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
 		comparison between two values to determine if they are equivalent.
 	**/
-	function eq(unknown:Dynamic):Bool;
+	function eq(value:Dynamic, other:Dynamic):Bool;
 	/**
 		Checks if value is greater than other.
 	**/
-	function gt(unknown:Dynamic):Bool;
+	function gt(value:Dynamic, other:Dynamic):Bool;
 	/**
 		Checks if value is greater than or equal to other.
 	**/
-	function gte(unknown:Dynamic):Bool;
+	function gte(value:Dynamic, other:Dynamic):Bool;
 	/**
 		Checks if value is classified as an arguments object.
 	**/
-	function isArguments(unknown:Dynamic):Bool;
+	function isArguments(?value:Dynamic):Bool;
 	/**
 		Checks if value is classified as an Array object.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Bool { })
-	function isArray(unknown:Dynamic):Bool;
+	@:overload(function<T>(?value:Dynamic):Bool { })
+	function isArray(?value:Dynamic):Bool;
 	/**
 		Checks if value is classified as an ArrayBuffer object.
 	**/
-	function isArrayBuffer(unknown:Dynamic):Bool;
+	function isArrayBuffer(?value:Dynamic):Bool;
 	/**
 		Checks if `value` is array-like. A value is considered array-like if it's
 		not a function and has a `value.length` that's an integer greater than or
 		equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
 	**/
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	function isArrayLike<T>(unknown:Dynamic):Bool;
+	@:overload(function(value:Null<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>):Bool { })
+	@:overload(function(value:Dynamic):Bool { })
+	function isArrayLike<T>(t:T):Bool;
 	/**
 		This method is like `_.isArrayLike` except that it also checks if `value`
 		is an object.
 	**/
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	function isArrayLikeObject<T>(unknown:Dynamic):Bool;
+	@:overload(function(value:Null<ts.AnyOf5<String, Float, Bool, haxe.Constraints.Function, (args:haxe.extern.Rest<Dynamic>) -> Dynamic>>):Bool { })
+	@:overload(function(value:Dynamic):Bool { })
+	function isArrayLikeObject<T>(value:T):Bool;
 	/**
 		Checks if value is classified as a boolean primitive or object.
 	**/
-	function isBoolean(unknown:Dynamic):Bool;
+	function isBoolean(?value:Dynamic):Bool;
 	/**
 		Checks if value is a buffer.
 	**/
-	function isBuffer(unknown:Dynamic):Bool;
+	function isBuffer(?value:Dynamic):Bool;
 	/**
 		Checks if value is classified as a Date object.
 	**/
-	function isDate(unknown:Dynamic):Bool;
+	function isDate(?value:Dynamic):Bool;
 	/**
 		Checks if value is a DOM element.
 	**/
-	function isElement(unknown:Dynamic):Bool;
+	function isElement(?value:Dynamic):Bool;
 	/**
 		Checks if value is empty. A value is considered empty unless it’s an arguments object, array, string, or
 		jQuery-like collection with a length greater than 0 or an object with own enumerable properties.
 	**/
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function<T>(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	function isEmpty<T>(unknown:Dynamic):Bool;
+	@:overload(function(value:String):Bool { })
+	@:overload(function(value:Null<ts.AnyOf3<js.lib.Map<Dynamic, Dynamic>, js.lib.Set<Dynamic>, List_<Dynamic>>>):Bool { })
+	@:overload(function(value:Dynamic):Bool { })
+	@:overload(function<T>(value:Null<T>):Bool { })
+	@:overload(function(?value:Dynamic):Bool { })
+	function isEmpty<T>(?value:T):Bool;
 	/**
 		Performs a deep comparison between two values to determine if they are
 		equivalent.
@@ -972,276 +972,276 @@ typedef LoDashStatic = {
 		by their own, not inherited, enumerable properties. Functions and DOM
 		nodes are **not** supported.
 	**/
-	function isEqual(unknown:Dynamic):Bool;
+	function isEqual(value:Dynamic, other:Dynamic):Bool;
 	/**
 		This method is like `_.isEqual` except that it accepts `customizer` which is
 		invoked to compare values. If `customizer` returns `undefined` comparisons are
 		handled by the method instead. The `customizer` is invoked with up to seven arguments:
 		(objValue, othValue [, index|key, object, other, stack]).
 	**/
-	function isEqualWith(unknown:Dynamic):Bool;
+	function isEqualWith(value:Dynamic, other:Dynamic, ?customizer:IsEqualCustomizer):Bool;
 	/**
 		Checks if value is an Error, EvalError, RangeError, ReferenceError, SyntaxError, TypeError, or URIError
 		object.
 	**/
-	function isError(unknown:Dynamic):Bool;
+	function isError(value:Dynamic):Bool;
 	/**
 		Checks if value is a finite primitive number.
 		
 		Note: This method is based on Number.isFinite.
 	**/
-	function isFinite(unknown:Dynamic):Bool;
+	function isFinite(?value:Dynamic):Bool;
 	/**
 		Checks if value is a callable function.
 	**/
-	function isFunction(unknown:Dynamic):Bool;
+	function isFunction(value:Dynamic):Bool;
 	/**
 		Checks if `value` is an integer.
 		
 		**Note:** This method is based on [`Number.isInteger`](https://mdn.io/Number/isInteger).
 	**/
-	function isInteger(unknown:Dynamic):Bool;
+	function isInteger(?value:Dynamic):Bool;
 	/**
 		Checks if `value` is a valid array-like length.
 		
 		**Note:** This function is loosely based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
 	**/
-	function isLength(unknown:Dynamic):Bool;
+	function isLength(?value:Dynamic):Bool;
 	/**
 		Checks if value is classified as a Map object.
 	**/
-	function isMap(unknown:Dynamic):Bool;
+	function isMap(?value:Dynamic):Bool;
 	/**
 		Performs a deep comparison between `object` and `source` to determine if
 		`object` contains equivalent property values.
 		
 		**Note:** This method supports comparing the same values as `_.isEqual`.
 	**/
-	function isMatch(unknown:Dynamic):Bool;
+	function isMatch(object:Dynamic, source:Dynamic):Bool;
 	/**
 		This method is like `_.isMatch` except that it accepts `customizer` which
 		is invoked to compare values. If `customizer` returns `undefined` comparisons
 		are handled by the method instead. The `customizer` is invoked with three
 		arguments: (objValue, srcValue, index|key, object, source).
 	**/
-	function isMatchWith(unknown:Dynamic):Bool;
+	function isMatchWith(object:Dynamic, source:Dynamic, customizer:IsMatchWithCustomizer):Bool;
 	/**
 		Checks if value is NaN.
 		
 		Note: This method is not the same as isNaN which returns true for undefined and other non-numeric values.
 	**/
-	function isNaN(unknown:Dynamic):Bool;
+	function isNaN(?value:Dynamic):Bool;
 	/**
 		Checks if value is a native function.
 	**/
-	function isNative(unknown:Dynamic):Bool;
+	function isNative(value:Dynamic):Bool;
 	/**
 		Checks if `value` is `null` or `undefined`.
 	**/
-	function isNil(unknown:Dynamic):Bool;
+	function isNil(value:Dynamic):Bool;
 	/**
 		Checks if value is null.
 	**/
-	function isNull(unknown:Dynamic):Bool;
+	function isNull(value:Dynamic):Bool;
 	/**
 		Checks if value is classified as a Number primitive or object.
 		
 		Note: To exclude Infinity, -Infinity, and NaN, which are classified as numbers, use the _.isFinite method.
 	**/
-	function isNumber(unknown:Dynamic):Bool;
+	function isNumber(?value:Dynamic):Bool;
 	/**
 		Checks if value is the language type of Object. (e.g. arrays, functions, objects, regexes, new Number(0),
 		and new String(''))
 	**/
-	function isObject(unknown:Dynamic):Bool;
+	function isObject(?value:Dynamic):Bool;
 	/**
 		Checks if `value` is object-like. A value is object-like if it's not `null`
 		and has a `typeof` result of "object".
 	**/
-	function isObjectLike(unknown:Dynamic):Bool;
+	function isObjectLike(?value:Dynamic):Bool;
 	/**
 		Checks if value is a plain object, that is, an object created by the Object constructor or one with a
 		[[Prototype]] of null.
 		
 		Note: This method assumes objects created by the Object constructor have no inherited enumerable properties.
 	**/
-	function isPlainObject(unknown:Dynamic):Bool;
+	function isPlainObject(?value:Dynamic):Bool;
 	/**
 		Checks if value is classified as a RegExp object.
 	**/
-	function isRegExp(unknown:Dynamic):Bool;
+	function isRegExp(?value:Dynamic):Bool;
 	/**
 		Checks if `value` is a safe integer. An integer is safe if it's an IEEE-754
 		double precision number which isn't the result of a rounded unsafe integer.
 		
 		**Note:** This method is based on [`Number.isSafeInteger`](https://mdn.io/Number/isSafeInteger).
 	**/
-	function isSafeInteger(unknown:Dynamic):Bool;
+	function isSafeInteger(value:Dynamic):Bool;
 	/**
 		Checks if value is classified as a Set object.
 	**/
-	function isSet(unknown:Dynamic):Bool;
+	function isSet(?value:Dynamic):Bool;
 	/**
 		Checks if value is classified as a String primitive or object.
 	**/
-	function isString(unknown:Dynamic):Bool;
+	function isString(?value:Dynamic):Bool;
 	/**
 		Checks if `value` is classified as a `Symbol` primitive or object.
 	**/
-	function isSymbol(unknown:Dynamic):Bool;
+	function isSymbol(value:Dynamic):Bool;
 	/**
 		Checks if value is classified as a typed array.
 	**/
-	function isTypedArray(unknown:Dynamic):Bool;
+	function isTypedArray(value:Dynamic):Bool;
 	/**
 		Checks if value is undefined.
 	**/
-	function isUndefined(unknown:Dynamic):Bool;
+	function isUndefined(value:Dynamic):Bool;
 	/**
 		Checks if value is classified as a WeakMap object.
 	**/
-	function isWeakMap(unknown:Dynamic):Bool;
+	function isWeakMap(?value:Dynamic):Bool;
 	/**
 		Checks if value is classified as a WeakSet object.
 	**/
-	function isWeakSet(unknown:Dynamic):Bool;
+	function isWeakSet(?value:Dynamic):Bool;
 	/**
 		Checks if value is less than other.
 	**/
-	function lt(unknown:Dynamic):Bool;
+	function lt(value:Dynamic, other:Dynamic):Bool;
 	/**
 		Checks if value is less than or equal to other.
 	**/
-	function lte(unknown:Dynamic):Bool;
+	function lte(value:Dynamic, other:Dynamic):Bool;
 	/**
 		Converts value to an array.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Array<Dynamic> { })
-	@:overload(function(unknown:Dynamic):Array<Dynamic> { })
-	function toArray<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<T>(value:T):Array<Dynamic> { })
+	@:overload(function():Array<Dynamic> { })
+	function toArray<T>(value:Null<ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>>):Array<T>;
 	/**
 		Converts `value` to a finite number.
 	**/
-	function toFinite(unknown:Dynamic):Float;
+	function toFinite(value:Dynamic):Float;
 	/**
 		Converts `value` to an integer.
 		
 		**Note:** This function is loosely based on [`ToInteger`](http://www.ecma-international.org/ecma-262/6.0/#sec-tointeger).
 	**/
-	function toInteger(unknown:Dynamic):Float;
+	function toInteger(value:Dynamic):Float;
 	/**
 		Converts `value` to an integer suitable for use as the length of an
 		array-like object.
 		
 		**Note:** This method is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
 	**/
-	function toLength(unknown:Dynamic):Float;
+	function toLength(value:Dynamic):Float;
 	/**
 		Converts `value` to a number.
 	**/
-	function toNumber(unknown:Dynamic):Float;
+	function toNumber(value:Dynamic):Float;
 	/**
 		Converts value to a plain object flattening inherited enumerable properties of value to own properties
 		of the plain object.
 	**/
-	function toPlainObject(unknown:Dynamic):Dynamic;
+	function toPlainObject(?value:Dynamic):Dynamic;
 	/**
 		Converts `value` to a safe integer. A safe integer can be compared and
 		represented correctly.
 	**/
-	function toSafeInteger(unknown:Dynamic):Float;
+	function toSafeInteger(value:Dynamic):Float;
 	/**
 		Converts `value` to a string if it's not one. An empty string is returned
 		for `null` and `undefined` values. The sign of `-0` is preserved.
 	**/
-	function toString(unknown:Dynamic):String;
+	function toString(value:Dynamic):String;
 	/**
 		Adds two numbers.
 	**/
-	function add(unknown:Dynamic):Float;
+	function add(augend:Float, addend:Float):Float;
 	/**
 		Calculates n rounded up to precision.
 	**/
-	function ceil(unknown:Dynamic):Float;
+	function ceil(n:Float, ?precision:Float):Float;
 	/**
 		Divide two numbers.
 	**/
-	function divide(unknown:Dynamic):Float;
+	function divide(dividend:Float, divisor:Float):Float;
 	/**
 		Calculates n rounded down to precision.
 	**/
-	function floor(unknown:Dynamic):Float;
+	function floor(n:Float, ?precision:Float):Float;
 	/**
 		Computes the maximum value of `array`. If `array` is empty or falsey
 		`undefined` is returned.
 	**/
-	function max<T>(unknown:Dynamic):Null<T>;
+	function max<T>(collection:Null<List_<T>>):Null<T>;
 	/**
 		This method is like `_.max` except that it accepts `iteratee` which is
 		invoked for each element in `array` to generate the criterion by which
 		the value is ranked. The iteratee is invoked with one argument: (value).
 	**/
-	function maxBy<T>(unknown:Dynamic):Null<T>;
+	function maxBy<T>(collection:Null<List_<T>>, ?iteratee:ValueIteratee<T>):Null<T>;
 	/**
 		Computes the mean of the values in `array`.
 	**/
-	function mean(unknown:Dynamic):Float;
+	function mean(collection:Null<List_<Dynamic>>):Float;
 	/**
 		Computes the mean of the provided properties of the objects in the `array`
 	**/
-	function meanBy<T>(unknown:Dynamic):Float;
+	function meanBy<T>(collection:Null<List_<T>>, ?iteratee:ValueIteratee<T>):Float;
 	/**
 		Computes the minimum value of `array`. If `array` is empty or falsey
 		`undefined` is returned.
 	**/
-	function min<T>(unknown:Dynamic):Null<T>;
+	function min<T>(collection:Null<List_<T>>):Null<T>;
 	/**
 		This method is like `_.min` except that it accepts `iteratee` which is
 		invoked for each element in `array` to generate the criterion by which
 		the value is ranked. The iteratee is invoked with one argument: (value).
 	**/
-	function minBy<T>(unknown:Dynamic):Null<T>;
+	function minBy<T>(collection:Null<List_<T>>, ?iteratee:ValueIteratee<T>):Null<T>;
 	/**
 		Multiply two numbers.
 	**/
-	function multiply(unknown:Dynamic):Float;
+	function multiply(multiplier:Float, multiplicand:Float):Float;
 	/**
 		Calculates n rounded to precision.
 	**/
-	function round(unknown:Dynamic):Float;
+	function round(n:Float, ?precision:Float):Float;
 	/**
 		Subtract two numbers.
 	**/
-	function subtract(unknown:Dynamic):Float;
+	function subtract(minuend:Float, subtrahend:Float):Float;
 	/**
 		Computes the sum of the values in `array`.
 	**/
-	function sum(unknown:Dynamic):Float;
+	function sum(collection:Null<List_<Dynamic>>):Float;
 	/**
 		This method is like `_.sum` except that it accepts `iteratee` which is
 		invoked for each element in `array` to generate the value to be summed.
 		The iteratee is invoked with one argument: (value).
 	**/
-	function sumBy<T>(unknown:Dynamic):Float;
+	function sumBy<T>(collection:Null<List_<T>>, ?iteratee:ts.AnyOf2<String, (value:T) -> Float>):Float;
 	/**
 		Clamps `number` within the inclusive `lower` and `upper` bounds.
 	**/
-	@:overload(function(unknown:Dynamic):Float { })
-	function clamp(unknown:Dynamic):Float;
+	@:overload(function(number:Float, upper:Float):Float { })
+	function clamp(number:Float, lower:Float, upper:Float):Float;
 	/**
 		Checks if n is between start and up to but not including, end. If end is not specified it’s set to start
 		with start then set to 0.
 	**/
-	function inRange(unknown:Dynamic):Bool;
+	function inRange(n:Float, start:Float, ?end:Float):Bool;
 	/**
 		Produces a random number between min and max (inclusive). If only one argument is provided a number between
 		0 and the given number is returned. If floating is true, or either min or max are floats, a floating-point
 		number is returned instead of an integer.
 	**/
-	@:overload(function(unknown:Dynamic):Float { })
-	@:overload(function(unknown:Dynamic):Float { })
-	@:overload(function(unknown:Dynamic):Float { })
-	function random(unknown:Dynamic):Float;
+	@:overload(function(max:Float, ?floating:Bool):Float { })
+	@:overload(function(min:Float, max:Float, ?floating:Bool):Float { })
+	@:overload(function(min:Float, index:ts.AnyOf2<String, Float>, guard:Dynamic):Float { })
+	function random(?floating:Bool):Float;
 	/**
 		Assigns own enumerable properties of source objects to the destination
 		object. Source objects are applied from left to right. Subsequent sources
@@ -1250,24 +1250,24 @@ typedef LoDashStatic = {
 		**Note:** This method mutates `object` and is loosely based on
 		[`Object.assign`](https://mdn.io/Object/assign).
 	**/
-	@:overload(function<TObject, TSource1, TSource2>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject>(unknown:Dynamic):TObject { })
-	@:overload(function(unknown:Dynamic):Dynamic { })
-	function assign<TObject, TSource>(unknown:Dynamic):Dynamic;
+	@:overload(function<TObject, TSource1, TSource2>(object:TObject, source1:TSource1, source2:TSource2):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4):Dynamic { })
+	@:overload(function<TObject>(object:TObject):TObject { })
+	@:overload(function(object:Dynamic, otherArgs:haxe.extern.Rest<Dynamic>):Dynamic { })
+	function assign<TObject, TSource>(object:TObject, source:TSource):Dynamic;
 	/**
 		This method is like `_.assign` except that it iterates over own and
 		inherited source properties.
 		
 		**Note:** This method mutates `object`.
 	**/
-	@:overload(function<TObject, TSource1, TSource2>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject>(unknown:Dynamic):TObject { })
-	@:overload(function<TResult>(unknown:Dynamic):TResult { })
-	function assignIn<TObject, TSource>(unknown:Dynamic):Dynamic;
+	@:overload(function<TObject, TSource1, TSource2>(object:TObject, source1:TSource1, source2:TSource2):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4):Dynamic { })
+	@:overload(function<TObject>(object:TObject):TObject { })
+	@:overload(function<TResult>(object:Dynamic, otherArgs:haxe.extern.Rest<Dynamic>):TResult { })
+	function assignIn<TObject, TSource>(object:TObject, source:TSource):Dynamic;
 	/**
 		This method is like `_.assignIn` except that it accepts `customizer` which
 		is invoked to produce the assigned values. If `customizer` returns `undefined`
@@ -1276,12 +1276,12 @@ typedef LoDashStatic = {
 		
 		**Note:** This method mutates `object`.
 	**/
-	@:overload(function<TObject, TSource1, TSource2>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject>(unknown:Dynamic):TObject { })
-	@:overload(function<TResult>(unknown:Dynamic):TResult { })
-	function assignInWith<TObject, TSource>(unknown:Dynamic):Dynamic;
+	@:overload(function<TObject, TSource1, TSource2>(object:TObject, source1:TSource1, source2:TSource2, customizer:AssignCustomizer):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3, customizer:AssignCustomizer):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4, customizer:AssignCustomizer):Dynamic { })
+	@:overload(function<TObject>(object:TObject):TObject { })
+	@:overload(function<TResult>(object:Dynamic, otherArgs:haxe.extern.Rest<Dynamic>):TResult { })
+	function assignInWith<TObject, TSource>(object:TObject, source:TSource, customizer:AssignCustomizer):Dynamic;
 	/**
 		This method is like `_.assign` except that it accepts `customizer` which
 		is invoked to produce the assigned values. If `customizer` returns `undefined`
@@ -1290,23 +1290,23 @@ typedef LoDashStatic = {
 		
 		**Note:** This method mutates `object`.
 	**/
-	@:overload(function<TObject, TSource1, TSource2>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject>(unknown:Dynamic):TObject { })
-	@:overload(function<TResult>(unknown:Dynamic):TResult { })
-	function assignWith<TObject, TSource>(unknown:Dynamic):Dynamic;
+	@:overload(function<TObject, TSource1, TSource2>(object:TObject, source1:TSource1, source2:TSource2, customizer:AssignCustomizer):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3, customizer:AssignCustomizer):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4, customizer:AssignCustomizer):Dynamic { })
+	@:overload(function<TObject>(object:TObject):TObject { })
+	@:overload(function<TResult>(object:Dynamic, otherArgs:haxe.extern.Rest<Dynamic>):TResult { })
+	function assignWith<TObject, TSource>(object:TObject, source:TSource, customizer:AssignCustomizer):Dynamic;
 	/**
 		Creates an array of elements corresponding to the given keys, or indexes, of collection. Keys may be
 		specified as individual arguments or as arrays of keys.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Array<Dynamic> { })
-	function at<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<T>(object:Null<T>, props:haxe.extern.Rest<Many<Dynamic>>):Array<Dynamic> { })
+	function at<T>(object:Null<ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>>, props:haxe.extern.Rest<PropertyPath>):Array<T>;
 	/**
 		Creates an object that inherits from the given prototype object. If a properties object is provided its own
 		enumerable properties are assigned to the created object.
 	**/
-	function create<T, U>(unknown:Dynamic):Dynamic;
+	function create<T, U>(prototype:T, ?properties:U):Dynamic;
 	/**
 		Assigns own enumerable properties of source object(s) to the destination object for all destination
 		properties that resolve to undefined. Once a property is set, additional values of the same property are
@@ -1314,159 +1314,159 @@ typedef LoDashStatic = {
 		
 		Note: This method mutates object.
 	**/
-	@:overload(function<TObject, TSource1, TSource2>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject>(unknown:Dynamic):TObject { })
-	@:overload(function(unknown:Dynamic):Dynamic { })
-	function defaults<TObject, TSource>(unknown:Dynamic):Dynamic;
+	@:overload(function<TObject, TSource1, TSource2>(object:TObject, source1:TSource1, source2:TSource2):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4):Dynamic { })
+	@:overload(function<TObject>(object:TObject):TObject { })
+	@:overload(function(object:Dynamic, sources:haxe.extern.Rest<Dynamic>):Dynamic { })
+	function defaults<TObject, TSource>(object:TObject, source:TSource):Dynamic;
 	/**
 		This method is like _.defaults except that it recursively assigns default properties.
 	**/
-	function defaultsDeep(unknown:Dynamic):Dynamic;
-	@:overload(function(unknown:Dynamic):Array<ts.Tuple2<String, Dynamic>> { })
-	function entries<T>(unknown:Dynamic):Array<ts.Tuple2<String, T>>;
-	@:overload(function(unknown:Dynamic):Array<ts.Tuple2<String, Dynamic>> { })
-	function entriesIn<T>(unknown:Dynamic):Array<ts.Tuple2<String, T>>;
-	@:overload(function<TObject, TSource1, TSource2>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject>(unknown:Dynamic):TObject { })
-	@:overload(function<TResult>(unknown:Dynamic):TResult { })
-	function extend<TObject, TSource>(unknown:Dynamic):Dynamic;
-	@:overload(function<TObject, TSource1, TSource2>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject>(unknown:Dynamic):TObject { })
-	@:overload(function<TResult>(unknown:Dynamic):TResult { })
-	function extendWith<TObject, TSource>(unknown:Dynamic):Dynamic;
+	function defaultsDeep(object:Dynamic, sources:haxe.extern.Rest<Dynamic>):Dynamic;
+	@:overload(function(?object:Dynamic):Array<ts.Tuple2<String, Dynamic>> { })
+	function entries<T>(?object:ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>):Array<ts.Tuple2<String, T>>;
+	@:overload(function(?object:Dynamic):Array<ts.Tuple2<String, Dynamic>> { })
+	function entriesIn<T>(?object:ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>):Array<ts.Tuple2<String, T>>;
+	@:overload(function<TObject, TSource1, TSource2>(object:TObject, source1:TSource1, source2:TSource2):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4):Dynamic { })
+	@:overload(function<TObject>(object:TObject):TObject { })
+	@:overload(function<TResult>(object:Dynamic, otherArgs:haxe.extern.Rest<Dynamic>):TResult { })
+	function extend<TObject, TSource>(object:TObject, source:TSource):Dynamic;
+	@:overload(function<TObject, TSource1, TSource2>(object:TObject, source1:TSource1, source2:TSource2, customizer:AssignCustomizer):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3, customizer:AssignCustomizer):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4, customizer:AssignCustomizer):Dynamic { })
+	@:overload(function<TObject>(object:TObject):TObject { })
+	@:overload(function<TResult>(object:Dynamic, otherArgs:haxe.extern.Rest<Dynamic>):TResult { })
+	function extendWith<TObject, TSource>(object:TObject, source:TSource, customizer:AssignCustomizer):Dynamic;
 	/**
 		This method is like _.find except that it returns the key of the first element predicate returns truthy for
 		instead of the element itself.
 	**/
-	function findKey<T>(unknown:Dynamic):Null<String>;
+	function findKey<T>(object:Null<T>, ?predicate:ObjectIteratee<T>):Null<String>;
 	/**
 		This method is like _.findKey except that it iterates over elements of a collection in the opposite order.
 	**/
-	function findLastKey<T>(unknown:Dynamic):Null<String>;
+	function findLastKey<T>(object:Null<T>, ?predicate:ObjectIteratee<T>):Null<String>;
 	/**
 		Iterates over own and inherited enumerable properties of an object invoking iteratee for each property. The
 		iteratee is invoked with three arguments: (value, key, object). Iteratee functions may
 		exit iteration early by explicitly returning false.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	function forIn<T>(unknown:Dynamic):T;
+	@:overload(function<T>(object:Null<T>, ?iteratee:ObjectIterator<T, Dynamic>):Null<T> { })
+	function forIn<T>(object:T, ?iteratee:ObjectIterator<T, Dynamic>):T;
 	/**
 		This method is like _.forIn except that it iterates over properties of object in the opposite order.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	function forInRight<T>(unknown:Dynamic):T;
+	@:overload(function<T>(object:Null<T>, ?iteratee:ObjectIterator<T, Dynamic>):Null<T> { })
+	function forInRight<T>(object:T, ?iteratee:ObjectIterator<T, Dynamic>):T;
 	/**
 		Iterates over own enumerable properties of an object invoking iteratee for each property. The iteratee is
 		invoked with three arguments: (value, key, object). Iteratee functions may exit
 		iteration early by explicitly returning false.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	function forOwn<T>(unknown:Dynamic):T;
+	@:overload(function<T>(object:Null<T>, ?iteratee:ObjectIterator<T, Dynamic>):Null<T> { })
+	function forOwn<T>(object:T, ?iteratee:ObjectIterator<T, Dynamic>):T;
 	/**
 		This method is like _.forOwn except that it iterates over properties of object in the opposite order.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	function forOwnRight<T>(unknown:Dynamic):T;
+	@:overload(function<T>(object:Null<T>, ?iteratee:ObjectIterator<T, Dynamic>):Null<T> { })
+	function forOwnRight<T>(object:T, ?iteratee:ObjectIterator<T, Dynamic>):T;
 	/**
 		Creates an array of function property names from own enumerable properties
 		of `object`.
 	**/
-	function functions(unknown:Dynamic):Array<String>;
+	function functions(object:Dynamic):Array<String>;
 	/**
 		Creates an array of function property names from own and inherited
 		enumerable properties of `object`.
 	**/
-	function functionsIn<T>(unknown:Dynamic):Array<String>;
+	function functionsIn<T>(object:Dynamic):Array<String>;
 	/**
 		Gets the property value at path of object. If the resolved value is undefined the defaultValue is used
 		in its place.
 	**/
-	@:overload(function<TObject, TKey>(unknown:Dynamic):Null<Dynamic> { })
-	@:overload(function<TObject, TKey, TDefault>(unknown:Dynamic):ts.AnyOf2<TDefault, { }> { })
-	@:overload(function<TObject, TKey1, TKey2>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TKey1, TKey2>(unknown:Dynamic):Null<Dynamic> { })
-	@:overload(function<TObject, TKey1, TKey2, TDefault>(unknown:Dynamic):ts.AnyOf2<TDefault, { }> { })
-	@:overload(function<TObject, TKey1, TKey2, TKey3>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TKey1, TKey2, TKey3>(unknown:Dynamic):Null<Dynamic> { })
-	@:overload(function<TObject, TKey1, TKey2, TKey3, TDefault>(unknown:Dynamic):ts.AnyOf2<TDefault, { }> { })
-	@:overload(function<TObject, TKey1, TKey2, TKey3, TKey4>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TKey1, TKey2, TKey3, TKey4>(unknown:Dynamic):Null<Dynamic> { })
-	@:overload(function<TObject, TKey1, TKey2, TKey3, TKey4, TDefault>(unknown:Dynamic):ts.AnyOf2<TDefault, { }> { })
-	@:overload(function<T>(unknown:Dynamic):T { })
-	@:overload(function<T>(unknown:Dynamic):Null<T> { })
-	@:overload(function<T, TDefault>(unknown:Dynamic):ts.AnyOf2<T, TDefault> { })
-	@:overload(function<TDefault>(unknown:Dynamic):TDefault { })
-	@:overload(function(unknown:Dynamic):Null<Any> { })
-	@:overload(function<TObject, TPath>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TPath, TDefault>(unknown:Dynamic):ts.AnyOf2<TDefault, { }> { })
-	@:overload(function(unknown:Dynamic):Dynamic { })
-	function get<TObject, TKey>(unknown:Dynamic):Dynamic;
+	@:overload(function<TObject, TKey>(object:Null<TObject>, path:ts.AnyOf2<TKey, ts.Tuple1<TKey>>):Null<Dynamic> { })
+	@:overload(function<TObject, TKey, TDefault>(object:Null<TObject>, path:ts.AnyOf2<TKey, ts.Tuple1<TKey>>, defaultValue:TDefault):ts.AnyOf2<TDefault, { }> { })
+	@:overload(function<TObject, TKey1, TKey2>(object:TObject, path:ts.Tuple2<TKey1, TKey2>):Dynamic { })
+	@:overload(function<TObject, TKey1, TKey2>(object:Null<TObject>, path:ts.Tuple2<TKey1, TKey2>):Null<Dynamic> { })
+	@:overload(function<TObject, TKey1, TKey2, TDefault>(object:Null<TObject>, path:ts.Tuple2<TKey1, TKey2>, defaultValue:TDefault):ts.AnyOf2<TDefault, { }> { })
+	@:overload(function<TObject, TKey1, TKey2, TKey3>(object:TObject, path:ts.Tuple3<TKey1, TKey2, TKey3>):Dynamic { })
+	@:overload(function<TObject, TKey1, TKey2, TKey3>(object:Null<TObject>, path:ts.Tuple3<TKey1, TKey2, TKey3>):Null<Dynamic> { })
+	@:overload(function<TObject, TKey1, TKey2, TKey3, TDefault>(object:Null<TObject>, path:ts.Tuple3<TKey1, TKey2, TKey3>, defaultValue:TDefault):ts.AnyOf2<TDefault, { }> { })
+	@:overload(function<TObject, TKey1, TKey2, TKey3, TKey4>(object:TObject, path:ts.Tuple4<TKey1, TKey2, TKey3, TKey4>):Dynamic { })
+	@:overload(function<TObject, TKey1, TKey2, TKey3, TKey4>(object:Null<TObject>, path:ts.Tuple4<TKey1, TKey2, TKey3, TKey4>):Null<Dynamic> { })
+	@:overload(function<TObject, TKey1, TKey2, TKey3, TKey4, TDefault>(object:Null<TObject>, path:ts.Tuple4<TKey1, TKey2, TKey3, TKey4>, defaultValue:TDefault):ts.AnyOf2<TDefault, { }> { })
+	@:overload(function<T>(object:NumericDictionary<T>, path:Float):T { })
+	@:overload(function<T>(object:Null<NumericDictionary<T>>, path:Float):Null<T> { })
+	@:overload(function<T, TDefault>(object:Null<NumericDictionary<T>>, path:Float, defaultValue:TDefault):ts.AnyOf2<T, TDefault> { })
+	@:overload(function<TDefault>(object:Null<Any>, path:PropertyPath, defaultValue:TDefault):TDefault { })
+	@:overload(function(object:Null<Any>, path:PropertyPath):Null<Any> { })
+	@:overload(function<TObject, TPath>(data:TObject, path:TPath):Dynamic { })
+	@:overload(function<TObject, TPath, TDefault>(data:TObject, path:TPath, defaultValue:TDefault):ts.AnyOf2<TDefault, { }> { })
+	@:overload(function(object:Dynamic, path:PropertyPath, ?defaultValue:Dynamic):Dynamic { })
+	function get<TObject, TKey>(object:TObject, path:ts.AnyOf2<TKey, ts.Tuple1<TKey>>):Dynamic;
 	/**
 		Checks if `path` is a direct property of `object`.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Bool { })
-	function has<T, K>(unknown:Dynamic):Bool;
+	@:overload(function<T>(object:T, path:PropertyPath):Bool { })
+	function has<T, K>(object:T, path:K):Bool;
 	/**
 		Checks if `path` is a direct or inherited property of `object`.
 	**/
-	function hasIn<T>(unknown:Dynamic):Bool;
+	function hasIn<T>(object:T, path:PropertyPath):Bool;
 	/**
 		Creates an object composed of the inverted keys and values of object. If object contains duplicate values,
 		subsequent values overwrite property assignments of previous values unless multiValue is true.
 	**/
-	function invert(unknown:Dynamic):Dictionary<String>;
+	function invert(object:Dynamic):Dictionary<String>;
 	/**
 		This method is like _.invert except that the inverted object is generated from the results of running each
 		element of object through iteratee. The corresponding inverted value of each inverted key is an array of
 		keys responsible for generating the inverted value. The iteratee is invoked with one argument: (value).
 	**/
-	@:overload(function<T>(unknown:Dynamic):Dictionary<Array<String>> { })
-	function invertBy<T>(unknown:Dynamic):Dictionary<Array<String>>;
+	@:overload(function<T>(object:Null<T>, ?interatee:ValueIteratee<Dynamic>):Dictionary<Array<String>> { })
+	function invertBy<T>(object:Null<ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>>, ?interatee:ValueIteratee<T>):Dictionary<Array<String>>;
 	/**
 		Invokes the method at path of object.
 	**/
-	function invoke(unknown:Dynamic):Dynamic;
+	function invoke(object:Dynamic, path:PropertyPath, args:haxe.extern.Rest<Dynamic>):Dynamic;
 	/**
 		Creates an array of the own enumerable property names of object.
 		
 		Note: Non-object values are coerced to objects. See the ES spec for more details.
 	**/
-	function keys(unknown:Dynamic):Array<String>;
+	function keys(?object:Dynamic):Array<String>;
 	/**
 		Creates an array of the own and inherited enumerable property names of object.
 		
 		Note: Non-object values are coerced to objects.
 	**/
-	function keysIn(unknown:Dynamic):Array<String>;
+	function keysIn(?object:Dynamic):Array<String>;
 	/**
 		The opposite of _.mapValues; this method creates an object with the same values as object and keys generated
 		by running each own enumerable property of object through iteratee.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Dictionary<Dynamic> { })
-	function mapKeys<T>(unknown:Dynamic):Dictionary<T>;
+	@:overload(function<T>(object:Null<T>, ?iteratee:ObjectIteratee<T>):Dictionary<Dynamic> { })
+	function mapKeys<T>(object:Null<List_<T>>, ?iteratee:ListIteratee<T>):Dictionary<T>;
 	/**
 		Creates an object with the same keys as object and values generated by running each own
 		enumerable property of object through iteratee. The iteratee function is
 		invoked with three arguments: (value, key, object).
 	**/
-	@:overload(function<T, TResult>(unknown:Dynamic):NumericDictionary<TResult> { })
-	@:overload(function<T, TResult>(unknown:Dynamic):Dynamic { })
-	@:overload(function<T>(unknown:Dynamic):Dictionary<Bool> { })
-	@:overload(function<T>(unknown:Dynamic):Dynamic { })
-	@:overload(function<T, TKey>(unknown:Dynamic):Dictionary<Dynamic> { })
-	@:overload(function<T>(unknown:Dynamic):Dictionary<Dynamic> { })
-	@:overload(function<T>(unknown:Dynamic):Dynamic { })
-	@:overload(function(unknown:Dynamic):NumericDictionary<String> { })
-	@:overload(function<T>(unknown:Dynamic):Dictionary<T> { })
-	@:overload(function<T>(unknown:Dynamic):T { })
-	@:overload(function<T>(unknown:Dynamic):T { })
-	function mapValues<TResult>(unknown:Dynamic):NumericDictionary<TResult>;
+	@:overload(function<T, TResult>(array:Array<T>, callback:ArrayIterator<T, TResult>):NumericDictionary<TResult> { })
+	@:overload(function<T, TResult>(obj:Null<T>, callback:ObjectIterator<T, TResult>):Dynamic { })
+	@:overload(function<T>(obj:Null<ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>>, iteratee:Dynamic):Dictionary<Bool> { })
+	@:overload(function<T>(obj:Null<T>, iteratee:Dynamic):Dynamic { })
+	@:overload(function<T, TKey>(obj:Null<ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>>, iteratee:TKey):Dictionary<Dynamic> { })
+	@:overload(function<T>(obj:Null<ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>>, iteratee:String):Dictionary<Dynamic> { })
+	@:overload(function<T>(obj:Null<T>, iteratee:String):Dynamic { })
+	@:overload(function(obj:Null<String>):NumericDictionary<String> { })
+	@:overload(function<T>(obj:Null<ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>>):Dictionary<T> { })
+	@:overload(function<T>(obj:T):T { })
+	@:overload(function<T>(obj:Null<T>):T { })
+	function mapValues<TResult>(obj:Null<String>, callback:StringIterator<TResult>):NumericDictionary<TResult>;
 	/**
 		Recursively merges own and inherited enumerable properties of source
 		objects into the destination object, skipping source properties that resolve
@@ -1477,11 +1477,11 @@ typedef LoDashStatic = {
 		
 		**Note:** This method mutates `object`.
 	**/
-	@:overload(function<TObject, TSource1, TSource2>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):Dynamic { })
-	@:overload(function(unknown:Dynamic):Dynamic { })
-	function merge<TObject, TSource>(unknown:Dynamic):Dynamic;
+	@:overload(function<TObject, TSource1, TSource2>(object:TObject, source1:TSource1, source2:TSource2):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4):Dynamic { })
+	@:overload(function(object:Dynamic, otherArgs:haxe.extern.Rest<Dynamic>):Dynamic { })
+	function merge<TObject, TSource>(object:TObject, source:TSource):Dynamic;
 	/**
 		This method is like `_.merge` except that it accepts `customizer` which
 		is invoked to produce the merged values of the destination and source
@@ -1489,91 +1489,91 @@ typedef LoDashStatic = {
 		method instead. The `customizer` is invoked with six arguments:
 		(objValue, srcValue, key, object, source, stack).
 	**/
-	@:overload(function<TObject, TSource1, TSource2>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):Dynamic { })
-	@:overload(function(unknown:Dynamic):Dynamic { })
-	function mergeWith<TObject, TSource>(unknown:Dynamic):Dynamic;
+	@:overload(function<TObject, TSource1, TSource2>(object:TObject, source1:TSource1, source2:TSource2, customizer:(value:Dynamic, srcValue:Dynamic, key:String, object:Dynamic, source:Dynamic, stack:Dynamic) -> Dynamic):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3, customizer:(value:Dynamic, srcValue:Dynamic, key:String, object:Dynamic, source:Dynamic, stack:Dynamic) -> Dynamic):Dynamic { })
+	@:overload(function<TObject, TSource1, TSource2, TSource3, TSource4>(object:TObject, source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4, customizer:(value:Dynamic, srcValue:Dynamic, key:String, object:Dynamic, source:Dynamic, stack:Dynamic) -> Dynamic):Dynamic { })
+	@:overload(function(object:Dynamic, otherArgs:haxe.extern.Rest<Dynamic>):Dynamic { })
+	function mergeWith<TObject, TSource>(object:TObject, source:TSource, customizer:(value:Dynamic, srcValue:Dynamic, key:String, object:Dynamic, source:Dynamic, stack:Dynamic) -> Dynamic):Dynamic;
 	/**
 		The opposite of `_.pick`; this method creates an object composed of the
 		own and inherited enumerable properties of `object` that are not omitted.
 	**/
-	@:overload(function<T, K>(unknown:Dynamic):{ } { })
-	@:overload(function<T>(unknown:Dynamic):T { })
-	function omit<T, K>(unknown:Dynamic):{ };
+	@:overload(function<T, K>(object:Null<T>, paths:haxe.extern.Rest<Many<K>>):{ } { })
+	@:overload(function<T>(object:Null<T>, paths:haxe.extern.Rest<Many<PropertyName>>):T { })
+	function omit<T, K>(object:Null<T>, paths:haxe.extern.Rest<Any>):{ };
 	/**
 		The opposite of `_.pickBy`; this method creates an object composed of the
 		own and inherited enumerable properties of `object` that `predicate`
 		doesn't return truthy for.
 	**/
-	@:overload(function<T>(unknown:Dynamic):NumericDictionary<T> { })
-	@:overload(function<T>(unknown:Dynamic):T { })
-	function omitBy<T>(unknown:Dynamic):Dictionary<T>;
+	@:overload(function<T>(object:Null<NumericDictionary<T>>, ?predicate:ValueKeyIteratee<T>):NumericDictionary<T> { })
+	@:overload(function<T>(object:Null<T>, predicate:ValueKeyIteratee<Dynamic>):T { })
+	function omitBy<T>(object:Null<Dictionary<T>>, ?predicate:ValueKeyIteratee<T>):Dictionary<T>;
 	/**
 		Creates an object composed of the picked `object` properties.
 	**/
-	@:overload(function<T>(unknown:Dynamic):T { })
-	function pick<T, U>(unknown:Dynamic):{ };
+	@:overload(function<T>(object:Null<T>, props:haxe.extern.Rest<Many<PropertyPath>>):T { })
+	function pick<T, U>(object:T, props:haxe.extern.Rest<Many<U>>):{ };
 	/**
 		Creates an object composed of the `object` properties `predicate` returns
 		truthy for. The predicate is invoked with two arguments: (value, key).
 	**/
-	@:overload(function<T, S>(unknown:Dynamic):NumericDictionary<S> { })
-	@:overload(function<T>(unknown:Dynamic):Dictionary<T> { })
-	@:overload(function<T>(unknown:Dynamic):NumericDictionary<T> { })
-	@:overload(function<T>(unknown:Dynamic):T { })
-	function pickBy<T, S>(unknown:Dynamic):Dictionary<S>;
+	@:overload(function<T, S>(object:Null<NumericDictionary<T>>, predicate:ValueKeyIterateeTypeGuard<T, S>):NumericDictionary<S> { })
+	@:overload(function<T>(object:Null<Dictionary<T>>, ?predicate:ValueKeyIteratee<T>):Dictionary<T> { })
+	@:overload(function<T>(object:Null<NumericDictionary<T>>, ?predicate:ValueKeyIteratee<T>):NumericDictionary<T> { })
+	@:overload(function<T>(object:Null<T>, ?predicate:ValueKeyIteratee<Dynamic>):T { })
+	function pickBy<T, S>(object:Null<Dictionary<T>>, predicate:ValueKeyIterateeTypeGuard<T, S>):Dictionary<S>;
 	/**
 		This method is like _.get except that if the resolved value is a function it’s invoked with the this binding
 		of its parent object and its result is returned.
 	**/
-	function result<TResult>(unknown:Dynamic):TResult;
+	function result<TResult>(object:Dynamic, path:PropertyPath, ?defaultValue:ts.AnyOf2<(args:haxe.extern.Rest<Dynamic>) -> TResult, TResult>):TResult;
 	/**
 		Sets the value at path of object. If a portion of path doesn’t exist it’s created. Arrays are created for
 		missing index properties while objects are created for all other missing properties. Use _.setWith to
 		customize path creation.
 	**/
-	@:overload(function<TResult>(unknown:Dynamic):TResult { })
-	function set<T>(unknown:Dynamic):T;
+	@:overload(function<TResult>(object:Dynamic, path:PropertyPath, value:Dynamic):TResult { })
+	function set<T>(object:T, path:PropertyPath, value:Dynamic):T;
 	/**
 		This method is like _.set except that it accepts customizer which is invoked to produce the objects of
 		path. If customizer returns undefined path creation is handled by the method instead. The customizer is
 		invoked with three arguments: (nsValue, key, nsObject).
 	**/
-	@:overload(function<T, TResult>(unknown:Dynamic):TResult { })
-	function setWith<T>(unknown:Dynamic):T;
+	@:overload(function<T, TResult>(object:T, path:PropertyPath, value:Dynamic, ?customizer:SetWithCustomizer<T>):TResult { })
+	function setWith<T>(object:T, path:PropertyPath, value:Dynamic, ?customizer:SetWithCustomizer<T>):T;
 	/**
 		Creates an array of own enumerable key-value pairs for object.
 	**/
-	@:overload(function(unknown:Dynamic):Array<ts.Tuple2<String, Dynamic>> { })
-	function toPairs<T>(unknown:Dynamic):Array<ts.Tuple2<String, T>>;
+	@:overload(function(?object:Dynamic):Array<ts.Tuple2<String, Dynamic>> { })
+	function toPairs<T>(?object:ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>):Array<ts.Tuple2<String, T>>;
 	/**
 		Creates an array of own and inherited enumerable key-value pairs for object.
 	**/
-	@:overload(function(unknown:Dynamic):Array<ts.Tuple2<String, Dynamic>> { })
-	function toPairsIn<T>(unknown:Dynamic):Array<ts.Tuple2<String, T>>;
+	@:overload(function(?object:Dynamic):Array<ts.Tuple2<String, Dynamic>> { })
+	function toPairsIn<T>(?object:ts.AnyOf2<Dictionary<T>, NumericDictionary<T>>):Array<ts.Tuple2<String, T>>;
 	/**
 		An alternative to _.reduce; this method transforms object to a new accumulator object which is the result of
 		running each of its own enumerable properties through iteratee, with each invocation potentially mutating
 		the accumulator object. The iteratee is invoked with four arguments: (accumulator,
 		value, key, object). Iteratee functions may exit iteration early by explicitly returning false.
 	**/
-	@:overload(function<T, TResult>(unknown:Dynamic):TResult { })
-	@:overload(function<T, TResult>(unknown:Dynamic):TResult { })
-	@:overload(function(unknown:Dynamic):Array<Dynamic> { })
-	@:overload(function(unknown:Dynamic):Dictionary<Dynamic> { })
-	function transform<T, TResult>(unknown:Dynamic):TResult;
+	@:overload(function<T, TResult>(object:Dictionary<T>, iteratee:MemoVoidDictionaryIterator<T, String, TResult>, ?accumulator:TResult):TResult { })
+	@:overload(function<T, TResult>(object:T, iteratee:MemoVoidDictionaryIterator<Dynamic, Dynamic, TResult>, ?accumulator:TResult):TResult { })
+	@:overload(function(object:Array<Dynamic>):Array<Dynamic> { })
+	@:overload(function(object:Dynamic):Dictionary<Dynamic> { })
+	function transform<T, TResult>(object:haxe.ds.ReadOnlyArray<T>, iteratee:MemoVoidArrayIterator<T, TResult>, ?accumulator:TResult):TResult;
 	/**
 		Removes the property at path of object.
 		
 		Note: This method mutates object.
 	**/
-	function unset(unknown:Dynamic):Bool;
+	function unset(object:Dynamic, path:PropertyPath):Bool;
 	/**
 		This method is like _.set except that accepts updater to produce the value to set. Use _.updateWith to
 		customize path creation. The updater is invoked with one argument: (value).
 	**/
-	function update(unknown:Dynamic):Dynamic;
+	function update(object:Dynamic, path:PropertyPath, updater:(value:Dynamic) -> Dynamic):Dynamic;
 	/**
 		This method is like `_.update` except that it accepts `customizer` which is
 		invoked to produce the objects of `path`.  If `customizer` returns `undefined`
@@ -1582,57 +1582,57 @@ typedef LoDashStatic = {
 		
 		**Note:** This method mutates `object`.
 	**/
-	@:overload(function<T, TResult>(unknown:Dynamic):TResult { })
-	function updateWith<T>(unknown:Dynamic):T;
+	@:overload(function<T, TResult>(object:T, path:PropertyPath, updater:(oldValue:Dynamic) -> Dynamic, ?customizer:SetWithCustomizer<T>):TResult { })
+	function updateWith<T>(object:T, path:PropertyPath, updater:(oldValue:Dynamic) -> Dynamic, ?customizer:SetWithCustomizer<T>):T;
 	/**
 		Creates an array of the own enumerable property values of object.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Array<Dynamic> { })
-	@:overload(function(unknown:Dynamic):Array<Dynamic> { })
-	function values<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<T>(object:Null<T>):Array<Dynamic> { })
+	@:overload(function(object:Dynamic):Array<Dynamic> { })
+	function values<T>(object:Null<ts.AnyOf3<Dictionary<T>, NumericDictionary<T>, List_<T>>>):Array<T>;
 	/**
 		Creates an array of the own and inherited enumerable property values of object.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Array<Dynamic> { })
-	function valuesIn<T>(unknown:Dynamic):Array<T>;
+	@:overload(function<T>(object:Null<T>):Array<Dynamic> { })
+	function valuesIn<T>(object:Null<ts.AnyOf3<Dictionary<T>, NumericDictionary<T>, List_<T>>>):Array<T>;
 	/**
 		Creates a lodash object that wraps value with explicit method chaining enabled.
 	**/
-	@:overload(function<T>(unknown:Dynamic):PrimitiveChain<T> { })
-	@:overload(function<T>(unknown:Dynamic):StringChain<T> { })
-	@:overload(function(unknown:Dynamic):StringNullableChain { })
-	@:overload(function<T>(unknown:Dynamic):FunctionChain<T> { })
-	@:overload(function<T>(unknown:Dynamic):CollectionChain<T> { })
-	@:overload(function<T>(unknown:Dynamic):ObjectChain<T> { })
-	@:overload(function<T>(unknown:Dynamic):PrimitiveChain<T> { })
-	function chain<TrapAny>(unknown:Dynamic):Dynamic;
+	@:overload(function<T>(value:T):PrimitiveChain<T> { })
+	@:overload(function<T>(value:T):StringChain<T> { })
+	@:overload(function(value:Null<String>):StringNullableChain { })
+	@:overload(function<T>(value:T):FunctionChain<T> { })
+	@:overload(function<T>(value:Null<List_<T>>):CollectionChain<T> { })
+	@:overload(function<T>(value:Null<T>):ObjectChain<T> { })
+	@:overload(function<T>(value:T):PrimitiveChain<T> { })
+	function chain<TrapAny>(value:TrapAny):Dynamic;
 	/**
 		This method invokes interceptor and returns value. The interceptor is invoked with one
 		argument; (value). The purpose of this method is to "tap into" a method chain in order to perform operations
 		on intermediate results within the chain.
 	**/
-	function tap<T>(unknown:Dynamic):T;
+	function tap<T>(value:T, interceptor:(value:T) -> Void):T;
 	/**
 		This method is like _.tap except that it returns the result of interceptor.
 	**/
-	function thru<T, TResult>(unknown:Dynamic):TResult;
+	function thru<T, TResult>(value:T, interceptor:(value:T) -> TResult):TResult;
 	/**
 		Converts string to camel case.
 	**/
-	function camelCase(unknown:Dynamic):String;
+	function camelCase(?string:String):String;
 	/**
 		Converts the first character of string to upper case and the remaining to lower case.
 	**/
-	function capitalize<T>(unknown:Dynamic):Dynamic;
+	function capitalize<T>(?string:T):Dynamic;
 	/**
 		Deburrs string by converting latin-1 supplementary letters to basic latin letters and removing combining
 		diacritical marks.
 	**/
-	function deburr(unknown:Dynamic):String;
+	function deburr(?string:String):String;
 	/**
 		Checks if string ends with the given target string.
 	**/
-	function endsWith(unknown:Dynamic):Bool;
+	function endsWith(?string:String, ?target:String, ?position:Float):Bool;
 	/**
 		Converts the characters "&", "<", ">", '"', "'", and "`" in string to their corresponding HTML entities.
 		
@@ -1647,76 +1647,76 @@ typedef LoDashStatic = {
 		
 		When working with HTML you should always quote attribute values to reduce XSS vectors.
 	**/
-	function escape(unknown:Dynamic):String;
+	function escape(?string:String):String;
 	/**
 		Escapes the RegExp special characters "^", "$", "\", ".", "*", "+", "?", "(", ")", "[", "]",
 		"{", "}", and "|" in string.
 	**/
-	function escapeRegExp(unknown:Dynamic):String;
+	function escapeRegExp(?string:String):String;
 	/**
 		Converts string to kebab case.
 	**/
-	function kebabCase(unknown:Dynamic):String;
+	function kebabCase(?string:String):String;
 	/**
 		Converts `string`, as space separated words, to lower case.
 	**/
-	function lowerCase(unknown:Dynamic):String;
+	function lowerCase(?string:String):String;
 	/**
 		Converts the first character of `string` to lower case.
 	**/
-	function lowerFirst<T>(unknown:Dynamic):Dynamic;
+	function lowerFirst<T>(?string:T):Dynamic;
 	/**
 		Pads string on the left and right sides if it’s shorter than length. Padding characters are truncated if
 		they can’t be evenly divided by length.
 	**/
-	function pad(unknown:Dynamic):String;
+	function pad(?string:String, ?length:Float, ?chars:String):String;
 	/**
 		Pads string on the right side if it’s shorter than length. Padding characters are truncated if they exceed
 		length.
 	**/
-	function padEnd(unknown:Dynamic):String;
+	function padEnd(?string:String, ?length:Float, ?chars:String):String;
 	/**
 		Pads string on the left side if it’s shorter than length. Padding characters are truncated if they exceed
 		length.
 	**/
-	function padStart(unknown:Dynamic):String;
+	function padStart(?string:String, ?length:Float, ?chars:String):String;
 	/**
 		Converts string to an integer of the specified radix. If radix is undefined or 0, a radix of 10 is used
 		unless value is a hexadecimal, in which case a radix of 16 is used.
 		
 		Note: This method aligns with the ES5 implementation of parseInt.
 	**/
-	function parseInt(unknown:Dynamic):Float;
+	function parseInt(string:String, ?radix:Float):Float;
 	/**
 		Repeats the given string n times.
 	**/
-	function repeat(unknown:Dynamic):String;
+	function repeat(?string:String, ?n:Float):String;
 	/**
 		Replaces matches for pattern in string with replacement.
 		
 		Note: This method is based on String#replace.
 	**/
-	@:overload(function(unknown:Dynamic):String { })
-	function replace(unknown:Dynamic):String;
+	@:overload(function(pattern:ts.AnyOf2<String, js.lib.RegExp>, replacement:ts.AnyOf2<String, ReplaceFunction>):String { })
+	function replace(string:String, pattern:ts.AnyOf2<String, js.lib.RegExp>, replacement:ts.AnyOf2<String, ReplaceFunction>):String;
 	/**
 		Converts string to snake case.
 	**/
-	function snakeCase(unknown:Dynamic):String;
+	function snakeCase(?string:String):String;
 	/**
 		Splits string by separator.
 		
 		Note: This method is based on String#split.
 	**/
-	@:overload(function(unknown:Dynamic):Array<String> { })
-	function split(unknown:Dynamic):Array<String>;
+	@:overload(function(string:Null<String>, index:ts.AnyOf2<String, Float>, guard:Dynamic):Array<String> { })
+	function split(string:Null<String>, ?separator:ts.AnyOf2<String, js.lib.RegExp>, ?limit:Float):Array<String>;
 	/**
 		Converts string to start case.
 	**/
-	function startCase(unknown:Dynamic):String;
+	function startCase(?string:String):String;
 	/**
 		Checks if string starts with the given target string.
 	**/
-	function startsWith(unknown:Dynamic):Bool;
+	function startsWith(?string:String, ?target:String, ?position:Float):Bool;
 	/**
 		Creates a compiled template function that can interpolate data properties in "interpolate" delimiters,
 		HTML-escape interpolated data properties in "escape" delimiters, and execute JavaScript in "evaluate"
@@ -1733,35 +1733,35 @@ typedef LoDashStatic = {
 		For more information on Chrome extension sandboxes see
 		[Chrome's extensions documentation](https://developer.chrome.com/extensions/sandboxingEval).
 	**/
-	function template(unknown:Dynamic):TemplateExecutor;
+	function template(?string:String, ?options:TemplateOptions):TemplateExecutor;
 	/**
 		Converts `string`, as a whole, to lower case.
 	**/
-	function toLower<T>(unknown:Dynamic):Dynamic;
+	function toLower<T>(?string:T):Dynamic;
 	/**
 		Converts `string`, as a whole, to upper case.
 	**/
-	function toUpper<T>(unknown:Dynamic):Dynamic;
+	function toUpper<T>(?string:T):Dynamic;
 	/**
 		Removes leading and trailing whitespace or specified characters from string.
 	**/
-	@:overload(function(unknown:Dynamic):String { })
-	function trim(unknown:Dynamic):String;
+	@:overload(function(string:String, index:ts.AnyOf2<String, Float>, guard:Dynamic):String { })
+	function trim(?string:String, ?chars:String):String;
 	/**
 		Removes trailing whitespace or specified characters from string.
 	**/
-	@:overload(function(unknown:Dynamic):String { })
-	function trimEnd(unknown:Dynamic):String;
+	@:overload(function(string:String, index:ts.AnyOf2<String, Float>, guard:Dynamic):String { })
+	function trimEnd(?string:String, ?chars:String):String;
 	/**
 		Removes leading whitespace or specified characters from string.
 	**/
-	@:overload(function(unknown:Dynamic):String { })
-	function trimStart(unknown:Dynamic):String;
+	@:overload(function(string:String, index:ts.AnyOf2<String, Float>, guard:Dynamic):String { })
+	function trimStart(?string:String, ?chars:String):String;
 	/**
 		Truncates string if it’s longer than the given maximum string length. The last characters of the truncated
 		string are replaced with the omission string which defaults to "…".
 	**/
-	function truncate(unknown:Dynamic):String;
+	function truncate(?string:String, ?options:TruncateOptions):String;
 	/**
 		The inverse of _.escape; this method converts the HTML entities &amp;, &lt;, &gt;, &quot;, &#39;, and &#96;
 		in string to their corresponding characters.
@@ -1769,25 +1769,25 @@ typedef LoDashStatic = {
 		Note: No other HTML entities are unescaped. To unescape additional HTML entities use a third-party library
 		like he.
 	**/
-	function unescape(unknown:Dynamic):String;
+	function unescape(?string:String):String;
 	/**
 		Converts `string`, as space separated words, to upper case.
 	**/
-	function upperCase(unknown:Dynamic):String;
+	function upperCase(?string:String):String;
 	/**
 		Converts the first character of `string` to upper case.
 	**/
-	function upperFirst<T>(unknown:Dynamic):Dynamic;
+	function upperFirst<T>(?string:T):Dynamic;
 	/**
 		Splits `string` into an array of its words.
 	**/
-	@:overload(function(unknown:Dynamic):Array<String> { })
-	function words(unknown:Dynamic):Array<String>;
+	@:overload(function(string:String, index:ts.AnyOf2<String, Float>, guard:Dynamic):Array<String> { })
+	function words(?string:String, ?pattern:ts.AnyOf2<String, js.lib.RegExp>):Array<String>;
 	/**
 		Attempts to invoke func, returning either the result or the caught error object. Any additional arguments
 		are provided to func when it’s invoked.
 	**/
-	function attempt<TResult>(unknown:Dynamic):ts.AnyOf2<js.lib.Error, TResult>;
+	function attempt<TResult>(func:(args:haxe.extern.Rest<Dynamic>) -> TResult, args:haxe.extern.Rest<Dynamic>):ts.AnyOf2<js.lib.Error, TResult>;
 	/**
 		Binds methods of an object to the object itself, overwriting the existing method. Method names may be
 		specified as individual arguments or as arrays of method names. If no method names are provided all
@@ -1795,67 +1795,67 @@ typedef LoDashStatic = {
 		
 		Note: This method does not set the "length" property of bound functions.
 	**/
-	function bindAll<T>(unknown:Dynamic):T;
+	function bindAll<T>(object:T, methodNames:haxe.extern.Rest<Many<String>>):T;
 	/**
 		Creates a function that iterates over `pairs` and invokes the corresponding
 		function of the first predicate to return truthy. The predicate-function
 		pairs are invoked with the `this` binding and arguments of the created
 		function.
 	**/
-	@:overload(function<T, R>(unknown:Dynamic):(unknown:Dynamic) -> R { })
-	function cond<R>(unknown:Dynamic):(unknown:Dynamic) -> R;
+	@:overload(function<T, R>(pairs:Array<CondPairUnary<T, R>>):(Target:T) -> R { })
+	function cond<R>(pairs:Array<CondPairNullary<R>>):() -> R;
 	/**
 		Creates a function that invokes the predicate properties of `source` with the corresponding
 		property values of a given object, returning true if all predicates return truthy, else false.
 	**/
-	function conforms<T>(unknown:Dynamic):(unknown:Dynamic) -> Bool;
+	function conforms<T>(source:{ }):(value:T) -> Bool;
 	/**
 		Creates a function that returns value.
 	**/
-	function constant<T>(unknown:Dynamic):(unknown:Dynamic) -> T;
+	function constant<T>(value:T):() -> T;
 	/**
 		Checks `value` to determine whether a default value should be returned in
 		its place. The `defaultValue` is returned if `value` is `NaN`, `null`,
 		or `undefined`.
 	**/
-	@:overload(function<T, TDefault>(unknown:Dynamic):ts.AnyOf2<T, TDefault> { })
-	function defaultTo<T>(unknown:Dynamic):T;
+	@:overload(function<T, TDefault>(value:Null<T>, defaultValue:TDefault):ts.AnyOf2<T, TDefault> { })
+	function defaultTo<T>(value:Null<T>, defaultValue:T):T;
 	/**
 		Creates a function that returns the result of invoking the provided functions with the this binding of the
 		created function, where each successive invocation is supplied the return value of the previous.
 	**/
-	@:overload(function<A, R1, R2, R3, R4, R5, R6, R7>(unknown:Dynamic):(unknown:Dynamic) -> Dynamic { })
-	@:overload(function<A, R1, R2, R3, R4, R5, R6>(unknown:Dynamic):(unknown:Dynamic) -> R6 { })
-	@:overload(function<A, R1, R2, R3, R4, R5>(unknown:Dynamic):(unknown:Dynamic) -> R5 { })
-	@:overload(function<A, R1, R2, R3, R4>(unknown:Dynamic):(unknown:Dynamic) -> R4 { })
-	@:overload(function<A, R1, R2, R3>(unknown:Dynamic):(unknown:Dynamic) -> R3 { })
-	@:overload(function<A, R1, R2>(unknown:Dynamic):(unknown:Dynamic) -> R2 { })
-	@:overload(function(unknown:Dynamic):(unknown:Dynamic) -> Dynamic { })
-	function flow<A, R1, R2, R3, R4, R5, R6, R7>(unknown:Dynamic):(unknown:Dynamic) -> R7;
+	@:overload(function<A, R1, R2, R3, R4, R5, R6, R7>(f1:(args:haxe.extern.Rest<Any>) -> R1, f2:(a:R1) -> R2, f3:(a:R2) -> R3, f4:(a:R3) -> R4, f5:(a:R4) -> R5, f6:(a:R5) -> R6, f7:(a:R6) -> R7, func:haxe.extern.Rest<Many<(a:Dynamic) -> Dynamic>>):(args:haxe.extern.Rest<Any>) -> Dynamic { })
+	@:overload(function<A, R1, R2, R3, R4, R5, R6>(f1:(args:haxe.extern.Rest<Any>) -> R1, f2:(a:R1) -> R2, f3:(a:R2) -> R3, f4:(a:R3) -> R4, f5:(a:R4) -> R5, f6:(a:R5) -> R6):(args:haxe.extern.Rest<Any>) -> R6 { })
+	@:overload(function<A, R1, R2, R3, R4, R5>(f1:(args:haxe.extern.Rest<Any>) -> R1, f2:(a:R1) -> R2, f3:(a:R2) -> R3, f4:(a:R3) -> R4, f5:(a:R4) -> R5):(args:haxe.extern.Rest<Any>) -> R5 { })
+	@:overload(function<A, R1, R2, R3, R4>(f1:(args:haxe.extern.Rest<Any>) -> R1, f2:(a:R1) -> R2, f3:(a:R2) -> R3, f4:(a:R3) -> R4):(args:haxe.extern.Rest<Any>) -> R4 { })
+	@:overload(function<A, R1, R2, R3>(f1:(args:haxe.extern.Rest<Any>) -> R1, f2:(a:R1) -> R2, f3:(a:R2) -> R3):(args:haxe.extern.Rest<Any>) -> R3 { })
+	@:overload(function<A, R1, R2>(f1:(args:haxe.extern.Rest<Any>) -> R1, f2:(a:R1) -> R2):(args:haxe.extern.Rest<Any>) -> R2 { })
+	@:overload(function(func:haxe.extern.Rest<Many<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>>):(args:haxe.extern.Rest<Dynamic>) -> Dynamic { })
+	function flow<A, R1, R2, R3, R4, R5, R6, R7>(f1:(args:haxe.extern.Rest<Any>) -> R1, f2:(a:R1) -> R2, f3:(a:R2) -> R3, f4:(a:R3) -> R4, f5:(a:R4) -> R5, f6:(a:R5) -> R6, f7:(a:R6) -> R7):(args:haxe.extern.Rest<Any>) -> R7;
 	/**
 		This method is like _.flow except that it creates a function that invokes the provided functions from right
 		to left.
 	**/
-	@:overload(function<A, R1, R2, R3, R4, R5, R6>(unknown:Dynamic):(unknown:Dynamic) -> R6 { })
-	@:overload(function<A, R1, R2, R3, R4, R5>(unknown:Dynamic):(unknown:Dynamic) -> R5 { })
-	@:overload(function<A, R1, R2, R3, R4>(unknown:Dynamic):(unknown:Dynamic) -> R4 { })
-	@:overload(function<A, R1, R2, R3>(unknown:Dynamic):(unknown:Dynamic) -> R3 { })
-	@:overload(function<A, R1, R2>(unknown:Dynamic):(unknown:Dynamic) -> R2 { })
-	@:overload(function(unknown:Dynamic):(unknown:Dynamic) -> Dynamic { })
-	function flowRight<A, R1, R2, R3, R4, R5, R6, R7>(unknown:Dynamic):(unknown:Dynamic) -> R7;
+	@:overload(function<A, R1, R2, R3, R4, R5, R6>(f6:(a:R5) -> R6, f5:(a:R4) -> R5, f4:(a:R3) -> R4, f3:(a:R2) -> R3, f2:(a:R1) -> R2, f1:(args:haxe.extern.Rest<Any>) -> R1):(args:haxe.extern.Rest<Any>) -> R6 { })
+	@:overload(function<A, R1, R2, R3, R4, R5>(f5:(a:R4) -> R5, f4:(a:R3) -> R4, f3:(a:R2) -> R3, f2:(a:R1) -> R2, f1:(args:haxe.extern.Rest<Any>) -> R1):(args:haxe.extern.Rest<Any>) -> R5 { })
+	@:overload(function<A, R1, R2, R3, R4>(f4:(a:R3) -> R4, f3:(a:R2) -> R3, f2:(a:R1) -> R2, f1:(args:haxe.extern.Rest<Any>) -> R1):(args:haxe.extern.Rest<Any>) -> R4 { })
+	@:overload(function<A, R1, R2, R3>(f3:(a:R2) -> R3, f2:(a:R1) -> R2, f1:(args:haxe.extern.Rest<Any>) -> R1):(args:haxe.extern.Rest<Any>) -> R3 { })
+	@:overload(function<A, R1, R2>(f2:(a:R1) -> R2, f1:(args:haxe.extern.Rest<Any>) -> R1):(args:haxe.extern.Rest<Any>) -> R2 { })
+	@:overload(function(func:haxe.extern.Rest<Many<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>>):(args:haxe.extern.Rest<Dynamic>) -> Dynamic { })
+	function flowRight<A, R1, R2, R3, R4, R5, R6, R7>(f7:(a:R6) -> R7, f6:(a:R5) -> R6, f5:(a:R4) -> R5, f4:(a:R3) -> R4, f3:(a:R2) -> R3, f2:(a:R1) -> R2, f1:(args:haxe.extern.Rest<Any>) -> R1):(args:haxe.extern.Rest<Any>) -> R7;
 	/**
 		This method returns the first argument provided to it.
 	**/
-	@:overload(function(unknown:Dynamic):Null<Any> { })
-	function identity<T>(unknown:Dynamic):T;
+	@:overload(function():Null<Any> { })
+	function identity<T>(value:T):T;
 	/**
 		Creates a function that invokes `func` with the arguments of the created
 		function. If `func` is a property name the created callback returns the
 		property value for a given element. If `func` is an object the created
 		callback returns `true` for elements that contain the equivalent object properties, otherwise it returns `false`.
 	**/
-	@:overload(function(unknown:Dynamic):(unknown:Dynamic) -> Dynamic { })
-	function iteratee<TFunction>(unknown:Dynamic):TFunction;
+	@:overload(function(func:ts.AnyOf4<String, Float, js.lib.Symbol, Dynamic>):(args:haxe.extern.Rest<Dynamic>) -> Dynamic { })
+	function iteratee<TFunction>(func:TFunction):TFunction;
 	/**
 		Creates a function that performs a deep comparison between a given object and source, returning true if the
 		given object has equivalent property values, else false.
@@ -1864,26 +1864,26 @@ typedef LoDashStatic = {
 		strings. Objects are compared by their own, not inherited, enumerable properties. For comparing a single own
 		or inherited property value see _.matchesProperty.
 	**/
-	@:overload(function<T, V>(unknown:Dynamic):(unknown:Dynamic) -> Bool { })
-	function matches<T>(unknown:Dynamic):(unknown:Dynamic) -> Bool;
+	@:overload(function<T, V>(source:T):(value:V) -> Bool { })
+	function matches<T>(source:T):(value:Dynamic) -> Bool;
 	/**
 		Creates a function that compares the property value of path on a given object to value.
 		
 		Note: This method supports comparing arrays, booleans, Date objects, numbers, Object objects, regexes, and
 		strings. Objects are compared by their own, not inherited, enumerable properties.
 	**/
-	@:overload(function<T, V>(unknown:Dynamic):(unknown:Dynamic) -> Bool { })
-	function matchesProperty<T>(unknown:Dynamic):(unknown:Dynamic) -> Bool;
+	@:overload(function<T, V>(path:PropertyPath, srcValue:T):(value:V) -> Bool { })
+	function matchesProperty<T>(path:PropertyPath, srcValue:T):(value:Dynamic) -> Bool;
 	/**
 		Creates a function that invokes the method at path on a given object. Any additional arguments are provided
 		to the invoked method.
 	**/
-	function method(unknown:Dynamic):(unknown:Dynamic) -> Dynamic;
+	function method(path:PropertyPath, args:haxe.extern.Rest<Dynamic>):(object:Dynamic) -> Dynamic;
 	/**
 		The opposite of _.method; this method creates a function that invokes the method at a given path on object.
 		Any additional arguments are provided to the invoked method.
 	**/
-	function methodOf(unknown:Dynamic):(unknown:Dynamic) -> Dynamic;
+	function methodOf(object:Dynamic, args:haxe.extern.Rest<Dynamic>):(path:PropertyPath) -> Dynamic;
 	/**
 		Adds all own enumerable function properties of a source object to the destination object. If object is a
 		function then methods are added to its prototype as well.
@@ -1891,101 +1891,101 @@ typedef LoDashStatic = {
 		Note: Use _.runInContext to create a pristine lodash function to avoid conflicts caused by modifying
 		the original.
 	**/
-	@:overload(function<TResult>(unknown:Dynamic):LoDashStatic { })
-	function mixin<TObject>(unknown:Dynamic):TObject;
+	@:overload(function<TResult>(source:Dictionary<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>, ?options:MixinOptions):LoDashStatic { })
+	function mixin<TObject>(object:TObject, source:Dictionary<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>, ?options:MixinOptions):TObject;
 	/**
 		Reverts the _ variable to its previous value and returns a reference to the lodash function.
 	**/
-	function noConflict(unknown:Dynamic):LoDashStatic;
+	function noConflict():LoDashStatic;
 	/**
 		A no-operation function that returns undefined regardless of the arguments it receives.
 	**/
-	function noop(unknown:Dynamic):Void;
+	function noop(args:haxe.extern.Rest<Dynamic>):Void;
 	/**
 		Creates a function that returns its nth argument.
 	**/
-	function nthArg(unknown:Dynamic):(unknown:Dynamic) -> Dynamic;
+	function nthArg(?n:Float):(args:haxe.extern.Rest<Dynamic>) -> Dynamic;
 	/**
 		Creates a function that invokes iteratees with the arguments provided to the created function and returns
 		their results.
 	**/
-	function over<TResult>(unknown:Dynamic):(unknown:Dynamic) -> Array<TResult>;
+	function over<TResult>(iteratees:haxe.extern.Rest<Many<(args:haxe.extern.Rest<Dynamic>) -> TResult>>):(args:haxe.extern.Rest<Dynamic>) -> Array<TResult>;
 	/**
 		Creates a function that checks if all of the predicates return truthy when invoked with the arguments
 		provided to the created function.
 	**/
-	@:overload(function<T>(unknown:Dynamic):(unknown:Dynamic) -> Bool { })
-	function overEvery<T, Result1, Result2>(unknown:Dynamic):(unknown:Dynamic) -> Bool;
+	@:overload(function<T>(predicates:haxe.extern.Rest<Many<(args:haxe.extern.Rest<T>) -> Bool>>):(args:haxe.extern.Rest<T>) -> Bool { })
+	function overEvery<T, Result1, Result2>(predicates_0:Dynamic, predicates_1:Dynamic):(arg:T) -> Bool;
 	/**
 		Creates a function that checks if any of the predicates return truthy when invoked with the arguments
 		provided to the created function.
 	**/
-	@:overload(function<T>(unknown:Dynamic):(unknown:Dynamic) -> Bool { })
-	function overSome<T, Result1, Result2>(unknown:Dynamic):(unknown:Dynamic) -> Bool;
+	@:overload(function<T>(predicates:haxe.extern.Rest<Many<(args:haxe.extern.Rest<T>) -> Bool>>):(args:haxe.extern.Rest<T>) -> Bool { })
+	function overSome<T, Result1, Result2>(predicates_0:Dynamic, predicates_1:Dynamic):(arg:T) -> Bool;
 	/**
 		Creates a function that returns the property value at path on a given object.
 	**/
-	function property<TObj, TResult>(unknown:Dynamic):(unknown:Dynamic) -> TResult;
+	function property<TObj, TResult>(path:PropertyPath):(obj:TObj) -> TResult;
 	/**
 		The opposite of _.property; this method creates a function that returns the property value at a given path
 		on object.
 	**/
-	function propertyOf<T>(unknown:Dynamic):(unknown:Dynamic) -> Dynamic;
+	function propertyOf<T>(object:T):(path:PropertyPath) -> Dynamic;
 	/**
 		Creates an array of numbers (positive and/or negative) progressing from start up to, but not including, end.
 		If end is not specified it’s set to start with start then set to 0. If end is less than start a zero-length
 		range is created unless a negative step is specified.
 	**/
-	@:overload(function(unknown:Dynamic):Array<Float> { })
-	function range(unknown:Dynamic):Array<Float>;
+	@:overload(function(end:Float, index:ts.AnyOf2<String, Float>, guard:Dynamic):Array<Float> { })
+	function range(start:Float, ?end:Float, ?step:Float):Array<Float>;
 	/**
 		This method is like `_.range` except that it populates values in
 		descending order.
 	**/
-	@:overload(function(unknown:Dynamic):Array<Float> { })
-	function rangeRight(unknown:Dynamic):Array<Float>;
+	@:overload(function(end:Float, index:ts.AnyOf2<String, Float>, guard:Dynamic):Array<Float> { })
+	function rangeRight(start:Float, ?end:Float, ?step:Float):Array<Float>;
 	/**
 		Create a new pristine lodash function using the given context object.
 	**/
-	function runInContext(unknown:Dynamic):LoDashStatic;
+	function runInContext(?context:Dynamic):LoDashStatic;
 	/**
 		This method returns a new empty array.
 	**/
-	function stubArray(unknown:Dynamic):Array<Dynamic>;
+	function stubArray():Array<Dynamic>;
 	/**
 		This method returns `false`.
 		
 		This method returns false.
 	**/
-	@:overload(function(unknown:Dynamic):Bool { })
-	function stubFalse(unknown:Dynamic):Bool;
+	@:overload(function():Bool { })
+	function stubFalse():Bool;
 	/**
 		This method returns a new empty object.
 	**/
-	function stubObject(unknown:Dynamic):Dynamic;
+	function stubObject():Dynamic;
 	/**
 		This method returns an empty string.
 	**/
-	function stubString(unknown:Dynamic):String;
+	function stubString():String;
 	/**
 		This method returns `true`.
 		
 		This method returns true.
 	**/
-	@:overload(function(unknown:Dynamic):Bool { })
-	function stubTrue(unknown:Dynamic):Bool;
+	@:overload(function():Bool { })
+	function stubTrue():Bool;
 	/**
 		Invokes the iteratee function n times, returning an array of the results of each invocation. The iteratee
 		is invoked with one argument; (index).
 	**/
-	@:overload(function(unknown:Dynamic):Array<Float> { })
-	function times<TResult>(unknown:Dynamic):Array<TResult>;
+	@:overload(function(n:Float):Array<Float> { })
+	function times<TResult>(n:Float, iteratee:(num:Float) -> TResult):Array<TResult>;
 	/**
 		Converts `value` to a property path array.
 	**/
-	function toPath(unknown:Dynamic):Array<String>;
+	function toPath(value:Dynamic):Array<String>;
 	/**
 		Generates a unique ID. If prefix is provided the ID is appended to it.
 	**/
-	function uniqueId(unknown:Dynamic):String;
+	function uniqueId(?prefix:String):String;
 };

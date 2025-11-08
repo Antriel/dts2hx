@@ -1,9 +1,9 @@
 package global.three;
 
 @:native("THREE.WebGLBufferRenderer") extern class WebGLBufferRenderer {
-	function new(unknown:Dynamic);
-	function setMode(unknown:Dynamic):Void;
-	function render(unknown:Dynamic):Void;
-	function renderInstances(unknown:Dynamic):Void;
+	function new(_gl:js.html.webgl.RenderingContext, extensions:Dynamic, _infoRender:Dynamic);
+	function setMode(value:Dynamic):Void;
+	function render(start:Dynamic, count:Float):Void;
+	function renderInstances(geometry:Dynamic):Void;
 	static var prototype : WebGLBufferRenderer;
 }

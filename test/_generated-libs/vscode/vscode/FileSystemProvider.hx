@@ -23,7 +23,7 @@ typedef FileSystemProvider = {
 		correct `size` value. Otherwise there may be optimizations in place that will not show
 		the change in an editor for example.
 	**/
-	function onDidChangeFile(unknown:Dynamic):Disposable;
+	function onDidChangeFile(listener:(e:Array<FileChangeEvent>) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		Subscribe to events in the file or folder denoted by `uri`.
 		
@@ -31,7 +31,7 @@ typedef FileSystemProvider = {
 		options differ from defaults, e.g. what files/folders to exclude from watching
 		and if subfolders, sub-subfolder, etc. should be watched (`recursive`).
 	**/
-	function watch(unknown:Dynamic):Disposable;
+	function watch(uri:Uri, options:{ var recursive : Bool; var excludes : Array<String>; }):Disposable;
 	/**
 		Retrieve metadata about a file.
 		
@@ -39,35 +39,35 @@ typedef FileSystemProvider = {
 		Still, the [SymbolicLink](#FileType.SymbolicLink)-type must be used in addition to the actual type, e.g.
 		`FileType.SymbolicLink | FileType.Directory`.
 	**/
-	function stat(unknown:Dynamic):ts.AnyOf2<FileStat, global.Thenable<FileStat>>;
+	function stat(uri:Uri):ts.AnyOf2<FileStat, global.Thenable<FileStat>>;
 	/**
 		Retrieve all entries of a [directory](#FileType.Directory).
 	**/
-	function readDirectory(unknown:Dynamic):ts.AnyOf2<Array<ts.Tuple2<String, FileType>>, global.Thenable<Array<ts.Tuple2<String, FileType>>>>;
+	function readDirectory(uri:Uri):ts.AnyOf2<Array<ts.Tuple2<String, FileType>>, global.Thenable<Array<ts.Tuple2<String, FileType>>>>;
 	/**
 		Create a new directory (Note, that new files are created via `write`-calls).
 	**/
-	function createDirectory(unknown:Dynamic):global.Thenable<ts.Undefined>;
+	function createDirectory(uri:Uri):global.Thenable<ts.Undefined>;
 	/**
 		Read the entire contents of a file.
 	**/
-	function readFile(unknown:Dynamic):ts.AnyOf2<js.lib.Uint8Array_<js.lib.ArrayBuffer>, global.Thenable<js.lib.Uint8Array_<js.lib.ArrayBuffer>>>;
+	function readFile(uri:Uri):ts.AnyOf2<js.lib.Uint8Array_<js.lib.ArrayBuffer>, global.Thenable<js.lib.Uint8Array_<js.lib.ArrayBuffer>>>;
 	/**
 		Write data to a file, replacing its entire contents.
 	**/
-	function writeFile(unknown:Dynamic):global.Thenable<ts.Undefined>;
+	function writeFile(uri:Uri, content:js.lib.Uint8Array_<js.lib.ArrayBuffer>, options:{ var create : Bool; var overwrite : Bool; }):global.Thenable<ts.Undefined>;
 	/**
 		Delete a file.
 	**/
-	function delete(unknown:Dynamic):global.Thenable<ts.Undefined>;
+	function delete(uri:Uri, options:{ var recursive : Bool; }):global.Thenable<ts.Undefined>;
 	/**
 		Rename a file or folder.
 	**/
-	function rename(unknown:Dynamic):global.Thenable<ts.Undefined>;
+	function rename(oldUri:Uri, newUri:Uri, options:{ var overwrite : Bool; }):global.Thenable<ts.Undefined>;
 	/**
 		Copy files or folders. Implementing this function is optional but it will speedup
 		the copy operation.
 	**/
 	@:optional
-	function copy(unknown:Dynamic):global.Thenable<ts.Undefined>;
+	function copy(source:Uri, destination:Uri, options:{ var overwrite : Bool; }):global.Thenable<ts.Undefined>;
 };

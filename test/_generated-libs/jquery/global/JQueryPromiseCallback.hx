@@ -1,3 +1,3 @@
 package global;
 
-typedef JQueryPromiseCallback<T> = (unknown:Dynamic) -> Void;
+typedef JQueryPromiseCallback<T> = ts.AnyOf2<() -> Void, (value:T) -> Void>;

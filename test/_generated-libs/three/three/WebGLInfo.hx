@@ -18,6 +18,6 @@ package three;
 		var points : Float;
 		var triangles : Float;
 	};
-	function reset(unknown:Dynamic):Void;
+	function reset():Void;
 	static var prototype : WebGLInfo;
 }

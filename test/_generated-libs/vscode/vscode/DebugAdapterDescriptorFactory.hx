@@ -15,5 +15,5 @@ typedef DebugAdapterDescriptorFactory = {
 		     return executable;
 		  }
 	**/
-	function createDebugAdapterDescriptor(unknown:Dynamic):ProviderResult<DebugAdapterDescriptor>;
+	function createDebugAdapterDescriptor(session:DebugSession, executable:Null<DebugAdapterExecutable>):ProviderResult<DebugAdapterDescriptor>;
 };

@@ -1,3 +1,3 @@
 package sizzle.selectors;
 
-typedef FilterFunction = (unknown:Dynamic) -> Bool;
+typedef FilterFunction = (element:String, matches:haxe.extern.Rest<String>) -> Bool;

@@ -1,10 +1,10 @@
 package node;
 
 @:jsRequire("punycode") @valueModuleOnly extern class Punycode {
-	static function decode(unknown:Dynamic):String;
-	static function encode(unknown:Dynamic):String;
-	static function toUnicode(unknown:Dynamic):String;
-	static function toASCII(unknown:Dynamic):String;
+	static function decode(string:String):String;
+	static function encode(string:String):String;
+	static function toUnicode(domain:String):String;
+	static function toASCII(domain:String):String;
 	static final ucs2 : node.punycode.Ucs2;
 	static final version : String;
 }

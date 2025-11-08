@@ -4,7 +4,7 @@ package vscode;
 	Predefined buttons for [QuickPick](#QuickPick) and [InputBox](#InputBox).
 **/
 @:jsRequire("vscode", "QuickInputButtons") extern class QuickInputButtons {
-	private function new(unknown:Dynamic);
+	private function new();
 	static var prototype : QuickInputButtons;
 	/**
 		A back button for [QuickPick](#QuickPick) and [InputBox](#InputBox).

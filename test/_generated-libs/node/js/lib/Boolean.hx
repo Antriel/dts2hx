@@ -1,12 +1,12 @@
 package js.lib;
 
 @:native("Boolean") extern class Boolean {
-	function new(unknown:Dynamic);
+	function new(?value:Dynamic);
 	/**
 		Returns the primitive value of the specified object.
 	**/
-	function valueOf(unknown:Dynamic):Bool;
+	function valueOf():Bool;
 	@:selfCall
-	static function call<T>(unknown:Dynamic):Bool;
+	static function call<T>(?value:T):Bool;
 	static final prototype : Boolean;
 }

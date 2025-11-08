@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "DirectGeometry") extern class DirectGeometry extends EventDispatcher {
-	function new(unknown:Dynamic);
+	function new();
 	var id : Float;
 	var uuid : String;
 	var name : String;
@@ -26,10 +26,10 @@ package three;
 	var colorsNeedUpdate : Bool;
 	var uvsNeedUpdate : Bool;
 	var groupsNeedUpdate : Bool;
-	function computeBoundingBox(unknown:Dynamic):Void;
-	function computeBoundingSphere(unknown:Dynamic):Void;
-	function computeGroups(unknown:Dynamic):Void;
-	function fromGeometry(unknown:Dynamic):DirectGeometry;
-	function dispose(unknown:Dynamic):Void;
+	function computeBoundingBox():Void;
+	function computeBoundingSphere():Void;
+	function computeGroups(geometry:Geometry):Void;
+	function fromGeometry(geometry:Geometry):DirectGeometry;
+	function dispose():Void;
 	static var prototype : DirectGeometry;
 }

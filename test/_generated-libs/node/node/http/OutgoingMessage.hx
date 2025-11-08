@@ -1,7 +1,7 @@
 package node.http;
 
 @:jsRequire("http", "OutgoingMessage") extern class OutgoingMessage extends node.stream.Writable {
-	function new(unknown:Dynamic);
+	function new();
 	var upgrading : Bool;
 	var chunkedEncoding : Bool;
 	var shouldKeepAlive : Bool;
@@ -10,16 +10,16 @@ package node.http;
 	var finished : Bool;
 	var headersSent : Bool;
 	var connection : node.net.Socket;
-	function setTimeout(unknown:Dynamic):OutgoingMessage;
-	function setHeader(unknown:Dynamic):Void;
-	function getHeader(unknown:Dynamic):Null<ts.AnyOf3<String, Float, Array<String>>>;
-	function getHeaders(unknown:Dynamic):OutgoingHttpHeaders;
-	function getHeaderNames(unknown:Dynamic):Array<String>;
-	function hasHeader(unknown:Dynamic):Bool;
-	function removeHeader(unknown:Dynamic):Void;
-	function addTrailers(unknown:Dynamic):Void;
-	function flushHeaders(unknown:Dynamic):Void;
-	function setDefaultEncoding(unknown:Dynamic):OutgoingMessage;
+	function setTimeout(msecs:Float, ?callback:() -> Void):OutgoingMessage;
+	function setHeader(name:String, value:ts.AnyOf3<String, Float, Array<String>>):Void;
+	function getHeader(name:String):Null<ts.AnyOf3<String, Float, Array<String>>>;
+	function getHeaders():OutgoingHttpHeaders;
+	function getHeaderNames():Array<String>;
+	function hasHeader(name:String):Bool;
+	function removeHeader(name:String):Void;
+	function addTrailers(headers:ts.AnyOf2<Array<ts.Tuple2<String, String>>, OutgoingHttpHeaders>):Void;
+	function flushHeaders():Void;
+	function setDefaultEncoding(encoding:String):OutgoingMessage;
 	/**
 		Event emitter
 		The defined events on documents including:
@@ -30,50 +30,50 @@ package node.http;
 		5. pipe
 		6. unpipe
 	**/
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	function addListener(unknown:Dynamic):OutgoingMessage;
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	function on(unknown:Dynamic):OutgoingMessage;
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	function once(unknown:Dynamic):OutgoingMessage;
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	function prependListener(unknown:Dynamic):OutgoingMessage;
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	function prependOnceListener(unknown:Dynamic):OutgoingMessage;
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	@:overload(function(unknown:Dynamic):OutgoingMessage { })
-	function removeListener(unknown:Dynamic):OutgoingMessage;
-	function off(unknown:Dynamic):OutgoingMessage;
-	function removeAllListeners(unknown:Dynamic):OutgoingMessage;
-	function setMaxListeners(unknown:Dynamic):OutgoingMessage;
+	@:overload(function(event:String, listener:() -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:() -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):OutgoingMessage { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):OutgoingMessage { })
+	function addListener(event:String, listener:() -> Void):OutgoingMessage;
+	@:overload(function(event:String, listener:() -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:() -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):OutgoingMessage { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):OutgoingMessage { })
+	function on(event:String, listener:() -> Void):OutgoingMessage;
+	@:overload(function(event:String, listener:() -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:() -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):OutgoingMessage { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):OutgoingMessage { })
+	function once(event:String, listener:() -> Void):OutgoingMessage;
+	@:overload(function(event:String, listener:() -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:() -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):OutgoingMessage { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):OutgoingMessage { })
+	function prependListener(event:String, listener:() -> Void):OutgoingMessage;
+	@:overload(function(event:String, listener:() -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:() -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):OutgoingMessage { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):OutgoingMessage { })
+	function prependOnceListener(event:String, listener:() -> Void):OutgoingMessage;
+	@:overload(function(event:String, listener:() -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:() -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):OutgoingMessage { })
+	@:overload(function(event:String, listener:(src:node.stream.Readable) -> Void):OutgoingMessage { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):OutgoingMessage { })
+	function removeListener(event:String, listener:() -> Void):OutgoingMessage;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):OutgoingMessage;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):OutgoingMessage;
+	function setMaxListeners(n:Float):OutgoingMessage;
 	static var prototype : OutgoingMessage;
 }

@@ -14,5 +14,5 @@ typedef TaskExecution = {
 	/**
 		Terminates the task execution.
 	**/
-	function terminate(unknown:Dynamic):Void;
+	function terminate():Void;
 };

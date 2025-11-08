@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.MeshMatcapMaterial") extern class MeshMatcapMaterial extends Material {
-	function new(unknown:Dynamic);
+	function new(?parameters:MeshMatcapMaterialParameters);
 	var color : Color;
 	var matcap : Null<Texture>;
 	var map : Null<Texture>;
@@ -20,14 +20,14 @@ package global.three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(unknown:Dynamic):Void;
+	function setValues(parameters:MeshMatcapMaterialParameters):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone(unknown:Dynamic):MeshMatcapMaterial;
+	function clone():MeshMatcapMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(unknown:Dynamic):MeshMatcapMaterial;
+	function copy(material:Material):MeshMatcapMaterial;
 	static var prototype : MeshMatcapMaterial;
 }

@@ -8,5 +8,5 @@ package node.fs;
 		Asynchronous fchmod(2) - Change permissions of a file.
 	**/
 	@:selfCall
-	static function call(unknown:Dynamic):Void;
+	static function call(fd:Float, mode:ts.AnyOf2<String, Float>, callback:(err:global.nodejs.ErrnoException) -> Void):Void;
 }

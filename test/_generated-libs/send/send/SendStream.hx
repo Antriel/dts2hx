@@ -4,88 +4,88 @@ typedef SendStream = {
 	/**
 		Emit error with `status`.
 	**/
-	function error(unknown:Dynamic):Void;
+	function error(status:Float, ?error:js.lib.Error):Void;
 	/**
 		Check if the pathname ends with "/".
 	**/
-	function hasTrailingSlash(unknown:Dynamic):Bool;
+	function hasTrailingSlash():Bool;
 	/**
 		Check if this is a conditional GET request.
 	**/
-	function isConditionalGET(unknown:Dynamic):Bool;
+	function isConditionalGET():Bool;
 	/**
 		Strip content-* header fields.
 	**/
-	function removeContentHeaderFields(unknown:Dynamic):Void;
+	function removeContentHeaderFields():Void;
 	/**
 		Respond with 304 not modified.
 	**/
-	function notModified(unknown:Dynamic):Void;
+	function notModified():Void;
 	/**
 		Raise error that headers already sent.
 	**/
-	function headersAlreadySent(unknown:Dynamic):Void;
+	function headersAlreadySent():Void;
 	/**
 		Check if the request is cacheable, aka responded with 2xx or 304 (see RFC 2616 section 14.2{5,6}).
 	**/
-	function isCachable(unknown:Dynamic):Bool;
+	function isCachable():Bool;
 	/**
 		Handle stat() error.
 	**/
-	function onStatError(unknown:Dynamic):Void;
+	function onStatError(error:js.lib.Error):Void;
 	/**
 		Check if the cache is fresh.
 	**/
-	function isFresh(unknown:Dynamic):Bool;
+	function isFresh():Bool;
 	/**
 		Check if the range is fresh.
 	**/
-	function isRangeFresh(unknown:Dynamic):Bool;
+	function isRangeFresh():Bool;
 	/**
 		Redirect to path.
 	**/
-	function redirect(unknown:Dynamic):Void;
+	function redirect(path:String):Void;
 	/**
 		Pipe to `res`.
 	**/
-	function pipe<T>(unknown:Dynamic):T;
+	function pipe<T>(res:T):T;
 	/**
 		Transfer `path`.
 	**/
-	function send(unknown:Dynamic):Void;
+	function send(path:String, ?stat:node.fs.Stats):Void;
 	/**
 		Transfer file for `path`.
 	**/
-	function sendFile(unknown:Dynamic):Void;
+	function sendFile(path:String):Void;
 	/**
 		Transfer index for `path`.
 	**/
-	function sendIndex(unknown:Dynamic):Void;
+	function sendIndex(path:String):Void;
 	/**
 		Transfer index for `path`.
 	**/
-	function stream(unknown:Dynamic):Void;
+	function stream(path:String, ?options:{ }):Void;
 	/**
 		Set content-type based on `path` if it hasn't been explicitly set.
 	**/
-	function type(unknown:Dynamic):Void;
+	function type(path:String):Void;
 	/**
 		Set response header fields, most fields may be pre-defined.
 	**/
-	function setHeader(unknown:Dynamic):Void;
-	function addListener(unknown:Dynamic):SendStream;
-	function on(unknown:Dynamic):SendStream;
-	function once(unknown:Dynamic):SendStream;
-	function prependListener(unknown:Dynamic):SendStream;
-	function prependOnceListener(unknown:Dynamic):SendStream;
-	function removeListener(unknown:Dynamic):SendStream;
-	function off(unknown:Dynamic):SendStream;
-	function removeAllListeners(unknown:Dynamic):SendStream;
-	function setMaxListeners(unknown:Dynamic):SendStream;
-	function getMaxListeners(unknown:Dynamic):Float;
-	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function emit(unknown:Dynamic):Bool;
-	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
-	function listenerCount(unknown:Dynamic):Float;
+	function setHeader(path:String, stat:node.fs.Stats):Void;
+	function addListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):SendStream;
+	function on(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):SendStream;
+	function once(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):SendStream;
+	function prependListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):SendStream;
+	function prependOnceListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):SendStream;
+	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):SendStream;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):SendStream;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):SendStream;
+	function setMaxListeners(n:Float):SendStream;
+	function getMaxListeners():Float;
+	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function emit(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool;
+	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
 };

@@ -5,7 +5,7 @@ typedef OptionsJson = {
 		The reviver option is passed directly to JSON.parse as the second argument.
 	**/
 	@:optional
-	function reviver(unknown:Dynamic):Dynamic;
+	function reviver(key:String, value:Dynamic):Dynamic;
 	/**
 		When set to `true`, will only accept arrays and objects;
 		when `false` will accept anything JSON.parse accepts. Defaults to `true`.
@@ -28,11 +28,11 @@ typedef OptionsJson = {
 		The type option is used to determine what media type the middleware will parse
 	**/
 	@:optional
-	var type : ts.AnyOf3<String, Array<String>, (unknown:Dynamic) -> Dynamic>;
+	var type : ts.AnyOf3<String, Array<String>, (req:node.http.IncomingMessage) -> Dynamic>;
 	/**
 		The verify option, if supplied, is called as verify(req, res, buf, encoding),
 		where buf is a Buffer of the raw request body and encoding is the encoding of the request.
 	**/
 	@:optional
-	function verify(unknown:Dynamic):Void;
+	function verify(req:node.http.IncomingMessage, res:node.http.ServerResponse, buf:global.Buffer, encoding:String):Void;
 };

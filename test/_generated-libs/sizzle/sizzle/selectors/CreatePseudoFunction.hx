@@ -1,3 +1,3 @@
 package sizzle.selectors;
 
-typedef CreatePseudoFunction = (unknown:Dynamic) -> PseudoFunction;
+typedef CreatePseudoFunction = (args:haxe.extern.Rest<Dynamic>) -> PseudoFunction;

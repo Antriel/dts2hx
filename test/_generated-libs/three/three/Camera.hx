@@ -7,7 +7,7 @@ package three;
 	/**
 		This constructor sets following properties to the correct type: matrixWorldInverse, projectionMatrix and projectionMatrixInverse.
 	**/
-	function new(unknown:Dynamic);
+	function new();
 	/**
 		This is the inverse of matrixWorld. MatrixWorld contains the Matrix which has the world transform of the Camera.
 	**/
@@ -21,44 +21,44 @@ package three;
 	**/
 	var projectionMatrixInverse : Matrix4;
 	var isCamera : Bool;
-	function applyQuaternion(unknown:Dynamic):Camera;
+	function applyQuaternion(quaternion:Quaternion):Camera;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(unknown:Dynamic):Camera;
+	function rotateOnAxis(axis:Vector3, angle:Float):Camera;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(unknown:Dynamic):Camera;
-	function rotateX(unknown:Dynamic):Camera;
-	function rotateY(unknown:Dynamic):Camera;
-	function rotateZ(unknown:Dynamic):Camera;
-	function translateOnAxis(unknown:Dynamic):Camera;
+	function rotateOnWorldAxis(axis:Vector3, angle:Float):Camera;
+	function rotateX(angle:Float):Camera;
+	function rotateY(angle:Float):Camera;
+	function rotateZ(angle:Float):Camera;
+	function translateOnAxis(axis:Vector3, distance:Float):Camera;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(unknown:Dynamic):Camera;
+	function translateX(distance:Float):Camera;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(unknown:Dynamic):Camera;
+	function translateY(distance:Float):Camera;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(unknown:Dynamic):Camera;
+	function translateZ(distance:Float):Camera;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(unknown:Dynamic):Camera;
+	function add(object:haxe.extern.Rest<Object3D>):Camera;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(unknown:Dynamic):Camera;
+	function remove(object:haxe.extern.Rest<Object3D>):Camera;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(unknown:Dynamic):Camera;
-	function clone(unknown:Dynamic):Camera;
-	function copy(unknown:Dynamic):Camera;
+	function attach(object:Object3D):Camera;
+	function clone(?recursive:Bool):Camera;
+	function copy(source:Camera, ?recursive:Bool):Camera;
 	static var prototype : Camera;
 }

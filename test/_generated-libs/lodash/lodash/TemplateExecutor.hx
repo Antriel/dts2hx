@@ -2,6 +2,6 @@ package lodash;
 
 typedef TemplateExecutor = {
 	@:selfCall
-	function call(unknown:Dynamic):String;
+	function call(?data:Dynamic):String;
 	var source : String;
 };

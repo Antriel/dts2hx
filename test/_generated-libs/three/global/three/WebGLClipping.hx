@@ -7,9 +7,9 @@ package global.three;
 		var needsUpdate : Bool;
 	};
 	var numPlanes : Float;
-	function init(unknown:Dynamic):Bool;
-	function beginShadows(unknown:Dynamic):Void;
-	function endShadows(unknown:Dynamic):Void;
-	function setState(unknown:Dynamic):Void;
+	function init(planes:Array<Dynamic>, enableLocalClipping:Bool, camera:Camera):Bool;
+	function beginShadows():Void;
+	function endShadows():Void;
+	function setState(planes:Array<Dynamic>, clipShadows:Bool, camera:Camera, cache:Bool, fromCache:Bool):Void;
 	static var prototype : WebGLClipping;
 }

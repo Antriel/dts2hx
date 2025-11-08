@@ -11,11 +11,11 @@ typedef DebouncedFunc<T> = {
 		function was not invoked yet.
 	**/
 	@:selfCall
-	function call(unknown:Dynamic):Null<js.lib.ReturnType<T>>;
+	function call(args:haxe.extern.Rest<Any>):Null<js.lib.ReturnType<T>>;
 	/**
 		Throw away any pending invocation of the debounced function.
 	**/
-	function cancel(unknown:Dynamic):Void;
+	function cancel():Void;
 	/**
 		If there is a pending invocation of the debounced function, invoke it immediately and return
 		its return value.
@@ -23,5 +23,5 @@ typedef DebouncedFunc<T> = {
 		Otherwise, return the value from the last invocation, or undefined if the debounced function
 		was never invoked.
 	**/
-	function flush(unknown:Dynamic):Null<js.lib.ReturnType<T>>;
+	function flush():Null<js.lib.ReturnType<T>>;
 };

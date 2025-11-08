@@ -1,14 +1,14 @@
 package global.three;
 
 @:native("THREE.PolyhedronBufferGeometry") extern class PolyhedronBufferGeometry extends BufferGeometry {
-	function new(unknown:Dynamic);
+	function new(vertices:Array<Float>, indices:Array<Float>, ?radius:Float, ?detail:Float);
 	var parameters : {
 		var vertices : Array<Float>;
 		var indices : Array<Float>;
 		var radius : Float;
 		var detail : Float;
 	};
-	function clone(unknown:Dynamic):PolyhedronBufferGeometry;
-	function copy(unknown:Dynamic):PolyhedronBufferGeometry;
+	function clone():PolyhedronBufferGeometry;
+	function copy(source:BufferGeometry):PolyhedronBufferGeometry;
 	static var prototype : PolyhedronBufferGeometry;
 }

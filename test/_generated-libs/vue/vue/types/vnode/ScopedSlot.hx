@@ -1,3 +1,3 @@
 package vue.types.vnode;
 
-typedef ScopedSlot = (unknown:Dynamic) -> ScopedSlotReturnValue;
+typedef ScopedSlot = (props:Dynamic) -> ScopedSlotReturnValue;

@@ -26,17 +26,17 @@ typedef FileSystemWatcher = {
 	/**
 		An event which fires on file/folder creation.
 	**/
-	dynamic function onDidCreate(unknown:Dynamic):Disposable;
+	dynamic function onDidCreate(listener:(e:Uri) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		An event which fires on file/folder change.
 	**/
-	dynamic function onDidChange(unknown:Dynamic):Disposable;
+	dynamic function onDidChange(listener:(e:Uri) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		An event which fires on file/folder deletion.
 	**/
-	dynamic function onDidDelete(unknown:Dynamic):Disposable;
+	dynamic function onDidDelete(listener:(e:Uri) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		Dispose this object.
 	**/
-	function dispose(unknown:Dynamic):Dynamic;
+	function dispose():Dynamic;
 };

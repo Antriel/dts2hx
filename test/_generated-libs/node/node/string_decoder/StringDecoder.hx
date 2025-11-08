@@ -1,5 +1,5 @@
 package node.string_decoder;
 
 @:jsRequire("string_decoder", "StringDecoder") extern class StringDecoder {
-	function new(unknown:Dynamic);
+	function new(?encoding:String);
 }

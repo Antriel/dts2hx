@@ -1,46 +1,46 @@
 package node.crypto;
 
 typedef DecipherGCM = {
-	function setAuthTag(unknown:Dynamic):DecipherGCM;
-	function setAAD(unknown:Dynamic):DecipherGCM;
-	@:overload(function(unknown:Dynamic):global.Buffer { })
-	@:overload(function(unknown:Dynamic):String { })
-	@:overload(function(unknown:Dynamic):String { })
-	function update(unknown:Dynamic):global.Buffer;
+	function setAuthTag(buffer:Binary):DecipherGCM;
+	function setAAD(buffer:Binary, ?options:{ var plaintextLength : Float; }):DecipherGCM;
+	@:overload(function(data:String, input_encoding:HexBase64BinaryEncoding):global.Buffer { })
+	@:overload(function(data:Binary, input_encoding:Null<Any>, output_encoding:Utf8AsciiBinaryEncoding):String { })
+	@:overload(function(data:String, input_encoding:Null<HexBase64BinaryEncoding>, output_encoding:Utf8AsciiBinaryEncoding):String { })
+	function update(data:Binary):global.Buffer;
 	@:native("final")
-	@:overload(function(unknown:Dynamic):String { })
-	function final_(unknown:Dynamic):global.Buffer;
-	function setAutoPadding(unknown:Dynamic):DecipherGCM;
+	@:overload(function(output_encoding:String):String { })
+	function final_():global.Buffer;
+	function setAutoPadding(?auto_padding:Bool):DecipherGCM;
 	var readable : Bool;
-	function read(unknown:Dynamic):ts.AnyOf2<String, global.Buffer>;
-	function setEncoding(unknown:Dynamic):DecipherGCM;
-	function pause(unknown:Dynamic):DecipherGCM;
-	function resume(unknown:Dynamic):DecipherGCM;
-	function isPaused(unknown:Dynamic):Bool;
-	function pipe<T>(unknown:Dynamic):T;
-	function unpipe(unknown:Dynamic):DecipherGCM;
-	@:overload(function(unknown:Dynamic):Void { })
-	function unshift(unknown:Dynamic):Void;
-	function wrap(unknown:Dynamic):DecipherGCM;
-	function addListener(unknown:Dynamic):DecipherGCM;
-	function on(unknown:Dynamic):DecipherGCM;
-	function once(unknown:Dynamic):DecipherGCM;
-	function removeListener(unknown:Dynamic):DecipherGCM;
-	function off(unknown:Dynamic):DecipherGCM;
-	function removeAllListeners(unknown:Dynamic):DecipherGCM;
-	function setMaxListeners(unknown:Dynamic):DecipherGCM;
-	function getMaxListeners(unknown:Dynamic):Float;
-	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function emit(unknown:Dynamic):Bool;
-	function listenerCount(unknown:Dynamic):Float;
-	function prependListener(unknown:Dynamic):DecipherGCM;
-	function prependOnceListener(unknown:Dynamic):DecipherGCM;
-	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	function read(?size:Float):ts.AnyOf2<String, global.Buffer>;
+	function setEncoding(encoding:String):DecipherGCM;
+	function pause():DecipherGCM;
+	function resume():DecipherGCM;
+	function isPaused():Bool;
+	function pipe<T>(destination:T, ?options:{ @:optional var end : Bool; }):T;
+	function unpipe(?destination:global.nodejs.WritableStream):DecipherGCM;
+	@:overload(function(chunk:global.Buffer):Void { })
+	function unshift(chunk:String):Void;
+	function wrap(oldStream:global.nodejs.ReadableStream):DecipherGCM;
+	function addListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):DecipherGCM;
+	function on(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):DecipherGCM;
+	function once(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):DecipherGCM;
+	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):DecipherGCM;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):DecipherGCM;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):DecipherGCM;
+	function setMaxListeners(n:Float):DecipherGCM;
+	function getMaxListeners():Float;
+	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function emit(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool;
+	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
+	function prependListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):DecipherGCM;
+	function prependOnceListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):DecipherGCM;
+	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
 	var writable : Bool;
-	@:overload(function(unknown:Dynamic):Bool { })
-	function write(unknown:Dynamic):Bool;
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	function end(unknown:Dynamic):Void;
+	@:overload(function(str:String, ?encoding:String, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool { })
+	function write(buffer:ts.AnyOf3<String, js.lib.Uint8Array_<js.lib.ArrayBufferLike>, global.Buffer>, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool;
+	@:overload(function(data:ts.AnyOf3<String, js.lib.Uint8Array_<js.lib.ArrayBufferLike>, global.Buffer>, ?cb:() -> Void):Void { })
+	@:overload(function(str:String, ?encoding:String, ?cb:() -> Void):Void { })
+	function end(?cb:() -> Void):Void;
 };

@@ -10,31 +10,31 @@ typedef Process = {
 	**/
 	var stderr : WriteStream;
 	var stdin : ReadStream;
-	function openStdin(unknown:Dynamic):Socket;
+	function openStdin():Socket;
 	var argv : Array<String>;
 	var argv0 : String;
 	var execArgv : Array<String>;
 	var execPath : String;
-	function abort(unknown:Dynamic):Void;
-	function chdir(unknown:Dynamic):Void;
-	function cwd(unknown:Dynamic):String;
+	function abort():Void;
+	function chdir(directory:String):Void;
+	function cwd():String;
 	var debugPort : Float;
-	function emitWarning(unknown:Dynamic):Void;
+	function emitWarning(warning:ts.AnyOf2<String, js.lib.Error>, ?name:String, ?ctor:haxe.Constraints.Function):Void;
 	var env : ProcessEnv;
-	function exit(unknown:Dynamic):Any;
+	function exit(?code:Float):Any;
 	var exitCode : Float;
-	function getgid(unknown:Dynamic):Float;
-	function setgid(unknown:Dynamic):Void;
-	function getuid(unknown:Dynamic):Float;
-	function setuid(unknown:Dynamic):Void;
-	function geteuid(unknown:Dynamic):Float;
-	function seteuid(unknown:Dynamic):Void;
-	function getegid(unknown:Dynamic):Float;
-	function setegid(unknown:Dynamic):Void;
-	function getgroups(unknown:Dynamic):Array<Float>;
-	function setgroups(unknown:Dynamic):Void;
-	function setUncaughtExceptionCaptureCallback(unknown:Dynamic):Void;
-	function hasUncaughtExceptionCaptureCallback(unknown:Dynamic):Bool;
+	function getgid():Float;
+	function setgid(id:ts.AnyOf2<String, Float>):Void;
+	function getuid():Float;
+	function setuid(id:ts.AnyOf2<String, Float>):Void;
+	function geteuid():Float;
+	function seteuid(id:ts.AnyOf2<String, Float>):Void;
+	function getegid():Float;
+	function setegid(id:ts.AnyOf2<String, Float>):Void;
+	function getgroups():Array<Float>;
+	function setgroups(groups:Array<ts.AnyOf2<String, Float>>):Void;
+	function setUncaughtExceptionCaptureCallback(cb:Null<(err:js.lib.Error) -> Void>):Void;
+	function hasUncaughtExceptionCaptureCallback():Bool;
 	var version : String;
 	var versions : ProcessVersions;
 	var config : {
@@ -63,7 +63,7 @@ typedef Process = {
 			var visibility : String;
 		};
 	};
-	function kill(unknown:Dynamic):Void;
+	function kill(pid:Float, ?signal:ts.AnyOf2<String, Float>):Void;
 	var pid : Float;
 	var ppid : Float;
 	var title : String;
@@ -71,9 +71,9 @@ typedef Process = {
 	var platform : Platform;
 	@:optional
 	var mainModule : global.NodeModule;
-	function memoryUsage(unknown:Dynamic):MemoryUsage;
-	function cpuUsage(unknown:Dynamic):CpuUsage;
-	function nextTick(unknown:Dynamic):Void;
+	function memoryUsage():MemoryUsage;
+	function cpuUsage(?previousValue:CpuUsage):CpuUsage;
+	function nextTick(callback:haxe.Constraints.Function, args:haxe.extern.Rest<Dynamic>):Void;
 	var release : ProcessRelease;
 	var features : {
 		var inspector : Bool;
@@ -88,13 +88,13 @@ typedef Process = {
 	/**
 		Can only be set if not in worker thread.
 	**/
-	function umask(unknown:Dynamic):Float;
-	function uptime(unknown:Dynamic):Float;
+	function umask(?mask:Float):Float;
+	function uptime():Float;
 	var hrtime : HRTime;
 	var domain : Domain;
 	@:optional
-	function send(unknown:Dynamic):Void;
-	function disconnect(unknown:Dynamic):Void;
+	function send(message:Dynamic, ?sendHandle:Dynamic):Void;
+	function disconnect():Void;
 	var connected : Bool;
 	/**
 		The `process.allowedNodeEnvironmentFlags` property is a special,
@@ -116,96 +116,96 @@ typedef Process = {
 		 10. <All OS Signals>
 		 11. newListener/removeListener inherited from EventEmitter
 	**/
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	function addListener(unknown:Dynamic):Process;
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	function emit(unknown:Dynamic):Bool;
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	function on(unknown:Dynamic):Process;
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	function once(unknown:Dynamic):Process;
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	function prependListener(unknown:Dynamic):Process;
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	@:overload(function(unknown:Dynamic):Process { })
-	function prependOnceListener(unknown:Dynamic):Process;
-	@:overload(function(unknown:Dynamic):Array<DisconnectListener> { })
-	@:overload(function(unknown:Dynamic):Array<ExitListener> { })
-	@:overload(function(unknown:Dynamic):Array<RejectionHandledListener> { })
-	@:overload(function(unknown:Dynamic):Array<UncaughtExceptionListener> { })
-	@:overload(function(unknown:Dynamic):Array<UnhandledRejectionListener> { })
-	@:overload(function(unknown:Dynamic):Array<WarningListener> { })
-	@:overload(function(unknown:Dynamic):Array<MessageListener> { })
-	@:overload(function(unknown:Dynamic):Array<SignalsListener> { })
-	@:overload(function(unknown:Dynamic):Array<NewListenerListener> { })
-	@:overload(function(unknown:Dynamic):Array<RemoveListenerListener> { })
-	@:overload(function(unknown:Dynamic):Array<MultipleResolveListener> { })
-	function listeners(unknown:Dynamic):Array<BeforeExitListener>;
-	function removeListener(unknown:Dynamic):Process;
-	function off(unknown:Dynamic):Process;
-	function removeAllListeners(unknown:Dynamic):Process;
-	function setMaxListeners(unknown:Dynamic):Process;
-	function getMaxListeners(unknown:Dynamic):Float;
-	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function listenerCount(unknown:Dynamic):Float;
-	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	@:overload(function(event:String, listener:DisconnectListener):Process { })
+	@:overload(function(event:String, listener:ExitListener):Process { })
+	@:overload(function(event:String, listener:RejectionHandledListener):Process { })
+	@:overload(function(event:String, listener:UncaughtExceptionListener):Process { })
+	@:overload(function(event:String, listener:UnhandledRejectionListener):Process { })
+	@:overload(function(event:String, listener:WarningListener):Process { })
+	@:overload(function(event:String, listener:MessageListener):Process { })
+	@:overload(function(event:Signals, listener:SignalsListener):Process { })
+	@:overload(function(event:String, listener:NewListenerListener):Process { })
+	@:overload(function(event:String, listener:RemoveListenerListener):Process { })
+	@:overload(function(event:String, listener:MultipleResolveListener):Process { })
+	function addListener(event:String, listener:BeforeExitListener):Process;
+	@:overload(function(event:String):Bool { })
+	@:overload(function(event:String, code:Float):Bool { })
+	@:overload(function(event:String, promise:js.lib.Promise<Dynamic>):Bool { })
+	@:overload(function(event:String, error:js.lib.Error):Bool { })
+	@:overload(function(event:String, reason:Dynamic, promise:js.lib.Promise<Dynamic>):Bool { })
+	@:overload(function(event:String, warning:js.lib.Error):Bool { })
+	@:overload(function(event:String, message:Dynamic, sendHandle:Dynamic):Process { })
+	@:overload(function(event:Signals, signal:Signals):Bool { })
+	@:overload(function(event:String, eventName:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Process { })
+	@:overload(function(event:String, eventName:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Process { })
+	@:overload(function(event:String, listener:MultipleResolveListener):Process { })
+	function emit(event:String, code:Float):Bool;
+	@:overload(function(event:String, listener:DisconnectListener):Process { })
+	@:overload(function(event:String, listener:ExitListener):Process { })
+	@:overload(function(event:String, listener:RejectionHandledListener):Process { })
+	@:overload(function(event:String, listener:UncaughtExceptionListener):Process { })
+	@:overload(function(event:String, listener:UnhandledRejectionListener):Process { })
+	@:overload(function(event:String, listener:WarningListener):Process { })
+	@:overload(function(event:String, listener:MessageListener):Process { })
+	@:overload(function(event:Signals, listener:SignalsListener):Process { })
+	@:overload(function(event:String, listener:NewListenerListener):Process { })
+	@:overload(function(event:String, listener:RemoveListenerListener):Process { })
+	@:overload(function(event:String, listener:MultipleResolveListener):Process { })
+	function on(event:String, listener:BeforeExitListener):Process;
+	@:overload(function(event:String, listener:DisconnectListener):Process { })
+	@:overload(function(event:String, listener:ExitListener):Process { })
+	@:overload(function(event:String, listener:RejectionHandledListener):Process { })
+	@:overload(function(event:String, listener:UncaughtExceptionListener):Process { })
+	@:overload(function(event:String, listener:UnhandledRejectionListener):Process { })
+	@:overload(function(event:String, listener:WarningListener):Process { })
+	@:overload(function(event:String, listener:MessageListener):Process { })
+	@:overload(function(event:Signals, listener:SignalsListener):Process { })
+	@:overload(function(event:String, listener:NewListenerListener):Process { })
+	@:overload(function(event:String, listener:RemoveListenerListener):Process { })
+	@:overload(function(event:String, listener:MultipleResolveListener):Process { })
+	function once(event:String, listener:BeforeExitListener):Process;
+	@:overload(function(event:String, listener:DisconnectListener):Process { })
+	@:overload(function(event:String, listener:ExitListener):Process { })
+	@:overload(function(event:String, listener:RejectionHandledListener):Process { })
+	@:overload(function(event:String, listener:UncaughtExceptionListener):Process { })
+	@:overload(function(event:String, listener:UnhandledRejectionListener):Process { })
+	@:overload(function(event:String, listener:WarningListener):Process { })
+	@:overload(function(event:String, listener:MessageListener):Process { })
+	@:overload(function(event:Signals, listener:SignalsListener):Process { })
+	@:overload(function(event:String, listener:NewListenerListener):Process { })
+	@:overload(function(event:String, listener:RemoveListenerListener):Process { })
+	@:overload(function(event:String, listener:MultipleResolveListener):Process { })
+	function prependListener(event:String, listener:BeforeExitListener):Process;
+	@:overload(function(event:String, listener:DisconnectListener):Process { })
+	@:overload(function(event:String, listener:ExitListener):Process { })
+	@:overload(function(event:String, listener:RejectionHandledListener):Process { })
+	@:overload(function(event:String, listener:UncaughtExceptionListener):Process { })
+	@:overload(function(event:String, listener:UnhandledRejectionListener):Process { })
+	@:overload(function(event:String, listener:WarningListener):Process { })
+	@:overload(function(event:String, listener:MessageListener):Process { })
+	@:overload(function(event:Signals, listener:SignalsListener):Process { })
+	@:overload(function(event:String, listener:NewListenerListener):Process { })
+	@:overload(function(event:String, listener:RemoveListenerListener):Process { })
+	@:overload(function(event:String, listener:MultipleResolveListener):Process { })
+	function prependOnceListener(event:String, listener:BeforeExitListener):Process;
+	@:overload(function(event:String):Array<DisconnectListener> { })
+	@:overload(function(event:String):Array<ExitListener> { })
+	@:overload(function(event:String):Array<RejectionHandledListener> { })
+	@:overload(function(event:String):Array<UncaughtExceptionListener> { })
+	@:overload(function(event:String):Array<UnhandledRejectionListener> { })
+	@:overload(function(event:String):Array<WarningListener> { })
+	@:overload(function(event:String):Array<MessageListener> { })
+	@:overload(function(event:Signals):Array<SignalsListener> { })
+	@:overload(function(event:String):Array<NewListenerListener> { })
+	@:overload(function(event:String):Array<RemoveListenerListener> { })
+	@:overload(function(event:String):Array<MultipleResolveListener> { })
+	function listeners(event:String):Array<BeforeExitListener>;
+	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Process;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Process;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):Process;
+	function setMaxListeners(n:Float):Process;
+	function getMaxListeners():Float;
+	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
+	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
 };

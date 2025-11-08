@@ -46,9 +46,13 @@ class TsSymbolTools {
 		var name: Null<String> = null;
 
 		// Try getName() method if it exists (TypeScript 5.x official API)
-		// Use untyped to avoid compilation issues with older externs
-		if (untyped symbol.getName != null) {
-			name = untyped symbol.getName();
+		// Check if the method exists at runtime
+		try {
+			if (js.Syntax.typeof(untyped symbol.getName) == "function") {
+				name = untyped symbol.getName();
+			}
+		} catch (e: Dynamic) {
+			// getName() not available, continue to fallbacks
 		}
 
 		// Fallback to name property if available

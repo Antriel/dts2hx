@@ -23,7 +23,7 @@ package node.repl;
 		
 		`REPLServer` cannot be subclassed due to implementation specifics in NodeJS.
 	**/
-	private function new(unknown:Dynamic);
+	private function new();
 	/**
 		The `vm.Context` provided to the `eval` function to be used for JavaScript
 		evaluation.
@@ -66,7 +66,7 @@ package node.repl;
 		given line of input. If not specified in the REPL options, this is an async wrapper
 		for the JavaScript `eval()` function.
 	**/
-	function eval(unknown:Dynamic):Void;
+	function eval(evalCmd:String, context:node.vm.Context, file:String, cb:(err:Null<js.lib.Error>, result:Dynamic) -> Void):Void;
 	/**
 		Specified in the REPL options, this is a value indicating whether the default
 		`writer` function should include ANSI color styling to REPL output.
@@ -88,11 +88,11 @@ package node.repl;
 		each command before writing to `outputStream`. If not specified in the REPL options,
 		this will be a wrapper for `util.inspect`.
 	**/
-	function writer(unknown:Dynamic):String;
+	function writer(obj:Dynamic):String;
 	/**
 		Specified in the REPL options, this is the function to use for custom Tab auto-completion.
 	**/
-	function completer(unknown:Dynamic):Dynamic;
+	function completer(line:String, callback:ts.AnyOf3<() -> Void, (err:js.lib.Error) -> Void, (err:js.lib.Error, result:node.readline.CompleterResult) -> Void>):Dynamic;
 	/**
 		Specified in the REPL options, this is a flag that specifies whether the default `eval`
 		function should execute all JavaScript commands in strict mode or default (sloppy) mode.
@@ -106,7 +106,7 @@ package node.repl;
 		Used to add new `.`-prefixed commands to the REPL instance. Such commands are invoked
 		by typing a `.` followed by the `keyword`.
 	**/
-	function defineCommand(unknown:Dynamic):Void;
+	function defineCommand(keyword:String, cmd:ts.AnyOf2<REPLCommand, REPLCommandAction>):Void;
 	/**
 		Readies the REPL instance for input from the user, printing the configured `prompt` to a
 		new line in the `output` and resuming the `input` to accept new input.
@@ -116,14 +116,14 @@ package node.repl;
 		This method is primarily intended to be called from within the action function for
 		commands registered using the `replServer.defineCommand()` method.
 	**/
-	function displayPrompt(unknown:Dynamic):Void;
+	function displayPrompt(?preserveCursor:Bool):Void;
 	/**
 		Clears any command that has been buffered but not yet executed.
 		
 		This method is primarily intended to be called from within the action function for
 		commands registered using the `replServer.defineCommand()` method.
 	**/
-	function clearBufferedCommand(unknown:Dynamic):Void;
+	function clearBufferedCommand():Void;
 	/**
 		Initializes a history log file for the REPL instance. When executing the
 		Node.js binary and using the command line REPL, a history file is initialized
@@ -131,7 +131,7 @@ package node.repl;
 		programmatically. Use this method to initialize a history log file when working
 		with REPL instances programmatically.
 	**/
-	function setupHistory(unknown:Dynamic):Void;
+	function setupHistory(path:String, cb:(err:Null<js.lib.Error>, repl:REPLServer) -> Void):Void;
 	/**
 		events.EventEmitter
 		1. close - inherited from `readline.Interface`
@@ -144,71 +144,71 @@ package node.repl;
 		8. exit
 		9. reset
 	**/
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	function addListener(unknown:Dynamic):REPLServer;
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	@:overload(function(unknown:Dynamic):Bool { })
-	function emit(unknown:Dynamic):Bool;
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	function on(unknown:Dynamic):REPLServer;
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	function once(unknown:Dynamic):REPLServer;
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	function prependListener(unknown:Dynamic):REPLServer;
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	@:overload(function(unknown:Dynamic):REPLServer { })
-	function prependOnceListener(unknown:Dynamic):REPLServer;
-	function pause(unknown:Dynamic):REPLServer;
-	function resume(unknown:Dynamic):REPLServer;
-	function removeListener(unknown:Dynamic):REPLServer;
-	function off(unknown:Dynamic):REPLServer;
-	function removeAllListeners(unknown:Dynamic):REPLServer;
-	function setMaxListeners(unknown:Dynamic):REPLServer;
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:(input:String) -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:(context:node.vm.Context) -> Void):REPLServer { })
+	function addListener(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):REPLServer;
+	@:overload(function(event:String):Bool { })
+	@:overload(function(event:String, input:String):Bool { })
+	@:overload(function(event:String):Bool { })
+	@:overload(function(event:String):Bool { })
+	@:overload(function(event:String):Bool { })
+	@:overload(function(event:String):Bool { })
+	@:overload(function(event:String):Bool { })
+	@:overload(function(event:String):Bool { })
+	@:overload(function(event:String, context:node.vm.Context):Bool { })
+	function emit(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool;
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:(input:String) -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:(context:node.vm.Context) -> Void):REPLServer { })
+	function on(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):REPLServer;
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:(input:String) -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:(context:node.vm.Context) -> Void):REPLServer { })
+	function once(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):REPLServer;
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:(input:String) -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:(context:node.vm.Context) -> Void):REPLServer { })
+	function prependListener(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):REPLServer;
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:(input:String) -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:() -> Void):REPLServer { })
+	@:overload(function(event:String, listener:(context:node.vm.Context) -> Void):REPLServer { })
+	function prependOnceListener(event:String, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):REPLServer;
+	function pause():REPLServer;
+	function resume():REPLServer;
+	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):REPLServer;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):REPLServer;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):REPLServer;
+	function setMaxListeners(n:Float):REPLServer;
 	static var prototype : REPLServer;
 }

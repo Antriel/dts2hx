@@ -1,11 +1,11 @@
 package three;
 
 @:jsRequire("three", "WebGLPrograms") extern class WebGLPrograms {
-	function new(unknown:Dynamic);
+	function new(renderer:WebGLRenderer, extensions:WebGLExtensions, capabilities:WebGLCapabilities);
 	var programs : Array<WebGLProgram>;
-	function getParameters(unknown:Dynamic):Dynamic;
-	function getProgramCode(unknown:Dynamic):String;
-	function acquireProgram(unknown:Dynamic):WebGLProgram;
-	function releaseProgram(unknown:Dynamic):Void;
+	function getParameters(material:ShaderMaterial, lights:Dynamic, fog:Dynamic, nClipPlanes:Float, object:Dynamic):Dynamic;
+	function getProgramCode(material:ShaderMaterial, parameters:Dynamic):String;
+	function acquireProgram(material:ShaderMaterial, parameters:Dynamic, code:String):WebGLProgram;
+	function releaseProgram(program:WebGLProgram):Void;
 	static var prototype : WebGLPrograms;
 }

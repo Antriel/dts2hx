@@ -8,8 +8,8 @@ package vscode;
 	/**
 		Creates a new symbol information object.
 	**/
-	@:overload(function(unknown:Dynamic):SymbolInformation { })
-	function new(unknown:Dynamic);
+	@:overload(function(name:String, kind:SymbolKind, range:Range, ?uri:Uri, ?containerName:String):SymbolInformation { })
+	function new(name:String, kind:SymbolKind, containerName:String, location:Location);
 	/**
 		The name of this symbol.
 	**/

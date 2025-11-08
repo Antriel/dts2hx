@@ -5,7 +5,7 @@ package three;
 	Unlike other loaders, this one emits events instead of using predefined callbacks. So if you're interested in getting notified when things happen, you need to add listeners to the object.
 **/
 @:jsRequire("three", "TextureLoader") extern class TextureLoader {
-	function new(unknown:Dynamic);
+	function new(?manager:LoadingManager);
 	var manager : LoadingManager;
 	var crossOrigin : String;
 	var withCredentials : String;
@@ -13,9 +13,9 @@ package three;
 	/**
 		Begin loading from url
 	**/
-	function load(unknown:Dynamic):Texture;
-	function setCrossOrigin(unknown:Dynamic):TextureLoader;
-	function setWithCredentials(unknown:Dynamic):TextureLoader;
-	function setPath(unknown:Dynamic):TextureLoader;
+	function load(url:String, ?onLoad:(texture:Texture) -> Void, ?onProgress:(event:js.html.ProgressEvent_<js.html.EventTarget>) -> Void, ?onError:(event:js.html.ErrorEvent) -> Void):Texture;
+	function setCrossOrigin(crossOrigin:String):TextureLoader;
+	function setWithCredentials(value:String):TextureLoader;
+	function setPath(path:String):TextureLoader;
 	static var prototype : TextureLoader;
 }

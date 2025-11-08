@@ -1,3 +1,3 @@
 package global.nodejs;
 
-typedef WarningListener = (unknown:Dynamic) -> Void;
+typedef WarningListener = (warning:js.lib.Error) -> Void;

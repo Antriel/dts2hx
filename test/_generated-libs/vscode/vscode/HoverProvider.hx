@@ -10,5 +10,5 @@ typedef HoverProvider = {
 		position will be merged by the editor. A hover can have a range which defaults
 		to the word range at the position when omitted.
 	**/
-	function provideHover(unknown:Dynamic):ProviderResult<Hover>;
+	function provideHover(document:TextDocument, position:Position, token:CancellationToken):ProviderResult<Hover>;
 };

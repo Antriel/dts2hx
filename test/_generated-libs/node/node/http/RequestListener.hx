@@ -1,3 +1,3 @@
 package node.http;
 
-typedef RequestListener = (unknown:Dynamic) -> Void;
+typedef RequestListener = (req:IncomingMessage, res:ServerResponse) -> Void;

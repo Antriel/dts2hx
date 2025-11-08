@@ -14,5 +14,5 @@ typedef SpeedSettings<TElement> = ts.AnyOf4<{
 	/**
 		A function to call once the animation is complete.
 	**/
-	function complete(unknown:Dynamic):Void;
+	function complete():Void;
 }, haxe.DynamicAccess<Any>>;

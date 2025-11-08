@@ -28,7 +28,7 @@ typedef Pseudoterminal = {
 		writeEmitter.fire('\x1b[10;20H*');
 		```
 	**/
-	dynamic function onDidWrite(unknown:Dynamic):Disposable;
+	dynamic function onDidWrite(listener:(e:String) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		An event that when fired allows overriding the [dimensions](#Pseudoterminal.setDimensions) of the
 		terminal. Note that when set, the overridden dimensions will only take effect when they
@@ -54,7 +54,7 @@ typedef Pseudoterminal = {
 		```
 	**/
 	@:optional
-	dynamic function onDidOverrideDimensions(unknown:Dynamic):Disposable;
+	dynamic function onDidOverrideDimensions(listener:(e:Null<TerminalDimensions>) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		An event that when fired will signal that the pty is closed and dispose of the terminal.
 		
@@ -83,22 +83,22 @@ typedef Pseudoterminal = {
 		```
 	**/
 	@:optional
-	dynamic function onDidClose(unknown:Dynamic):Disposable;
+	dynamic function onDidClose(listener:(e:Float) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		Implement to handle when the pty is open and ready to start firing events.
 	**/
-	function open(unknown:Dynamic):Void;
+	function open(initialDimensions:Null<TerminalDimensions>):Void;
 	/**
 		Implement to handle when the terminal is closed by an act of the user.
 	**/
-	function close(unknown:Dynamic):Void;
+	function close():Void;
 	/**
 		Implement to handle incoming keystrokes in the terminal or when an extension calls
 		[Terminal.sendText](#Terminal.sendText). `data` contains the keystrokes/text serialized into
 		their corresponding VT sequence representation.
 	**/
 	@:optional
-	function handleInput(unknown:Dynamic):Void;
+	function handleInput(data:String):Void;
 	/**
 		Implement to handle when the number of rows and columns that fit into the terminal panel
 		changes, for example when font size changes or when the panel is resized. The initial
@@ -111,5 +111,5 @@ typedef Pseudoterminal = {
 		to react dimension changes.
 	**/
 	@:optional
-	function setDimensions(unknown:Dynamic):Void;
+	function setDimensions(dimensions:TerminalDimensions):Void;
 };

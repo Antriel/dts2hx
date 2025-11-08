@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "Skeleton") extern class Skeleton {
-	function new(unknown:Dynamic);
+	function new(bones:Array<Bone>, ?boneInverses:Array<Matrix4>);
 	var useVertexTexture : Bool;
 	var identityMatrix : Matrix4;
 	var bones : Array<Bone>;
@@ -10,9 +10,9 @@ package three;
 	var boneMatrices : js.lib.Float32Array_<js.lib.ArrayBuffer>;
 	var boneTexture : DataTexture;
 	var boneInverses : Array<Matrix4>;
-	function calculateInverses(unknown:Dynamic):Void;
-	function pose(unknown:Dynamic):Void;
-	function update(unknown:Dynamic):Void;
-	function clone(unknown:Dynamic):Skeleton;
+	function calculateInverses(bone:Bone):Void;
+	function pose():Void;
+	function update():Void;
+	function clone():Skeleton;
 	static var prototype : Skeleton;
 }

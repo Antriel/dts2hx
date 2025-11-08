@@ -1,10 +1,10 @@
 package global.three;
 
 @:native("THREE.AnimationUtils") @valueModuleOnly extern class AnimationUtils {
-	static function arraySlice(unknown:Dynamic):Dynamic;
-	static function convertArray(unknown:Dynamic):Dynamic;
-	static function isTypedArray(unknown:Dynamic):Bool;
-	static function getKeyFrameOrder(unknown:Dynamic):Array<Float>;
-	static function sortedArray(unknown:Dynamic):Array<Dynamic>;
-	static function flattenJSON(unknown:Dynamic):Void;
+	static function arraySlice(array:Dynamic, from:Float, to:Float):Dynamic;
+	static function convertArray(array:Dynamic, type:Dynamic, forceClone:Bool):Dynamic;
+	static function isTypedArray(object:Dynamic):Bool;
+	static function getKeyFrameOrder(times:Float):Array<Float>;
+	static function sortedArray(values:Array<Dynamic>, stride:Float, order:Array<Float>):Array<Dynamic>;
+	static function flattenJSON(jsonKeys:Array<String>, times:Array<Dynamic>, values:Array<Dynamic>, valuePropertyName:String):Void;
 }

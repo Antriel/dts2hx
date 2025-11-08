@@ -8,5 +8,5 @@ typedef ImplementationProvider = {
 	/**
 		Provide the implementations of the symbol at the given position and document.
 	**/
-	function provideImplementation(unknown:Dynamic):ProviderResult<ts.AnyOf3<Location, Array<Location>, Array<LocationLink>>>;
+	function provideImplementation(document:TextDocument, position:Position, token:CancellationToken):ProviderResult<ts.AnyOf3<Location, Array<Location>, Array<LocationLink>>>;
 };

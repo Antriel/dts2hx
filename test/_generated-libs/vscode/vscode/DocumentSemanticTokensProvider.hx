@@ -9,7 +9,7 @@ typedef DocumentSemanticTokensProvider = {
 		An optional event to signal that the semantic tokens from this provider have changed.
 	**/
 	@:optional
-	dynamic function onDidChangeSemanticTokens(unknown:Dynamic):Disposable;
+	dynamic function onDidChangeSemanticTokens(listener:(e:ts.Undefined) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		Tokens in a file are represented as an array of integers. The position of each token is expressed relative to
 		the token before it, because most tokens remain stable relative to each other when edits are made in a file.
@@ -65,7 +65,7 @@ typedef DocumentSemanticTokensProvider = {
 		   [  2,5,3,0,3,  0,5,4,1,0,  3,2,7,2,0 ]
 		```
 	**/
-	function provideDocumentSemanticTokens(unknown:Dynamic):ProviderResult<SemanticTokens>;
+	function provideDocumentSemanticTokens(document:TextDocument, token:CancellationToken):ProviderResult<SemanticTokens>;
 	/**
 		Instead of always returning all the tokens in a file, it is possible for a `DocumentSemanticTokensProvider` to implement
 		this method (`provideDocumentSemanticTokensEdits`) and then return incremental updates to the previously provided semantic tokens.
@@ -96,5 +96,5 @@ typedef DocumentSemanticTokensProvider = {
 		*NOTE*: All edits in `SemanticTokensEdits` contain indices in the old integers array, so they all refer to the previous result state.
 	**/
 	@:optional
-	function provideDocumentSemanticTokensEdits(unknown:Dynamic):ProviderResult<ts.AnyOf2<SemanticTokens, SemanticTokensEdits>>;
+	function provideDocumentSemanticTokensEdits(document:TextDocument, previousResultId:String, token:CancellationToken):ProviderResult<ts.AnyOf2<SemanticTokens, SemanticTokensEdits>>;
 };

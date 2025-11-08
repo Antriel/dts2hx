@@ -1,48 +1,48 @@
 package three;
 
 @:jsRequire("three", "CubeCamera") extern class CubeCamera extends Object3D {
-	function new(unknown:Dynamic);
+	function new(?near:Float, ?far:Float, ?cubeResolution:Float);
 	var renderTarget : WebGLRenderTargetCube;
-	function update(unknown:Dynamic):Void;
-	function clear(unknown:Dynamic):Void;
-	function applyQuaternion(unknown:Dynamic):CubeCamera;
+	function update(renderer:WebGLRenderer, scene:Scene):Void;
+	function clear(renderer:WebGLRenderer, color:Bool, depth:Bool, stencil:Bool):Void;
+	function applyQuaternion(quaternion:Quaternion):CubeCamera;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(unknown:Dynamic):CubeCamera;
+	function rotateOnAxis(axis:Vector3, angle:Float):CubeCamera;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(unknown:Dynamic):CubeCamera;
-	function rotateX(unknown:Dynamic):CubeCamera;
-	function rotateY(unknown:Dynamic):CubeCamera;
-	function rotateZ(unknown:Dynamic):CubeCamera;
-	function translateOnAxis(unknown:Dynamic):CubeCamera;
+	function rotateOnWorldAxis(axis:Vector3, angle:Float):CubeCamera;
+	function rotateX(angle:Float):CubeCamera;
+	function rotateY(angle:Float):CubeCamera;
+	function rotateZ(angle:Float):CubeCamera;
+	function translateOnAxis(axis:Vector3, distance:Float):CubeCamera;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(unknown:Dynamic):CubeCamera;
+	function translateX(distance:Float):CubeCamera;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(unknown:Dynamic):CubeCamera;
+	function translateY(distance:Float):CubeCamera;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(unknown:Dynamic):CubeCamera;
+	function translateZ(distance:Float):CubeCamera;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(unknown:Dynamic):CubeCamera;
+	function add(object:haxe.extern.Rest<Object3D>):CubeCamera;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(unknown:Dynamic):CubeCamera;
+	function remove(object:haxe.extern.Rest<Object3D>):CubeCamera;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(unknown:Dynamic):CubeCamera;
-	function clone(unknown:Dynamic):CubeCamera;
-	function copy(unknown:Dynamic):CubeCamera;
+	function attach(object:Object3D):CubeCamera;
+	function clone(?recursive:Bool):CubeCamera;
+	function copy(source:CubeCamera, ?recursive:Bool):CubeCamera;
 	static var prototype : CubeCamera;
 }

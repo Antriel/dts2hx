@@ -11,6 +11,6 @@ package vscode;
 		[Pseudoterminal.close](#Pseudoterminal.close). When the task is complete fire
 		[Pseudoterminal.onDidClose](#Pseudoterminal.onDidClose).
 	**/
-	function new(unknown:Dynamic);
+	function new(callback:() -> global.Thenable<Pseudoterminal>);
 	static var prototype : CustomExecution;
 }

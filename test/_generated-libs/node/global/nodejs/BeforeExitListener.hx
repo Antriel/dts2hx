@@ -1,3 +1,3 @@
 package global.nodejs;
 
-typedef BeforeExitListener = (unknown:Dynamic) -> Void;
+typedef BeforeExitListener = (code:Float) -> Void;

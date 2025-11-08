@@ -1,9 +1,9 @@
 package global.three;
 
 @:native("THREE.WebGLObjects") extern class WebGLObjects {
-	function new(unknown:Dynamic);
-	function getAttributeBuffer(unknown:Dynamic):Dynamic;
-	function getWireframeAttribute(unknown:Dynamic):Dynamic;
-	function update(unknown:Dynamic):Void;
+	function new(gl:js.html.webgl.RenderingContext, properties:Dynamic, info:Dynamic);
+	function getAttributeBuffer(attribute:Dynamic):Dynamic;
+	function getWireframeAttribute(geometry:Dynamic):Dynamic;
+	function update(object:Dynamic):Void;
 	static var prototype : WebGLObjects;
 }

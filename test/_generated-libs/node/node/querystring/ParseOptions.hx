@@ -4,5 +4,5 @@ typedef ParseOptions = {
 	@:optional
 	var maxKeys : Float;
 	@:optional
-	dynamic function decodeURIComponent(unknown:Dynamic):String;
+	dynamic function decodeURIComponent(str:String):String;
 };

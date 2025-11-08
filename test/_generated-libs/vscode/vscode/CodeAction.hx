@@ -13,7 +13,7 @@ package vscode;
 		A code action must have at least a [title](#CodeAction.title) and [edits](#CodeAction.edit)
 		and/or a [command](#CodeAction.command).
 	**/
-	function new(unknown:Dynamic);
+	function new(title:String, ?kind:CodeActionKind);
 	/**
 		A short, human-readable, title for this code action.
 	**/

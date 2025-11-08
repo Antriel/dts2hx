@@ -4,8 +4,8 @@ package vscode;
 	/**
 		Creates a shell execution with a full command line.
 	**/
-	@:overload(function(unknown:Dynamic):ShellExecution { })
-	function new(unknown:Dynamic);
+	@:overload(function(command:ts.AnyOf2<String, ShellQuotedString>, args:Array<ts.AnyOf2<String, ShellQuotedString>>, ?options:ShellExecutionOptions):ShellExecution { })
+	function new(commandLine:String, ?options:ShellExecutionOptions);
 	/**
 		The shell command line. Is `undefined` if created with a command and arguments.
 	**/

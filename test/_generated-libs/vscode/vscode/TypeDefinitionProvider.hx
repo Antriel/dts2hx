@@ -8,5 +8,5 @@ typedef TypeDefinitionProvider = {
 	/**
 		Provide the type definition of the symbol at the given position and document.
 	**/
-	function provideTypeDefinition(unknown:Dynamic):ProviderResult<ts.AnyOf3<Location, Array<Location>, Array<LocationLink>>>;
+	function provideTypeDefinition(document:TextDocument, position:Position, token:CancellationToken):ProviderResult<ts.AnyOf3<Location, Array<Location>, Array<LocationLink>>>;
 };

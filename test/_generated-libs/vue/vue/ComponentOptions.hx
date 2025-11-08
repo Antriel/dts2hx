@@ -18,35 +18,35 @@ typedef ComponentOptions<V, Data, Methods, Computed, PropsDef, Props> = {
 	@:optional
 	var template : String;
 	@:optional
-	function render(unknown:Dynamic):VNode;
+	function render(createElement:CreateElement, hack:RenderContext<Props>):VNode;
 	@:optional
-	function renderError(unknown:Dynamic):VNode;
+	function renderError(createElement:CreateElement, err:js.lib.Error):VNode;
 	@:optional
-	var staticRenderFns : Array<(unknown:Dynamic) -> VNode>;
+	var staticRenderFns : Array<(createElement:CreateElement) -> VNode>;
 	@:optional
-	function beforeCreate(unknown:Dynamic):Void;
+	function beforeCreate():Void;
 	@:optional
-	function created(unknown:Dynamic):Void;
+	function created():Void;
 	@:optional
-	function beforeDestroy(unknown:Dynamic):Void;
+	function beforeDestroy():Void;
 	@:optional
-	function destroyed(unknown:Dynamic):Void;
+	function destroyed():Void;
 	@:optional
-	function beforeMount(unknown:Dynamic):Void;
+	function beforeMount():Void;
 	@:optional
-	function mounted(unknown:Dynamic):Void;
+	function mounted():Void;
 	@:optional
-	function beforeUpdate(unknown:Dynamic):Void;
+	function beforeUpdate():Void;
 	@:optional
-	function updated(unknown:Dynamic):Void;
+	function updated():Void;
 	@:optional
-	function activated(unknown:Dynamic):Void;
+	function activated():Void;
 	@:optional
-	function deactivated(unknown:Dynamic):Void;
+	function deactivated():Void;
 	@:optional
-	function errorCaptured(unknown:Dynamic):Bool;
+	function errorCaptured(err:js.lib.Error, vm:Vue, info:String):Bool;
 	@:optional
-	function serverPrefetch(unknown:Dynamic):js.lib.Promise<ts.Undefined>;
+	function serverPrefetch():js.lib.Promise<ts.Undefined>;
 	@:optional
 	var directives : haxe.DynamicAccess<ts.AnyOf2<DirectiveFunction, DirectiveOptions>>;
 	@:optional
@@ -56,7 +56,7 @@ typedef ComponentOptions<V, Data, Methods, Computed, PropsDef, Props> = {
 	@:optional
 	var filters : haxe.DynamicAccess<haxe.Constraints.Function>;
 	@:optional
-	var provide : ts.AnyOf2<Dynamic, (unknown:Dynamic) -> Dynamic>;
+	var provide : ts.AnyOf2<Dynamic, () -> Dynamic>;
 	@:optional
 	var inject : vue.types.options.InjectOptions;
 	@:optional

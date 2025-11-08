@@ -1,8 +1,8 @@
 package global.three;
 
 @:native("THREE.ConeBufferGeometry") extern class ConeBufferGeometry extends CylinderBufferGeometry {
-	function new(unknown:Dynamic);
-	function clone(unknown:Dynamic):ConeBufferGeometry;
-	function copy(unknown:Dynamic):ConeBufferGeometry;
+	function new(?radius:Float, ?height:Float, ?radialSegment:Float, ?heightSegment:Float, ?openEnded:Bool, ?thetaStart:Float, ?thetaLength:Float);
+	function clone():ConeBufferGeometry;
+	function copy(source:BufferGeometry):ConeBufferGeometry;
 	static var prototype : ConeBufferGeometry;
 }

@@ -1,3 +1,3 @@
 package global.sizzle.selectors;
 
-typedef PreFilterFunction = (unknown:Dynamic) -> Array<String>;
+typedef PreFilterFunction = (match:js.lib.RegExpMatchArray) -> Array<String>;

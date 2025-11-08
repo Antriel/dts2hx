@@ -1,83 +1,83 @@
 package node;
 
 @:jsRequire("crypto") @valueModuleOnly extern class Crypto {
-	static function createHash(unknown:Dynamic):node.crypto.Hash;
-	static function createHmac(unknown:Dynamic):node.crypto.Hmac;
-	@:overload(function(unknown:Dynamic):node.crypto.CipherGCM { })
-	@:overload(function(unknown:Dynamic):node.crypto.Cipher { })
-	static function createCipher(unknown:Dynamic):node.crypto.CipherCCM;
-	@:overload(function(unknown:Dynamic):node.crypto.CipherGCM { })
-	@:overload(function(unknown:Dynamic):node.crypto.Cipher { })
-	static function createCipheriv(unknown:Dynamic):node.crypto.CipherCCM;
-	@:overload(function(unknown:Dynamic):node.crypto.DecipherGCM { })
-	@:overload(function(unknown:Dynamic):node.crypto.Decipher { })
-	static function createDecipher(unknown:Dynamic):node.crypto.DecipherCCM;
-	@:overload(function(unknown:Dynamic):node.crypto.DecipherGCM { })
-	@:overload(function(unknown:Dynamic):node.crypto.Decipher { })
-	static function createDecipheriv(unknown:Dynamic):node.crypto.DecipherCCM;
-	static function createPrivateKey(unknown:Dynamic):node.crypto.KeyObject;
-	static function createPublicKey(unknown:Dynamic):node.crypto.KeyObject;
-	static function createSecretKey(unknown:Dynamic):node.crypto.KeyObject;
-	static function createSign(unknown:Dynamic):node.crypto.Signer;
-	static function createVerify(unknown:Dynamic):node.crypto.Verify;
-	@:overload(function(unknown:Dynamic):node.crypto.DiffieHellman { })
-	@:overload(function(unknown:Dynamic):node.crypto.DiffieHellman { })
-	@:overload(function(unknown:Dynamic):node.crypto.DiffieHellman { })
-	@:overload(function(unknown:Dynamic):node.crypto.DiffieHellman { })
-	static function createDiffieHellman(unknown:Dynamic):node.crypto.DiffieHellman;
-	static function getDiffieHellman(unknown:Dynamic):node.crypto.DiffieHellman;
-	static function pbkdf2(unknown:Dynamic):Void;
-	static function pbkdf2Sync(unknown:Dynamic):global.Buffer;
-	@:overload(function(unknown:Dynamic):Void { })
-	static function randomBytes(unknown:Dynamic):global.Buffer;
-	@:overload(function(unknown:Dynamic):Void { })
-	static function pseudoRandomBytes(unknown:Dynamic):global.Buffer;
-	static function randomFillSync<T>(unknown:Dynamic):T;
-	@:overload(function<T>(unknown:Dynamic):Void { })
-	@:overload(function<T>(unknown:Dynamic):Void { })
-	static function randomFill<T>(unknown:Dynamic):Void;
-	@:overload(function(unknown:Dynamic):Void { })
-	static function scrypt(unknown:Dynamic):Void;
-	static function scryptSync(unknown:Dynamic):global.Buffer;
-	static function publicEncrypt(unknown:Dynamic):global.Buffer;
-	static function privateDecrypt(unknown:Dynamic):global.Buffer;
-	static function privateEncrypt(unknown:Dynamic):global.Buffer;
-	static function publicDecrypt(unknown:Dynamic):global.Buffer;
-	static function getCiphers(unknown:Dynamic):Array<String>;
-	static function getCurves(unknown:Dynamic):Array<String>;
-	static function getHashes(unknown:Dynamic):Array<String>;
-	static function createECDH(unknown:Dynamic):node.crypto.ECDH;
-	static function timingSafeEqual(unknown:Dynamic):Bool;
-	@:overload(function(unknown:Dynamic):node.crypto.KeyPairSyncResult<String, global.Buffer> { })
-	@:overload(function(unknown:Dynamic):node.crypto.KeyPairSyncResult<global.Buffer, String> { })
-	@:overload(function(unknown:Dynamic):node.crypto.KeyPairSyncResult<global.Buffer, global.Buffer> { })
-	@:overload(function(unknown:Dynamic):node.crypto.KeyPairKeyObjectResult { })
-	@:overload(function(unknown:Dynamic):node.crypto.KeyPairSyncResult<String, String> { })
-	@:overload(function(unknown:Dynamic):node.crypto.KeyPairSyncResult<String, global.Buffer> { })
-	@:overload(function(unknown:Dynamic):node.crypto.KeyPairSyncResult<global.Buffer, String> { })
-	@:overload(function(unknown:Dynamic):node.crypto.KeyPairSyncResult<global.Buffer, global.Buffer> { })
-	@:overload(function(unknown:Dynamic):node.crypto.KeyPairKeyObjectResult { })
-	@:overload(function(unknown:Dynamic):node.crypto.KeyPairSyncResult<String, String> { })
-	@:overload(function(unknown:Dynamic):node.crypto.KeyPairSyncResult<String, global.Buffer> { })
-	@:overload(function(unknown:Dynamic):node.crypto.KeyPairSyncResult<global.Buffer, String> { })
-	@:overload(function(unknown:Dynamic):node.crypto.KeyPairSyncResult<global.Buffer, global.Buffer> { })
-	@:overload(function(unknown:Dynamic):node.crypto.KeyPairKeyObjectResult { })
-	static function generateKeyPairSync(unknown:Dynamic):node.crypto.KeyPairSyncResult<String, String>;
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	static function generateKeyPair(unknown:Dynamic):Void;
+	static function createHash(algorithm:String, ?options:node.stream.TransformOptions):node.crypto.Hash;
+	static function createHmac(algorithm:String, key:node.crypto.BinaryLike, ?options:node.stream.TransformOptions):node.crypto.Hmac;
+	@:overload(function(algorithm:node.crypto.CipherGCMTypes, password:node.crypto.BinaryLike, ?options:node.crypto.CipherGCMOptions):node.crypto.CipherGCM { })
+	@:overload(function(algorithm:String, password:node.crypto.BinaryLike, ?options:node.stream.TransformOptions):node.crypto.Cipher { })
+	static function createCipher(algorithm:node.crypto.CipherCCMTypes, password:node.crypto.BinaryLike, options:node.crypto.CipherCCMOptions):node.crypto.CipherCCM;
+	@:overload(function(algorithm:node.crypto.CipherGCMTypes, key:node.crypto.CipherKey, iv:Null<node.crypto.BinaryLike>, ?options:node.crypto.CipherGCMOptions):node.crypto.CipherGCM { })
+	@:overload(function(algorithm:String, key:node.crypto.CipherKey, iv:Null<node.crypto.BinaryLike>, ?options:node.stream.TransformOptions):node.crypto.Cipher { })
+	static function createCipheriv(algorithm:node.crypto.CipherCCMTypes, key:node.crypto.CipherKey, iv:Null<node.crypto.BinaryLike>, options:node.crypto.CipherCCMOptions):node.crypto.CipherCCM;
+	@:overload(function(algorithm:node.crypto.CipherGCMTypes, password:node.crypto.BinaryLike, ?options:node.crypto.CipherGCMOptions):node.crypto.DecipherGCM { })
+	@:overload(function(algorithm:String, password:node.crypto.BinaryLike, ?options:node.stream.TransformOptions):node.crypto.Decipher { })
+	static function createDecipher(algorithm:node.crypto.CipherCCMTypes, password:node.crypto.BinaryLike, options:node.crypto.CipherCCMOptions):node.crypto.DecipherCCM;
+	@:overload(function(algorithm:node.crypto.CipherGCMTypes, key:node.crypto.BinaryLike, iv:Null<node.crypto.BinaryLike>, ?options:node.crypto.CipherGCMOptions):node.crypto.DecipherGCM { })
+	@:overload(function(algorithm:String, key:node.crypto.BinaryLike, iv:Null<node.crypto.BinaryLike>, ?options:node.stream.TransformOptions):node.crypto.Decipher { })
+	static function createDecipheriv(algorithm:node.crypto.CipherCCMTypes, key:node.crypto.BinaryLike, iv:Null<node.crypto.BinaryLike>, options:node.crypto.CipherCCMOptions):node.crypto.DecipherCCM;
+	static function createPrivateKey(key:ts.AnyOf3<String, global.Buffer, node.crypto.PrivateKeyInput>):node.crypto.KeyObject;
+	static function createPublicKey(key:ts.AnyOf3<String, global.Buffer, node.crypto.PublicKeyInput>):node.crypto.KeyObject;
+	static function createSecretKey(key:global.Buffer):node.crypto.KeyObject;
+	static function createSign(algorithm:String, ?options:node.stream.WritableOptions):node.crypto.Signer;
+	static function createVerify(algorith:String, ?options:node.stream.WritableOptions):node.crypto.Verify;
+	@:overload(function(prime:node.crypto.Binary):node.crypto.DiffieHellman { })
+	@:overload(function(prime:String, prime_encoding:node.crypto.HexBase64Latin1Encoding):node.crypto.DiffieHellman { })
+	@:overload(function(prime:String, prime_encoding:node.crypto.HexBase64Latin1Encoding, generator:ts.AnyOf12<Float, global.Buffer, js.lib.Uint8Array_<js.lib.ArrayBufferLike>, js.lib.Uint8ClampedArray_<js.lib.ArrayBufferLike>, js.lib.Uint16Array_<js.lib.ArrayBufferLike>, js.lib.Uint32Array_<js.lib.ArrayBufferLike>, js.lib.Int8Array_<js.lib.ArrayBufferLike>, js.lib.Int16Array_<js.lib.ArrayBufferLike>, js.lib.Int32Array_<js.lib.ArrayBufferLike>, js.lib.Float32Array_<js.lib.ArrayBufferLike>, js.lib.Float64Array_<js.lib.ArrayBufferLike>, js.lib.DataView_<js.lib.ArrayBufferLike>>):node.crypto.DiffieHellman { })
+	@:overload(function(prime:String, prime_encoding:node.crypto.HexBase64Latin1Encoding, generator:String, generator_encoding:node.crypto.HexBase64Latin1Encoding):node.crypto.DiffieHellman { })
+	static function createDiffieHellman(prime_length:Float, ?generator:ts.AnyOf12<Float, global.Buffer, js.lib.Uint8Array_<js.lib.ArrayBufferLike>, js.lib.Uint8ClampedArray_<js.lib.ArrayBufferLike>, js.lib.Uint16Array_<js.lib.ArrayBufferLike>, js.lib.Uint32Array_<js.lib.ArrayBufferLike>, js.lib.Int8Array_<js.lib.ArrayBufferLike>, js.lib.Int16Array_<js.lib.ArrayBufferLike>, js.lib.Int32Array_<js.lib.ArrayBufferLike>, js.lib.Float32Array_<js.lib.ArrayBufferLike>, js.lib.Float64Array_<js.lib.ArrayBufferLike>, js.lib.DataView_<js.lib.ArrayBufferLike>>):node.crypto.DiffieHellman;
+	static function getDiffieHellman(group_name:String):node.crypto.DiffieHellman;
+	static function pbkdf2(password:node.crypto.BinaryLike, salt:node.crypto.BinaryLike, iterations:Float, keylen:Float, digest:String, callback:(err:Null<js.lib.Error>, derivedKey:global.Buffer) -> Dynamic):Void;
+	static function pbkdf2Sync(password:node.crypto.BinaryLike, salt:node.crypto.BinaryLike, iterations:Float, keylen:Float, digest:String):global.Buffer;
+	@:overload(function(size:Float, callback:(err:Null<js.lib.Error>, buf:global.Buffer) -> Void):Void { })
+	static function randomBytes(size:Float):global.Buffer;
+	@:overload(function(size:Float, callback:(err:Null<js.lib.Error>, buf:global.Buffer) -> Void):Void { })
+	static function pseudoRandomBytes(size:Float):global.Buffer;
+	static function randomFillSync<T>(buffer:T, ?offset:Float, ?size:Float):T;
+	@:overload(function<T>(buffer:T, offset:Float, callback:(err:Null<js.lib.Error>, buf:T) -> Void):Void { })
+	@:overload(function<T>(buffer:T, offset:Float, size:Float, callback:(err:Null<js.lib.Error>, buf:T) -> Void):Void { })
+	static function randomFill<T>(buffer:T, callback:(err:Null<js.lib.Error>, buf:T) -> Void):Void;
+	@:overload(function(password:node.crypto.BinaryLike, salt:node.crypto.BinaryLike, keylen:Float, options:node.crypto.ScryptOptions, callback:(err:Null<js.lib.Error>, derivedKey:global.Buffer) -> Void):Void { })
+	static function scrypt(password:node.crypto.BinaryLike, salt:node.crypto.BinaryLike, keylen:Float, callback:(err:Null<js.lib.Error>, derivedKey:global.Buffer) -> Void):Void;
+	static function scryptSync(password:node.crypto.BinaryLike, salt:node.crypto.BinaryLike, keylen:Float, ?options:node.crypto.ScryptOptions):global.Buffer;
+	static function publicEncrypt(public_key:ts.AnyOf4<String, global.Buffer, node.crypto.KeyObject, node.crypto.RsaPublicKey>, buffer:node.crypto.Binary):global.Buffer;
+	static function privateDecrypt(private_key:ts.AnyOf4<String, global.Buffer, node.crypto.KeyObject, node.crypto.RsaPrivateKey>, buffer:node.crypto.Binary):global.Buffer;
+	static function privateEncrypt(private_key:ts.AnyOf4<String, global.Buffer, node.crypto.KeyObject, node.crypto.RsaPrivateKey>, buffer:node.crypto.Binary):global.Buffer;
+	static function publicDecrypt(public_key:ts.AnyOf4<String, global.Buffer, node.crypto.KeyObject, node.crypto.RsaPublicKey>, buffer:node.crypto.Binary):global.Buffer;
+	static function getCiphers():Array<String>;
+	static function getCurves():Array<String>;
+	static function getHashes():Array<String>;
+	static function createECDH(curve_name:String):node.crypto.ECDH;
+	static function timingSafeEqual(a:node.crypto.Binary, b:node.crypto.Binary):Bool;
+	@:overload(function(type:String, options:node.crypto.RSAKeyPairOptions<String, String>):node.crypto.KeyPairSyncResult<String, global.Buffer> { })
+	@:overload(function(type:String, options:node.crypto.RSAKeyPairOptions<String, String>):node.crypto.KeyPairSyncResult<global.Buffer, String> { })
+	@:overload(function(type:String, options:node.crypto.RSAKeyPairOptions<String, String>):node.crypto.KeyPairSyncResult<global.Buffer, global.Buffer> { })
+	@:overload(function(type:String, options:node.crypto.RSAKeyPairKeyObjectOptions):node.crypto.KeyPairKeyObjectResult { })
+	@:overload(function(type:String, options:node.crypto.DSAKeyPairOptions<String, String>):node.crypto.KeyPairSyncResult<String, String> { })
+	@:overload(function(type:String, options:node.crypto.DSAKeyPairOptions<String, String>):node.crypto.KeyPairSyncResult<String, global.Buffer> { })
+	@:overload(function(type:String, options:node.crypto.DSAKeyPairOptions<String, String>):node.crypto.KeyPairSyncResult<global.Buffer, String> { })
+	@:overload(function(type:String, options:node.crypto.DSAKeyPairOptions<String, String>):node.crypto.KeyPairSyncResult<global.Buffer, global.Buffer> { })
+	@:overload(function(type:String, options:node.crypto.DSAKeyPairKeyObjectOptions):node.crypto.KeyPairKeyObjectResult { })
+	@:overload(function(type:String, options:node.crypto.ECKeyPairOptions<String, String>):node.crypto.KeyPairSyncResult<String, String> { })
+	@:overload(function(type:String, options:node.crypto.ECKeyPairOptions<String, String>):node.crypto.KeyPairSyncResult<String, global.Buffer> { })
+	@:overload(function(type:String, options:node.crypto.ECKeyPairOptions<String, String>):node.crypto.KeyPairSyncResult<global.Buffer, String> { })
+	@:overload(function(type:String, options:node.crypto.ECKeyPairOptions<String, String>):node.crypto.KeyPairSyncResult<global.Buffer, global.Buffer> { })
+	@:overload(function(type:String, options:node.crypto.ECKeyPairKeyObjectOptions):node.crypto.KeyPairKeyObjectResult { })
+	static function generateKeyPairSync(type:String, options:node.crypto.RSAKeyPairOptions<String, String>):node.crypto.KeyPairSyncResult<String, String>;
+	@:overload(function(type:String, options:node.crypto.RSAKeyPairOptions<String, String>, callback:(err:Null<js.lib.Error>, publicKey:String, privateKey:global.Buffer) -> Void):Void { })
+	@:overload(function(type:String, options:node.crypto.RSAKeyPairOptions<String, String>, callback:(err:Null<js.lib.Error>, publicKey:global.Buffer, privateKey:String) -> Void):Void { })
+	@:overload(function(type:String, options:node.crypto.RSAKeyPairOptions<String, String>, callback:(err:Null<js.lib.Error>, publicKey:global.Buffer, privateKey:global.Buffer) -> Void):Void { })
+	@:overload(function(type:String, options:node.crypto.RSAKeyPairKeyObjectOptions, callback:(err:Null<js.lib.Error>, publicKey:node.crypto.KeyObject, privateKey:node.crypto.KeyObject) -> Void):Void { })
+	@:overload(function(type:String, options:node.crypto.DSAKeyPairOptions<String, String>, callback:(err:Null<js.lib.Error>, publicKey:String, privateKey:String) -> Void):Void { })
+	@:overload(function(type:String, options:node.crypto.DSAKeyPairOptions<String, String>, callback:(err:Null<js.lib.Error>, publicKey:String, privateKey:global.Buffer) -> Void):Void { })
+	@:overload(function(type:String, options:node.crypto.DSAKeyPairOptions<String, String>, callback:(err:Null<js.lib.Error>, publicKey:global.Buffer, privateKey:String) -> Void):Void { })
+	@:overload(function(type:String, options:node.crypto.DSAKeyPairOptions<String, String>, callback:(err:Null<js.lib.Error>, publicKey:global.Buffer, privateKey:global.Buffer) -> Void):Void { })
+	@:overload(function(type:String, options:node.crypto.DSAKeyPairKeyObjectOptions, callback:(err:Null<js.lib.Error>, publicKey:node.crypto.KeyObject, privateKey:node.crypto.KeyObject) -> Void):Void { })
+	@:overload(function(type:String, options:node.crypto.ECKeyPairOptions<String, String>, callback:(err:Null<js.lib.Error>, publicKey:String, privateKey:String) -> Void):Void { })
+	@:overload(function(type:String, options:node.crypto.ECKeyPairOptions<String, String>, callback:(err:Null<js.lib.Error>, publicKey:String, privateKey:global.Buffer) -> Void):Void { })
+	@:overload(function(type:String, options:node.crypto.ECKeyPairOptions<String, String>, callback:(err:Null<js.lib.Error>, publicKey:global.Buffer, privateKey:String) -> Void):Void { })
+	@:overload(function(type:String, options:node.crypto.ECKeyPairOptions<String, String>, callback:(err:Null<js.lib.Error>, publicKey:global.Buffer, privateKey:global.Buffer) -> Void):Void { })
+	@:overload(function(type:String, options:node.crypto.ECKeyPairKeyObjectOptions, callback:(err:Null<js.lib.Error>, publicKey:node.crypto.KeyObject, privateKey:node.crypto.KeyObject) -> Void):Void { })
+	static function generateKeyPair(type:String, options:node.crypto.RSAKeyPairOptions<String, String>, callback:(err:Null<js.lib.Error>, publicKey:String, privateKey:String) -> Void):Void;
 	static final fips : Bool;
 	static final DEFAULT_ENCODING : String;
 }

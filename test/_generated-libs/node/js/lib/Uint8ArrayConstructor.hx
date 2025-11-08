@@ -9,12 +9,12 @@ typedef Uint8ArrayConstructor = {
 	/**
 		Returns a new array from a set of elements.
 	**/
-	function of(unknown:Dynamic):Uint8Array_<js.lib.ArrayBuffer>;
+	function of(items:haxe.extern.Rest<Float>):Uint8Array_<js.lib.ArrayBuffer>;
 	/**
 		Creates an array from an array-like or iterable object.
 	**/
-	@:overload(function<T>(unknown:Dynamic):Uint8Array_<js.lib.ArrayBuffer> { })
-	@:overload(function(unknown:Dynamic):Uint8Array_<js.lib.ArrayBuffer> { })
-	@:overload(function<T>(unknown:Dynamic):Uint8Array_<js.lib.ArrayBuffer> { })
-	function from(unknown:Dynamic):Uint8Array_<js.lib.ArrayBuffer>;
+	@:overload(function<T>(arrayLike:ArrayLike<T>, mapfn:(v:T, k:Float) -> Float, ?thisArg:Dynamic):Uint8Array_<js.lib.ArrayBuffer> { })
+	@:overload(function(elements:Iterable<Float, Dynamic, Dynamic>):Uint8Array_<js.lib.ArrayBuffer> { })
+	@:overload(function<T>(elements:Iterable<T, Dynamic, Dynamic>, ?mapfn:(v:T, k:Float) -> Float, ?thisArg:Dynamic):Uint8Array_<js.lib.ArrayBuffer> { })
+	function from(arrayLike:ArrayLike<Float>):Uint8Array_<js.lib.ArrayBuffer>;
 };

@@ -15,42 +15,42 @@ package vscode;
 	/**
 		Replace the given range with given text for the given resource.
 	**/
-	function replace(unknown:Dynamic):Void;
+	function replace(uri:Uri, range:Range, newText:String, ?metadata:WorkspaceEditEntryMetadata):Void;
 	/**
 		Insert the given text at the given position.
 	**/
-	function insert(unknown:Dynamic):Void;
+	function insert(uri:Uri, position:Position, newText:String, ?metadata:WorkspaceEditEntryMetadata):Void;
 	/**
 		Delete the text at the given range.
 	**/
-	function delete(unknown:Dynamic):Void;
+	function delete(uri:Uri, range:Range, ?metadata:WorkspaceEditEntryMetadata):Void;
 	/**
 		Check if a text edit for a resource exists.
 	**/
-	function has(unknown:Dynamic):Bool;
+	function has(uri:Uri):Bool;
 	/**
 		Set (and replace) text edits for a resource.
 	**/
-	function set(unknown:Dynamic):Void;
+	function set(uri:Uri, edits:Array<TextEdit>):Void;
 	/**
 		Get the text edits for a resource.
 	**/
-	function get(unknown:Dynamic):Array<TextEdit>;
+	function get(uri:Uri):Array<TextEdit>;
 	/**
 		Create a regular file.
 	**/
-	function createFile(unknown:Dynamic):Void;
+	function createFile(uri:Uri, ?options:{ @:optional var overwrite : Bool; @:optional var ignoreIfExists : Bool; }, ?metadata:WorkspaceEditEntryMetadata):Void;
 	/**
 		Delete a file or folder.
 	**/
-	function deleteFile(unknown:Dynamic):Void;
+	function deleteFile(uri:Uri, ?options:{ @:optional var recursive : Bool; @:optional var ignoreIfNotExists : Bool; }, ?metadata:WorkspaceEditEntryMetadata):Void;
 	/**
 		Rename a file or folder.
 	**/
-	function renameFile(unknown:Dynamic):Void;
+	function renameFile(oldUri:Uri, newUri:Uri, ?options:{ @:optional var overwrite : Bool; @:optional var ignoreIfExists : Bool; }, ?metadata:WorkspaceEditEntryMetadata):Void;
 	/**
 		Get all text edits grouped by resource.
 	**/
-	function entries(unknown:Dynamic):Array<ts.Tuple2<Uri, Array<TextEdit>>>;
+	function entries():Array<ts.Tuple2<Uri, Array<TextEdit>>>;
 	static var prototype : WorkspaceEdit;
 }

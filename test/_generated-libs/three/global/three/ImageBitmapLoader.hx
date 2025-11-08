@@ -1,11 +1,11 @@
 package global.three;
 
 @:native("THREE.ImageBitmapLoader") extern class ImageBitmapLoader {
-	function new(unknown:Dynamic);
+	function new(?manager:LoadingManager);
 	var manager : LoadingManager;
-	function setOptions(unknown:Dynamic):ImageBitmapLoader;
-	function load(unknown:Dynamic):Dynamic;
-	function setCrossOrigin(unknown:Dynamic):ImageBitmapLoader;
-	function setPath(unknown:Dynamic):ImageBitmapLoader;
+	function setOptions(options:Dynamic):ImageBitmapLoader;
+	function load(url:String, ?onLoad:(response:ts.AnyOf2<String, js.lib.ArrayBuffer>) -> Void, ?onProgress:(request:js.html.ProgressEvent_<js.html.EventTarget>) -> Void, ?onError:(event:js.html.ErrorEvent) -> Void):Dynamic;
+	function setCrossOrigin():ImageBitmapLoader;
+	function setPath(path:String):ImageBitmapLoader;
 	static var prototype : ImageBitmapLoader;
 }

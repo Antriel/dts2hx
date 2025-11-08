@@ -27,5 +27,5 @@ typedef SourceControlResourceGroup = {
 	/**
 		Dispose this source control resource group.
 	**/
-	function dispose(unknown:Dynamic):Void;
+	function dispose():Void;
 };

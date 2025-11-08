@@ -4,45 +4,45 @@ typedef JQueryCallback = {
 	/**
 		Add a callback or a collection of callbacks to a callback list.
 	**/
-	function add(unknown:Dynamic):JQueryCallback;
+	function add(callback:global.jquery.TypeOrArray<haxe.Constraints.Function>, callbacks:haxe.extern.Rest<global.jquery.TypeOrArray<haxe.Constraints.Function>>):JQueryCallback;
 	/**
 		Disable a callback list from doing anything more.
 	**/
-	function disable(unknown:Dynamic):JQueryCallback;
+	function disable():JQueryCallback;
 	/**
 		Determine if the callbacks list has been disabled.
 	**/
-	function disabled(unknown:Dynamic):Bool;
+	function disabled():Bool;
 	/**
 		Remove all of the callbacks from a list.
 	**/
-	function empty(unknown:Dynamic):JQueryCallback;
+	function empty():JQueryCallback;
 	/**
 		Call all of the callbacks with the given arguments.
 	**/
-	function fire(unknown:Dynamic):JQueryCallback;
+	function fire(args:haxe.extern.Rest<Dynamic>):JQueryCallback;
 	/**
 		Determine if the callbacks have already been called at least once.
 	**/
-	function fired(unknown:Dynamic):Bool;
+	function fired():Bool;
 	/**
 		Call all callbacks in a list with the given context and arguments.
 	**/
-	function fireWith(unknown:Dynamic):JQueryCallback;
+	function fireWith(context:Dynamic, ?args:js.lib.ArrayLike<Dynamic>):JQueryCallback;
 	/**
 		Determine whether or not the list has any callbacks attached. If a callback is provided as an argument, determine whether it is in a list.
 	**/
-	function has(unknown:Dynamic):Bool;
+	function has(?callback:haxe.Constraints.Function):Bool;
 	/**
 		Lock a callback list in its current state.
 	**/
-	function lock(unknown:Dynamic):JQueryCallback;
+	function lock():JQueryCallback;
 	/**
 		Determine if the callbacks list has been locked.
 	**/
-	function locked(unknown:Dynamic):Bool;
+	function locked():Bool;
 	/**
 		Remove a callback or a collection of callbacks from a callback list.
 	**/
-	function remove(unknown:Dynamic):JQueryCallback;
+	function remove(callbacks:haxe.extern.Rest<haxe.Constraints.Function>):JQueryCallback;
 };

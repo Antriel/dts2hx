@@ -2,16 +2,16 @@ package js.lib;
 
 typedef ErrorConstructor = {
 	@:selfCall
-	function call(unknown:Dynamic):js.lib.Error;
+	function call(?message:String):js.lib.Error;
 	final prototype : js.lib.Error;
 	/**
 		Create .stack property on a target object
 	**/
-	function captureStackTrace(unknown:Dynamic):Void;
+	function captureStackTrace(targetObject:Dynamic, ?constructorOpt:haxe.Constraints.Function):Void;
 	/**
 		Optional override for formatting stack traces
 	**/
 	@:optional
-	dynamic function prepareStackTrace(unknown:Dynamic):Dynamic;
+	dynamic function prepareStackTrace(err:js.lib.Error, stackTraces:Array<global.nodejs.CallSite>):Dynamic;
 	var stackTraceLimit : Float;
 };

@@ -5,5 +5,5 @@ package vscode;
 	semantic tokens.
 **/
 typedef DocumentRangeSemanticTokensProvider = {
-	function provideDocumentRangeSemanticTokens(unknown:Dynamic):ProviderResult<SemanticTokens>;
+	function provideDocumentRangeSemanticTokens(document:TextDocument, range:Range, token:CancellationToken):ProviderResult<SemanticTokens>;
 };

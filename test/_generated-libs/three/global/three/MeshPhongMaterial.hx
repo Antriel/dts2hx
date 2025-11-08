@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.MeshPhongMaterial") extern class MeshPhongMaterial extends Material {
-	function new(unknown:Dynamic);
+	function new(?parameters:MeshPhongMaterialParameters);
 	var color : Color;
 	var specular : Color;
 	var shininess : Float;
@@ -38,14 +38,14 @@ package global.three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(unknown:Dynamic):Void;
+	function setValues(parameters:MeshPhongMaterialParameters):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone(unknown:Dynamic):MeshPhongMaterial;
+	function clone():MeshPhongMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(unknown:Dynamic):MeshPhongMaterial;
+	function copy(material:Material):MeshPhongMaterial;
 	static var prototype : MeshPhongMaterial;
 }

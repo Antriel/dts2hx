@@ -9,7 +9,7 @@ package vscode;
 	/**
 		Creates a new document symbol.
 	**/
-	function new(unknown:Dynamic);
+	function new(name:String, detail:String, kind:SymbolKind, range:Range, selectionRange:Range);
 	/**
 		The name of this symbol.
 	**/

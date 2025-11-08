@@ -7,45 +7,45 @@ typedef WriteStream = {
 	var columns : Float;
 	@:optional
 	var rows : Float;
-	function _write(unknown:Dynamic):Void;
-	function _destroy(unknown:Dynamic):Void;
-	function _final(unknown:Dynamic):Void;
-	function setDefaultEncoding(unknown:Dynamic):WriteStream;
-	function cork(unknown:Dynamic):Void;
-	function uncork(unknown:Dynamic):Void;
-	function destroy(unknown:Dynamic):Void;
+	function _write(chunk:Dynamic, encoding:String, callback:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Void;
+	function _destroy(err:Null<js.lib.Error>, callback:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Void;
+	function _final(callback:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Void;
+	function setDefaultEncoding(encoding:String):WriteStream;
+	function cork():Void;
+	function uncork():Void;
+	function destroy(?error:js.lib.Error):Void;
 	@:optional
 	var isTTY : Bool;
 	var readable : Bool;
-	function read(unknown:Dynamic):ts.AnyOf2<String, global.Buffer>;
-	function setEncoding(unknown:Dynamic):WriteStream;
-	function pause(unknown:Dynamic):WriteStream;
-	function resume(unknown:Dynamic):WriteStream;
-	function isPaused(unknown:Dynamic):Bool;
-	function pipe<T>(unknown:Dynamic):T;
-	function unpipe(unknown:Dynamic):WriteStream;
-	@:overload(function(unknown:Dynamic):Void { })
-	function unshift(unknown:Dynamic):Void;
-	function wrap(unknown:Dynamic):WriteStream;
-	function addListener(unknown:Dynamic):WriteStream;
-	function on(unknown:Dynamic):WriteStream;
-	function once(unknown:Dynamic):WriteStream;
-	function removeListener(unknown:Dynamic):WriteStream;
-	function off(unknown:Dynamic):WriteStream;
-	function removeAllListeners(unknown:Dynamic):WriteStream;
-	function setMaxListeners(unknown:Dynamic):WriteStream;
-	function getMaxListeners(unknown:Dynamic):Float;
-	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function emit(unknown:Dynamic):Bool;
-	function listenerCount(unknown:Dynamic):Float;
-	function prependListener(unknown:Dynamic):WriteStream;
-	function prependOnceListener(unknown:Dynamic):WriteStream;
-	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	function read(?size:Float):ts.AnyOf2<String, global.Buffer>;
+	function setEncoding(encoding:String):WriteStream;
+	function pause():WriteStream;
+	function resume():WriteStream;
+	function isPaused():Bool;
+	function pipe<T>(destination:T, ?options:{ @:optional var end : Bool; }):T;
+	function unpipe(?destination:WritableStream):WriteStream;
+	@:overload(function(chunk:global.Buffer):Void { })
+	function unshift(chunk:String):Void;
+	function wrap(oldStream:ReadableStream):WriteStream;
+	function addListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):WriteStream;
+	function on(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):WriteStream;
+	function once(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):WriteStream;
+	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):WriteStream;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):WriteStream;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):WriteStream;
+	function setMaxListeners(n:Float):WriteStream;
+	function getMaxListeners():Float;
+	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function emit(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool;
+	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
+	function prependListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):WriteStream;
+	function prependOnceListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):WriteStream;
+	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
 	var writable : Bool;
-	@:overload(function(unknown:Dynamic):Bool { })
-	function write(unknown:Dynamic):Bool;
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	function end(unknown:Dynamic):Void;
+	@:overload(function(str:String, ?encoding:String, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool { })
+	function write(buffer:ts.AnyOf3<String, js.lib.Uint8Array_<js.lib.ArrayBufferLike>, global.Buffer>, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool;
+	@:overload(function(data:ts.AnyOf3<String, js.lib.Uint8Array_<js.lib.ArrayBufferLike>, global.Buffer>, ?cb:() -> Void):Void { })
+	@:overload(function(str:String, ?encoding:String, ?cb:() -> Void):Void { })
+	function end(?cb:() -> Void):Void;
 };

@@ -1,17 +1,17 @@
 package global.three;
 
 @:native("THREE.ParametricGeometry") extern class ParametricGeometry extends Geometry {
-	function new(unknown:Dynamic);
+	function new(func:(u:Float, v:Float, dest:Vector3) -> Void, slices:Float, stacks:Float);
 	var parameters : {
-		dynamic function func(unknown:Dynamic):Void;
+		dynamic function func(u:Float, v:Float, dest:Vector3):Void;
 		var slices : Float;
 		var stacks : Float;
 	};
-	function setFromPoints(unknown:Dynamic):ParametricGeometry;
+	function setFromPoints(points:ts.AnyOf2<Array<Vector3>, Array<Vector2>>):ParametricGeometry;
 	/**
 		Creates a new clone of the Geometry.
 	**/
-	function clone(unknown:Dynamic):ParametricGeometry;
-	function copy(unknown:Dynamic):ParametricGeometry;
+	function clone():ParametricGeometry;
+	function copy(source:Geometry):ParametricGeometry;
 	static var prototype : ParametricGeometry;
 }

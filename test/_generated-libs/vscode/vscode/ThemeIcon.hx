@@ -12,7 +12,7 @@ package vscode;
 	/**
 		Creates a reference to a theme icon.
 	**/
-	function new(unknown:Dynamic);
+	function new(id:String);
 	static var prototype : ThemeIcon;
 	/**
 		Reference to an icon representing a file. The icon is taken from the current file icon theme or a placeholder icon is used.

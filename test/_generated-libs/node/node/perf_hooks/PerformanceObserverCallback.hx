@@ -1,3 +1,3 @@
 package node.perf_hooks;
 
-typedef PerformanceObserverCallback = (unknown:Dynamic) -> Void;
+typedef PerformanceObserverCallback = (list:PerformanceObserverEntryList, observer:PerformanceObserver) -> Void;

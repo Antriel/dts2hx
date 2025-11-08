@@ -10,5 +10,5 @@
 		with a "start" and "end" property for the portion of the range.
 	**/
 	@:selfCall
-	static function call(unknown:Dynamic):ts.AnyOf2<Int, range_parser.Ranges>;
+	static function call(size:Float, str:String, ?options:range_parser.Options):ts.AnyOf2<Int, range_parser.Ranges>;
 }

@@ -8,16 +8,16 @@ typedef DuplexOptions = {
 	@:optional
 	var writableObjectMode : Bool;
 	@:optional
-	function read(unknown:Dynamic):Void;
+	function read(size:Float):Void;
 	@:optional
-	function write(unknown:Dynamic):Void;
+	function write(chunk:Dynamic, encoding:String, callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
 	@:optional
-	function writev(unknown:Dynamic):Void;
+	function writev(chunks:Array<{ var chunk : Dynamic; var encoding : String; }>, callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
 	@:optional
 	@:native("final")
-	function final_(unknown:Dynamic):Void;
+	function final_(callback:ts.AnyOf2<() -> Void, (error:js.lib.Error) -> Void>):Void;
 	@:optional
-	function destroy(unknown:Dynamic):Void;
+	function destroy(error:Null<js.lib.Error>, callback:(error:Null<js.lib.Error>) -> Void):Void;
 	@:optional
 	var highWaterMark : Float;
 	@:optional

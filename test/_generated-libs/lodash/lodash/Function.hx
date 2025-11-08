@@ -1,257 +1,257 @@
 package lodash;
 
 typedef Function<T> = {
-	function ary(unknown:Dynamic):Function<(unknown:Dynamic) -> Dynamic>;
-	function curry(unknown:Dynamic):Dynamic;
-	function curryRight(unknown:Dynamic):Dynamic;
-	@:overload(function(unknown:Dynamic):Dynamic { })
-	function debounce(unknown:Dynamic):Dynamic;
-	function flip(unknown:Dynamic):Function<T>;
-	function memoize(unknown:Dynamic):Function<Dynamic>;
-	function negate(unknown:Dynamic):Function<(unknown:Dynamic) -> Bool>;
-	function once(unknown:Dynamic):Function<T>;
-	function overArgs(unknown:Dynamic):Function<(unknown:Dynamic) -> Dynamic>;
-	@:overload(function<T3>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1, T3>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T2, T3>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T3>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1, T4>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T2, T4>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1, T2, T4>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T3, T4>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1, T3, T4>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T2, T3, T4>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1, T2, T3, T4>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1, T2, T3>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1, T2>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function(unknown:Dynamic):Function<Dynamic> { })
-	function partial<T2>(unknown:Dynamic):Function<Dynamic>;
-	@:overload(function<T2>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T2>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1, T2>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T3>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1, T3>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T2, T3>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T2>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1, T2>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T3>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1, T3>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T2, T3>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1, T2, T3>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T4>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1, T4>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T2, T4>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1, T2, T4>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T3, T4>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T1, T3, T4>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<T2, T3, T4>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function<TS>(unknown:Dynamic):Function<Dynamic> { })
-	@:overload(function(unknown:Dynamic):Function<Dynamic> { })
-	function partialRight<T1>(unknown:Dynamic):Function<Dynamic>;
-	function rearg(unknown:Dynamic):Function<(unknown:Dynamic) -> Dynamic>;
-	function rest(unknown:Dynamic):Function<(unknown:Dynamic) -> Dynamic>;
-	function spread(unknown:Dynamic):Function<(unknown:Dynamic) -> js.lib.ReturnType<T>>;
-	@:overload(function(unknown:Dynamic):Dynamic { })
-	function throttle(unknown:Dynamic):Dynamic;
-	function unary(unknown:Dynamic):Function<(unknown:Dynamic) -> js.lib.ReturnType<T>>;
-	function castArray(unknown:Dynamic):Collection<T>;
-	function chain(unknown:Dynamic):FunctionChain<T>;
-	@:overload(function<R2, R3, R4, R5, R6, R7>(unknown:Dynamic):Function<(unknown:Dynamic) -> Dynamic> { })
-	@:overload(function<R2, R3, R4, R5, R6>(unknown:Dynamic):Function<(unknown:Dynamic) -> R6> { })
-	@:overload(function<R2, R3, R4, R5>(unknown:Dynamic):Function<(unknown:Dynamic) -> R5> { })
-	@:overload(function<R2, R3, R4>(unknown:Dynamic):Function<(unknown:Dynamic) -> R4> { })
-	@:overload(function<R2, R3>(unknown:Dynamic):Function<(unknown:Dynamic) -> R3> { })
-	@:overload(function<R2>(unknown:Dynamic):Function<(unknown:Dynamic) -> R2> { })
-	@:overload(function(unknown:Dynamic):Function<(unknown:Dynamic) -> Dynamic> { })
-	function flow<R2, R3, R4, R5, R6, R7>(unknown:Dynamic):Function<(unknown:Dynamic) -> R7>;
-	@:overload(function<A, R1, R2, R3, R4>(unknown:Dynamic):Function<(unknown:Dynamic) -> js.lib.ReturnType<T>> { })
-	@:overload(function<A, R1, R2, R3>(unknown:Dynamic):Function<(unknown:Dynamic) -> js.lib.ReturnType<T>> { })
-	@:overload(function<A, R1, R2>(unknown:Dynamic):Function<(unknown:Dynamic) -> js.lib.ReturnType<T>> { })
-	@:overload(function<A, R1>(unknown:Dynamic):Function<(unknown:Dynamic) -> js.lib.ReturnType<T>> { })
-	@:overload(function<A>(unknown:Dynamic):Function<(unknown:Dynamic) -> js.lib.ReturnType<T>> { })
-	@:overload(function(unknown:Dynamic):Function<(unknown:Dynamic) -> Dynamic> { })
-	function flowRight<A, R1, R2, R3, R4, R5>(unknown:Dynamic):Function<(unknown:Dynamic) -> js.lib.ReturnType<T>>;
-	function iteratee(unknown:Dynamic):Function<T>;
-	function over<TResult>(unknown:Dynamic):Function<(unknown:Dynamic) -> Array<ts.AnyOf2<js.lib.ReturnType<T>, TResult>>>;
-	function overEvery<TArgs>(unknown:Dynamic):Function<(unknown:Dynamic) -> Bool>;
-	function overSome<TArgs>(unknown:Dynamic):Function<(unknown:Dynamic) -> Bool>;
-	@:overload(function<TResult>(unknown:Dynamic):Collection<TResult> { })
-	function invokeMap(unknown:Dynamic):Collection<Dynamic>;
-	function size(unknown:Dynamic):Float;
-	function now(unknown:Dynamic):Float;
-	function bind(unknown:Dynamic):Function<(unknown:Dynamic) -> Dynamic>;
-	function bindKey(unknown:Dynamic):Function<(unknown:Dynamic) -> Dynamic>;
-	function defer(unknown:Dynamic):Primitive<Float>;
-	function delay(unknown:Dynamic):Primitive<Float>;
-	function wrap<TArgs, TResult>(unknown:Dynamic):Function<(unknown:Dynamic) -> TResult>;
-	function clone(unknown:Dynamic):T;
-	function cloneDeep(unknown:Dynamic):T;
-	@:overload(function(unknown:Dynamic):T { })
-	function cloneDeepWith(unknown:Dynamic):Dynamic;
-	@:overload(function<TResult>(unknown:Dynamic):ts.AnyOf2<T, TResult> { })
-	@:overload(function(unknown:Dynamic):T { })
-	function cloneWith<TResult>(unknown:Dynamic):TResult;
-	function conformsTo(unknown:Dynamic):Bool;
-	function eq(unknown:Dynamic):Bool;
-	function gt(unknown:Dynamic):Bool;
-	function gte(unknown:Dynamic):Bool;
-	function isArguments(unknown:Dynamic):Bool;
-	function isArray(unknown:Dynamic):Bool;
-	function isArrayBuffer(unknown:Dynamic):Bool;
-	function isArrayLike(unknown:Dynamic):Bool;
-	function isArrayLikeObject(unknown:Dynamic):Bool;
-	function isBoolean(unknown:Dynamic):Bool;
-	function isBuffer(unknown:Dynamic):Bool;
-	function isDate(unknown:Dynamic):Bool;
-	function isElement(unknown:Dynamic):Bool;
-	function isEmpty(unknown:Dynamic):Bool;
-	function isEqual(unknown:Dynamic):Bool;
-	function isEqualWith(unknown:Dynamic):Bool;
-	function isError(unknown:Dynamic):Bool;
-	function isFinite(unknown:Dynamic):Bool;
-	function isFunction(unknown:Dynamic):Bool;
-	function isInteger(unknown:Dynamic):Bool;
-	function isLength(unknown:Dynamic):Bool;
-	function isMap(unknown:Dynamic):Bool;
-	function isMatch(unknown:Dynamic):Bool;
-	function isMatchWith(unknown:Dynamic):Bool;
-	function isNaN(unknown:Dynamic):Bool;
-	function isNative(unknown:Dynamic):Bool;
-	function isNil(unknown:Dynamic):Bool;
-	function isNull(unknown:Dynamic):Bool;
-	function isNumber(unknown:Dynamic):Bool;
-	function isObject(unknown:Dynamic):Bool;
-	function isObjectLike(unknown:Dynamic):Bool;
-	function isPlainObject(unknown:Dynamic):Bool;
-	function isRegExp(unknown:Dynamic):Bool;
-	function isSafeInteger(unknown:Dynamic):Bool;
-	function isSet(unknown:Dynamic):Bool;
-	function isString(unknown:Dynamic):Bool;
-	function isSymbol(unknown:Dynamic):Bool;
-	function isTypedArray(unknown:Dynamic):Bool;
-	function isUndefined(unknown:Dynamic):Bool;
-	function isWeakMap(unknown:Dynamic):Bool;
-	function isWeakSet(unknown:Dynamic):Bool;
-	function lt(unknown:Dynamic):Bool;
-	function lte(unknown:Dynamic):Bool;
-	function toFinite(unknown:Dynamic):Float;
-	function toInteger(unknown:Dynamic):Float;
-	function toLength(unknown:Dynamic):Float;
-	function toNumber(unknown:Dynamic):Float;
-	function toPlainObject(unknown:Dynamic):Object<Dynamic>;
-	function toSafeInteger(unknown:Dynamic):Float;
-	function add(unknown:Dynamic):Float;
-	function ceil(unknown:Dynamic):Float;
-	function divide(unknown:Dynamic):Float;
-	function floor(unknown:Dynamic):Float;
-	function mean(unknown:Dynamic):Float;
-	function multiply(unknown:Dynamic):Float;
-	function round(unknown:Dynamic):Float;
-	function subtract(unknown:Dynamic):Float;
-	function sum(unknown:Dynamic):Float;
-	@:overload(function(unknown:Dynamic):Float { })
-	function clamp(unknown:Dynamic):Float;
-	function inRange(unknown:Dynamic):Bool;
-	@:overload(function(unknown:Dynamic):Float { })
-	function random(unknown:Dynamic):Float;
-	function entries(unknown:Dynamic):Collection<ts.Tuple2<String, Dynamic>>;
-	function entriesIn(unknown:Dynamic):Collection<ts.Tuple2<String, Dynamic>>;
-	function findKey(unknown:Dynamic):Null<String>;
-	function findLastKey(unknown:Dynamic):Null<String>;
-	function forIn(unknown:Dynamic):Function<T>;
-	function forInRight(unknown:Dynamic):Function<T>;
-	function forOwn(unknown:Dynamic):Function<T>;
-	function forOwnRight(unknown:Dynamic):Function<T>;
-	function functions(unknown:Dynamic):Collection<String>;
-	function functionsIn(unknown:Dynamic):Collection<String>;
-	function has(unknown:Dynamic):Bool;
-	function hasIn(unknown:Dynamic):Bool;
-	function invert(unknown:Dynamic):Object<Dictionary<String>>;
-	function invoke(unknown:Dynamic):Dynamic;
-	function keys(unknown:Dynamic):Collection<String>;
-	function keysIn(unknown:Dynamic):Collection<String>;
-	function result<TResult>(unknown:Dynamic):TResult;
-	@:overload(function<TResult>(unknown:Dynamic):ImpChain<TResult> { })
-	function set(unknown:Dynamic):Function<T>;
-	@:overload(function<TResult>(unknown:Dynamic):ImpChain<TResult> { })
-	function setWith(unknown:Dynamic):Function<T>;
-	function toPairs(unknown:Dynamic):Collection<ts.Tuple2<String, Dynamic>>;
-	function toPairsIn(unknown:Dynamic):Collection<ts.Tuple2<String, Dynamic>>;
-	function unset(unknown:Dynamic):Primitive<Bool>;
-	function update(unknown:Dynamic):Object<Dynamic>;
-	function commit(unknown:Dynamic):Function<T>;
-	function plant(unknown:Dynamic):Function<T>;
-	function reverse(unknown:Dynamic):Function<T>;
-	function toJSON(unknown:Dynamic):T;
-	function value(unknown:Dynamic):T;
-	function valueOf(unknown:Dynamic):T;
-	function tap(unknown:Dynamic):Function<T>;
-	function thru<TResult>(unknown:Dynamic):ImpChain<TResult>;
-	function camelCase(unknown:Dynamic):String;
-	function capitalize(unknown:Dynamic):Dynamic;
-	function deburr(unknown:Dynamic):String;
-	function endsWith(unknown:Dynamic):Bool;
-	function escape(unknown:Dynamic):String;
-	function escapeRegExp(unknown:Dynamic):String;
-	function kebabCase(unknown:Dynamic):String;
-	function lowerCase(unknown:Dynamic):String;
-	function lowerFirst(unknown:Dynamic):Dynamic;
-	function pad(unknown:Dynamic):String;
-	function padEnd(unknown:Dynamic):String;
-	function padStart(unknown:Dynamic):String;
-	function parseInt(unknown:Dynamic):Float;
-	function repeat(unknown:Dynamic):String;
-	@:overload(function(unknown:Dynamic):String { })
-	function replace(unknown:Dynamic):String;
-	function snakeCase(unknown:Dynamic):String;
-	function split(unknown:Dynamic):Collection<String>;
-	function startCase(unknown:Dynamic):String;
-	function startsWith(unknown:Dynamic):Bool;
-	function template(unknown:Dynamic):TemplateExecutor;
-	function toLower(unknown:Dynamic):Dynamic;
-	function toUpper(unknown:Dynamic):Dynamic;
-	function trim(unknown:Dynamic):String;
-	function trimEnd(unknown:Dynamic):String;
-	function trimStart(unknown:Dynamic):String;
-	function truncate(unknown:Dynamic):String;
-	function unescape(unknown:Dynamic):String;
-	function upperCase(unknown:Dynamic):String;
-	function upperFirst(unknown:Dynamic):Dynamic;
-	function words(unknown:Dynamic):Collection<String>;
-	function attempt<TResult>(unknown:Dynamic):ts.AnyOf2<js.lib.Error, TResult>;
-	function bindAll(unknown:Dynamic):Function<T>;
-	function conforms(unknown:Dynamic):Function<(unknown:Dynamic) -> Bool>;
-	function constant(unknown:Dynamic):Function<(unknown:Dynamic) -> T>;
-	@:overload(function<TDefault>(unknown:Dynamic):Dynamic { })
-	function defaultTo(unknown:Dynamic):T;
-	function identity(unknown:Dynamic):T;
-	function matches<V>(unknown:Dynamic):Function<(unknown:Dynamic) -> Bool>;
-	@:overload(function<SrcValue, Value>(unknown:Dynamic):Function<(unknown:Dynamic) -> Bool> { })
-	function matchesProperty<SrcValue>(unknown:Dynamic):Function<(unknown:Dynamic) -> Bool>;
-	function method(unknown:Dynamic):Function<(unknown:Dynamic) -> Dynamic>;
-	function methodOf(unknown:Dynamic):LoDashImplicitWrapper<(unknown:Dynamic) -> Dynamic>;
-	@:overload(function(unknown:Dynamic):LoDashImplicitWrapper<LoDashStatic> { })
-	function mixin(unknown:Dynamic):Function<T>;
-	function noConflict(unknown:Dynamic):LoDashStatic;
-	function noop(unknown:Dynamic):Void;
-	function nthArg(unknown:Dynamic):Function<(unknown:Dynamic) -> Dynamic>;
-	function property<TObj, TResult>(unknown:Dynamic):Function<(unknown:Dynamic) -> TResult>;
-	function propertyOf(unknown:Dynamic):LoDashImplicitWrapper<(unknown:Dynamic) -> Dynamic>;
-	function range(unknown:Dynamic):Collection<Float>;
-	function rangeRight(unknown:Dynamic):Collection<Float>;
-	function runInContext(unknown:Dynamic):LoDashStatic;
-	function stubArray(unknown:Dynamic):Array<Dynamic>;
-	@:overload(function(unknown:Dynamic):Bool { })
-	function stubFalse(unknown:Dynamic):Bool;
-	function stubObject(unknown:Dynamic):Dynamic;
-	function stubString(unknown:Dynamic):String;
-	@:overload(function(unknown:Dynamic):Bool { })
-	function stubTrue(unknown:Dynamic):Bool;
-	@:overload(function(unknown:Dynamic):Array<Float> { })
-	function times<TResult>(unknown:Dynamic):Array<TResult>;
-	function toPath(unknown:Dynamic):Collection<String>;
-	function uniqueId(unknown:Dynamic):String;
+	function ary(?n:Float):Function<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
+	function curry(?arity:Float):Dynamic;
+	function curryRight(?arity:Float):Dynamic;
+	@:overload(function(?wait:Float, ?options:DebounceSettings):Dynamic { })
+	function debounce(wait:Null<Float>, options:DebounceSettingsLeading):Dynamic;
+	function flip():Function<T>;
+	function memoize(?resolver:(args:haxe.extern.Rest<Dynamic>) -> Dynamic):Function<Dynamic>;
+	function negate():Function<(args:haxe.extern.Rest<Any>) -> Bool>;
+	function once():Function<T>;
+	function overArgs(transforms:haxe.extern.Rest<Many<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>>):Function<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
+	@:overload(function<T3>(plc1:LoDashStatic, plc2:LoDashStatic, arg3:T3):Function<Dynamic> { })
+	@:overload(function<T1, T3>(arg1:T1, plc2:LoDashStatic, arg3:T3):Function<Dynamic> { })
+	@:overload(function<T2, T3>(plc1:LoDashStatic, arg2:T2, arg3:T3):Function<Dynamic> { })
+	@:overload(function<T3>(plc1:LoDashStatic, plc2:LoDashStatic, arg3:T3):Function<Dynamic> { })
+	@:overload(function<T1, T4>(arg1:T1, plc2:LoDashStatic, plc3:LoDashStatic, arg4:T4):Function<Dynamic> { })
+	@:overload(function<T2, T4>(plc1:LoDashStatic, arg2:T2, plc3:LoDashStatic, arg4:T4):Function<Dynamic> { })
+	@:overload(function<T1, T2, T4>(arg1:T1, arg2:T2, plc3:LoDashStatic, arg4:T4):Function<Dynamic> { })
+	@:overload(function<T3, T4>(plc1:LoDashStatic, plc2:LoDashStatic, arg3:T3, arg4:T4):Function<Dynamic> { })
+	@:overload(function<T1, T3, T4>(arg1:T1, plc2:LoDashStatic, arg3:T3, arg4:T4):Function<Dynamic> { })
+	@:overload(function<T2, T3, T4>(plc1:LoDashStatic, arg2:T2, arg3:T3, arg4:T4):Function<Dynamic> { })
+	@:overload(function<T1, T2, T3, T4>(arg1:T1, arg2:T2, arg3:T3, arg4:T4):Function<Dynamic> { })
+	@:overload(function<T1, T2, T3>(arg1:T1, arg2:T2, arg3:T3):Function<Dynamic> { })
+	@:overload(function<T1, T2>(arg1:T1, arg2:T2):Function<Dynamic> { })
+	@:overload(function<T1>(arg1:T1):Function<Dynamic> { })
+	@:overload(function():Function<Dynamic> { })
+	function partial<T2>(plc1:LoDashStatic, arg2:T2):Function<Dynamic>;
+	@:overload(function<T2>(arg2:T2):Function<Dynamic> { })
+	@:overload(function<T1>(arg1:T1, plc2:LoDashStatic, plc3:LoDashStatic):Function<Dynamic> { })
+	@:overload(function<T2>(arg2:T2, plc3:LoDashStatic):Function<Dynamic> { })
+	@:overload(function<T1, T2>(arg1:T1, arg2:T2, plc3:LoDashStatic):Function<Dynamic> { })
+	@:overload(function<T3>(arg3:T3):Function<Dynamic> { })
+	@:overload(function<T1, T3>(arg1:T1, plc2:LoDashStatic, arg3:T3):Function<Dynamic> { })
+	@:overload(function<T2, T3>(arg2:T2, arg3:T3):Function<Dynamic> { })
+	@:overload(function<T1>(arg1:T1, plc2:LoDashStatic, plc3:LoDashStatic, plc4:LoDashStatic):Function<Dynamic> { })
+	@:overload(function<T2>(arg2:T2, plc3:LoDashStatic, plc4:LoDashStatic):Function<Dynamic> { })
+	@:overload(function<T1, T2>(arg1:T1, arg2:T2, plc3:LoDashStatic, plc4:LoDashStatic):Function<Dynamic> { })
+	@:overload(function<T3>(arg3:T3, plc4:LoDashStatic):Function<Dynamic> { })
+	@:overload(function<T1, T3>(arg1:T1, plc2:LoDashStatic, arg3:T3, plc4:LoDashStatic):Function<Dynamic> { })
+	@:overload(function<T2, T3>(arg2:T2, arg3:T3, plc4:LoDashStatic):Function<Dynamic> { })
+	@:overload(function<T1, T2, T3>(arg1:T1, arg2:T2, arg3:T3, plc4:LoDashStatic):Function<Dynamic> { })
+	@:overload(function<T4>(arg4:T4):Function<Dynamic> { })
+	@:overload(function<T1, T4>(arg1:T1, plc2:LoDashStatic, plc3:LoDashStatic, arg4:T4):Function<Dynamic> { })
+	@:overload(function<T2, T4>(arg2:T2, plc3:LoDashStatic, arg4:T4):Function<Dynamic> { })
+	@:overload(function<T1, T2, T4>(arg1:T1, arg2:T2, plc3:LoDashStatic, arg4:T4):Function<Dynamic> { })
+	@:overload(function<T3, T4>(arg3:T3, arg4:T4):Function<Dynamic> { })
+	@:overload(function<T1, T3, T4>(arg1:T1, plc2:LoDashStatic, arg3:T3, arg4:T4):Function<Dynamic> { })
+	@:overload(function<T2, T3, T4>(arg2:T2, arg3:T3, arg4:T4):Function<Dynamic> { })
+	@:overload(function<TS>(ts:haxe.extern.Rest<Any>):Function<Dynamic> { })
+	@:overload(function():Function<Dynamic> { })
+	function partialRight<T1>(arg1:T1, plc2:LoDashStatic):Function<Dynamic>;
+	function rearg(indexes:haxe.extern.Rest<Many<Float>>):Function<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
+	function rest(?start:Float):Function<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
+	function spread(?start:Float):Function<(args:haxe.extern.Rest<Dynamic>) -> js.lib.ReturnType<T>>;
+	@:overload(function(?wait:Float, ?options:ThrottleSettings):Dynamic { })
+	function throttle(?wait:Float, ?options:ThrottleSettingsLeading):Dynamic;
+	function unary():Function<(arg1:Dynamic) -> js.lib.ReturnType<T>>;
+	function castArray():Collection<T>;
+	function chain():FunctionChain<T>;
+	@:overload(function<R2, R3, R4, R5, R6, R7>(f2:(a:js.lib.ReturnType<T>) -> R2, f3:(a:R2) -> R3, f4:(a:R3) -> R4, f5:(a:R4) -> R5, f6:(a:R5) -> R6, f7:(a:R6) -> R7, func:haxe.extern.Rest<Many<(a:Dynamic) -> Dynamic>>):Function<(args:haxe.extern.Rest<Any>) -> Dynamic> { })
+	@:overload(function<R2, R3, R4, R5, R6>(f2:(a:js.lib.ReturnType<T>) -> R2, f3:(a:R2) -> R3, f4:(a:R3) -> R4, f5:(a:R4) -> R5, f6:(a:R5) -> R6):Function<(args:haxe.extern.Rest<Any>) -> R6> { })
+	@:overload(function<R2, R3, R4, R5>(f2:(a:js.lib.ReturnType<T>) -> R2, f3:(a:R2) -> R3, f4:(a:R3) -> R4, f5:(a:R4) -> R5):Function<(args:haxe.extern.Rest<Any>) -> R5> { })
+	@:overload(function<R2, R3, R4>(f2:(a:js.lib.ReturnType<T>) -> R2, f3:(a:R2) -> R3, f4:(a:R3) -> R4):Function<(args:haxe.extern.Rest<Any>) -> R4> { })
+	@:overload(function<R2, R3>(f2:(a:js.lib.ReturnType<T>) -> R2, f3:(a:R2) -> R3):Function<(args:haxe.extern.Rest<Any>) -> R3> { })
+	@:overload(function<R2>(f2:(a:js.lib.ReturnType<T>) -> R2):Function<(args:haxe.extern.Rest<Any>) -> R2> { })
+	@:overload(function(func:haxe.extern.Rest<Many<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>>):Function<(args:haxe.extern.Rest<Dynamic>) -> Dynamic> { })
+	function flow<R2, R3, R4, R5, R6, R7>(f2:(a:js.lib.ReturnType<T>) -> R2, f3:(a:R2) -> R3, f4:(a:R3) -> R4, f5:(a:R4) -> R5, f6:(a:R5) -> R6, f7:(a:R6) -> R7):Function<(args:haxe.extern.Rest<Any>) -> R7>;
+	@:overload(function<A, R1, R2, R3, R4>(f5:(a:R4) -> Dynamic, f4:(a:R3) -> R4, f3:(a:R2) -> R3, f2:(a:R1) -> R2, f1:(args:haxe.extern.Rest<Any>) -> R1):Function<(args:haxe.extern.Rest<Any>) -> js.lib.ReturnType<T>> { })
+	@:overload(function<A, R1, R2, R3>(f4:(a:R3) -> Dynamic, f3:(a:R2) -> R3, f2:(a:R1) -> R2, f1:(args:haxe.extern.Rest<Any>) -> R1):Function<(args:haxe.extern.Rest<Any>) -> js.lib.ReturnType<T>> { })
+	@:overload(function<A, R1, R2>(f3:(a:R2) -> Dynamic, f2:(a:R1) -> R2, f1:(args:haxe.extern.Rest<Any>) -> R1):Function<(args:haxe.extern.Rest<Any>) -> js.lib.ReturnType<T>> { })
+	@:overload(function<A, R1>(f2:(a:R1) -> Dynamic, f1:(args:haxe.extern.Rest<Any>) -> R1):Function<(args:haxe.extern.Rest<Any>) -> js.lib.ReturnType<T>> { })
+	@:overload(function<A>(f1:(args:haxe.extern.Rest<Any>) -> Dynamic):Function<(args:haxe.extern.Rest<Any>) -> js.lib.ReturnType<T>> { })
+	@:overload(function(func:haxe.extern.Rest<Many<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>>):Function<(args:haxe.extern.Rest<Dynamic>) -> Dynamic> { })
+	function flowRight<A, R1, R2, R3, R4, R5>(f6:(a:R5) -> Dynamic, f5:(a:R4) -> R5, f4:(a:R3) -> R4, f3:(a:R2) -> R3, f2:(a:R1) -> R2, f1:(args:haxe.extern.Rest<Any>) -> R1):Function<(args:haxe.extern.Rest<Any>) -> js.lib.ReturnType<T>>;
+	function iteratee():Function<T>;
+	function over<TResult>(iteratees:haxe.extern.Rest<Many<(args:haxe.extern.Rest<Dynamic>) -> TResult>>):Function<(args:haxe.extern.Rest<Dynamic>) -> Array<ts.AnyOf2<js.lib.ReturnType<T>, TResult>>>;
+	function overEvery<TArgs>(iteratees:haxe.extern.Rest<Many<(args:haxe.extern.Rest<TArgs>) -> Bool>>):Function<(args:haxe.extern.Rest<Any>) -> Bool>;
+	function overSome<TArgs>(iteratees:haxe.extern.Rest<Many<(args:haxe.extern.Rest<TArgs>) -> Bool>>):Function<(args:haxe.extern.Rest<Any>) -> Bool>;
+	@:overload(function<TResult>(method:(args:haxe.extern.Rest<Dynamic>) -> TResult, args:haxe.extern.Rest<Dynamic>):Collection<TResult> { })
+	function invokeMap(methodName:String, args:haxe.extern.Rest<Dynamic>):Collection<Dynamic>;
+	function size():Float;
+	function now():Float;
+	function bind(thisArg:Dynamic, partials:haxe.extern.Rest<Dynamic>):Function<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
+	function bindKey(key:String, partials:haxe.extern.Rest<Dynamic>):Function<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
+	function defer(args:haxe.extern.Rest<Dynamic>):Primitive<Float>;
+	function delay(wait:Float, args:haxe.extern.Rest<Dynamic>):Primitive<Float>;
+	function wrap<TArgs, TResult>(wrapper:(value:T, args:haxe.extern.Rest<TArgs>) -> TResult):Function<(args:haxe.extern.Rest<TArgs>) -> TResult>;
+	function clone():T;
+	function cloneDeep():T;
+	@:overload(function():T { })
+	function cloneDeepWith(customizer:CloneDeepWithCustomizer<T>):Dynamic;
+	@:overload(function<TResult>(customizer:CloneWithCustomizer<T, Null<TResult>>):ts.AnyOf2<T, TResult> { })
+	@:overload(function():T { })
+	function cloneWith<TResult>(customizer:CloneWithCustomizer<T, TResult>):TResult;
+	function conformsTo(source:{ }):Bool;
+	function eq(other:Dynamic):Bool;
+	function gt(other:Dynamic):Bool;
+	function gte(other:Dynamic):Bool;
+	function isArguments():Bool;
+	function isArray():Bool;
+	function isArrayBuffer():Bool;
+	function isArrayLike():Bool;
+	function isArrayLikeObject():Bool;
+	function isBoolean():Bool;
+	function isBuffer():Bool;
+	function isDate():Bool;
+	function isElement():Bool;
+	function isEmpty():Bool;
+	function isEqual(other:Dynamic):Bool;
+	function isEqualWith(other:Dynamic, ?customizer:IsEqualCustomizer):Bool;
+	function isError():Bool;
+	function isFinite():Bool;
+	function isFunction():Bool;
+	function isInteger():Bool;
+	function isLength():Bool;
+	function isMap():Bool;
+	function isMatch(source:Dynamic):Bool;
+	function isMatchWith(source:Dynamic, customizer:IsMatchWithCustomizer):Bool;
+	function isNaN():Bool;
+	function isNative():Bool;
+	function isNil():Bool;
+	function isNull():Bool;
+	function isNumber():Bool;
+	function isObject():Bool;
+	function isObjectLike():Bool;
+	function isPlainObject():Bool;
+	function isRegExp():Bool;
+	function isSafeInteger():Bool;
+	function isSet():Bool;
+	function isString():Bool;
+	function isSymbol():Bool;
+	function isTypedArray():Bool;
+	function isUndefined():Bool;
+	function isWeakMap():Bool;
+	function isWeakSet():Bool;
+	function lt(other:Dynamic):Bool;
+	function lte(other:Dynamic):Bool;
+	function toFinite():Float;
+	function toInteger():Float;
+	function toLength():Float;
+	function toNumber():Float;
+	function toPlainObject():Object<Dynamic>;
+	function toSafeInteger():Float;
+	function add(addend:Float):Float;
+	function ceil(?precision:Float):Float;
+	function divide(divisor:Float):Float;
+	function floor(?precision:Float):Float;
+	function mean():Float;
+	function multiply(multiplicand:Float):Float;
+	function round(?precision:Float):Float;
+	function subtract(subtrahend:Float):Float;
+	function sum():Float;
+	@:overload(function(upper:Float):Float { })
+	function clamp(lower:Float, upper:Float):Float;
+	function inRange(start:Float, ?end:Float):Bool;
+	@:overload(function(max:Float, ?floating:Bool):Float { })
+	function random(?floating:Bool):Float;
+	function entries():Collection<ts.Tuple2<String, Dynamic>>;
+	function entriesIn():Collection<ts.Tuple2<String, Dynamic>>;
+	function findKey(?predicate:ObjectIteratee<T>):Null<String>;
+	function findLastKey(?predicate:ObjectIteratee<T>):Null<String>;
+	function forIn(?iteratee:ObjectIterator<T, Dynamic>):Function<T>;
+	function forInRight(?iteratee:ObjectIterator<T, Dynamic>):Function<T>;
+	function forOwn(?iteratee:ObjectIterator<T, Dynamic>):Function<T>;
+	function forOwnRight(?iteratee:ObjectIterator<T, Dynamic>):Function<T>;
+	function functions():Collection<String>;
+	function functionsIn():Collection<String>;
+	function has(path:PropertyPath):Bool;
+	function hasIn(path:PropertyPath):Bool;
+	function invert():Object<Dictionary<String>>;
+	function invoke(path:PropertyPath, args:haxe.extern.Rest<Dynamic>):Dynamic;
+	function keys():Collection<String>;
+	function keysIn():Collection<String>;
+	function result<TResult>(path:PropertyPath, ?defaultValue:ts.AnyOf2<(args:haxe.extern.Rest<Dynamic>) -> TResult, TResult>):TResult;
+	@:overload(function<TResult>(path:PropertyPath, value:Dynamic):ImpChain<TResult> { })
+	function set(path:PropertyPath, value:Dynamic):Function<T>;
+	@:overload(function<TResult>(path:PropertyPath, value:Dynamic, ?customizer:SetWithCustomizer<T>):ImpChain<TResult> { })
+	function setWith(path:PropertyPath, value:Dynamic, ?customizer:SetWithCustomizer<T>):Function<T>;
+	function toPairs():Collection<ts.Tuple2<String, Dynamic>>;
+	function toPairsIn():Collection<ts.Tuple2<String, Dynamic>>;
+	function unset(path:PropertyPath):Primitive<Bool>;
+	function update(path:PropertyPath, updater:(value:Dynamic) -> Dynamic):Object<Dynamic>;
+	function commit():Function<T>;
+	function plant(value:Any):Function<T>;
+	function reverse():Function<T>;
+	function toJSON():T;
+	function value():T;
+	function valueOf():T;
+	function tap(interceptor:(value:T) -> Void):Function<T>;
+	function thru<TResult>(interceptor:(value:T) -> TResult):ImpChain<TResult>;
+	function camelCase():String;
+	function capitalize():Dynamic;
+	function deburr():String;
+	function endsWith(?target:String, ?position:Float):Bool;
+	function escape():String;
+	function escapeRegExp():String;
+	function kebabCase():String;
+	function lowerCase():String;
+	function lowerFirst():Dynamic;
+	function pad(?length:Float, ?chars:String):String;
+	function padEnd(?length:Float, ?chars:String):String;
+	function padStart(?length:Float, ?chars:String):String;
+	function parseInt(?radix:Float):Float;
+	function repeat(?n:Float):String;
+	@:overload(function(replacement:ts.AnyOf2<String, ReplaceFunction>):String { })
+	function replace(pattern:ts.AnyOf2<String, js.lib.RegExp>, replacement:ts.AnyOf2<String, ReplaceFunction>):String;
+	function snakeCase():String;
+	function split(?separator:ts.AnyOf2<String, js.lib.RegExp>, ?limit:Float):Collection<String>;
+	function startCase():String;
+	function startsWith(?target:String, ?position:Float):Bool;
+	function template(?options:TemplateOptions):TemplateExecutor;
+	function toLower():Dynamic;
+	function toUpper():Dynamic;
+	function trim(?chars:String):String;
+	function trimEnd(?chars:String):String;
+	function trimStart(?chars:String):String;
+	function truncate(?options:TruncateOptions):String;
+	function unescape():String;
+	function upperCase():String;
+	function upperFirst():Dynamic;
+	function words(?pattern:ts.AnyOf2<String, js.lib.RegExp>):Collection<String>;
+	function attempt<TResult>(args:haxe.extern.Rest<Dynamic>):ts.AnyOf2<js.lib.Error, TResult>;
+	function bindAll(methodNames:haxe.extern.Rest<Many<String>>):Function<T>;
+	function conforms():Function<(value:{ }) -> Bool>;
+	function constant():Function<() -> T>;
+	@:overload(function<TDefault>(defaultValue:TDefault):Dynamic { })
+	function defaultTo(defaultValue:T):T;
+	function identity():T;
+	function matches<V>():Function<(value:V) -> Bool>;
+	@:overload(function<SrcValue, Value>(srcValue:SrcValue):Function<(value:Value) -> Bool> { })
+	function matchesProperty<SrcValue>(srcValue:SrcValue):Function<(value:Dynamic) -> Bool>;
+	function method(args:haxe.extern.Rest<Dynamic>):Function<(object:Dynamic) -> Dynamic>;
+	function methodOf(args:haxe.extern.Rest<Dynamic>):LoDashImplicitWrapper<(path:PropertyPath) -> Dynamic>;
+	@:overload(function(?options:MixinOptions):LoDashImplicitWrapper<LoDashStatic> { })
+	function mixin(source:Dictionary<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>, ?options:MixinOptions):Function<T>;
+	function noConflict():LoDashStatic;
+	function noop(args:haxe.extern.Rest<Dynamic>):Void;
+	function nthArg():Function<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
+	function property<TObj, TResult>():Function<(obj:TObj) -> TResult>;
+	function propertyOf():LoDashImplicitWrapper<(path:PropertyPath) -> Dynamic>;
+	function range(?end:Float, ?step:Float):Collection<Float>;
+	function rangeRight(?end:Float, ?step:Float):Collection<Float>;
+	function runInContext():LoDashStatic;
+	function stubArray():Array<Dynamic>;
+	@:overload(function():Bool { })
+	function stubFalse():Bool;
+	function stubObject():Dynamic;
+	function stubString():String;
+	@:overload(function():Bool { })
+	function stubTrue():Bool;
+	@:overload(function():Array<Float> { })
+	function times<TResult>(iteratee:(num:Float) -> TResult):Array<TResult>;
+	function toPath():Collection<String>;
+	function uniqueId():String;
 };

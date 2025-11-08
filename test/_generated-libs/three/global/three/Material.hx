@@ -4,7 +4,7 @@ package global.three;
 	Materials describe the appearance of objects. They are defined in a (mostly) renderer-independent way, so you don't have to rewrite materials if you decide to use a different renderer.
 **/
 @:native("THREE.Material") extern class Material extends EventDispatcher {
-	function new(unknown:Dynamic);
+	function new();
 	/**
 		Sets the alpha value to be used when running an alpha test. Default is 0.
 	**/
@@ -230,11 +230,11 @@ package global.three;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone(unknown:Dynamic):Material;
+	function clone():Material;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(unknown:Dynamic):Material;
+	function copy(material:Material):Material;
 	/**
 		This disposes the material. Textures of a material don't get disposed. These needs to be disposed by
 		{@link
@@ -242,22 +242,22 @@ package global.three;
 		}
 		.
 	**/
-	function dispose(unknown:Dynamic):Void;
+	function dispose():Void;
 	/**
 		An optional callback that is executed immediately before the shader program is compiled. This function is called with the shader source code as a parameter. Useful for the modification of built-in materials.
 	**/
-	function onBeforeCompile(unknown:Dynamic):Void;
+	function onBeforeCompile(shader:Shader, renderer:WebGLRenderer):Void;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(unknown:Dynamic):Void;
+	function setValues(values:MaterialParameters):Void;
 	/**
 		Convert the material to three.js JSON format.
 	**/
-	function toJSON(unknown:Dynamic):Dynamic;
+	function toJSON(?meta:Dynamic):Dynamic;
 	/**
 		Call .dispatchEvent ( { type: 'update' }) on the material.
 	**/
-	function update(unknown:Dynamic):Void;
+	function update():Void;
 	static var prototype : Material;
 }

@@ -1,3 +1,3 @@
 package http_errors;
 
-typedef CreateHttpError = ts.AnyOf2<(unknown:Dynamic) -> HttpError<Any>, (unknown:Dynamic) -> HttpError<Float>>;
+typedef CreateHttpError = ts.AnyOf2<(arg:Any, rest:haxe.extern.Rest<UnknownError>) -> HttpError<Any>, (rest:haxe.extern.Rest<UnknownError>) -> HttpError<Float>>;

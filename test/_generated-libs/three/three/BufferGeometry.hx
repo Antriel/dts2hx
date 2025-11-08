@@ -9,7 +9,7 @@ package three;
 	/**
 		This creates a new BufferGeometry. It also sets several properties to an default value.
 	**/
-	function new(unknown:Dynamic);
+	function new();
 	/**
 		Unique number of this buffergeometry instance
 	**/
@@ -33,61 +33,61 @@ package three;
 		var count : Float;
 	};
 	var userData : haxe.DynamicAccess<Dynamic>;
-	function getIndex(unknown:Dynamic):BufferAttribute;
-	function setIndex(unknown:Dynamic):Void;
-	@:overload(function(unknown:Dynamic):Dynamic { })
-	function addAttribute(unknown:Dynamic):BufferGeometry;
-	function getAttribute(unknown:Dynamic):ts.AnyOf2<BufferAttribute, InterleavedBufferAttribute>;
-	function removeAttribute(unknown:Dynamic):BufferGeometry;
-	function addGroup(unknown:Dynamic):Void;
-	function clearGroups(unknown:Dynamic):Void;
-	function setDrawRange(unknown:Dynamic):Void;
+	function getIndex():BufferAttribute;
+	function setIndex(index:ts.AnyOf2<Array<Float>, BufferAttribute>):Void;
+	@:overload(function(name:Dynamic, array:Dynamic, itemSize:Dynamic):Dynamic { })
+	function addAttribute(name:String, attribute:ts.AnyOf2<BufferAttribute, InterleavedBufferAttribute>):BufferGeometry;
+	function getAttribute(name:String):ts.AnyOf2<BufferAttribute, InterleavedBufferAttribute>;
+	function removeAttribute(name:String):BufferGeometry;
+	function addGroup(start:Float, count:Float, ?materialIndex:Float):Void;
+	function clearGroups():Void;
+	function setDrawRange(start:Float, count:Float):Void;
 	/**
 		Bakes matrix transform directly into vertex coordinates.
 	**/
-	function applyMatrix(unknown:Dynamic):BufferGeometry;
-	function rotateX(unknown:Dynamic):BufferGeometry;
-	function rotateY(unknown:Dynamic):BufferGeometry;
-	function rotateZ(unknown:Dynamic):BufferGeometry;
-	function translate(unknown:Dynamic):BufferGeometry;
-	function scale(unknown:Dynamic):BufferGeometry;
-	function lookAt(unknown:Dynamic):Void;
-	function center(unknown:Dynamic):BufferGeometry;
-	function setFromObject(unknown:Dynamic):BufferGeometry;
-	function setFromPoints(unknown:Dynamic):BufferGeometry;
-	function updateFromObject(unknown:Dynamic):Void;
-	function fromGeometry(unknown:Dynamic):BufferGeometry;
-	function fromDirectGeometry(unknown:Dynamic):BufferGeometry;
+	function applyMatrix(matrix:Matrix4):BufferGeometry;
+	function rotateX(angle:Float):BufferGeometry;
+	function rotateY(angle:Float):BufferGeometry;
+	function rotateZ(angle:Float):BufferGeometry;
+	function translate(x:Float, y:Float, z:Float):BufferGeometry;
+	function scale(x:Float, y:Float, z:Float):BufferGeometry;
+	function lookAt(v:Vector3):Void;
+	function center():BufferGeometry;
+	function setFromObject(object:Object3D):BufferGeometry;
+	function setFromPoints(points:ts.AnyOf2<Array<Vector3>, Array<Vector2>>):BufferGeometry;
+	function updateFromObject(object:Object3D):Void;
+	function fromGeometry(geometry:Geometry, ?settings:Dynamic):BufferGeometry;
+	function fromDirectGeometry(geometry:DirectGeometry):BufferGeometry;
 	/**
 		Computes bounding box of the geometry, updating Geometry.boundingBox attribute.
 		Bounding boxes aren't computed by default. They need to be explicitly computed, otherwise they are null.
 	**/
-	function computeBoundingBox(unknown:Dynamic):Void;
+	function computeBoundingBox():Void;
 	/**
 		Computes bounding sphere of the geometry, updating Geometry.boundingSphere attribute.
 		Bounding spheres aren't' computed by default. They need to be explicitly computed, otherwise they are null.
 	**/
-	function computeBoundingSphere(unknown:Dynamic):Void;
+	function computeBoundingSphere():Void;
 	/**
 		Computes vertex normals by averaging face normals.
 	**/
-	function computeVertexNormals(unknown:Dynamic):Void;
-	function merge(unknown:Dynamic):BufferGeometry;
-	function normalizeNormals(unknown:Dynamic):Void;
-	function toNonIndexed(unknown:Dynamic):BufferGeometry;
-	function toJSON(unknown:Dynamic):Dynamic;
-	function clone(unknown:Dynamic):BufferGeometry;
-	function copy(unknown:Dynamic):BufferGeometry;
+	function computeVertexNormals():Void;
+	function merge(geometry:BufferGeometry, offset:Float):BufferGeometry;
+	function normalizeNormals():Void;
+	function toNonIndexed():BufferGeometry;
+	function toJSON():Dynamic;
+	function clone():BufferGeometry;
+	function copy(source:BufferGeometry):BufferGeometry;
 	/**
 		Disposes the object from memory.
 		You need to call this when you want the bufferGeometry removed while the application is running.
 	**/
-	function dispose(unknown:Dynamic):Void;
+	function dispose():Void;
 	var drawcalls : Dynamic;
 	var offsets : Dynamic;
-	function addIndex(unknown:Dynamic):Void;
-	function addDrawCall(unknown:Dynamic):Void;
-	function clearDrawCalls(unknown:Dynamic):Void;
+	function addIndex(index:Dynamic):Void;
+	function addDrawCall(start:Dynamic, count:Dynamic, ?indexOffset:Dynamic):Void;
+	function clearDrawCalls():Void;
 	static var prototype : BufferGeometry;
 	static var MaxIndex : Float;
 }

@@ -8,15 +8,15 @@ typedef DebugAdapter = {
 		An event which fires after the debug adapter has sent a Debug Adapter Protocol message to VS Code.
 		Messages can be requests, responses, or events.
 	**/
-	function onDidSendMessage(unknown:Dynamic):Disposable;
+	function onDidSendMessage(listener:(e:DebugProtocolMessage) -> Dynamic, ?thisArgs:Dynamic, ?disposables:Array<Disposable>):Disposable;
 	/**
 		Handle a Debug Adapter Protocol message.
 		Messages can be requests, responses, or events.
 		Results or errors are returned via onSendMessage events.
 	**/
-	function handleMessage(unknown:Dynamic):Void;
+	function handleMessage(message:DebugProtocolMessage):Void;
 	/**
 		Dispose this object.
 	**/
-	function dispose(unknown:Dynamic):Dynamic;
+	function dispose():Dynamic;
 };

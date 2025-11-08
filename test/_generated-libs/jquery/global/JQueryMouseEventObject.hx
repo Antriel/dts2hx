@@ -38,15 +38,15 @@ typedef JQueryMouseEventObject = {
 	/**
 		Returns whether event.preventDefault() was ever called on this event object.
 	**/
-	function isDefaultPrevented(unknown:Dynamic):Bool;
+	function isDefaultPrevented():Bool;
 	/**
 		Returns whether event.stopImmediatePropagation() was ever called on this event object.
 	**/
-	function isImmediatePropagationStopped(unknown:Dynamic):Bool;
+	function isImmediatePropagationStopped():Bool;
 	/**
 		Returns whether event.stopPropagation() was ever called on this event object.
 	**/
-	function isPropagationStopped(unknown:Dynamic):Bool;
+	function isPropagationStopped():Bool;
 	/**
 		The namespace specified when the event was triggered.
 	**/
@@ -58,7 +58,7 @@ typedef JQueryMouseEventObject = {
 	/**
 		If this method is called, the default action of the event will not be triggered.
 	**/
-	function preventDefault(unknown:Dynamic):Dynamic;
+	function preventDefault():Dynamic;
 	/**
 		The other DOM element involved in the event, if any.
 	**/
@@ -70,11 +70,11 @@ typedef JQueryMouseEventObject = {
 	/**
 		Keeps the rest of the handlers from being executed and prevents the event from bubbling up the DOM tree.
 	**/
-	function stopImmediatePropagation(unknown:Dynamic):Void;
+	function stopImmediatePropagation():Void;
 	/**
 		Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
 	**/
-	function stopPropagation(unknown:Dynamic):Void;
+	function stopPropagation():Void;
 	/**
 		The DOM element that initiated the event.
 	**/
@@ -148,11 +148,11 @@ typedef JQueryMouseEventObject = {
 		
 		[MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/composedPath)
 	**/
-	function composedPath(unknown:Dynamic):Array<js.html.EventTarget>;
+	function composedPath():Array<js.html.EventTarget>;
 	/**
 		The **`Event.initEvent()`** method is used to initialize the value of an event created using Document.createEvent().
 	**/
-	function initEvent(unknown:Dynamic):Void;
+	function initEvent(type:String, ?bubbles:Bool, ?cancelable:Bool):Void;
 	final NONE : Int;
 	final CAPTURING_PHASE : Int;
 	final AT_TARGET : Int;

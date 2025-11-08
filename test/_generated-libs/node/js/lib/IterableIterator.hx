@@ -8,11 +8,11 @@ package js.lib;
 	that is also iterable.
 **/
 typedef IterableIterator<T, TReturn, TNext> = {
-	function next(unknown:Dynamic, unknown:Dynamic):IteratorResult<T, TReturn>;
+	function next():IteratorResult<T, TReturn>;
 	@:optional
 	@:native("return")
-	function return_(unknown:Dynamic):IteratorResult<T, TReturn>;
+	function return_(?value:TReturn):IteratorResult<T, TReturn>;
 	@:optional
 	@:native("throw")
-	function throw_(unknown:Dynamic):IteratorResult<T, TReturn>;
+	function throw_(?e:Dynamic):IteratorResult<T, TReturn>;
 };

@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "MeshNormalMaterial") extern class MeshNormalMaterial extends Material {
-	function new(unknown:Dynamic);
+	function new(?parameters:MeshNormalMaterialParameters);
 	var bumpMap : Null<Texture>;
 	var bumpScale : Float;
 	var normalMap : Null<Texture>;
@@ -18,14 +18,14 @@ package three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(unknown:Dynamic):Void;
+	function setValues(parameters:MeshNormalMaterialParameters):Void;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone(unknown:Dynamic):MeshNormalMaterial;
+	function clone():MeshNormalMaterial;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(unknown:Dynamic):MeshNormalMaterial;
+	function copy(material:Material):MeshNormalMaterial;
 	static var prototype : MeshNormalMaterial;
 }

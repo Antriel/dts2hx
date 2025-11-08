@@ -1,14 +1,14 @@
 package node;
 
 @:jsRequire("events") extern class Events extends global.nodejs.EventEmitter {
-	function addListener(unknown:Dynamic):Events;
-	function on(unknown:Dynamic):Events;
-	function once(unknown:Dynamic):Events;
-	function removeListener(unknown:Dynamic):Events;
-	function off(unknown:Dynamic):Events;
-	function removeAllListeners(unknown:Dynamic):Events;
-	function setMaxListeners(unknown:Dynamic):Events;
-	function prependListener(unknown:Dynamic):Events;
-	function prependOnceListener(unknown:Dynamic):Events;
+	function addListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Events;
+	function on(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Events;
+	function once(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Events;
+	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Events;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Events;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):Events;
+	function setMaxListeners(n:Float):Events;
+	function prependListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Events;
+	function prependOnceListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Events;
 	static var prototype : Events;
 }

@@ -1,29 +1,29 @@
 package node.crypto;
 
 typedef Verify = {
-	@:overload(function(unknown:Dynamic):Verify { })
-	function update(unknown:Dynamic):Verify;
-	@:overload(function(unknown:Dynamic):Bool { })
-	function verify(unknown:Dynamic):Bool;
+	@:overload(function(data:String, input_encoding:Utf8AsciiLatin1Encoding):Verify { })
+	function update(data:BinaryLike):Verify;
+	@:overload(function(object:ts.AnyOf4<String, Dynamic, global.Buffer, KeyObject>, signature:String, signature_format:HexBase64Latin1Encoding):Bool { })
+	function verify(object:ts.AnyOf4<String, Dynamic, global.Buffer, KeyObject>, signature:Binary):Bool;
 	var writable : Bool;
-	@:overload(function(unknown:Dynamic):Bool { })
-	function write(unknown:Dynamic):Bool;
-	@:overload(function(unknown:Dynamic):Void { })
-	@:overload(function(unknown:Dynamic):Void { })
-	function end(unknown:Dynamic):Void;
-	function addListener(unknown:Dynamic):Verify;
-	function on(unknown:Dynamic):Verify;
-	function once(unknown:Dynamic):Verify;
-	function removeListener(unknown:Dynamic):Verify;
-	function off(unknown:Dynamic):Verify;
-	function removeAllListeners(unknown:Dynamic):Verify;
-	function setMaxListeners(unknown:Dynamic):Verify;
-	function getMaxListeners(unknown:Dynamic):Float;
-	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function emit(unknown:Dynamic):Bool;
-	function listenerCount(unknown:Dynamic):Float;
-	function prependListener(unknown:Dynamic):Verify;
-	function prependOnceListener(unknown:Dynamic):Verify;
-	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	@:overload(function(str:String, ?encoding:String, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool { })
+	function write(buffer:ts.AnyOf3<String, js.lib.Uint8Array_<js.lib.ArrayBufferLike>, global.Buffer>, ?cb:ts.AnyOf2<() -> Void, (err:js.lib.Error) -> Void>):Bool;
+	@:overload(function(data:ts.AnyOf3<String, js.lib.Uint8Array_<js.lib.ArrayBufferLike>, global.Buffer>, ?cb:() -> Void):Void { })
+	@:overload(function(str:String, ?encoding:String, ?cb:() -> Void):Void { })
+	function end(?cb:() -> Void):Void;
+	function addListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Verify;
+	function on(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Verify;
+	function once(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Verify;
+	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Verify;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Verify;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):Verify;
+	function setMaxListeners(n:Float):Verify;
+	function getMaxListeners():Float;
+	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function emit(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool;
+	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
+	function prependListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Verify;
+	function prependOnceListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Verify;
+	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
 };

@@ -11,7 +11,7 @@ package vscode;
 	/**
 		Creates a new evaluatable expression object.
 	**/
-	function new(unknown:Dynamic);
+	function new(range:Range, ?expression:String);
 	final range : Range;
 	@:optional
 	final expression : String;

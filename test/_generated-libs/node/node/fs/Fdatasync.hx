@@ -8,5 +8,5 @@ package node.fs;
 		Asynchronous fdatasync(2) - synchronize a file's in-core state with storage device.
 	**/
 	@:selfCall
-	static function call(unknown:Dynamic):Void;
+	static function call(fd:Float, callback:(err:global.nodejs.ErrnoException) -> Void):Void;
 }

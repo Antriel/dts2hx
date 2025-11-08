@@ -1,8 +1,8 @@
 package global.three;
 
 @:native("THREE.DataTexture") extern class DataTexture extends Texture {
-	function new(unknown:Dynamic);
-	function clone(unknown:Dynamic):DataTexture;
-	function copy(unknown:Dynamic):DataTexture;
+	function new(data:TypedArray, width:Float, height:Float, ?format:PixelFormat, ?type:TextureDataType, ?mapping:Mapping, ?wrapS:Wrapping, ?wrapT:Wrapping, ?magFilter:TextureFilter, ?minFilter:TextureFilter, ?anisotropy:Float, ?encoding:TextureEncoding);
+	function clone():DataTexture;
+	function copy(source:Texture):DataTexture;
 	static var prototype : DataTexture;
 }

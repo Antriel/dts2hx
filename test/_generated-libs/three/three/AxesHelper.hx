@@ -1,46 +1,46 @@
 package three;
 
 @:jsRequire("three", "AxesHelper") extern class AxesHelper extends LineSegments {
-	function new(unknown:Dynamic);
-	function computeLineDistances(unknown:Dynamic):AxesHelper;
-	function applyQuaternion(unknown:Dynamic):AxesHelper;
+	function new(?size:Float);
+	function computeLineDistances():AxesHelper;
+	function applyQuaternion(quaternion:Quaternion):AxesHelper;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(unknown:Dynamic):AxesHelper;
+	function rotateOnAxis(axis:Vector3, angle:Float):AxesHelper;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(unknown:Dynamic):AxesHelper;
-	function rotateX(unknown:Dynamic):AxesHelper;
-	function rotateY(unknown:Dynamic):AxesHelper;
-	function rotateZ(unknown:Dynamic):AxesHelper;
-	function translateOnAxis(unknown:Dynamic):AxesHelper;
+	function rotateOnWorldAxis(axis:Vector3, angle:Float):AxesHelper;
+	function rotateX(angle:Float):AxesHelper;
+	function rotateY(angle:Float):AxesHelper;
+	function rotateZ(angle:Float):AxesHelper;
+	function translateOnAxis(axis:Vector3, distance:Float):AxesHelper;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(unknown:Dynamic):AxesHelper;
+	function translateX(distance:Float):AxesHelper;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(unknown:Dynamic):AxesHelper;
+	function translateY(distance:Float):AxesHelper;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(unknown:Dynamic):AxesHelper;
+	function translateZ(distance:Float):AxesHelper;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(unknown:Dynamic):AxesHelper;
+	function add(object:haxe.extern.Rest<Object3D>):AxesHelper;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(unknown:Dynamic):AxesHelper;
+	function remove(object:haxe.extern.Rest<Object3D>):AxesHelper;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(unknown:Dynamic):AxesHelper;
-	function clone(unknown:Dynamic):AxesHelper;
-	function copy(unknown:Dynamic):AxesHelper;
+	function attach(object:Object3D):AxesHelper;
+	function clone(?recursive:Bool):AxesHelper;
+	function copy(source:AxesHelper, ?recursive:Bool):AxesHelper;
 	static var prototype : AxesHelper;
 }

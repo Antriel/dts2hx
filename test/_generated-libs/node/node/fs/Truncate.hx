@@ -7,7 +7,7 @@ package node.fs;
 	/**
 		Asynchronous truncate(2) - Truncate a file to a specified length.
 	**/
-	@:overload(function(unknown:Dynamic):Void { })
+	@:overload(function(path:PathLike, callback:(err:global.nodejs.ErrnoException) -> Void):Void { })
 	@:selfCall
-	static function call(unknown:Dynamic):Void;
+	static function call(path:PathLike, len:Null<Float>, callback:(err:global.nodejs.ErrnoException) -> Void):Void;
 }

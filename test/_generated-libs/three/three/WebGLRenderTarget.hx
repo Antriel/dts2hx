@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "WebGLRenderTarget") extern class WebGLRenderTarget extends EventDispatcher {
-	function new(unknown:Dynamic);
+	function new(width:Float, height:Float, ?options:WebGLRenderTargetOptions);
 	var uuid : String;
 	var width : Float;
 	var height : Float;
@@ -22,9 +22,9 @@ package three;
 	var format : Dynamic;
 	var type : Dynamic;
 	var generateMipmaps : Dynamic;
-	function setSize(unknown:Dynamic):Void;
-	function clone(unknown:Dynamic):WebGLRenderTarget;
-	function copy(unknown:Dynamic):WebGLRenderTarget;
-	function dispose(unknown:Dynamic):Void;
+	function setSize(width:Float, height:Float):Void;
+	function clone():WebGLRenderTarget;
+	function copy(source:WebGLRenderTarget):WebGLRenderTarget;
+	function dispose():Void;
 	static var prototype : WebGLRenderTarget;
 }

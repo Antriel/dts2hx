@@ -12,11 +12,11 @@ typedef SecureServerSessionOptions = {
 	@:optional
 	var peerMaxConcurrentStreams : Float;
 	@:optional
-	dynamic function selectPadding(unknown:Dynamic):Float;
+	dynamic function selectPadding(frameLen:Float, maxFrameLen:Float):Float;
 	@:optional
 	var settings : Settings;
 	@:optional
-	dynamic function createConnection(unknown:Dynamic):node.stream.Duplex;
+	dynamic function createConnection(option:SessionOptions):node.stream.Duplex;
 	@:optional
 	var handshakeTimeout : Float;
 	@:optional
@@ -28,7 +28,7 @@ typedef SecureServerSessionOptions = {
 	@:optional
 	var ALPNProtocols : ts.AnyOf5<Array<String>, js.lib.Uint8Array_<js.lib.ArrayBufferLike>, global.Buffer, Array<js.lib.Uint8Array_<js.lib.ArrayBufferLike>>, Array<global.Buffer>>;
 	@:optional
-	dynamic function SNICallback(unknown:Dynamic):Void;
+	dynamic function SNICallback(servername:String, cb:(err:Null<js.lib.Error>, ctx:node.tls.SecureContext) -> Void):Void;
 	@:optional
 	var sessionTimeout : Float;
 	@:optional

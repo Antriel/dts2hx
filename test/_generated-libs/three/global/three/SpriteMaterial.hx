@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.SpriteMaterial") extern class SpriteMaterial extends Material {
-	function new(unknown:Dynamic);
+	function new(?parameters:SpriteMaterialParameters);
 	var color : Color;
 	var map : Null<Texture>;
 	var rotation : Float;
@@ -10,14 +10,14 @@ package global.three;
 	/**
 		Sets the properties based on the values.
 	**/
-	function setValues(unknown:Dynamic):Void;
+	function setValues(parameters:SpriteMaterialParameters):Void;
 	/**
 		Copy the parameters from the passed material into this material.
 	**/
-	function copy(unknown:Dynamic):SpriteMaterial;
+	function copy(source:SpriteMaterial):SpriteMaterial;
 	/**
 		Return a new material with the same parameters as this material.
 	**/
-	function clone(unknown:Dynamic):SpriteMaterial;
+	function clone():SpriteMaterial;
 	static var prototype : SpriteMaterial;
 }

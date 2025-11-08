@@ -4,7 +4,7 @@ package three;
 	Object for keeping track of time.
 **/
 @:jsRequire("three", "Clock") extern class Clock {
-	function new(unknown:Dynamic);
+	function new(?autoStart:Bool);
 	/**
 		If set, starts the clock automatically when the first update is called.
 	**/
@@ -31,18 +31,18 @@ package three;
 	/**
 		Starts clock.
 	**/
-	function start(unknown:Dynamic):Void;
+	function start():Void;
 	/**
 		Stops clock.
 	**/
-	function stop(unknown:Dynamic):Void;
+	function stop():Void;
 	/**
 		Get the seconds passed since the clock started.
 	**/
-	function getElapsedTime(unknown:Dynamic):Float;
+	function getElapsedTime():Float;
 	/**
 		Get the seconds passed since the last call to this method.
 	**/
-	function getDelta(unknown:Dynamic):Float;
+	function getDelta():Float;
 	static var prototype : Clock;
 }

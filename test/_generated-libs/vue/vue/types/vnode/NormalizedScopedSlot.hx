@@ -1,3 +1,3 @@
 package vue.types.vnode;
 
-typedef NormalizedScopedSlot = (unknown:Dynamic) -> ScopedSlotChildren;
+typedef NormalizedScopedSlot = (props:Dynamic) -> ScopedSlotChildren;

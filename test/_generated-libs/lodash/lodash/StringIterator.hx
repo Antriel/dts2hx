@@ -1,3 +1,3 @@
 package lodash;
 
-typedef StringIterator<TResult> = (unknown:Dynamic) -> TResult;
+typedef StringIterator<TResult> = (char:String, index:Float, string:String) -> TResult;

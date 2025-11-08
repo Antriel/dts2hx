@@ -1,3 +1,3 @@
 package global.qs;
 
-typedef DefaultEncoder = (unknown:Dynamic) -> String;
+typedef DefaultEncoder = ts.AnyOf3<(str:Dynamic) -> String, (str:Dynamic, defaultEncoder:Dynamic) -> String, (str:Dynamic, defaultEncoder:Dynamic, charset:String) -> String>;

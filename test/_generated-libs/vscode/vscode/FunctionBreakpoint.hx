@@ -7,7 +7,7 @@ package vscode;
 	/**
 		Create a new function breakpoint.
 	**/
-	function new(unknown:Dynamic);
+	function new(functionName:String, ?enabled:Bool, ?condition:String, ?hitCondition:String, ?logMessage:String);
 	/**
 		The name of the function to which this breakpoint is attached.
 	**/

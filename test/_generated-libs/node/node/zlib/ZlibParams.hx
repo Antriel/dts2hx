@@ -1,5 +1,5 @@
 package node.zlib;
 
 typedef ZlibParams = {
-	function params(unknown:Dynamic):Void;
+	function params(level:Float, strategy:Float, callback:() -> Void):Void;
 };

@@ -8,5 +8,5 @@ package node.fs;
 		Asynchronous close(2) - close a file descriptor.
 	**/
 	@:selfCall
-	static function call(unknown:Dynamic):Void;
+	static function call(fd:Float, callback:(err:global.nodejs.ErrnoException) -> Void):Void;
 }

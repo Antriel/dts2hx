@@ -2,20 +2,20 @@ package global.nodejs;
 
 @:native("NodeJS.EventEmitter") extern class EventEmitter {
 	function new();
-	function addListener(unknown:Dynamic):EventEmitter;
-	function on(unknown:Dynamic):EventEmitter;
-	function once(unknown:Dynamic):EventEmitter;
-	function removeListener(unknown:Dynamic):EventEmitter;
-	function off(unknown:Dynamic):EventEmitter;
-	function removeAllListeners(unknown:Dynamic):EventEmitter;
-	function setMaxListeners(unknown:Dynamic):EventEmitter;
-	function getMaxListeners(unknown:Dynamic):Float;
-	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function emit(unknown:Dynamic):Bool;
-	function listenerCount(unknown:Dynamic):Float;
-	function prependListener(unknown:Dynamic):EventEmitter;
-	function prependOnceListener(unknown:Dynamic):EventEmitter;
-	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	function addListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):EventEmitter;
+	function on(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):EventEmitter;
+	function once(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):EventEmitter;
+	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):EventEmitter;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):EventEmitter;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):EventEmitter;
+	function setMaxListeners(n:Float):EventEmitter;
+	function getMaxListeners():Float;
+	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function emit(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool;
+	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
+	function prependListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):EventEmitter;
+	function prependOnceListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):EventEmitter;
+	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
 	static var prototype : EventEmitter;
 }

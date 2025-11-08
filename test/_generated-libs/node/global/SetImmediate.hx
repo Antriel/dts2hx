@@ -2,5 +2,5 @@ package global;
 
 @:native("setImmediate") @valueModuleOnly extern class SetImmediate {
 	@:selfCall
-	static function call(unknown:Dynamic):global.nodejs.Immediate;
+	static function call(callback:(args:haxe.extern.Rest<Dynamic>) -> Void, args:haxe.extern.Rest<Dynamic>):global.nodejs.Immediate;
 }

@@ -44,14 +44,14 @@ typedef StatusBarItem = {
 	/**
 		Shows the entry in the status bar.
 	**/
-	function show(unknown:Dynamic):Void;
+	function show():Void;
 	/**
 		Hide the entry in the status bar.
 	**/
-	function hide(unknown:Dynamic):Void;
+	function hide():Void;
 	/**
 		Dispose and free associated resources. Call
 		[hide](#StatusBarItem.hide).
 	**/
-	function dispose(unknown:Dynamic):Void;
+	function dispose():Void;
 };

@@ -1,7 +1,7 @@
 package three;
 
 @:jsRequire("three", "Audio") extern class Audio extends Object3D {
-	function new(unknown:Dynamic);
+	function new(listener:AudioListener);
 	var context : js.html.audio.AudioContext;
 	var gain : js.html.audio.GainNode;
 	var autoplay : Bool;
@@ -16,67 +16,67 @@ package three;
 	var sourceType : String;
 	var source : js.html.audio.AudioBufferSourceNode;
 	var filters : Array<Dynamic>;
-	function getOutput(unknown:Dynamic):js.html.audio.GainNode;
-	function setNodeSource(unknown:Dynamic):Audio;
-	function setMediaElementSource(unknown:Dynamic):Audio;
-	function setBuffer(unknown:Dynamic):Audio;
-	function play(unknown:Dynamic):Audio;
-	function onEnded(unknown:Dynamic):Void;
-	function pause(unknown:Dynamic):Audio;
-	function stop(unknown:Dynamic):Audio;
-	function connect(unknown:Dynamic):Audio;
-	function disconnect(unknown:Dynamic):Audio;
-	function setDetune(unknown:Dynamic):Audio;
-	function getDetune(unknown:Dynamic):Float;
-	function getFilters(unknown:Dynamic):Array<Dynamic>;
-	@:overload(function(unknown:Dynamic):Audio { })
-	function setFilter(unknown:Dynamic):Audio;
-	function getFilter(unknown:Dynamic):Dynamic;
-	function setPlaybackRate(unknown:Dynamic):Audio;
-	function getPlaybackRate(unknown:Dynamic):Float;
-	function getLoop(unknown:Dynamic):Bool;
-	function setLoop(unknown:Dynamic):Void;
-	function getVolume(unknown:Dynamic):Float;
-	function setVolume(unknown:Dynamic):Audio;
-	function load(unknown:Dynamic):Audio;
-	function applyQuaternion(unknown:Dynamic):Audio;
+	function getOutput():js.html.audio.GainNode;
+	function setNodeSource(audioNode:js.html.audio.AudioBufferSourceNode):Audio;
+	function setMediaElementSource(mediaElement:js.html.audio.MediaElementAudioSourceNode):Audio;
+	function setBuffer(audioBuffer:AudioBuffer):Audio;
+	function play():Audio;
+	function onEnded():Void;
+	function pause():Audio;
+	function stop():Audio;
+	function connect():Audio;
+	function disconnect():Audio;
+	function setDetune(value:Float):Audio;
+	function getDetune():Float;
+	function getFilters():Array<Dynamic>;
+	@:overload(function(filter:Dynamic):Audio { })
+	function setFilter(value:Array<Dynamic>):Audio;
+	function getFilter():Dynamic;
+	function setPlaybackRate(value:Float):Audio;
+	function getPlaybackRate():Float;
+	function getLoop():Bool;
+	function setLoop(value:Bool):Void;
+	function getVolume():Float;
+	function setVolume(value:Float):Audio;
+	function load(file:String):Audio;
+	function applyQuaternion(quaternion:Quaternion):Audio;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(unknown:Dynamic):Audio;
+	function rotateOnAxis(axis:Vector3, angle:Float):Audio;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(unknown:Dynamic):Audio;
-	function rotateX(unknown:Dynamic):Audio;
-	function rotateY(unknown:Dynamic):Audio;
-	function rotateZ(unknown:Dynamic):Audio;
-	function translateOnAxis(unknown:Dynamic):Audio;
+	function rotateOnWorldAxis(axis:Vector3, angle:Float):Audio;
+	function rotateX(angle:Float):Audio;
+	function rotateY(angle:Float):Audio;
+	function rotateZ(angle:Float):Audio;
+	function translateOnAxis(axis:Vector3, distance:Float):Audio;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(unknown:Dynamic):Audio;
+	function translateX(distance:Float):Audio;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(unknown:Dynamic):Audio;
+	function translateY(distance:Float):Audio;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(unknown:Dynamic):Audio;
+	function translateZ(distance:Float):Audio;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(unknown:Dynamic):Audio;
+	function add(object:haxe.extern.Rest<Object3D>):Audio;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(unknown:Dynamic):Audio;
+	function remove(object:haxe.extern.Rest<Object3D>):Audio;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(unknown:Dynamic):Audio;
-	function clone(unknown:Dynamic):Audio;
-	function copy(unknown:Dynamic):Audio;
+	function attach(object:Object3D):Audio;
+	function clone(?recursive:Bool):Audio;
+	function copy(source:Audio, ?recursive:Bool):Audio;
 	static var prototype : Audio;
 }

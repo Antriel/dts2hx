@@ -1730,7 +1730,23 @@ class ConverterContext {
 			signature.typeParameters.map(t -> typeParamDeclFromTsTypeParameter(t, moduleSymbol, accessContext, enclosingDeclaration));
 		} else [];
 
-		var hxParameters = if (signature.parameters != null ) tc.getExpandedParameters(signature).map(s -> {
+		// TypeScript 5.x changed getExpandedParameters() to return [[Symbol...]] instead of [Symbol...]
+		// We need to unwrap the array
+		var rawExpandedParams = if (signature.parameters != null) tc.getExpandedParameters(signature) else null;
+		var expandedParams: Null<Array<Symbol>> = if (rawExpandedParams != null && rawExpandedParams.length > 0) {
+			// Check if first item is an array (TS 5.x behavior) and unwrap it
+			var isWrapped: Bool = untyped js.Syntax.code('Array.isArray({0}[0])', rawExpandedParams);
+			if (isWrapped) {
+				cast rawExpandedParams[0];
+			} else {
+				// TS 3.x behavior - use as-is
+				rawExpandedParams;
+			}
+		} else {
+			null;
+		}
+
+		var hxParameters = if (expandedParams != null) expandedParams.map(s -> {
 			var parameterDeclaration: Null<ParameterDeclaration> = cast s.valueDeclaration;
 			var isOptional = parameterDeclaration != null && tc.isOptionalParameter(parameterDeclaration);
 			var isRest = parameterDeclaration != null && parameterDeclaration.dotDotDotToken != null;
@@ -1762,8 +1778,18 @@ class ConverterContext {
 
 			// Get parameter name - for transient symbols from tuple expansion, check declaration name first
 			var paramName: String = if (parameterDeclaration != null && parameterDeclaration.name != null) {
-				// Try to get name from the declaration node
-				untyped parameterDeclaration.name.getText != null ? untyped parameterDeclaration.name.getText() : s.getSymbolName();
+				// For Identifier nodes, try to get text property directly
+				var nameNode: Dynamic = parameterDeclaration.name;
+				var declName: Null<String> = if (untyped nameNode.text != null) {
+					untyped nameNode.text;
+				} else if (untyped nameNode.getText != null) {
+					untyped nameNode.getText();
+				} else {
+					null;
+				}
+
+				// Use declaration name if available, otherwise fall back to symbol name
+				declName != null ? declName : s.getSymbolName();
 			} else {
 				s.getSymbolName();
 			}

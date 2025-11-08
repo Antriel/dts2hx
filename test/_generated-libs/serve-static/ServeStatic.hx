@@ -10,5 +10,5 @@
 		When a file is not found, instead of sending a 404 response, this module will instead call next() to move on to the next middleware, allowing for stacking and fall-backs.
 	**/
 	@:selfCall
-	static function call<R>(unknown:Dynamic):serve_static.RequestHandler<R>;
+	static function call<R>(root:String, ?options:serve_static.ServeStaticOptions<R>):serve_static.RequestHandler<R>;
 }

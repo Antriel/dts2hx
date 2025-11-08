@@ -9,7 +9,7 @@ package vscode;
 	can also trigger code actions with a specific kind with the `editor.action.codeAction` command.
 **/
 @:jsRequire("vscode", "CodeActionKind") extern class CodeActionKind {
-	private function new(unknown:Dynamic);
+	private function new(value:String);
 	/**
 		String value of the kind, e.g. `"refactor.extract.function"`.
 	**/
@@ -19,21 +19,21 @@ package vscode;
 		
 		Does not modify the current kind.
 	**/
-	function append(unknown:Dynamic):CodeActionKind;
+	function append(parts:String):CodeActionKind;
 	/**
 		Checks if this code action kind intersects `other`.
 		
 		The kind `"refactor.extract"` for example intersects `refactor`, `"refactor.extract"` and ``"refactor.extract.function"`,
 		but not `"unicorn.refactor.extract"`, or `"refactor.extractAll"`.
 	**/
-	function intersects(unknown:Dynamic):Bool;
+	function intersects(other:CodeActionKind):Bool;
 	/**
 		Checks if `other` is a sub-kind of this `CodeActionKind`.
 		
 		The kind `"refactor.extract"` for example contains `"refactor.extract"` and ``"refactor.extract.function"`,
 		but not `"unicorn.refactor.extract"`, or `"refactor.extractAll"` or `refactor`.
 	**/
-	function contains(unknown:Dynamic):Bool;
+	function contains(other:CodeActionKind):Bool;
 	static var prototype : CodeActionKind;
 	/**
 		Empty kind.

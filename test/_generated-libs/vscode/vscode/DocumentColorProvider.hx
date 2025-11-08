@@ -8,9 +8,9 @@ typedef DocumentColorProvider = {
 	/**
 		Provide colors for the given document.
 	**/
-	function provideDocumentColors(unknown:Dynamic):ProviderResult<Array<ColorInformation>>;
+	function provideDocumentColors(document:TextDocument, token:CancellationToken):ProviderResult<Array<ColorInformation>>;
 	/**
 		Provide [representations](#ColorPresentation) for a color.
 	**/
-	function provideColorPresentations(unknown:Dynamic):ProviderResult<Array<ColorPresentation>>;
+	function provideColorPresentations(color:Color, context:{ var document : TextDocument; var range : Range; }, token:CancellationToken):ProviderResult<Array<ColorPresentation>>;
 };

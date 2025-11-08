@@ -8,7 +8,7 @@ package vscode;
 	/**
 		Creates a new location object.
 	**/
-	function new(unknown:Dynamic);
+	function new(uri:Uri, rangeOrPosition:ts.AnyOf2<Range, Position>);
 	/**
 		The resource identifier of this location.
 	**/

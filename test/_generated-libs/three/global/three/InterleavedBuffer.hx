@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.InterleavedBuffer") extern class InterleavedBuffer {
-	function new(unknown:Dynamic);
+	function new(array:js.lib.ArrayLike<Float>, stride:Float);
 	var array : js.lib.ArrayLike<Float>;
 	var stride : Float;
 	@:native("dynamic")
@@ -14,11 +14,11 @@ package global.three;
 	var length : Float;
 	var count : Float;
 	var needsUpdate : Bool;
-	function setArray(unknown:Dynamic):Void;
-	function setDynamic(unknown:Dynamic):InterleavedBuffer;
-	function clone(unknown:Dynamic):InterleavedBuffer;
-	function copy(unknown:Dynamic):InterleavedBuffer;
-	function copyAt(unknown:Dynamic):InterleavedBuffer;
-	function set(unknown:Dynamic):InterleavedBuffer;
+	function setArray(?array:js.lib.ArrayBufferView_<js.lib.ArrayBuffer>):Void;
+	function setDynamic(dynamic_:Bool):InterleavedBuffer;
+	function clone():InterleavedBuffer;
+	function copy(source:InterleavedBuffer):InterleavedBuffer;
+	function copyAt(index1:Float, attribute:InterleavedBufferAttribute, index2:Float):InterleavedBuffer;
+	function set(value:js.lib.ArrayLike<Float>, index:Float):InterleavedBuffer;
 	static var prototype : InterleavedBuffer;
 }

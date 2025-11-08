@@ -1,3 +1,3 @@
 package global.jquery;
 
-typedef EventHandler<TCurrentTarget, TData> = (unknown:Dynamic) -> Dynamic;
+typedef EventHandler<TCurrentTarget, TData> = (t:TriggeredEvent<TCurrentTarget, TData, Dynamic, Dynamic>, args:haxe.extern.Rest<Dynamic>) -> Dynamic;

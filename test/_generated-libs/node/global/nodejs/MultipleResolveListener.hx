@@ -1,3 +1,3 @@
 package global.nodejs;
 
-typedef MultipleResolveListener = (unknown:Dynamic) -> Void;
+typedef MultipleResolveListener = (type:MultipleResolveType, promise:js.lib.Promise<Dynamic>, value:Dynamic) -> Void;

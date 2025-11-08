@@ -8,5 +8,5 @@ typedef DocumentSymbolProvider = {
 	/**
 		Provide symbol information for the given document.
 	**/
-	function provideDocumentSymbols(unknown:Dynamic):ProviderResult<ts.AnyOf2<Array<DocumentSymbol>, Array<SymbolInformation>>>;
+	function provideDocumentSymbols(document:TextDocument, token:CancellationToken):ProviderResult<ts.AnyOf2<Array<DocumentSymbol>, Array<SymbolInformation>>>;
 };

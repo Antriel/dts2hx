@@ -1,3 +1,3 @@
 package lodash;
 
-typedef MemoIteratorCapped<T, TResult> = (unknown:Dynamic) -> TResult;
+typedef MemoIteratorCapped<T, TResult> = (prev:TResult, curr:T) -> TResult;

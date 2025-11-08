@@ -43,7 +43,7 @@ typedef CookieOptions = {
 		A synchronous function used for cookie value encoding. Defaults to encodeURIComponent.
 	**/
 	@:optional
-	dynamic function encode(unknown:Dynamic):String;
+	dynamic function encode(val:String):String;
 	/**
 		Value of the “SameSite” Set-Cookie attribute.
 	**/

@@ -2,7 +2,7 @@ package connect;
 
 typedef Server = {
 	@:selfCall
-	function call(unknown:Dynamic):Void;
+	function call(req:node.http.IncomingMessage, res:node.http.ServerResponse, ?next:haxe.Constraints.Function):Void;
 	var route : String;
 	var stack : Array<ServerStackItem>;
 	/**
@@ -16,15 +16,15 @@ typedef Server = {
 		be invoked on _/admin_, and _/admin/settings_, however it would
 		not be invoked for _/_, or _/posts_.
 	**/
-	@:overload(function(unknown:Dynamic):Server { })
-	@:overload(function(unknown:Dynamic):Server { })
-	@:overload(function(unknown:Dynamic):Server { })
-	function use(unknown:Dynamic):Server;
+	@:overload(function(fn:HandleFunction):Server { })
+	@:overload(function(route:String, fn:NextHandleFunction):Server { })
+	@:overload(function(route:String, fn:HandleFunction):Server { })
+	function use(fn:NextHandleFunction):Server;
 	/**
 		Handle server requests, punting them down
 		the middleware stack.
 	**/
-	function handle(unknown:Dynamic):Void;
+	function handle(req:node.http.IncomingMessage, res:node.http.ServerResponse, next:haxe.Constraints.Function):Void;
 	/**
 		Listen for connections.
 		
@@ -47,23 +47,23 @@ typedef Server = {
 		     http.createServer(app).listen(80);
 		     https.createServer(options, app).listen(443);
 	**/
-	@:overload(function(unknown:Dynamic):node.http.Server { })
-	@:overload(function(unknown:Dynamic):node.http.Server { })
-	@:overload(function(unknown:Dynamic):node.http.Server { })
-	function listen(unknown:Dynamic):node.http.Server;
-	function addListener(unknown:Dynamic):Server;
-	function on(unknown:Dynamic):Server;
-	function once(unknown:Dynamic):Server;
-	function removeListener(unknown:Dynamic):Server;
-	function off(unknown:Dynamic):Server;
-	function removeAllListeners(unknown:Dynamic):Server;
-	function setMaxListeners(unknown:Dynamic):Server;
-	function getMaxListeners(unknown:Dynamic):Float;
-	function listeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function rawListeners(unknown:Dynamic):Array<haxe.Constraints.Function>;
-	function emit(unknown:Dynamic):Bool;
-	function listenerCount(unknown:Dynamic):Float;
-	function prependListener(unknown:Dynamic):Server;
-	function prependOnceListener(unknown:Dynamic):Server;
-	function eventNames(unknown:Dynamic):Array<ts.AnyOf2<String, js.lib.Symbol>>;
+	@:overload(function(port:Float, ?hostname:String, ?callback:haxe.Constraints.Function):node.http.Server { })
+	@:overload(function(path:String, ?callback:haxe.Constraints.Function):node.http.Server { })
+	@:overload(function(handle:Dynamic, ?listeningListener:haxe.Constraints.Function):node.http.Server { })
+	function listen(port:Float, ?hostname:String, ?backlog:Float, ?callback:haxe.Constraints.Function):node.http.Server;
+	function addListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Server;
+	function on(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Server;
+	function once(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Server;
+	function removeListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Server;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Server;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):Server;
+	function setMaxListeners(n:Float):Server;
+	function getMaxListeners():Float;
+	function listeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function rawListeners(event:ts.AnyOf2<String, js.lib.Symbol>):Array<haxe.Constraints.Function>;
+	function emit(event:ts.AnyOf2<String, js.lib.Symbol>, args:haxe.extern.Rest<Dynamic>):Bool;
+	function listenerCount(type:ts.AnyOf2<String, js.lib.Symbol>):Float;
+	function prependListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Server;
+	function prependOnceListener(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Server;
+	function eventNames():Array<ts.AnyOf2<String, js.lib.Symbol>>;
 };

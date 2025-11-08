@@ -7,64 +7,64 @@ package global.three;
 	/**
 		Creates an identity matrix.
 	**/
-	function new(unknown:Dynamic);
+	function new();
 	/**
 		Array with matrix values.
 	**/
 	var elements : Array<Float>;
-	function set(unknown:Dynamic):Matrix3;
+	function set(n11:Float, n12:Float, n13:Float, n21:Float, n22:Float, n23:Float, n31:Float, n32:Float, n33:Float):Matrix3;
 	/**
 		identity():T;
 	**/
-	function identity(unknown:Dynamic):Matrix3;
+	function identity():Matrix3;
 	/**
 		clone():T;
 	**/
-	function clone(unknown:Dynamic):Matrix3;
+	function clone():Matrix3;
 	/**
 		copy(m:T):T;
 	**/
-	function copy(unknown:Dynamic):Matrix3;
-	function setFromMatrix4(unknown:Dynamic):Matrix3;
-	function applyToBuffer(unknown:Dynamic):BufferAttribute;
-	function applyToBufferAttribute(unknown:Dynamic):BufferAttribute;
+	function copy(m:Matrix3):Matrix3;
+	function setFromMatrix4(m:Matrix4):Matrix3;
+	function applyToBuffer(buffer:BufferAttribute, ?offset:Float, ?length:Float):BufferAttribute;
+	function applyToBufferAttribute(attribute:BufferAttribute):BufferAttribute;
 	/**
 		multiplyScalar(s:number):T;
 	**/
-	function multiplyScalar(unknown:Dynamic):Matrix3;
-	function determinant(unknown:Dynamic):Float;
+	function multiplyScalar(s:Float):Matrix3;
+	function determinant():Float;
 	/**
 		getInverse(matrix:T, throwOnInvertible?:boolean):T;
 	**/
-	@:overload(function(unknown:Dynamic):Matrix3 { })
-	function getInverse(unknown:Dynamic):Matrix3;
+	@:overload(function(matrix:Matrix4, ?throwOnDegenerate:Bool):Matrix3 { })
+	function getInverse(matrix:Matrix3, ?throwOnDegenerate:Bool):Matrix3;
 	/**
 		Transposes this matrix in place.
 	**/
-	function transpose(unknown:Dynamic):Matrix3;
-	function getNormalMatrix(unknown:Dynamic):Matrix3;
+	function transpose():Matrix3;
+	function getNormalMatrix(matrix4:Matrix4):Matrix3;
 	/**
 		Transposes this matrix into the supplied array r, and returns itself.
 	**/
-	function transposeIntoArray(unknown:Dynamic):Array<Float>;
-	function setUvTransform(unknown:Dynamic):Matrix3;
-	function scale(unknown:Dynamic):Matrix3;
-	function rotate(unknown:Dynamic):Matrix3;
-	function translate(unknown:Dynamic):Matrix3;
-	function equals(unknown:Dynamic):Bool;
-	function fromArray(unknown:Dynamic):Matrix3;
-	function toArray(unknown:Dynamic):Array<Float>;
+	function transposeIntoArray(r:Array<Float>):Array<Float>;
+	function setUvTransform(tx:Float, ty:Float, sx:Float, sy:Float, rotation:Float, cx:Float, cy:Float):Matrix3;
+	function scale(sx:Float, sy:Float):Matrix3;
+	function rotate(theta:Float):Matrix3;
+	function translate(tx:Float, ty:Float):Matrix3;
+	function equals(matrix:Matrix3):Bool;
+	function fromArray(array:Array<Float>, ?offset:Float):Matrix3;
+	function toArray(?array:Array<Float>, ?offset:Float):Array<Float>;
 	/**
 		Multiplies this matrix by m.
 	**/
-	function multiply(unknown:Dynamic):Matrix3;
-	function premultiply(unknown:Dynamic):Matrix3;
+	function multiply(m:Matrix3):Matrix3;
+	function premultiply(m:Matrix3):Matrix3;
 	/**
 		Sets this matrix to a x b.
 	**/
-	function multiplyMatrices(unknown:Dynamic):Matrix3;
-	function multiplyVector3(unknown:Dynamic):Dynamic;
-	function multiplyVector3Array(unknown:Dynamic):Dynamic;
-	function flattenToArrayOffset(unknown:Dynamic):Array<Float>;
+	function multiplyMatrices(a:Matrix3, b:Matrix3):Matrix3;
+	function multiplyVector3(vector:Vector3):Dynamic;
+	function multiplyVector3Array(a:Dynamic):Dynamic;
+	function flattenToArrayOffset(array:Array<Float>, offset:Float):Array<Float>;
 	static var prototype : Matrix3;
 }

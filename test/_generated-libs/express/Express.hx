@@ -6,24 +6,24 @@
 		Creates an Express application. The express() function is a top-level function exported by the express module.
 	**/
 	@:selfCall
-	static function call(unknown:Dynamic):express_serve_static_core.Express;
+	static function call():express_serve_static_core.Express;
 	/**
 		This is a built-in middleware function in Express. It parses incoming request query parameters.
 	**/
-	static function query(unknown:Dynamic):express.Handler;
-	static function Router(unknown:Dynamic):express_serve_static_core.Router;
+	static function query(options:ts.AnyOf2<qs.IParseOptions<Null<Any>>, { @:overload(function(str:ts.AnyOf2<String, haxe.DynamicAccess<String>>, ?options:qs.IParseOptions<qs.BooleanOptional>):haxe.DynamicAccess<Any> { }) @:selfCall function call(str:String, ?options:Dynamic):qs.ParsedQs; }>):express.Handler;
+	static function Router(?options:express.RouterOptions):express_serve_static_core.Router;
 	/**
 		This is a built-in middleware function in Express. It parses incoming requests with JSON payloads and is based on body-parser.
 	**/
-	dynamic static function json(unknown:Dynamic):connect.NextHandleFunction;
+	dynamic static function json(?options:body_parser.OptionsJson):connect.NextHandleFunction;
 	/**
 		This is a built-in middleware function in Express. It parses incoming requests with Buffer payloads and is based on body-parser.
 	**/
-	dynamic static function raw(unknown:Dynamic):connect.NextHandleFunction;
+	dynamic static function raw(?options:body_parser.Options):connect.NextHandleFunction;
 	/**
 		This is a built-in middleware function in Express. It parses incoming requests with text payloads and is based on body-parser.
 	**/
-	dynamic static function text(unknown:Dynamic):connect.NextHandleFunction;
+	dynamic static function text(?options:body_parser.OptionsText):connect.NextHandleFunction;
 	/**
 		These are the exposed prototypes.
 	**/
@@ -34,9 +34,9 @@
 		This is a built-in middleware function in Express. It serves static files and is based on serve-static.
 	**/
 	@:native("static")
-	dynamic static function static_<R>(unknown:Dynamic):serve_static.RequestHandler<R>;
+	dynamic static function static_<R>(root:String, ?options:serve_static.ServeStaticOptions<R>):serve_static.RequestHandler<R>;
 	/**
 		This is a built-in middleware function in Express. It parses incoming requests with urlencoded payloads and is based on body-parser.
 	**/
-	dynamic static function urlencoded(unknown:Dynamic):connect.NextHandleFunction;
+	dynamic static function urlencoded(?options:body_parser.OptionsUrlencoded):connect.NextHandleFunction;
 }

@@ -1,3 +1,3 @@
 package global.nodejs;
 
-typedef UncaughtExceptionListener = (unknown:Dynamic) -> Void;
+typedef UncaughtExceptionListener = (error:js.lib.Error) -> Void;

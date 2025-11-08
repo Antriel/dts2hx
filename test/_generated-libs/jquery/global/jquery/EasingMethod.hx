@@ -1,3 +1,3 @@
 package global.jquery;
 
-typedef EasingMethod = (unknown:Dynamic) -> Float;
+typedef EasingMethod = (percent:Float) -> Float;

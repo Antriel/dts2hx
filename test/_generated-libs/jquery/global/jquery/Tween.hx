@@ -38,9 +38,9 @@ typedef Tween<TElement> = {
 	/**
 		Reads the current value for property from the element
 	**/
-	function cur(unknown:Dynamic):Dynamic;
+	function cur():Dynamic;
 	/**
 		Updates the value for the property on the animated elemd.
 	**/
-	function run(unknown:Dynamic):Tween<TElement>;
+	function run(progress:Float):Tween<TElement>;
 };

@@ -1,10 +1,10 @@
 package node.crypto;
 
 @:jsRequire("crypto", "Certificate") extern class Certificate {
-	function new(unknown:Dynamic);
-	function exportChallenge(unknown:Dynamic):global.Buffer;
-	function exportPublicKey(unknown:Dynamic):global.Buffer;
-	function verifySpkac(unknown:Dynamic):Bool;
+	function new();
+	function exportChallenge(spkac:BinaryLike):global.Buffer;
+	function exportPublicKey(spkac:BinaryLike):global.Buffer;
+	function verifySpkac(spkac:Binary):Bool;
 	@:selfCall
-	static function call(unknown:Dynamic):Certificate;
+	static function call():Certificate;
 }

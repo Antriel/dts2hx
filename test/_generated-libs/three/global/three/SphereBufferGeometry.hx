@@ -1,7 +1,7 @@
 package global.three;
 
 @:native("THREE.SphereBufferGeometry") extern class SphereBufferGeometry extends BufferGeometry {
-	function new(unknown:Dynamic);
+	function new(?radius:Float, ?widthSegments:Float, ?heightSegments:Float, ?phiStart:Float, ?phiLength:Float, ?thetaStart:Float, ?thetaLength:Float);
 	var parameters : {
 		var radius : Float;
 		var widthSegments : Float;
@@ -11,7 +11,7 @@ package global.three;
 		var thetaStart : Float;
 		var thetaLength : Float;
 	};
-	function clone(unknown:Dynamic):SphereBufferGeometry;
-	function copy(unknown:Dynamic):SphereBufferGeometry;
+	function clone():SphereBufferGeometry;
+	function copy(source:BufferGeometry):SphereBufferGeometry;
 	static var prototype : SphereBufferGeometry;
 }

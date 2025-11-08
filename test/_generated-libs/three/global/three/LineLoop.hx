@@ -1,47 +1,47 @@
 package global.three;
 
 @:native("THREE.LineLoop") extern class LineLoop extends Line {
-	function new(unknown:Dynamic);
+	function new(?geometry:ts.AnyOf2<Geometry, BufferGeometry>, ?material:ts.AnyOf2<Material, Array<Material>>);
 	var isLineLoop : Bool;
-	function computeLineDistances(unknown:Dynamic):LineLoop;
-	function applyQuaternion(unknown:Dynamic):LineLoop;
+	function computeLineDistances():LineLoop;
+	function applyQuaternion(quaternion:Quaternion):LineLoop;
 	/**
 		Rotate an object along an axis in object space. The axis is assumed to be normalized.
 	**/
-	function rotateOnAxis(unknown:Dynamic):LineLoop;
+	function rotateOnAxis(axis:Vector3, angle:Float):LineLoop;
 	/**
 		Rotate an object along an axis in world space. The axis is assumed to be normalized. Method Assumes no rotated parent.
 	**/
-	function rotateOnWorldAxis(unknown:Dynamic):LineLoop;
-	function rotateX(unknown:Dynamic):LineLoop;
-	function rotateY(unknown:Dynamic):LineLoop;
-	function rotateZ(unknown:Dynamic):LineLoop;
-	function translateOnAxis(unknown:Dynamic):LineLoop;
+	function rotateOnWorldAxis(axis:Vector3, angle:Float):LineLoop;
+	function rotateX(angle:Float):LineLoop;
+	function rotateY(angle:Float):LineLoop;
+	function rotateZ(angle:Float):LineLoop;
+	function translateOnAxis(axis:Vector3, distance:Float):LineLoop;
 	/**
 		Translates object along x axis by distance.
 	**/
-	function translateX(unknown:Dynamic):LineLoop;
+	function translateX(distance:Float):LineLoop;
 	/**
 		Translates object along y axis by distance.
 	**/
-	function translateY(unknown:Dynamic):LineLoop;
+	function translateY(distance:Float):LineLoop;
 	/**
 		Translates object along z axis by distance.
 	**/
-	function translateZ(unknown:Dynamic):LineLoop;
+	function translateZ(distance:Float):LineLoop;
 	/**
 		Adds object as child of this object.
 	**/
-	function add(unknown:Dynamic):LineLoop;
+	function add(object:haxe.extern.Rest<Object3D>):LineLoop;
 	/**
 		Removes object as child of this object.
 	**/
-	function remove(unknown:Dynamic):LineLoop;
+	function remove(object:haxe.extern.Rest<Object3D>):LineLoop;
 	/**
 		Adds object as a child of this, while maintaining the object's world transform.
 	**/
-	function attach(unknown:Dynamic):LineLoop;
-	function clone(unknown:Dynamic):LineLoop;
-	function copy(unknown:Dynamic):LineLoop;
+	function attach(object:Object3D):LineLoop;
+	function clone(?recursive:Bool):LineLoop;
+	function copy(source:LineLoop, ?recursive:Bool):LineLoop;
 	static var prototype : LineLoop;
 }

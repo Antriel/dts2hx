@@ -11,26 +11,26 @@ typedef Matrix = {
 	/**
 		identity():T;
 	**/
-	function identity(unknown:Dynamic):Matrix;
+	function identity():Matrix;
 	/**
 		copy(m:T):T;
 	**/
-	function copy(unknown:Dynamic):Matrix;
+	function copy(m:Matrix):Matrix;
 	/**
 		multiplyScalar(s:number):T;
 	**/
-	function multiplyScalar(unknown:Dynamic):Matrix;
-	function determinant(unknown:Dynamic):Float;
+	function multiplyScalar(s:Float):Matrix;
+	function determinant():Float;
 	/**
 		getInverse(matrix:T, throwOnInvertible?:boolean):T;
 	**/
-	function getInverse(unknown:Dynamic):Matrix;
+	function getInverse(matrix:Matrix, ?throwOnInvertible:Bool):Matrix;
 	/**
 		transpose():T;
 	**/
-	function transpose(unknown:Dynamic):Matrix;
+	function transpose():Matrix;
 	/**
 		clone():T;
 	**/
-	function clone(unknown:Dynamic):Matrix;
+	function clone():Matrix;
 };

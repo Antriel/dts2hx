@@ -1,9 +1,9 @@
 package global;
 
 @:native("THREE") @valueModuleOnly extern class THREE {
-	static function warn(unknown:Dynamic):Void;
-	static function error(unknown:Dynamic):Void;
-	static function log(unknown:Dynamic):Void;
+	static function warn(?message:Dynamic, optionalParams:haxe.extern.Rest<Dynamic>):Void;
+	static function error(?message:Dynamic, optionalParams:haxe.extern.Rest<Dynamic>):Void;
+	static function log(?message:Dynamic, optionalParams:haxe.extern.Rest<Dynamic>):Void;
 	static var ShaderLib : {
 		var basic : global.three.Shader;
 		var lambert : global.three.Shader;

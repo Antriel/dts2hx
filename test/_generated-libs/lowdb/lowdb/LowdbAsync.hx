@@ -2,321 +2,321 @@ package lowdb;
 
 typedef LowdbAsync<SchemaT> = {
 	var _ : lodash.LoDashStatic;
-	dynamic function read(unknown:Dynamic):js.lib.Promise<LowdbAsync<SchemaT>>;
-	function write<T>(unknown:Dynamic):Dynamic;
-	dynamic function getState(unknown:Dynamic):SchemaT;
-	dynamic function setState(unknown:Dynamic):LowdbAsync<SchemaT>;
-	function concat(unknown:Dynamic):lodash.CollectionChain<SchemaT>;
-	function countBy(unknown:Dynamic):lodash.ObjectChain<lodash.Dictionary<Float>>;
-	dynamic function each(unknown:Dynamic):lodash.ObjectChain<SchemaT>;
-	dynamic function eachRight(unknown:Dynamic):lodash.ObjectChain<SchemaT>;
-	function every(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	@:overload(function(unknown:Dynamic):lodash.CollectionChain<Dynamic> { })
-	function filter<S>(unknown:Dynamic):lodash.CollectionChain<S>;
-	@:overload(function(unknown:Dynamic):lodash.ExpChain<Dynamic> { })
-	function find<S>(unknown:Dynamic):lodash.ExpChain<S>;
-	@:overload(function(unknown:Dynamic):lodash.ExpChain<Dynamic> { })
-	function findLast<S>(unknown:Dynamic):lodash.ExpChain<S>;
-	@:overload(function(unknown:Dynamic):lodash.CollectionChain<Bool> { })
-	@:overload(function(unknown:Dynamic):lodash.CollectionChain<Dynamic> { })
-	function flatMap<TResult>(unknown:Dynamic):lodash.CollectionChain<TResult>;
-	@:overload(function(unknown:Dynamic):lodash.CollectionChain<Bool> { })
-	@:overload(function(unknown:Dynamic):lodash.CollectionChain<Dynamic> { })
-	function flatMapDeep<TResult>(unknown:Dynamic):lodash.CollectionChain<TResult>;
-	@:overload(function(unknown:Dynamic):lodash.CollectionChain<Bool> { })
-	@:overload(function(unknown:Dynamic):lodash.CollectionChain<Dynamic> { })
-	function flatMapDepth<TResult>(unknown:Dynamic):lodash.CollectionChain<TResult>;
-	function forEach(unknown:Dynamic):lodash.ObjectChain<SchemaT>;
-	function forEachRight(unknown:Dynamic):lodash.ObjectChain<SchemaT>;
-	function groupBy(unknown:Dynamic):lodash.ObjectChain<lodash.Dictionary<Array<Dynamic>>>;
-	function includes(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function keyBy(unknown:Dynamic):lodash.ObjectChain<lodash.Dictionary<Dynamic>>;
-	@:overload(function<TResult>(unknown:Dynamic):lodash.CollectionChain<TResult> { })
-	@:overload(function(unknown:Dynamic):lodash.CollectionChain<Dynamic> { })
-	@:overload(function(unknown:Dynamic):lodash.CollectionChain<Bool> { })
-	@:overload(function(unknown:Dynamic):lodash.CollectionChain<Dynamic> { })
-	function map<K>(unknown:Dynamic):lodash.CollectionChain<Dynamic>;
-	function orderBy(unknown:Dynamic):lodash.CollectionChain<Dynamic>;
-	function partition(unknown:Dynamic):lodash.LoDashExplicitWrapper<ts.Tuple2<Array<Dynamic>, Array<Dynamic>>>;
-	@:overload(function(unknown:Dynamic):lodash.ExpChain<Dynamic> { })
-	function reduce<TResult>(unknown:Dynamic):lodash.ExpChain<TResult>;
-	@:overload(function(unknown:Dynamic):lodash.ExpChain<Dynamic> { })
-	function reduceRight<TResult>(unknown:Dynamic):lodash.ExpChain<TResult>;
-	function reject(unknown:Dynamic):lodash.CollectionChain<Dynamic>;
-	function sample(unknown:Dynamic):lodash.ExpChain<Dynamic>;
-	function sampleSize(unknown:Dynamic):lodash.CollectionChain<Dynamic>;
-	function shuffle(unknown:Dynamic):lodash.CollectionChain<Dynamic>;
-	function some(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function sortBy(unknown:Dynamic):lodash.CollectionChain<Dynamic>;
-	function castArray(unknown:Dynamic):lodash.CollectionChain<SchemaT>;
-	function toArray(unknown:Dynamic):lodash.CollectionChain<Dynamic>;
-	@:overload(function<TSource1, TSource2>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<SchemaT> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	function assign<TSource>(unknown:Dynamic):lodash.ObjectChain<Dynamic>;
-	@:overload(function<TSource1, TSource2>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<SchemaT> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	function assignIn<TSource>(unknown:Dynamic):lodash.ObjectChain<Dynamic>;
-	@:overload(function<TSource1, TSource2>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<SchemaT> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	function assignInWith<TSource>(unknown:Dynamic):lodash.ObjectChain<Dynamic>;
-	@:overload(function<TSource1, TSource2>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<SchemaT> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	function assignWith<TSource>(unknown:Dynamic):lodash.ObjectChain<Dynamic>;
-	function at(unknown:Dynamic):lodash.CollectionChain<Dynamic>;
-	function create<U>(unknown:Dynamic):lodash.ObjectChain<Dynamic>;
-	@:overload(function<TSource1, TSource2>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<SchemaT> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	function defaults<TSource>(unknown:Dynamic):lodash.ObjectChain<Dynamic>;
-	function defaultsDeep(unknown:Dynamic):lodash.ObjectChain<Dynamic>;
-	function entries(unknown:Dynamic):lodash.CollectionChain<ts.Tuple2<String, Dynamic>>;
-	function entriesIn(unknown:Dynamic):lodash.CollectionChain<ts.Tuple2<String, Dynamic>>;
-	@:overload(function<TSource1, TSource2>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<SchemaT> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	function extend<TSource>(unknown:Dynamic):lodash.ObjectChain<Dynamic>;
-	@:overload(function<TSource1, TSource2>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<SchemaT> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	function extendWith<TSource>(unknown:Dynamic):lodash.ObjectChain<Dynamic>;
-	@:overload(function<TKey>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TKey, TDefault>(unknown:Dynamic):ts.AnyOf2<lodash.ExpChain<TDefault>, lodash.ExpChain<{ }>> { })
-	@:overload(function<TKey1, TKey2>(unknown:Dynamic):lodash.ExpChain<Dynamic> { })
-	@:overload(function<TKey1, TKey2>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TKey1, TKey2, TDefault>(unknown:Dynamic):ts.AnyOf2<lodash.ExpChain<TDefault>, lodash.ExpChain<{ }>> { })
-	@:overload(function<TKey1, TKey2, TKey3>(unknown:Dynamic):lodash.ExpChain<Dynamic> { })
-	@:overload(function<TKey1, TKey2, TKey3>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TKey1, TKey2, TKey3, TDefault>(unknown:Dynamic):ts.AnyOf2<lodash.ExpChain<TDefault>, lodash.ExpChain<{ }>> { })
-	@:overload(function<TKey1, TKey2, TKey3, TKey4>(unknown:Dynamic):lodash.ExpChain<Dynamic> { })
-	@:overload(function<TKey1, TKey2, TKey3, TKey4>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TKey1, TKey2, TKey3, TKey4, TDefault>(unknown:Dynamic):ts.AnyOf2<lodash.ExpChain<TDefault>, lodash.ExpChain<{ }>> { })
-	@:overload(function<TPath>(unknown:Dynamic):Dynamic { })
-	@:overload(function<TPath, TDefault>(unknown:Dynamic):ts.AnyOf2<lodash.ExpChain<TDefault>, lodash.ExpChain<{ }>> { })
-	@:overload(function(unknown:Dynamic):lodash.LoDashExplicitWrapper<Dynamic> { })
-	function get<TKey>(unknown:Dynamic):lodash.ExpChain<Dynamic>;
-	function invertBy(unknown:Dynamic):lodash.ObjectChain<lodash.Dictionary<Array<String>>>;
-	function mapKeys(unknown:Dynamic):lodash.ObjectChain<lodash.Dictionary<Dynamic>>;
-	@:overload(function<TResult>(unknown:Dynamic):lodash.ObjectChain<lodash.Dictionary<TResult>> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TKey>(unknown:Dynamic):lodash.ObjectChain<lodash.Dictionary<Dynamic>> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<SchemaT> { })
-	function mapValues<TResult>(unknown:Dynamic):lodash.ObjectChain<Dynamic>;
-	@:overload(function<TSource1, TSource2>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	function merge<TSource>(unknown:Dynamic):lodash.ObjectChain<Dynamic>;
-	@:overload(function<TSource1, TSource2>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function<TSource1, TSource2, TSource3, TSource4>(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	function mergeWith<TSource>(unknown:Dynamic):lodash.ObjectChain<Dynamic>;
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<SchemaT> { })
-	function omit<K>(unknown:Dynamic):lodash.ObjectChain<{ }>;
-	function omitBy(unknown:Dynamic):lodash.ObjectChain<SchemaT>;
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<SchemaT> { })
-	function pick<U>(unknown:Dynamic):lodash.ObjectChain<{ }>;
-	@:overload(function(unknown:Dynamic):lodash.ObjectChain<Dynamic> { })
-	function pickBy<S>(unknown:Dynamic):lodash.ObjectChain<Dynamic>;
-	@:overload(function<TResult>(unknown:Dynamic):lodash.ExpChain<TResult> { })
-	@:overload(function(unknown:Dynamic):lodash.ExpChain<Dynamic> { })
-	function transform<TResult>(unknown:Dynamic):lodash.ExpChain<TResult>;
-	@:overload(function<TResult>(unknown:Dynamic):lodash.ObjectChain<TResult> { })
-	function updateWith(unknown:Dynamic):LowdbAsync<SchemaT>;
-	function values(unknown:Dynamic):lodash.CollectionChain<Dynamic>;
-	function valuesIn(unknown:Dynamic):lodash.CollectionChain<Dynamic>;
-	function iteratee(unknown:Dynamic):lodash.FunctionChain<(unknown:Dynamic) -> Bool>;
-	@:overload(function<TResult>(unknown:Dynamic):lodash.CollectionChain<TResult> { })
-	function invokeMap(unknown:Dynamic):lodash.CollectionChain<Dynamic>;
-	function size(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function now(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function bind(unknown:Dynamic):lodash.FunctionChain<(unknown:Dynamic) -> Dynamic>;
-	function bindKey(unknown:Dynamic):lodash.FunctionChain<(unknown:Dynamic) -> Dynamic>;
-	function defer(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function delay(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function wrap<TArgs, TResult>(unknown:Dynamic):lodash.FunctionChain<(unknown:Dynamic) -> TResult>;
-	function clone(unknown:Dynamic):LowdbAsync<SchemaT>;
-	function cloneDeep(unknown:Dynamic):LowdbAsync<SchemaT>;
-	@:overload(function(unknown:Dynamic):LowdbAsync<SchemaT> { })
-	function cloneDeepWith(unknown:Dynamic):lodash.LoDashExplicitWrapper<Dynamic>;
-	@:overload(function<TResult>(unknown:Dynamic):ts.AnyOf2<lodash.ExpChain<SchemaT>, lodash.ExpChain<TResult>> { })
-	@:overload(function(unknown:Dynamic):LowdbAsync<SchemaT> { })
-	function cloneWith<TResult>(unknown:Dynamic):lodash.ExpChain<TResult>;
-	function conformsTo(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function eq(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function gt(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function gte(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isArguments(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isArray(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isArrayBuffer(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isArrayLike(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isArrayLikeObject(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isBoolean(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isBuffer(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isDate(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isElement(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isEmpty(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isEqual(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isEqualWith(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isError(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isFinite(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isFunction(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isInteger(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isLength(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isMap(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isMatch(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isMatchWith(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isNaN(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isNative(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isNil(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isNull(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isNumber(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isObject(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isObjectLike(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isPlainObject(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isRegExp(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isSafeInteger(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isSet(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isString(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isSymbol(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isTypedArray(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isUndefined(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isWeakMap(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function isWeakSet(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function lt(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function lte(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function toFinite(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function toInteger(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function toLength(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function toNumber(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function toPlainObject(unknown:Dynamic):lodash.ObjectChain<Dynamic>;
-	function toSafeInteger(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function add(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function ceil(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function divide(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function floor(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function mean(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function multiply(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function round(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function subtract(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function sum(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	@:overload(function(unknown:Dynamic):lodash.PrimitiveChain<Float> { })
-	function clamp(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function inRange(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	@:overload(function(unknown:Dynamic):lodash.PrimitiveChain<Float> { })
-	function random(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function findKey(unknown:Dynamic):lodash.StringNullableChain;
-	function findLastKey(unknown:Dynamic):lodash.StringNullableChain;
-	function forIn(unknown:Dynamic):LowdbAsync<SchemaT>;
-	function forInRight(unknown:Dynamic):LowdbAsync<SchemaT>;
-	function forOwn(unknown:Dynamic):LowdbAsync<SchemaT>;
-	function forOwnRight(unknown:Dynamic):LowdbAsync<SchemaT>;
-	function functions(unknown:Dynamic):lodash.CollectionChain<String>;
-	function functionsIn(unknown:Dynamic):lodash.CollectionChain<String>;
-	function has(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function hasIn(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function invert(unknown:Dynamic):lodash.ObjectChain<lodash.Dictionary<String>>;
-	function invoke(unknown:Dynamic):lodash.LoDashExplicitWrapper<Dynamic>;
-	function keys(unknown:Dynamic):lodash.CollectionChain<String>;
-	function keysIn(unknown:Dynamic):lodash.CollectionChain<String>;
-	function result<TResult>(unknown:Dynamic):lodash.ExpChain<TResult>;
-	@:overload(function<TResult>(unknown:Dynamic):lodash.ExpChain<TResult> { })
-	function set(unknown:Dynamic):LowdbAsync<SchemaT>;
-	@:overload(function<TResult>(unknown:Dynamic):lodash.ExpChain<TResult> { })
-	function setWith(unknown:Dynamic):LowdbAsync<SchemaT>;
-	function toPairs(unknown:Dynamic):lodash.CollectionChain<ts.Tuple2<String, Dynamic>>;
-	function toPairsIn(unknown:Dynamic):lodash.CollectionChain<ts.Tuple2<String, Dynamic>>;
-	function unset(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function update(unknown:Dynamic):lodash.ObjectChain<Dynamic>;
-	function chain(unknown:Dynamic):LowdbAsync<SchemaT>;
-	function commit(unknown:Dynamic):LowdbAsync<SchemaT>;
-	function plant(unknown:Dynamic):LowdbAsync<SchemaT>;
-	function reverse(unknown:Dynamic):LowdbAsync<SchemaT>;
-	function toJSON(unknown:Dynamic):SchemaT;
-	function value(unknown:Dynamic):SchemaT;
-	function valueOf(unknown:Dynamic):SchemaT;
-	function tap(unknown:Dynamic):LowdbAsync<SchemaT>;
-	function thru<TResult>(unknown:Dynamic):lodash.ExpChain<TResult>;
-	function camelCase(unknown:Dynamic):lodash.StringChain<String>;
-	function capitalize(unknown:Dynamic):lodash.StringChain<Dynamic>;
-	function deburr(unknown:Dynamic):lodash.StringChain<String>;
-	function endsWith(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function escape(unknown:Dynamic):lodash.StringChain<String>;
-	function escapeRegExp(unknown:Dynamic):lodash.StringChain<String>;
-	function kebabCase(unknown:Dynamic):lodash.StringChain<String>;
-	function lowerCase(unknown:Dynamic):lodash.StringChain<String>;
-	function lowerFirst(unknown:Dynamic):lodash.StringChain<Dynamic>;
-	function pad(unknown:Dynamic):lodash.StringChain<String>;
-	function padEnd(unknown:Dynamic):lodash.StringChain<String>;
-	function padStart(unknown:Dynamic):lodash.StringChain<String>;
-	function parseInt(unknown:Dynamic):lodash.PrimitiveChain<Float>;
-	function repeat(unknown:Dynamic):lodash.StringChain<String>;
-	@:overload(function(unknown:Dynamic):lodash.StringChain<String> { })
-	function replace(unknown:Dynamic):lodash.StringChain<String>;
-	function snakeCase(unknown:Dynamic):lodash.StringChain<String>;
-	function split(unknown:Dynamic):lodash.CollectionChain<String>;
-	function startCase(unknown:Dynamic):lodash.StringChain<String>;
-	function startsWith(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function template(unknown:Dynamic):lodash.FunctionChain<lodash.TemplateExecutor>;
-	function toLower(unknown:Dynamic):lodash.StringChain<Dynamic>;
-	function toUpper(unknown:Dynamic):lodash.StringChain<Dynamic>;
-	function trim(unknown:Dynamic):lodash.StringChain<String>;
-	function trimEnd(unknown:Dynamic):lodash.StringChain<String>;
-	function trimStart(unknown:Dynamic):lodash.StringChain<String>;
-	function truncate(unknown:Dynamic):lodash.StringChain<String>;
-	function unescape(unknown:Dynamic):lodash.StringChain<String>;
-	function upperCase(unknown:Dynamic):lodash.StringChain<String>;
-	function upperFirst(unknown:Dynamic):lodash.StringChain<Dynamic>;
-	function words(unknown:Dynamic):lodash.CollectionChain<String>;
-	function attempt<TResult>(unknown:Dynamic):ts.AnyOf2<lodash.ObjectChain<js.lib.Error>, lodash.ExpChain<TResult>>;
-	function bindAll(unknown:Dynamic):LowdbAsync<SchemaT>;
-	function conforms(unknown:Dynamic):lodash.FunctionChain<(unknown:Dynamic) -> Bool>;
-	function constant(unknown:Dynamic):lodash.FunctionChain<(unknown:Dynamic) -> SchemaT>;
-	@:overload(function<TDefault>(unknown:Dynamic):lodash.ExpChain<Dynamic> { })
-	function defaultTo(unknown:Dynamic):lodash.ExpChain<SchemaT>;
-	function identity(unknown:Dynamic):LowdbAsync<SchemaT>;
-	function matches<V>(unknown:Dynamic):lodash.FunctionChain<(unknown:Dynamic) -> Bool>;
-	@:overload(function<SrcValue, Value>(unknown:Dynamic):lodash.FunctionChain<(unknown:Dynamic) -> Bool> { })
-	function matchesProperty<SrcValue>(unknown:Dynamic):lodash.FunctionChain<(unknown:Dynamic) -> Bool>;
-	function method(unknown:Dynamic):lodash.FunctionChain<(unknown:Dynamic) -> Dynamic>;
-	function methodOf(unknown:Dynamic):lodash.LoDashExplicitWrapper<(unknown:Dynamic) -> Dynamic>;
-	@:overload(function(unknown:Dynamic):lodash.LoDashExplicitWrapper<lodash.LoDashStatic> { })
-	function mixin(unknown:Dynamic):LowdbAsync<SchemaT>;
-	function noConflict(unknown:Dynamic):lodash.LoDashExplicitWrapper<lodash.LoDashStatic>;
-	function noop(unknown:Dynamic):lodash.PrimitiveChain<Null<Any>>;
-	function nthArg(unknown:Dynamic):lodash.FunctionChain<(unknown:Dynamic) -> Dynamic>;
-	function property<TObj, TResult>(unknown:Dynamic):lodash.FunctionChain<(unknown:Dynamic) -> TResult>;
-	function propertyOf(unknown:Dynamic):lodash.LoDashExplicitWrapper<(unknown:Dynamic) -> Dynamic>;
-	function range(unknown:Dynamic):lodash.CollectionChain<Float>;
-	function rangeRight(unknown:Dynamic):lodash.CollectionChain<Float>;
-	function stubArray(unknown:Dynamic):lodash.CollectionChain<Dynamic>;
-	@:overload(function(unknown:Dynamic):lodash.LoDashExplicitWrapper<Bool> { })
-	function stubFalse(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	function stubObject(unknown:Dynamic):lodash.LoDashExplicitWrapper<Dynamic>;
-	function stubString(unknown:Dynamic):lodash.StringChain<String>;
-	@:overload(function(unknown:Dynamic):lodash.LoDashExplicitWrapper<Bool> { })
-	function stubTrue(unknown:Dynamic):lodash.PrimitiveChain<Bool>;
-	@:overload(function(unknown:Dynamic):lodash.CollectionChain<Float> { })
-	function times<TResult>(unknown:Dynamic):lodash.CollectionChain<TResult>;
-	function toPath(unknown:Dynamic):lodash.CollectionChain<String>;
-	function uniqueId(unknown:Dynamic):lodash.StringChain<String>;
+	dynamic function read():js.lib.Promise<LowdbAsync<SchemaT>>;
+	function write<T>(?returnValue:T):Dynamic;
+	dynamic function getState():SchemaT;
+	dynamic function setState(state:SchemaT):LowdbAsync<SchemaT>;
+	function concat(values:haxe.extern.Rest<lodash.Many<SchemaT>>):lodash.CollectionChain<SchemaT>;
+	function countBy(?iteratee:lodash.ValueIteratee<Dynamic>):lodash.ObjectChain<lodash.Dictionary<Float>>;
+	dynamic function each(?iteratee:lodash.ObjectIterator<SchemaT, Dynamic>):lodash.ObjectChain<SchemaT>;
+	dynamic function eachRight(?iteratee:lodash.ObjectIterator<SchemaT, Dynamic>):lodash.ObjectChain<SchemaT>;
+	function every(?predicate:lodash.ObjectIterateeCustom<SchemaT, Bool>):lodash.PrimitiveChain<Bool>;
+	@:overload(function(?predicate:lodash.ObjectIterateeCustom<SchemaT, Bool>):lodash.CollectionChain<Dynamic> { })
+	function filter<S>(predicate:lodash.ObjectIteratorTypeGuard<SchemaT, S>):lodash.CollectionChain<S>;
+	@:overload(function(?predicate:lodash.ObjectIterateeCustom<SchemaT, Bool>, ?fromIndex:Float):lodash.ExpChain<Dynamic> { })
+	function find<S>(predicate:lodash.ObjectIteratorTypeGuard<SchemaT, S>, ?fromIndex:Float):lodash.ExpChain<S>;
+	@:overload(function(?predicate:lodash.ObjectIterateeCustom<SchemaT, Bool>, ?fromIndex:Float):lodash.ExpChain<Dynamic> { })
+	function findLast<S>(predicate:lodash.ObjectIteratorTypeGuard<SchemaT, S>, ?fromIndex:Float):lodash.ExpChain<S>;
+	@:overload(function(iteratee:ts.AnyOf2<Dynamic, ts.Tuple2<lodash.PropertyName, Dynamic>>):lodash.CollectionChain<Bool> { })
+	@:overload(function():lodash.CollectionChain<Dynamic> { })
+	function flatMap<TResult>(iteratee:ts.AnyOf4<String, Float, js.lib.Symbol, lodash.ObjectIterator<SchemaT, lodash.Many<TResult>>>):lodash.CollectionChain<TResult>;
+	@:overload(function(iteratee:ts.AnyOf2<Dynamic, ts.Tuple2<lodash.PropertyName, Dynamic>>):lodash.CollectionChain<Bool> { })
+	@:overload(function():lodash.CollectionChain<Dynamic> { })
+	function flatMapDeep<TResult>(iteratee:ts.AnyOf4<String, Float, js.lib.Symbol, lodash.ObjectIterator<SchemaT, ts.AnyOf2<lodash.ListOfRecursiveArraysOrValues<TResult>, TResult>>>):lodash.CollectionChain<TResult>;
+	@:overload(function(iteratee:ts.AnyOf2<Dynamic, ts.Tuple2<lodash.PropertyName, Dynamic>>, ?depth:Float):lodash.CollectionChain<Bool> { })
+	@:overload(function(?depth:Float):lodash.CollectionChain<Dynamic> { })
+	function flatMapDepth<TResult>(iteratee:ts.AnyOf4<String, Float, js.lib.Symbol, lodash.ObjectIterator<SchemaT, ts.AnyOf2<lodash.ListOfRecursiveArraysOrValues<TResult>, TResult>>>, ?depth:Float):lodash.CollectionChain<TResult>;
+	function forEach(?iteratee:lodash.ObjectIterator<SchemaT, Dynamic>):lodash.ObjectChain<SchemaT>;
+	function forEachRight(?iteratee:lodash.ObjectIterator<SchemaT, Dynamic>):lodash.ObjectChain<SchemaT>;
+	function groupBy(?iteratee:lodash.ValueIteratee<Dynamic>):lodash.ObjectChain<lodash.Dictionary<Array<Dynamic>>>;
+	function includes(target:Dynamic, ?fromIndex:Float):lodash.PrimitiveChain<Bool>;
+	function keyBy(?iteratee:lodash.ValueIterateeCustom<Dynamic, lodash.PropertyName>):lodash.ObjectChain<lodash.Dictionary<Dynamic>>;
+	@:overload(function<TResult>(iteratee:lodash.ObjectIterator<SchemaT, TResult>):lodash.CollectionChain<TResult> { })
+	@:overload(function(iteratee:lodash.PropertyName):lodash.CollectionChain<Dynamic> { })
+	@:overload(function(iteratee:ts.AnyOf2<Dynamic, ts.Tuple2<lodash.PropertyName, Dynamic>>):lodash.CollectionChain<Bool> { })
+	@:overload(function():lodash.CollectionChain<Dynamic> { })
+	function map<K>(key:K):lodash.CollectionChain<Dynamic>;
+	function orderBy(?iteratees:lodash.Many<lodash.ObjectIterator<SchemaT, Any>>, ?orders:lodash.Many<ts.AnyOf2<Bool, String>>):lodash.CollectionChain<Dynamic>;
+	function partition(callback:lodash.ValueIteratee<Dynamic>):lodash.LoDashExplicitWrapper<ts.Tuple2<Array<Dynamic>, Array<Dynamic>>>;
+	@:overload(function(callback:lodash.MemoObjectIterator<Dynamic, Dynamic, SchemaT>):lodash.ExpChain<Dynamic> { })
+	function reduce<TResult>(callback:lodash.MemoObjectIterator<Dynamic, TResult, SchemaT>, accumulator:TResult):lodash.ExpChain<TResult>;
+	@:overload(function(callback:lodash.MemoObjectIterator<Dynamic, Dynamic, SchemaT>):lodash.ExpChain<Dynamic> { })
+	function reduceRight<TResult>(callback:lodash.MemoObjectIterator<Dynamic, TResult, SchemaT>, accumulator:TResult):lodash.ExpChain<TResult>;
+	function reject(?predicate:lodash.ObjectIterateeCustom<SchemaT, Bool>):lodash.CollectionChain<Dynamic>;
+	function sample():lodash.ExpChain<Dynamic>;
+	function sampleSize(?n:Float):lodash.CollectionChain<Dynamic>;
+	function shuffle():lodash.CollectionChain<Dynamic>;
+	function some(?predicate:lodash.ObjectIterateeCustom<SchemaT, Bool>):lodash.PrimitiveChain<Bool>;
+	function sortBy(iteratees:haxe.extern.Rest<lodash.Many<lodash.ObjectIteratee<SchemaT>>>):lodash.CollectionChain<Dynamic>;
+	function castArray():lodash.CollectionChain<SchemaT>;
+	function toArray():lodash.CollectionChain<Dynamic>;
+	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4):lodash.ObjectChain<Dynamic> { })
+	@:overload(function():lodash.ObjectChain<SchemaT> { })
+	@:overload(function(otherArgs:haxe.extern.Rest<Dynamic>):lodash.ObjectChain<Dynamic> { })
+	function assign<TSource>(source:TSource):lodash.ObjectChain<Dynamic>;
+	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4):lodash.ObjectChain<Dynamic> { })
+	@:overload(function():lodash.ObjectChain<SchemaT> { })
+	@:overload(function(otherArgs:haxe.extern.Rest<Dynamic>):lodash.ObjectChain<Dynamic> { })
+	function assignIn<TSource>(source:TSource):lodash.ObjectChain<Dynamic>;
+	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2, customizer:lodash.AssignCustomizer):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3, customizer:lodash.AssignCustomizer):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4, customizer:lodash.AssignCustomizer):lodash.ObjectChain<Dynamic> { })
+	@:overload(function():lodash.ObjectChain<SchemaT> { })
+	@:overload(function(otherArgs:haxe.extern.Rest<Dynamic>):lodash.ObjectChain<Dynamic> { })
+	function assignInWith<TSource>(source:TSource, customizer:lodash.AssignCustomizer):lodash.ObjectChain<Dynamic>;
+	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2, customizer:lodash.AssignCustomizer):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3, customizer:lodash.AssignCustomizer):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4, customizer:lodash.AssignCustomizer):lodash.ObjectChain<Dynamic> { })
+	@:overload(function():lodash.ObjectChain<SchemaT> { })
+	@:overload(function(otherArgs:haxe.extern.Rest<Dynamic>):lodash.ObjectChain<Dynamic> { })
+	function assignWith<TSource>(source:TSource, customizer:lodash.AssignCustomizer):lodash.ObjectChain<Dynamic>;
+	function at(props:haxe.extern.Rest<lodash.Many<Dynamic>>):lodash.CollectionChain<Dynamic>;
+	function create<U>(?properties:U):lodash.ObjectChain<Dynamic>;
+	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4):lodash.ObjectChain<Dynamic> { })
+	@:overload(function():lodash.ObjectChain<SchemaT> { })
+	@:overload(function(sources:haxe.extern.Rest<Dynamic>):lodash.ObjectChain<Dynamic> { })
+	function defaults<TSource>(source:TSource):lodash.ObjectChain<Dynamic>;
+	function defaultsDeep(sources:haxe.extern.Rest<Dynamic>):lodash.ObjectChain<Dynamic>;
+	function entries():lodash.CollectionChain<ts.Tuple2<String, Dynamic>>;
+	function entriesIn():lodash.CollectionChain<ts.Tuple2<String, Dynamic>>;
+	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4):lodash.ObjectChain<Dynamic> { })
+	@:overload(function():lodash.ObjectChain<SchemaT> { })
+	@:overload(function(otherArgs:haxe.extern.Rest<Dynamic>):lodash.ObjectChain<Dynamic> { })
+	function extend<TSource>(source:TSource):lodash.ObjectChain<Dynamic>;
+	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2, customizer:lodash.AssignCustomizer):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3, customizer:lodash.AssignCustomizer):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4, customizer:lodash.AssignCustomizer):lodash.ObjectChain<Dynamic> { })
+	@:overload(function():lodash.ObjectChain<SchemaT> { })
+	@:overload(function(otherArgs:haxe.extern.Rest<Dynamic>):lodash.ObjectChain<Dynamic> { })
+	function extendWith<TSource>(source:TSource, customizer:lodash.AssignCustomizer):lodash.ObjectChain<Dynamic>;
+	@:overload(function<TKey>(path:ts.AnyOf2<TKey, ts.Tuple1<TKey>>, defaultValue:Array<Any>):Dynamic { })
+	@:overload(function<TKey, TDefault>(path:ts.AnyOf2<TKey, ts.Tuple1<TKey>>, defaultValue:TDefault):ts.AnyOf2<lodash.ExpChain<TDefault>, lodash.ExpChain<{ }>> { })
+	@:overload(function<TKey1, TKey2>(path:ts.Tuple2<TKey1, TKey2>):lodash.ExpChain<Dynamic> { })
+	@:overload(function<TKey1, TKey2>(path:ts.Tuple2<TKey1, TKey2>, defaultValue:Array<Any>):Dynamic { })
+	@:overload(function<TKey1, TKey2, TDefault>(path:ts.Tuple2<TKey1, TKey2>, defaultValue:TDefault):ts.AnyOf2<lodash.ExpChain<TDefault>, lodash.ExpChain<{ }>> { })
+	@:overload(function<TKey1, TKey2, TKey3>(path:ts.Tuple3<TKey1, TKey2, TKey3>):lodash.ExpChain<Dynamic> { })
+	@:overload(function<TKey1, TKey2, TKey3>(path:ts.Tuple3<TKey1, TKey2, TKey3>, defaultValue:Array<Any>):Dynamic { })
+	@:overload(function<TKey1, TKey2, TKey3, TDefault>(path:ts.Tuple3<TKey1, TKey2, TKey3>, defaultValue:TDefault):ts.AnyOf2<lodash.ExpChain<TDefault>, lodash.ExpChain<{ }>> { })
+	@:overload(function<TKey1, TKey2, TKey3, TKey4>(path:ts.Tuple4<TKey1, TKey2, TKey3, TKey4>):lodash.ExpChain<Dynamic> { })
+	@:overload(function<TKey1, TKey2, TKey3, TKey4>(path:ts.Tuple4<TKey1, TKey2, TKey3, TKey4>, defaultValue:Array<Any>):Dynamic { })
+	@:overload(function<TKey1, TKey2, TKey3, TKey4, TDefault>(path:ts.Tuple4<TKey1, TKey2, TKey3, TKey4>, defaultValue:TDefault):ts.AnyOf2<lodash.ExpChain<TDefault>, lodash.ExpChain<{ }>> { })
+	@:overload(function<TPath>(path:TPath):Dynamic { })
+	@:overload(function<TPath, TDefault>(path:TPath, defaultValue:TDefault):ts.AnyOf2<lodash.ExpChain<TDefault>, lodash.ExpChain<{ }>> { })
+	@:overload(function(path:lodash.PropertyPath, ?defaultValue:Dynamic):lodash.LoDashExplicitWrapper<Dynamic> { })
+	function get<TKey>(path:ts.AnyOf2<TKey, ts.Tuple1<TKey>>):lodash.ExpChain<Dynamic>;
+	function invertBy(?iteratee:lodash.ValueIteratee<Dynamic>):lodash.ObjectChain<lodash.Dictionary<Array<String>>>;
+	function mapKeys(?iteratee:lodash.ObjectIteratee<SchemaT>):lodash.ObjectChain<lodash.Dictionary<Dynamic>>;
+	@:overload(function<TResult>(callback:lodash.DictionaryIterator<Dynamic, TResult>):lodash.ObjectChain<lodash.Dictionary<TResult>> { })
+	@:overload(function(iteratee:Dynamic):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TKey>(iteratee:TKey):lodash.ObjectChain<lodash.Dictionary<Dynamic>> { })
+	@:overload(function(iteratee:String):lodash.ObjectChain<Dynamic> { })
+	@:overload(function():lodash.ObjectChain<SchemaT> { })
+	function mapValues<TResult>(callback:lodash.ObjectIterator<SchemaT, TResult>):lodash.ObjectChain<Dynamic>;
+	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4):lodash.ObjectChain<Dynamic> { })
+	@:overload(function(otherArgs:haxe.extern.Rest<Dynamic>):lodash.ObjectChain<Dynamic> { })
+	function merge<TSource>(source:TSource):lodash.ObjectChain<Dynamic>;
+	@:overload(function<TSource1, TSource2>(source1:TSource1, source2:TSource2, customizer:(value:Dynamic, srcValue:Dynamic, key:String, object:Dynamic, source:Dynamic, stack:Dynamic) -> Dynamic):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3>(source1:TSource1, source2:TSource2, source3:TSource3, customizer:(value:Dynamic, srcValue:Dynamic, key:String, object:Dynamic, source:Dynamic, stack:Dynamic) -> Dynamic):lodash.ObjectChain<Dynamic> { })
+	@:overload(function<TSource1, TSource2, TSource3, TSource4>(source1:TSource1, source2:TSource2, source3:TSource3, source4:TSource4, customizer:(value:Dynamic, srcValue:Dynamic, key:String, object:Dynamic, source:Dynamic, stack:Dynamic) -> Dynamic):lodash.ObjectChain<Dynamic> { })
+	@:overload(function(otherArgs:haxe.extern.Rest<Dynamic>):lodash.ObjectChain<Dynamic> { })
+	function mergeWith<TSource>(source:TSource, customizer:(value:Dynamic, srcValue:Dynamic, key:String, object:Dynamic, source:Dynamic, stack:Dynamic) -> Dynamic):lodash.ObjectChain<Dynamic>;
+	@:overload(function(paths:haxe.extern.Rest<lodash.Many<lodash.PropertyName>>):lodash.ObjectChain<SchemaT> { })
+	function omit<K>(paths:haxe.extern.Rest<lodash.Many<K>>):lodash.ObjectChain<{ }>;
+	function omitBy(predicate:lodash.ValueKeyIteratee<Dynamic>):lodash.ObjectChain<SchemaT>;
+	@:overload(function(props:haxe.extern.Rest<lodash.Many<lodash.PropertyPath>>):lodash.ObjectChain<SchemaT> { })
+	function pick<U>(props:haxe.extern.Rest<lodash.Many<U>>):lodash.ObjectChain<{ }>;
+	@:overload(function(?predicate:lodash.ValueKeyIteratee<Dynamic>):lodash.ObjectChain<Dynamic> { })
+	function pickBy<S>(predicate:lodash.ValueKeyIterateeTypeGuard<Dynamic, S>):lodash.ObjectChain<Dynamic>;
+	@:overload(function<TResult>(iteratee:lodash.MemoVoidDictionaryIterator<Dynamic, Dynamic, TResult>, ?accumulator:TResult):lodash.ExpChain<TResult> { })
+	@:overload(function():lodash.ExpChain<Dynamic> { })
+	function transform<TResult>(iteratee:lodash.MemoVoidDictionaryIterator<Dynamic, String, TResult>, ?accumulator:TResult):lodash.ExpChain<TResult>;
+	@:overload(function<TResult>(path:lodash.PropertyPath, updater:(oldValue:Dynamic) -> Dynamic, ?customizer:lodash.SetWithCustomizer<SchemaT>):lodash.ObjectChain<TResult> { })
+	function updateWith(path:lodash.PropertyPath, updater:(oldValue:Dynamic) -> Dynamic, ?customizer:lodash.SetWithCustomizer<SchemaT>):LowdbAsync<SchemaT>;
+	function values():lodash.CollectionChain<Dynamic>;
+	function valuesIn():lodash.CollectionChain<Dynamic>;
+	function iteratee():lodash.FunctionChain<(o:SchemaT) -> Bool>;
+	@:overload(function<TResult>(method:(args:haxe.extern.Rest<Dynamic>) -> TResult, args:haxe.extern.Rest<Dynamic>):lodash.CollectionChain<TResult> { })
+	function invokeMap(methodName:String, args:haxe.extern.Rest<Dynamic>):lodash.CollectionChain<Dynamic>;
+	function size():lodash.PrimitiveChain<Float>;
+	function now():lodash.PrimitiveChain<Float>;
+	function bind(thisArg:Dynamic, partials:haxe.extern.Rest<Dynamic>):lodash.FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
+	function bindKey(key:String, partials:haxe.extern.Rest<Dynamic>):lodash.FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
+	function defer(args:haxe.extern.Rest<Dynamic>):lodash.PrimitiveChain<Float>;
+	function delay(wait:Float, args:haxe.extern.Rest<Dynamic>):lodash.PrimitiveChain<Float>;
+	function wrap<TArgs, TResult>(wrapper:(value:SchemaT, args:haxe.extern.Rest<TArgs>) -> TResult):lodash.FunctionChain<(args:haxe.extern.Rest<TArgs>) -> TResult>;
+	function clone():LowdbAsync<SchemaT>;
+	function cloneDeep():LowdbAsync<SchemaT>;
+	@:overload(function():LowdbAsync<SchemaT> { })
+	function cloneDeepWith(customizer:lodash.CloneDeepWithCustomizer<SchemaT>):lodash.LoDashExplicitWrapper<Dynamic>;
+	@:overload(function<TResult>(customizer:lodash.CloneWithCustomizer<SchemaT, Null<TResult>>):ts.AnyOf2<lodash.ExpChain<SchemaT>, lodash.ExpChain<TResult>> { })
+	@:overload(function():LowdbAsync<SchemaT> { })
+	function cloneWith<TResult>(customizer:lodash.CloneWithCustomizer<SchemaT, TResult>):lodash.ExpChain<TResult>;
+	function conformsTo(source:{ }):lodash.PrimitiveChain<Bool>;
+	function eq(other:Dynamic):lodash.PrimitiveChain<Bool>;
+	function gt(other:Dynamic):lodash.PrimitiveChain<Bool>;
+	function gte(other:Dynamic):lodash.PrimitiveChain<Bool>;
+	function isArguments():lodash.PrimitiveChain<Bool>;
+	function isArray():lodash.PrimitiveChain<Bool>;
+	function isArrayBuffer():lodash.PrimitiveChain<Bool>;
+	function isArrayLike():lodash.PrimitiveChain<Bool>;
+	function isArrayLikeObject():lodash.PrimitiveChain<Bool>;
+	function isBoolean():lodash.PrimitiveChain<Bool>;
+	function isBuffer():lodash.PrimitiveChain<Bool>;
+	function isDate():lodash.PrimitiveChain<Bool>;
+	function isElement():lodash.PrimitiveChain<Bool>;
+	function isEmpty():lodash.PrimitiveChain<Bool>;
+	function isEqual(other:Dynamic):lodash.PrimitiveChain<Bool>;
+	function isEqualWith(other:Dynamic, ?customizer:lodash.IsEqualCustomizer):lodash.PrimitiveChain<Bool>;
+	function isError():lodash.PrimitiveChain<Bool>;
+	function isFinite():lodash.PrimitiveChain<Bool>;
+	function isFunction():lodash.PrimitiveChain<Bool>;
+	function isInteger():lodash.PrimitiveChain<Bool>;
+	function isLength():lodash.PrimitiveChain<Bool>;
+	function isMap():lodash.PrimitiveChain<Bool>;
+	function isMatch(source:Dynamic):lodash.PrimitiveChain<Bool>;
+	function isMatchWith(source:Dynamic, customizer:lodash.IsMatchWithCustomizer):lodash.PrimitiveChain<Bool>;
+	function isNaN():lodash.PrimitiveChain<Bool>;
+	function isNative():lodash.PrimitiveChain<Bool>;
+	function isNil():lodash.PrimitiveChain<Bool>;
+	function isNull():lodash.PrimitiveChain<Bool>;
+	function isNumber():lodash.PrimitiveChain<Bool>;
+	function isObject():lodash.PrimitiveChain<Bool>;
+	function isObjectLike():lodash.PrimitiveChain<Bool>;
+	function isPlainObject():lodash.PrimitiveChain<Bool>;
+	function isRegExp():lodash.PrimitiveChain<Bool>;
+	function isSafeInteger():lodash.PrimitiveChain<Bool>;
+	function isSet():lodash.PrimitiveChain<Bool>;
+	function isString():lodash.PrimitiveChain<Bool>;
+	function isSymbol():lodash.PrimitiveChain<Bool>;
+	function isTypedArray():lodash.PrimitiveChain<Bool>;
+	function isUndefined():lodash.PrimitiveChain<Bool>;
+	function isWeakMap():lodash.PrimitiveChain<Bool>;
+	function isWeakSet():lodash.PrimitiveChain<Bool>;
+	function lt(other:Dynamic):lodash.PrimitiveChain<Bool>;
+	function lte(other:Dynamic):lodash.PrimitiveChain<Bool>;
+	function toFinite():lodash.PrimitiveChain<Float>;
+	function toInteger():lodash.PrimitiveChain<Float>;
+	function toLength():lodash.PrimitiveChain<Float>;
+	function toNumber():lodash.PrimitiveChain<Float>;
+	function toPlainObject():lodash.ObjectChain<Dynamic>;
+	function toSafeInteger():lodash.PrimitiveChain<Float>;
+	function add(addend:Float):lodash.PrimitiveChain<Float>;
+	function ceil(?precision:Float):lodash.PrimitiveChain<Float>;
+	function divide(divisor:Float):lodash.PrimitiveChain<Float>;
+	function floor(?precision:Float):lodash.PrimitiveChain<Float>;
+	function mean():lodash.PrimitiveChain<Float>;
+	function multiply(multiplicand:Float):lodash.PrimitiveChain<Float>;
+	function round(?precision:Float):lodash.PrimitiveChain<Float>;
+	function subtract(subtrahend:Float):lodash.PrimitiveChain<Float>;
+	function sum():lodash.PrimitiveChain<Float>;
+	@:overload(function(upper:Float):lodash.PrimitiveChain<Float> { })
+	function clamp(lower:Float, upper:Float):lodash.PrimitiveChain<Float>;
+	function inRange(start:Float, ?end:Float):lodash.PrimitiveChain<Bool>;
+	@:overload(function(max:Float, ?floating:Bool):lodash.PrimitiveChain<Float> { })
+	function random(?floating:Bool):lodash.PrimitiveChain<Float>;
+	function findKey(?predicate:lodash.ObjectIteratee<SchemaT>):lodash.StringNullableChain;
+	function findLastKey(?predicate:lodash.ObjectIteratee<SchemaT>):lodash.StringNullableChain;
+	function forIn(?iteratee:lodash.ObjectIterator<SchemaT, Dynamic>):LowdbAsync<SchemaT>;
+	function forInRight(?iteratee:lodash.ObjectIterator<SchemaT, Dynamic>):LowdbAsync<SchemaT>;
+	function forOwn(?iteratee:lodash.ObjectIterator<SchemaT, Dynamic>):LowdbAsync<SchemaT>;
+	function forOwnRight(?iteratee:lodash.ObjectIterator<SchemaT, Dynamic>):LowdbAsync<SchemaT>;
+	function functions():lodash.CollectionChain<String>;
+	function functionsIn():lodash.CollectionChain<String>;
+	function has(path:lodash.PropertyPath):lodash.PrimitiveChain<Bool>;
+	function hasIn(path:lodash.PropertyPath):lodash.PrimitiveChain<Bool>;
+	function invert():lodash.ObjectChain<lodash.Dictionary<String>>;
+	function invoke(path:lodash.PropertyPath, args:haxe.extern.Rest<Dynamic>):lodash.LoDashExplicitWrapper<Dynamic>;
+	function keys():lodash.CollectionChain<String>;
+	function keysIn():lodash.CollectionChain<String>;
+	function result<TResult>(path:lodash.PropertyPath, ?defaultValue:ts.AnyOf2<(args:haxe.extern.Rest<Dynamic>) -> TResult, TResult>):lodash.ExpChain<TResult>;
+	@:overload(function<TResult>(path:lodash.PropertyPath, value:Dynamic):lodash.ExpChain<TResult> { })
+	function set(path:lodash.PropertyPath, value:Dynamic):LowdbAsync<SchemaT>;
+	@:overload(function<TResult>(path:lodash.PropertyPath, value:Dynamic, ?customizer:lodash.SetWithCustomizer<SchemaT>):lodash.ExpChain<TResult> { })
+	function setWith(path:lodash.PropertyPath, value:Dynamic, ?customizer:lodash.SetWithCustomizer<SchemaT>):LowdbAsync<SchemaT>;
+	function toPairs():lodash.CollectionChain<ts.Tuple2<String, Dynamic>>;
+	function toPairsIn():lodash.CollectionChain<ts.Tuple2<String, Dynamic>>;
+	function unset(path:lodash.PropertyPath):lodash.PrimitiveChain<Bool>;
+	function update(path:lodash.PropertyPath, updater:(value:Dynamic) -> Dynamic):lodash.ObjectChain<Dynamic>;
+	function chain():LowdbAsync<SchemaT>;
+	function commit():LowdbAsync<SchemaT>;
+	function plant(value:Any):LowdbAsync<SchemaT>;
+	function reverse():LowdbAsync<SchemaT>;
+	function toJSON():SchemaT;
+	function value():SchemaT;
+	function valueOf():SchemaT;
+	function tap(interceptor:(value:SchemaT) -> Void):LowdbAsync<SchemaT>;
+	function thru<TResult>(interceptor:(value:SchemaT) -> TResult):lodash.ExpChain<TResult>;
+	function camelCase():lodash.StringChain<String>;
+	function capitalize():lodash.StringChain<Dynamic>;
+	function deburr():lodash.StringChain<String>;
+	function endsWith(?target:String, ?position:Float):lodash.PrimitiveChain<Bool>;
+	function escape():lodash.StringChain<String>;
+	function escapeRegExp():lodash.StringChain<String>;
+	function kebabCase():lodash.StringChain<String>;
+	function lowerCase():lodash.StringChain<String>;
+	function lowerFirst():lodash.StringChain<Dynamic>;
+	function pad(?length:Float, ?chars:String):lodash.StringChain<String>;
+	function padEnd(?length:Float, ?chars:String):lodash.StringChain<String>;
+	function padStart(?length:Float, ?chars:String):lodash.StringChain<String>;
+	function parseInt(?radix:Float):lodash.PrimitiveChain<Float>;
+	function repeat(?n:Float):lodash.StringChain<String>;
+	@:overload(function(replacement:ts.AnyOf2<String, lodash.ReplaceFunction>):lodash.StringChain<String> { })
+	function replace(pattern:ts.AnyOf2<String, js.lib.RegExp>, replacement:ts.AnyOf2<String, lodash.ReplaceFunction>):lodash.StringChain<String>;
+	function snakeCase():lodash.StringChain<String>;
+	function split(?separator:ts.AnyOf2<String, js.lib.RegExp>, ?limit:Float):lodash.CollectionChain<String>;
+	function startCase():lodash.StringChain<String>;
+	function startsWith(?target:String, ?position:Float):lodash.PrimitiveChain<Bool>;
+	function template(?options:lodash.TemplateOptions):lodash.FunctionChain<lodash.TemplateExecutor>;
+	function toLower():lodash.StringChain<Dynamic>;
+	function toUpper():lodash.StringChain<Dynamic>;
+	function trim(?chars:String):lodash.StringChain<String>;
+	function trimEnd(?chars:String):lodash.StringChain<String>;
+	function trimStart(?chars:String):lodash.StringChain<String>;
+	function truncate(?options:lodash.TruncateOptions):lodash.StringChain<String>;
+	function unescape():lodash.StringChain<String>;
+	function upperCase():lodash.StringChain<String>;
+	function upperFirst():lodash.StringChain<Dynamic>;
+	function words(?pattern:ts.AnyOf2<String, js.lib.RegExp>):lodash.CollectionChain<String>;
+	function attempt<TResult>(args:haxe.extern.Rest<Dynamic>):ts.AnyOf2<lodash.ObjectChain<js.lib.Error>, lodash.ExpChain<TResult>>;
+	function bindAll(methodNames:haxe.extern.Rest<lodash.Many<String>>):LowdbAsync<SchemaT>;
+	function conforms():lodash.FunctionChain<(value:{ }) -> Bool>;
+	function constant():lodash.FunctionChain<() -> SchemaT>;
+	@:overload(function<TDefault>(defaultValue:TDefault):lodash.ExpChain<Dynamic> { })
+	function defaultTo(defaultValue:SchemaT):lodash.ExpChain<SchemaT>;
+	function identity():LowdbAsync<SchemaT>;
+	function matches<V>():lodash.FunctionChain<(value:V) -> Bool>;
+	@:overload(function<SrcValue, Value>(srcValue:SrcValue):lodash.FunctionChain<(value:Value) -> Bool> { })
+	function matchesProperty<SrcValue>(srcValue:SrcValue):lodash.FunctionChain<(value:Dynamic) -> Bool>;
+	function method(args:haxe.extern.Rest<Dynamic>):lodash.FunctionChain<(object:Dynamic) -> Dynamic>;
+	function methodOf(args:haxe.extern.Rest<Dynamic>):lodash.LoDashExplicitWrapper<(path:lodash.PropertyPath) -> Dynamic>;
+	@:overload(function(?options:lodash.MixinOptions):lodash.LoDashExplicitWrapper<lodash.LoDashStatic> { })
+	function mixin(source:lodash.Dictionary<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>, ?options:lodash.MixinOptions):LowdbAsync<SchemaT>;
+	function noConflict():lodash.LoDashExplicitWrapper<lodash.LoDashStatic>;
+	function noop(args:haxe.extern.Rest<Dynamic>):lodash.PrimitiveChain<Null<Any>>;
+	function nthArg():lodash.FunctionChain<(args:haxe.extern.Rest<Dynamic>) -> Dynamic>;
+	function property<TObj, TResult>():lodash.FunctionChain<(obj:TObj) -> TResult>;
+	function propertyOf():lodash.LoDashExplicitWrapper<(path:lodash.PropertyPath) -> Dynamic>;
+	function range(?end:Float, ?step:Float):lodash.CollectionChain<Float>;
+	function rangeRight(?end:Float, ?step:Float):lodash.CollectionChain<Float>;
+	function stubArray():lodash.CollectionChain<Dynamic>;
+	@:overload(function():lodash.LoDashExplicitWrapper<Bool> { })
+	function stubFalse():lodash.PrimitiveChain<Bool>;
+	function stubObject():lodash.LoDashExplicitWrapper<Dynamic>;
+	function stubString():lodash.StringChain<String>;
+	@:overload(function():lodash.LoDashExplicitWrapper<Bool> { })
+	function stubTrue():lodash.PrimitiveChain<Bool>;
+	@:overload(function():lodash.CollectionChain<Float> { })
+	function times<TResult>(iteratee:(num:Float) -> TResult):lodash.CollectionChain<TResult>;
+	function toPath():lodash.CollectionChain<String>;
+	function uniqueId():lodash.StringChain<String>;
 };

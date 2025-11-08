@@ -1,14 +1,14 @@
 package global.three;
 
 @:native("THREE.Cylindrical") extern class Cylindrical {
-	function new(unknown:Dynamic);
+	function new(?radius:Float, ?theta:Float, ?y:Float);
 	var radius : Float;
 	var theta : Float;
 	var y : Float;
-	function clone(unknown:Dynamic):Cylindrical;
-	function copy(unknown:Dynamic):Cylindrical;
-	function set(unknown:Dynamic):Cylindrical;
-	function setFromVector3(unknown:Dynamic):Cylindrical;
-	function setFromCartesianCoords(unknown:Dynamic):Cylindrical;
+	function clone():Cylindrical;
+	function copy(other:Cylindrical):Cylindrical;
+	function set(radius:Float, theta:Float, y:Float):Cylindrical;
+	function setFromVector3(vec3:Vector3):Cylindrical;
+	function setFromCartesianCoords(x:Float, y:Float, z:Float):Cylindrical;
 	static var prototype : Cylindrical;
 }

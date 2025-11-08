@@ -2,9 +2,9 @@ package vue;
 
 typedef ComputedOptions<T> = {
 	@:optional
-	function get(unknown:Dynamic):T;
+	function get():T;
 	@:optional
-	function set(unknown:Dynamic):Void;
+	function set(value:T):Void;
 	@:optional
 	var cache : Bool;
 };

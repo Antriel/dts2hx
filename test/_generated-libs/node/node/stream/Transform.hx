@@ -1,15 +1,15 @@
 package node.stream;
 
 @:jsRequire("stream", "Transform") extern class Transform extends Duplex {
-	function new(unknown:Dynamic);
-	function _transform(unknown:Dynamic):Void;
-	function _flush(unknown:Dynamic):Void;
-	function setDefaultEncoding(unknown:Dynamic):Transform;
-	function setEncoding(unknown:Dynamic):Transform;
-	function pause(unknown:Dynamic):Transform;
-	function resume(unknown:Dynamic):Transform;
-	function unpipe(unknown:Dynamic):Transform;
-	function wrap(unknown:Dynamic):Transform;
+	function new(?opts:TransformOptions);
+	function _transform(chunk:Dynamic, encoding:String, callback:TransformCallback):Void;
+	function _flush(callback:TransformCallback):Void;
+	function setDefaultEncoding(encoding:String):Transform;
+	function setEncoding(encoding:String):Transform;
+	function pause():Transform;
+	function resume():Transform;
+	function unpipe(?destination:global.nodejs.WritableStream):Transform;
+	function wrap(oldStream:global.nodejs.ReadableStream):Transform;
 	/**
 		Event emitter
 		The defined events on documents including:
@@ -19,44 +19,44 @@ package node.stream;
 		4. readable
 		5. error
 	**/
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	function addListener(unknown:Dynamic):Transform;
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	function on(unknown:Dynamic):Transform;
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	function once(unknown:Dynamic):Transform;
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	function prependListener(unknown:Dynamic):Transform;
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	function prependOnceListener(unknown:Dynamic):Transform;
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	@:overload(function(unknown:Dynamic):Transform { })
-	function removeListener(unknown:Dynamic):Transform;
-	function off(unknown:Dynamic):Transform;
-	function removeAllListeners(unknown:Dynamic):Transform;
-	function setMaxListeners(unknown:Dynamic):Transform;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):Transform { })
+	@:overload(function(event:String, listener:() -> Void):Transform { })
+	@:overload(function(event:String, listener:() -> Void):Transform { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Transform { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Transform { })
+	function addListener(event:String, listener:() -> Void):Transform;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):Transform { })
+	@:overload(function(event:String, listener:() -> Void):Transform { })
+	@:overload(function(event:String, listener:() -> Void):Transform { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Transform { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Transform { })
+	function on(event:String, listener:() -> Void):Transform;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):Transform { })
+	@:overload(function(event:String, listener:() -> Void):Transform { })
+	@:overload(function(event:String, listener:() -> Void):Transform { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Transform { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Transform { })
+	function once(event:String, listener:() -> Void):Transform;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):Transform { })
+	@:overload(function(event:String, listener:() -> Void):Transform { })
+	@:overload(function(event:String, listener:() -> Void):Transform { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Transform { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Transform { })
+	function prependListener(event:String, listener:() -> Void):Transform;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):Transform { })
+	@:overload(function(event:String, listener:() -> Void):Transform { })
+	@:overload(function(event:String, listener:() -> Void):Transform { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Transform { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Transform { })
+	function prependOnceListener(event:String, listener:() -> Void):Transform;
+	@:overload(function(event:String, listener:(chunk:Dynamic) -> Void):Transform { })
+	@:overload(function(event:String, listener:() -> Void):Transform { })
+	@:overload(function(event:String, listener:() -> Void):Transform { })
+	@:overload(function(event:String, listener:(err:js.lib.Error) -> Void):Transform { })
+	@:overload(function(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Transform { })
+	function removeListener(event:String, listener:() -> Void):Transform;
+	function off(event:ts.AnyOf2<String, js.lib.Symbol>, listener:(args:haxe.extern.Rest<Dynamic>) -> Void):Transform;
+	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):Transform;
+	function setMaxListeners(n:Float):Transform;
 	static var prototype : Transform;
 }

@@ -8,8 +8,8 @@ package global.three;
 	.
 **/
 @:native("THREE.Color") extern class Color {
-	@:overload(function(unknown:Dynamic):Color { })
-	function new(unknown:Dynamic);
+	@:overload(function(r:Float, g:Float, b:Float):Color { })
+	function new(?color:ts.AnyOf3<String, Float, Color>);
 	var isColor : Bool;
 	/**
 		Red channel value between 0 and 1. Default is 1.
@@ -23,90 +23,90 @@ package global.three;
 		Blue channel value between 0 and 1. Default is 1.
 	**/
 	var b : Float;
-	@:overload(function(unknown:Dynamic):Color { })
-	@:overload(function(unknown:Dynamic):Color { })
-	function set(unknown:Dynamic):Color;
-	function setScalar(unknown:Dynamic):Color;
-	function setHex(unknown:Dynamic):Color;
+	@:overload(function(color:Float):Color { })
+	@:overload(function(color:String):Color { })
+	function set(color:Color):Color;
+	function setScalar(scalar:Float):Color;
+	function setHex(hex:Float):Color;
 	/**
 		Sets this color from RGB values.
 	**/
-	function setRGB(unknown:Dynamic):Color;
+	function setRGB(r:Float, g:Float, b:Float):Color;
 	/**
 		Sets this color from HSL values.
 		Based on MochiKit implementation by Bob Ippolito.
 	**/
-	function setHSL(unknown:Dynamic):Color;
+	function setHSL(h:Float, s:Float, l:Float):Color;
 	/**
 		Sets this color from a CSS context style string.
 	**/
-	function setStyle(unknown:Dynamic):Color;
+	function setStyle(style:String):Color;
 	/**
 		Clones this color.
 	**/
-	function clone(unknown:Dynamic):Color;
+	function clone():Color;
 	/**
 		Copies given color.
 	**/
-	function copy(unknown:Dynamic):Color;
+	function copy(color:Color):Color;
 	/**
 		Copies given color making conversion from gamma to linear space.
 	**/
-	function copyGammaToLinear(unknown:Dynamic):Color;
+	function copyGammaToLinear(color:Color, ?gammaFactor:Float):Color;
 	/**
 		Copies given color making conversion from linear to gamma space.
 	**/
-	function copyLinearToGamma(unknown:Dynamic):Color;
+	function copyLinearToGamma(color:Color, ?gammaFactor:Float):Color;
 	/**
 		Converts this color from gamma to linear space.
 	**/
-	function convertGammaToLinear(unknown:Dynamic):Color;
+	function convertGammaToLinear(?gammaFactor:Float):Color;
 	/**
 		Converts this color from linear to gamma space.
 	**/
-	function convertLinearToGamma(unknown:Dynamic):Color;
+	function convertLinearToGamma(?gammaFactor:Float):Color;
 	/**
 		Copies given color making conversion from sRGB to linear space.
 	**/
-	function copySRGBToLinear(unknown:Dynamic):Color;
+	function copySRGBToLinear(color:Color):Color;
 	/**
 		Copies given color making conversion from linear to sRGB space.
 	**/
-	function copyLinearToSRGB(unknown:Dynamic):Color;
+	function copyLinearToSRGB(color:Color):Color;
 	/**
 		Converts this color from sRGB to linear space.
 	**/
-	function convertSRGBToLinear(unknown:Dynamic):Color;
+	function convertSRGBToLinear():Color;
 	/**
 		Converts this color from linear to sRGB space.
 	**/
-	function convertLinearToSRGB(unknown:Dynamic):Color;
+	function convertLinearToSRGB():Color;
 	/**
 		Returns the hexadecimal value of this color.
 	**/
-	function getHex(unknown:Dynamic):Float;
+	function getHex():Float;
 	/**
 		Returns the string formated hexadecimal value of this color.
 	**/
-	function getHexString(unknown:Dynamic):String;
-	function getHSL(unknown:Dynamic):HSL;
+	function getHexString():String;
+	function getHSL(target:HSL):HSL;
 	/**
 		Returns the value of this color in CSS context style.
 		Example: rgb(r, g, b)
 	**/
-	function getStyle(unknown:Dynamic):String;
-	function offsetHSL(unknown:Dynamic):Color;
-	function add(unknown:Dynamic):Color;
-	function addColors(unknown:Dynamic):Color;
-	function addScalar(unknown:Dynamic):Color;
-	function sub(unknown:Dynamic):Color;
-	function multiply(unknown:Dynamic):Color;
-	function multiplyScalar(unknown:Dynamic):Color;
-	function lerp(unknown:Dynamic):Color;
-	function lerpHSL(unknown:Dynamic):Color;
-	function equals(unknown:Dynamic):Bool;
-	function fromArray(unknown:Dynamic):Color;
-	@:overload(function(unknown:Dynamic):js.lib.ArrayLike<Float> { })
-	function toArray(unknown:Dynamic):Array<Float>;
+	function getStyle():String;
+	function offsetHSL(h:Float, s:Float, l:Float):Color;
+	function add(color:Color):Color;
+	function addColors(color1:Color, color2:Color):Color;
+	function addScalar(s:Float):Color;
+	function sub(color:Color):Color;
+	function multiply(color:Color):Color;
+	function multiplyScalar(s:Float):Color;
+	function lerp(color:Color, alpha:Float):Color;
+	function lerpHSL(color:Color, alpha:Float):Color;
+	function equals(color:Color):Bool;
+	function fromArray(rgb:Array<Float>, ?offset:Float):Color;
+	@:overload(function(xyz:js.lib.ArrayLike<Float>, ?offset:Float):js.lib.ArrayLike<Float> { })
+	function toArray(?array:Array<Float>, ?offset:Float):Array<Float>;
 	static var prototype : Color;
 }
