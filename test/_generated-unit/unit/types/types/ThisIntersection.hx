@@ -7,7 +7,7 @@ package unit.types.types;
 	var thisAndAnon2 : ThisIntersection<T>;
 	var thisAndString : Dynamic;
 	var thisAndTp : Dynamic;
-	function thisAndTpArg<T>(unknown:Dynamic):Void;
-	function thisAndTpRet<T>(unknown:Dynamic):Dynamic;
+	function thisAndTpArg<T>(arg:Dynamic):Void;
+	function thisAndTpRet<T>():Dynamic;
 	static var prototype : ThisIntersection<Dynamic>;
 }

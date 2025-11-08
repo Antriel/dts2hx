@@ -1,6 +1,6 @@
 package unit.exportequals.exportedmodule;
 
 @:jsRequire("ExportedModule", "ExportEqualsClass") extern class ExportEqualsClass {
-	function new(unknown:Dynamic);
+	function new();
 	static var prototype : ExportEqualsClass;
 }

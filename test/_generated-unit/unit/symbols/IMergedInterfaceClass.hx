@@ -7,11 +7,11 @@ typedef IMergedInterfaceClass = {
 	/**
 		Redefine a base interface field
 	**/
-	function baseInterfaceMethod(unknown:Dynamic):Float;
+	function baseInterfaceMethod():Float;
 	/**
 		Redefine a base class field
 	**/
-	function baseClassMethod(unknown:Dynamic):Float;
+	function baseClassMethod():Float;
 	var baseClassField : Float;
 	var baseInterfaceField : Float;
 };

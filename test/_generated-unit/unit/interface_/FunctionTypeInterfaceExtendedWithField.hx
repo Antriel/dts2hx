@@ -4,8 +4,8 @@ package unit.interface_;
 	Extend as a regular interface
 **/
 typedef FunctionTypeInterfaceExtendedWithField<K> = {
-	@:overload(function(unknown:Dynamic):Void { })
+	@:overload(function(err:Error):Void { })
 	@:selfCall
-	function call(unknown:Dynamic):Void;
+	function call(err:Dynamic, data:K):Void;
 	var someField : K;
 };

@@ -2,6 +2,6 @@ package unit.symbols;
 
 typedef IConstructorTypeInterface = {
 	@:selfCall
-	function call(unknown:Dynamic):Void;
+	function call(interfaceCallParam:Dynamic):Void;
 	var interfaceField : Float;
 };

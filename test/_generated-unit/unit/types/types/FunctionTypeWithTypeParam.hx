@@ -5,4 +5,4 @@ package unit.types.types;
 	this should translate to: 
 	typedef FunctionTypeWithTypeParam<T> = {
 **/
-typedef FunctionTypeWithTypeParam<T> = (unknown:Dynamic) -> Any;
+typedef FunctionTypeWithTypeParam<T> = (a:T, b:Any) -> Any;

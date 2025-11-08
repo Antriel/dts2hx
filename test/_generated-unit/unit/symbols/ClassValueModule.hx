@@ -1,13 +1,13 @@
 package unit.symbols;
 
 @:jsRequire("./unit/symbols", "ClassValueModule") extern class ClassValueModule {
-	function new(unknown:Dynamic);
+	function new(i:Float);
 	@:selfCall
-	static function call(unknown:Dynamic):Dynamic;
+	static function call(arg:Float):Dynamic;
 	var field : String;
 	static var prototype : ClassValueModule;
 	static var staticField : Float;
-	@:overload(function(unknown:Dynamic):Float { })
-	static function Fn(unknown:Dynamic):Float;
+	@:overload(function():Float { })
+	static function Fn(overloadParam:Float):Float;
 	static final X : Float;
 }

@@ -2,9 +2,9 @@ package unit.symbols;
 
 @:jsRequire("./unit/symbols", "CallableInterface") extern class CallableInterface {
 	@:selfCall
-	function call(unknown:Dynamic):Float;
-	@:overload(function(unknown:Dynamic):Float { })
+	function call(anotherSignature:Dynamic):Float;
+	@:overload(function():Float { })
 	@:selfCall
-	static function call_(unknown:Dynamic):Float;
+	static function call_(overloadParam:Float):Float;
 	var field : String;
 }

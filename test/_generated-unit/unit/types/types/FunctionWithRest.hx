@@ -1,3 +1,3 @@
 package unit.types.types;
 
-typedef FunctionWithRest = (unknown:Dynamic) -> String;
+typedef FunctionWithRest = (a:haxe.extern.Rest<Float>) -> String;

@@ -1,11 +1,11 @@
 package unit.symbols;
 
 @:jsRequire("./unit/symbols", "ConstructorTypeInterface") extern class ConstructorTypeInterface {
-	function new(unknown:Dynamic);
+	function new(constructorTypeParam:Array<Bool>);
 	@:selfCall
-	function call(unknown:Dynamic):Void;
+	function call(interfaceCallParam:Dynamic):Void;
 	var interfaceField : Float;
 	@:selfCall
-	static function call_(unknown:Dynamic):Void;
+	static function call_(callSignatureParam:Float):Void;
 	static var constructorTypeField : String;
 }
