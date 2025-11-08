@@ -142,7 +142,7 @@ typedef IOffscreenCanvasRenderingContext2D = {
 	/**
 		[MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/roundRect)
 	**/
-	@:overload(function(x:Float, y:Float, w:Float, h:Float, ?radii:ts.AnyOf3<Float, js.html.DOMPointInit, Iterable<ts.AnyOf2<Float, js.html.DOMPointInit>, Dynamic, Dynamic>>):Void { })
+	@:overload(function(x:Float, y:Float, w:Float, h:Float, ?radii:ts.AnyOf3<Float, js.html.DOMPointInit, Iterable<ts.AnyOf2<Float, js.html.DOMPointInit>>>):Void { })
 	function roundRect(x:Float, y:Float, w:Float, h:Float, ?radii:ts.AnyOf3<Float, js.html.DOMPointInit, Array<ts.AnyOf2<Float, js.html.DOMPointInit>>>):Void;
 	/**
 		[MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/lineCap)
@@ -171,7 +171,7 @@ typedef IOffscreenCanvasRenderingContext2D = {
 	/**
 		[MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/setLineDash)
 	**/
-	@:overload(function(segments:Iterable<Float, Dynamic, Dynamic>):Void { })
+	@:overload(function(segments:Iterable<Float>):Void { })
 	function setLineDash(segments:Array<Float>):Void;
 	/**
 		[MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/clearRect)
